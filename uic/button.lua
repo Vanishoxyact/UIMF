@@ -11,36 +11,24 @@ local States = {
 } --: vector<string>
 
 --# type global BUTTON_TYPE = 
---# "CIRCULAR" | "SQUARE" | "TEXT" |
---# "CIRCULAR_TOGGLE" | "SQUARE_TOGGLE" | "TEXT_TOGGLE"
+--# "CIRCULAR" | "SQUARE" | "CIRCULAR_TOGGLE" | "SQUARE_TOGGLE"
 
---v function(name: string, parent: CA_UIC, buttonType: BUTTON_TYPE, imagePathOrText: string) --> BUTTON
-function Button.new(name, parent, buttonType, imagePathOrText)
+--v function(name: string, parent: CA_UIC, buttonType: BUTTON_TYPE, imagePath: string) --> BUTTON
+function Button.new(name, parent, buttonType, imagePath)
     local self = {};
-    self.buttonText = nil --: CA_UIC
     local button = nil --: CA_UIC
     if buttonType == "CIRCULAR" then
         button = Util.createComponent(
             name, parent, "ui/campaign ui/clan",
             "main", "button_ok"
         );
-        button:SetImage(imagePathOrText);
+        button:SetImage(imagePath);
     elseif buttonType == "SQUARE" then
         button = Util.createComponent(
             name, parent, "ui/campaign ui/character_details_panel",
             "background", "bottom_buttons", "button_event_feed"
         );
-        button:SetImage(imagePathOrText);
-    elseif buttonType == "TEXT" then
-        button = Util.createComponent(
-            name, parent, "ui/campaign ui/intrigue_panel",
-            "button_improve"
-        );
-        local buttonText = UIComponent(button:Find("button_txt"));
-        Util.delete(UIComponent(button:Find("att_frame")));
-        Util.delete(UIComponent(button:Find("dy_cost")));
-        self.buttonText = buttonText;
-        buttonText:SetStateText(imagePathOrText);
+        button:SetImage(imagePath);
     elseif buttonType == "CIRCULAR_TOGGLE" then
         Log.write(buttonType .. " not yet supported");
     elseif buttonType == "SQUARE_TOGGLE" then
@@ -48,16 +36,7 @@ function Button.new(name, parent, buttonType, imagePathOrText)
             name, parent, "ui/campaign ui/objectives_screen",
             "TabGroup", "tab_victory_conditions", "tab_child", "tree_holder", "victory_type_tree", "slot_parent", "wh_main_victory_type_long"
         );
-        button:SetImage(imagePathOrText);
-    elseif buttonType == "TEXT_TOGGLE" then
-        button = Util.createComponent(
-            name, parent, "ui/campaign ui/finance_screen",
-            "TabGroup", "tab_summary"
-        );
-        local buttonText = UIComponent(button:Find("tx_details"));
-        Util.delete(UIComponent(button:Find("summary")));
-        self.buttonText = buttonText;        
-        buttonText:SetStateText(imagePathOrText);
+        button:SetImage(imagePath);
     else
         Log.write("Invalid button type:" .. buttonType);
     end

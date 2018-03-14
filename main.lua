@@ -2,6 +2,7 @@ local Log = require("uic/log");
 local Text = require("uic/text");
 local Image = require("uic/image");
 local Button = require("uic/button");
+local TextButton = require("uic/text_button");
 local Frame = require("uic/frame");
 local Util = require ("uic/util");
 local Components = require("uic/components");
@@ -106,7 +107,7 @@ function main()
                 myFrame:AddToContentPanel(squareButton.uic, 50, 150);
                 local circularButton = Button.new("circularButton", contentPanel, "CIRCULAR", "ui/skins/default/icon_end_turn.png");
                 myFrame:AddToContentPanel(circularButton.uic, 100, 150);
-                local textButton = Button.new("textButton", contentPanel, "TEXT", "customText");
+                local textButton = TextButton.new("textButton", contentPanel, "TEXT", "customText");
                 myFrame:AddToContentPanel(textButton.uic, 150, 150);
 
                 local resizedSquareButton = Button.new("resizedSquareButton", contentPanel, "SQUARE", "ui/skins/default/icon_end_turn.png");
@@ -115,7 +116,7 @@ function main()
                 local resizedCircularButton = Button.new("resizedCircularButton", contentPanel, "CIRCULAR", "ui/skins/default/icon_end_turn.png");
                 Components.scale(resizedCircularButton.uic, 0.5);
                 myFrame:AddToContentPanel(resizedCircularButton.uic, 100, 200);
-                local resizedTextButton = Button.new("resizedTextButton", contentPanel, "TEXT", "customText");
+                local resizedTextButton = TextButton.new("resizedTextButton", contentPanel, "TEXT", "customText");
                 resizedTextButton.uic:ResizeTextResizingComponentToInitialSize(250, resizedTextButton.uic:Height())
                 myFrame:AddToContentPanel(resizedTextButton.uic, 150, 200);
 
@@ -125,15 +126,15 @@ function main()
                 myFrame:AddToContentPanel(squareToggleButton.uic, 50, 250);
                 --local circularToggleButton = Button.new("circularToggleButton", contentPanel, "CIRCULAR_TOGGLE", "ui/skins/default/icon_end_turn.png");
                 --myFrame:AddToContentPanel(circularToggleButton.uic, 50, 190);
-                local textToggleButton = Button.new("textToggleButton", contentPanel, "TEXT_TOGGLE", "customText");
+                local textToggleButton = TextButton.new("textToggleButton", contentPanel, "TEXT_TOGGLE", "customText");
                 myFrame:AddToContentPanel(textToggleButton.uic, 150, 250);
 
                 local buttonLogic = Text.new("buttonLogic", contentPanel, "NORMAL", "Button Logic");
                 myFrame:AddToContentPanel(buttonLogic.uic, 50, 290);   
-                local incrementButton = Button.new("incrementButton", contentPanel, "TEXT", "+");
+                local incrementButton = TextButton.new("incrementButton", contentPanel, "TEXT", "+");
                 incrementButton.uic:ResizeTextResizingComponentToInitialSize(150, 51);
                 myFrame:AddToContentPanel(incrementButton.uic, 50, 310);
-                local decrementButton = Button.new("decrementButton", contentPanel, "TEXT", "-");
+                local decrementButton = TextButton.new("decrementButton", contentPanel, "TEXT", "-");
                 decrementButton.uic:ResizeTextResizingComponentToInitialSize(150, 51);
                 myFrame:AddToContentPanel(decrementButton.uic, 150, 310);
                 local counterText = Text.new("CounterText", contentPanel, "NORMAL", "0");

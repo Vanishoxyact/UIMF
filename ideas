@@ -6,8 +6,8 @@ Test mod adding to UI on start
 /Change init to UI init
 Toggle button state
 Reafactored away from UID
-Text width
-Text button factor out
+/Text width
+/Text button factor out
 
 dig for component
 active seems important
