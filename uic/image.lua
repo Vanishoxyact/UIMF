@@ -1,6 +1,6 @@
 --# assume global class IMAGE
 
-local Console = require("core/console");
+local Log = require("uic/log");
 local Util = require("uic/util");
 local Image = {} --# assume Image: IMAGE
 

@@ -1,4 +1,4 @@
-local Console = require("core/console");
+local Log = require("uic/log");
 local Text = require("uic/text");
 local Image = require("uic/image");
 local Button = require("uic/button");
@@ -14,13 +14,13 @@ _G.core = core;
 
 function main()
     output("START");
-    Console.write("START");
+    Log.write("START");
 
     output("UI CREATED NE");
-    Console.write("UI CREATED NE");
+    Log.write("UI CREATED NE");
     Util.init();
     output("UI CREATED END NE");
-    Console.write("UI CREATED END NE");
+    Log.write("UI CREATED END NE");
 
     core:add_listener(
         "mortcultclicked",
@@ -30,21 +30,21 @@ function main()
         end,
          function(context)
             output("MORT OPENED");
-            Console.write("MORT OPENED");
+            Log.write("MORT OPENED");
             cm:callback(
                 function() 
                     output("MORT CALLBACK");
-                    Console.write("MORT CALLBACK");
+                    Log.write("MORT CALLBACK");
                     local mortCult = find_uicomponent(core:get_ui_root(), "mortuary_cult");
-                    Console.write("MORT FOUND");
+                    Log.write("MORT FOUND");
                     local player = Text.new("myText", mortCult, "Custom Text");
                     player:MoveTo(425, 85);
                     -- Image.new("uppercase", mortCult, core:get_ui_root(), uicomp, find_uicomponent_by_table_func);                    
                     output("MORT CALLBACK END");
-                    Console.write("MORT CALLBACK END");                  
+                    Log.write("MORT CALLBACK END");                  
                     local mortCultBox = find_uicomponent(core:get_ui_root(), "mortuary_cult", "listview", "list_clip", "list_box", "wh2_dlc09_ritual_crafting_tmb_army_capacity");
                     if not mortCultBox then
-                        Console.write("mortCultBox not found");
+                        Log.write("mortCultBox not found");
                     end
                     local myImage = Image.new("uppercase", mortCultBox, "ui/skins/default/advisor_beastmen_2d.png");
                     myImage:MoveTo(250, 200);
@@ -94,7 +94,7 @@ function main()
         end,
          function(context)
             output("RECRUIT OPENED");
-            Console.write("RECRUIT OPENED");
+            Log.write("RECRUIT OPENED");
             cm:callback(
                 function()
                     output("RECRUIT CALLBACK");
@@ -224,5 +224,5 @@ function main()
 	);
 
     output("END");
-    Console.write("END");
+    Log.write("END");
 end

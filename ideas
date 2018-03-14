@@ -1,5 +1,5 @@
-Frame resize
-Frame content
+/Frame resize
+//Frame content
 Tooltips
 UI init callback
 Reafactored away from UID

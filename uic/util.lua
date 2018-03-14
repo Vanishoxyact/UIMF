@@ -1,4 +1,4 @@
-local Console = require("core/console");
+local Log = require("uic/log");
 
 local Util = {};
 local Components = {} --: map<string, CA_UIC>
@@ -8,10 +8,10 @@ function Util.init()
     root:CreateComponent("Garbage", "UI/campaign ui/script_dummy");
     local component = root:Find("Garbage");
     if not component then
-        Console.write("Garbage not found, Util init failed");
+        Log.write("Garbage not found, Util init failed");
     else
         Util.garbage =  UIComponent(component);
-        Console.write("Util init completed");
+        Log.write("Util init completed");
     end
 end
 
@@ -24,7 +24,7 @@ end
 --v function(name: string, uiComponent: CA_UIC)
 function Util.registerComponent(name, uiComponent)
     if not not Components[name] then
-        Console.write("Failed to register component with name " .. name .. ", component with that name already registered.");
+        Log.write("Failed to register component with name " .. name .. ", component with that name already registered.");
     else
         Components[name] = uiComponent;
     end
@@ -41,7 +41,7 @@ function Util.createComponent(name, parentComponent, componentFilePath, ...)
         for i, v in ipairs{...} do
             completePath = completePath .. "/" .. tostring(v);
         end
-        Console.write("Failed to create component "..name..", Path:" .. completePath);
+        Log.write("Failed to create component "..name..", Path:" .. completePath);
         print_all_uicomponent_children(temp);
         Util.delete(temp);
         return nil;
@@ -50,7 +50,7 @@ function Util.createComponent(name, parentComponent, componentFilePath, ...)
         component:PropagatePriority(parentComponent:Priority());
         Util.delete(temp);
         Util.registerComponent(name, component);
-        Console.write("Created component "..name)
+        Log.write("Created component "..name)
         return component;
     end
 end

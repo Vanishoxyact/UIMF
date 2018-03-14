@@ -1,6 +1,6 @@
 --# assume global class TEXT
 
-local Console = require("core/console");
+local Log = require("uic/log");
 local Util = require("uic/util");
 
 local Text = {} --# assume Text: TEXT

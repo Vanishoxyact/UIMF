@@ -1,6 +1,6 @@
 --# assume global class FRAME
 
-local Console = require("core/console");
+local Log = require("uic/log");
 local Util = require("uic/util");
 local Components = require("uic/components");
 local Button = require("uic/button");
@@ -28,7 +28,7 @@ function Frame.new(name, parent)
     self.name = name --: const
     self.title = title --: const
     self.content = parchment --: const
-    Console.write("Create Frame "..name);
+    Log.write("Create Frame "..name);
     return self;
 end
 

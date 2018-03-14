@@ -1,4 +1,4 @@
-local Console = require("core/console");
+local Log = require("uic/log");
 local Components = {};
 
 --v function(component: CA_UIC, width: number, height: number)

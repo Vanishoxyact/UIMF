@@ -1,6 +1,6 @@
 --# assume global class BUTTON
 
-local Console = require("core/console");
+local Log = require("uic/log");
 local Util = require("uic/util");
 local Button = {} --# assume Button: BUTTON
 
@@ -42,7 +42,7 @@ function Button.new(name, parent, buttonType, imagePathOrText)
         self.buttonText = buttonText;
         buttonText:SetStateText(imagePathOrText);
     elseif buttonType == "CIRCULAR_TOGGLE" then
-        Console.write(buttonType .. " not yet supported");
+        Log.write(buttonType .. " not yet supported");
     elseif buttonType == "SQUARE_TOGGLE" then
         button = Util.createComponent(
             name, parent, "ui/campaign ui/objectives_screen",
@@ -59,7 +59,7 @@ function Button.new(name, parent, buttonType, imagePathOrText)
         self.buttonText = buttonText;        
         buttonText:SetStateText(imagePathOrText);
     else
-        Console.write("Invalid button type:" .. buttonType);
+        Log.write("Invalid button type:" .. buttonType);
     end
 
     setmetatable(self, {__index = Button});
