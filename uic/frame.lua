@@ -17,6 +17,7 @@ function Frame.new(name, parent)
     Util.delete(UIComponent(frame:Find("button_info")));
     local title = find_uicomponent(frame, "panel_title", "tx_objectives");
     title:SetStateText(name);
+    local parchment = UIComponent(frame:Find("parchment"));
 
     local self = {};
     setmetatable(self, {
@@ -26,6 +27,7 @@ function Frame.new(name, parent)
     self.uic = frame --: const
     self.name = name --: const
     self.title = title --: const
+    self.content = parchment --: const
     Console.write("Create Frame "..name);
     return self;
 end
@@ -54,6 +56,25 @@ end
 --v function(self: FRAME, w: number, h: number)
 function Frame.Resize(self, w, h)
     self.uic:Resize(w, h);
+end
+
+--v function(self: FRAME, factor: number)
+function Frame.Scale(self, factor)
+    self.content:SetCanResizeHeight(true);
+    self.content:SetCanResizeWidth(true);
+    Components.scale(self.uic, 1.5);
+    self.content:SetCanResizeHeight(false);
+    self.content:SetCanResizeWidth(false);
+end
+
+--v function(self: FRAME, component: CA_UIC, xOffset: number, yOffset: number)
+function Frame.AddToContentPanel(self, component, xOffset, yOffset)
+    Components.positionRelativeTo(component, self.content, xOffset, yOffset);    
+end
+
+--v function(self: FRAME) --> CA_UIC
+function Frame.GetContentPanel(self)
+    return self.content;
 end
 
 --v function(self: FRAME)

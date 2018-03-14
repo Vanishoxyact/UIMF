@@ -125,67 +125,66 @@ function main()
             local existingFrame = Util.getComponentWithName("MyFrame");
             if not existingFrame then
                 local myFrame = Frame.new("MyFrame", core:get_ui_root());
-                local parchment = UIComponent(myFrame.uic:Find("parchment"));
-                --Components.scale(parchment, 0.5);
-                --Components.scale(myFrame.uic, 0.5);
+                myFrame:Scale(1.5);
                 myFrame.uic:MoveTo(100, 100);
                 myFrame:AddCloseButton();
+                local contentPanel = myFrame:GetContentPanel();
 
-                local images = Text.new("images", myFrame.uic, "Images");
-                Components.positionRelativeTo(images.uic, myFrame.uic, 50, 80);                
-                local firstImage = Image.new("firstImage", myFrame.uic, "ui/skins/default/advisor_beastmen_2d.png");
-                Components.positionRelativeTo(firstImage.uic, myFrame.uic, 50, 100);
-                local secondImage = Image.new("secondImage", myFrame.uic, "ui/skins/default/advisor_beastmen_2d.png");
+                local images = Text.new("images", contentPanel, "Images");
+                myFrame:AddToContentPanel(images.uic, 50, 80);                
+                local firstImage = Image.new("firstImage", contentPanel, "ui/skins/default/advisor_beastmen_2d.png");
+                myFrame:AddToContentPanel(firstImage.uic, 50, 100);
+                local secondImage = Image.new("secondImage", contentPanel, "ui/skins/default/advisor_beastmen_2d.png");
                 Components.scale(secondImage.uic, 0.5);
-                Components.positionRelativeTo(secondImage.uic, myFrame.uic, 100, 100);
-                local thirdImage = Image.new("thirdImage", myFrame.uic, "ui/skins/default/advisor_beastmen_2d.png");
-                Components.positionRelativeTo(thirdImage.uic, myFrame.uic, 150, 100);
+                myFrame:AddToContentPanel(secondImage.uic, 100, 100);
+                local thirdImage = Image.new("thirdImage", contentPanel, "ui/skins/default/advisor_beastmen_2d.png");
+                myFrame:AddToContentPanel(thirdImage.uic, 150, 100);
                 thirdImage.uic:SetImageRotation(0, math.pi / 2);
-                local fourthImage = Image.new("fourthImage", myFrame.uic, "ui/skins/default/advisor_beastmen_2d.png");
-                Components.positionRelativeTo(fourthImage.uic, myFrame.uic, 200, 100);
+                local fourthImage = Image.new("fourthImage", contentPanel, "ui/skins/default/advisor_beastmen_2d.png");
+                myFrame:AddToContentPanel(fourthImage.uic, 200, 100);
                 fourthImage:SetTooltip("My tooltip");
-                local fifthImage = Image.new("fifthImage", myFrame.uic, "ui/skins/default/advisor_beastmen_2d.png");
-                Components.positionRelativeTo(fifthImage.uic, myFrame.uic, 250, 100);
+                local fifthImage = Image.new("fifthImage", contentPanel, "ui/skins/default/advisor_beastmen_2d.png");
+                myFrame:AddToContentPanel(fifthImage.uic, 250, 100);
                 fifthImage:SetOpacity(50);
 
-                local buttons = Text.new("buttons", myFrame.uic, "Buttons");
-                Components.positionRelativeTo(buttons.uic, myFrame.uic, 50, 130);                
-                local squareButton = Button.new("squareButton", myFrame.uic, "SQUARE", "ui/skins/default/icon_end_turn.png");
-                Components.positionRelativeTo(squareButton.uic, myFrame.uic, 50, 150);
-                local circularButton = Button.new("circularButton", myFrame.uic, "CIRCULAR", "ui/skins/default/icon_end_turn.png");
-                Components.positionRelativeTo(circularButton.uic, myFrame.uic, 100, 150);
-                local textButton = Button.new("textButton", myFrame.uic, "TEXT", "customText");
-                Components.positionRelativeTo(textButton.uic, myFrame.uic, 150, 150);
+                local buttons = Text.new("buttons", contentPanel, "Buttons");
+                myFrame:AddToContentPanel(buttons.uic, 50, 130);                
+                local squareButton = Button.new("squareButton", contentPanel, "SQUARE", "ui/skins/default/icon_end_turn.png");
+                myFrame:AddToContentPanel(squareButton.uic, 50, 150);
+                local circularButton = Button.new("circularButton", contentPanel, "CIRCULAR", "ui/skins/default/icon_end_turn.png");
+                myFrame:AddToContentPanel(circularButton.uic, 100, 150);
+                local textButton = Button.new("textButton", contentPanel, "TEXT", "customText");
+                myFrame:AddToContentPanel(textButton.uic, 150, 150);
 
-                local resizedSquareButton = Button.new("resizedSquareButton", myFrame.uic, "SQUARE", "ui/skins/default/icon_end_turn.png");
+                local resizedSquareButton = Button.new("resizedSquareButton", contentPanel, "SQUARE", "ui/skins/default/icon_end_turn.png");
                 Components.scale(resizedSquareButton.uic, 0.5);
-                Components.positionRelativeTo(resizedSquareButton.uic, myFrame.uic, 50, 200);
-                local resizedCircularButton = Button.new("resizedCircularButton", myFrame.uic, "CIRCULAR", "ui/skins/default/icon_end_turn.png");
+                myFrame:AddToContentPanel(resizedSquareButton.uic, 50, 200);
+                local resizedCircularButton = Button.new("resizedCircularButton", contentPanel, "CIRCULAR", "ui/skins/default/icon_end_turn.png");
                 Components.scale(resizedCircularButton.uic, 0.5);
-                Components.positionRelativeTo(resizedCircularButton.uic, myFrame.uic, 100, 200);
-                local resizedTextButton = Button.new("resizedTextButton", myFrame.uic, "TEXT", "customText");
+                myFrame:AddToContentPanel(resizedCircularButton.uic, 100, 200);
+                local resizedTextButton = Button.new("resizedTextButton", contentPanel, "TEXT", "customText");
                 resizedTextButton.uic:ResizeTextResizingComponentToInitialSize(250, resizedTextButton.uic:Height())
-                Components.positionRelativeTo(resizedTextButton.uic, myFrame.uic, 150, 200);
+                myFrame:AddToContentPanel(resizedTextButton.uic, 150, 200);
 
-                local toggleButtons = Text.new("toggleButtons", myFrame.uic, "Toggle Buttons");
-                Components.positionRelativeTo(toggleButtons.uic, myFrame.uic, 50, 230);                
-                local squareToggleButton = Button.new("squareToggleButton", myFrame.uic, "SQUARE_TOGGLE", "ui/skins/default/icon_end_turn.png");
-                Components.positionRelativeTo(squareToggleButton.uic, myFrame.uic, 50, 250);
-                --local circularToggleButton = Button.new("circularToggleButton", myFrame.uic, "CIRCULAR_TOGGLE", "ui/skins/default/icon_end_turn.png");
-                --Components.positionRelativeTo(circularToggleButton.uic, myFrame.uic, 50, 190);
-                local textToggleButton = Button.new("textToggleButton", myFrame.uic, "TEXT_TOGGLE", "customText");
-                Components.positionRelativeTo(textToggleButton.uic, myFrame.uic, 150, 250);
+                local toggleButtons = Text.new("toggleButtons", contentPanel, "Toggle Buttons");
+                myFrame:AddToContentPanel(toggleButtons.uic, 50, 230);                
+                local squareToggleButton = Button.new("squareToggleButton", contentPanel, "SQUARE_TOGGLE", "ui/skins/default/icon_end_turn.png");
+                myFrame:AddToContentPanel(squareToggleButton.uic, 50, 250);
+                --local circularToggleButton = Button.new("circularToggleButton", contentPanel, "CIRCULAR_TOGGLE", "ui/skins/default/icon_end_turn.png");
+                --myFrame:AddToContentPanel(circularToggleButton.uic, 50, 190);
+                local textToggleButton = Button.new("textToggleButton", contentPanel, "TEXT_TOGGLE", "customText");
+                myFrame:AddToContentPanel(textToggleButton.uic, 150, 250);
 
-                local buttonLogic = Text.new("buttonLogic", myFrame.uic, "Button Logic");
-                Components.positionRelativeTo(buttonLogic.uic, myFrame.uic, 50, 290);   
-                local incrementButton = Button.new("incrementButton", myFrame.uic, "TEXT", "+");
+                local buttonLogic = Text.new("buttonLogic", contentPanel, "Button Logic");
+                myFrame:AddToContentPanel(buttonLogic.uic, 50, 290);   
+                local incrementButton = Button.new("incrementButton", contentPanel, "TEXT", "+");
                 incrementButton.uic:ResizeTextResizingComponentToInitialSize(100, 51);
-                Components.positionRelativeTo(incrementButton.uic, myFrame.uic, 50, 310);
-                local decrementButton = Button.new("decrementButton", myFrame.uic, "TEXT", "-");
+                myFrame:AddToContentPanel(incrementButton.uic, 50, 310);
+                local decrementButton = Button.new("decrementButton", contentPanel, "TEXT", "-");
                 decrementButton.uic:ResizeTextResizingComponentToInitialSize(100, 51);
-                Components.positionRelativeTo(decrementButton.uic, myFrame.uic, 100, 310);
-                local counterText = Text.new("CounterText", myFrame.uic, "0");
-                Components.positionRelativeTo(counterText.uic, myFrame.uic, 200, 310);
+                myFrame:AddToContentPanel(decrementButton.uic, 100, 310);
+                local counterText = Text.new("CounterText", contentPanel, "0");
+                myFrame:AddToContentPanel(counterText.uic, 200, 310);
                 Util.registerForClick(incrementButton.uic, "incrementCounter",
                     function(context)
                         local number = tonumber(counterText.uic:GetStateText());
@@ -205,16 +204,16 @@ function main()
                     end
                 );
 
-                local greenText = Text.new("greenText", myFrame.uic, "[[col:green]]This is green text[[/col]]");
-                Components.positionRelativeTo(greenText.uic, myFrame.uic, 50, 350);
-                local iconText = Text.new("iconText", myFrame.uic, "[[img:icon_arrow_up]][[/img]]This text has icons in[[img:icon_arrow_up]][[/img]]");
-                Components.positionRelativeTo(iconText.uic, myFrame.uic, 50, 370);
-                local resizedText = Text.new("resizedText", myFrame.uic, "Small text");
+                local greenText = Text.new("greenText", contentPanel, "[[col:green]]This is green text[[/col]]");
+                myFrame:AddToContentPanel(greenText.uic, 50, 350);
+                local iconText = Text.new("iconText", contentPanel, "[[img:icon_arrow_up]][[/img]]This text has icons in[[img:icon_arrow_up]][[/img]]");
+                myFrame:AddToContentPanel(iconText.uic, 50, 370);
+                local resizedText = Text.new("resizedText", contentPanel, "Small text");
                 Components.scale(resizedText.uic, 0.5);
-                Components.positionRelativeTo(resizedText.uic, myFrame.uic, 50, 390);
+                myFrame:AddToContentPanel(resizedText.uic, 50, 390);
                 
-                local textOutside = Text.new("textOutside", parchment, "Im outside");
-                Components.positionRelativeTo(textOutside.uic, parchment, 50, 800);
+                local textOutside = Text.new("textOutside", contentPanel, "Im outside");
+                myFrame:AddToContentPanel(textOutside.uic, 50, 800);
             else
                 output("FRAME FOUND");
                 existingFrame:SetVisible(true);
