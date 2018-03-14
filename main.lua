@@ -12,16 +12,13 @@ _G.print_all_uicomponent_children = print_all_uicomponent_children;
 _G.output = output;
 _G.core = core;
 
+core:add_ui_created_callback(
+    function()
+        Util.init();
+    end
+);
+
 function main()
-    output("START");
-    Log.write("START");
-
-    output("UI CREATED NE");
-    Log.write("UI CREATED NE");
-    Util.init();
-    output("UI CREATED END NE");
-    Log.write("UI CREATED END NE");
-
     core:add_listener(
         "mortcultclicked",
         "PanelOpenedCampaign",

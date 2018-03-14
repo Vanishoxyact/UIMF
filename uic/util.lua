@@ -2,6 +2,7 @@ local Log = require("uic/log");
 
 local Util = {};
 local Components = {} --: map<string, CA_UIC>
+local InitCallbacks = {} --: vector<function()>
 
 function Util.init() 
     local root = core:get_ui_root();
@@ -12,6 +13,18 @@ function Util.init()
     else
         Util.garbage =  UIComponent(component);
         Log.write("Util init completed");
+        for _,v in ipairs(InitCallbacks) do
+            v();
+        end
+    end
+end
+
+--v function(callback: function())
+function Util.registerForInitialisation(callback)
+    if not Util.garbage then
+        table.insert(InitCallbacks, callback);
+    else
+        callback();
     end
 end
 

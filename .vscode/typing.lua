@@ -90,6 +90,7 @@
 --#     listenerFunc: function(context: WHATEVER?),
 --#     persistent: boolean
 --# )
+--# assume CORE.add_ui_created_callback: method(function())
 
 
 -- GLOBAL VARIABLES

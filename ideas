@@ -1,7 +1,9 @@
 /Frame resize
-//Frame content
+/Frame content
 Tooltips
-UI init callback
+/UI init callback
+Test mod adding to UI on start
+/Change init to UI init
 Reafactored away from UID
 Text width
 Text button factor out
