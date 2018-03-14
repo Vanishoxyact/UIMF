@@ -161,10 +161,25 @@ function main()
                 myFrame:AddToContentPanel(toggleButton.uic, 350, 310);
                 local toggleText = Text.new("toggleText", contentPanel, "NORMAL", "0");
                 myFrame:AddToContentPanel(toggleText.uic, 400, 310);
-                toggleText:SetText(toggleButton.uic:CurrentState());
+                toggleText:SetText(tostring(toggleButton:IsSelected()));
                 Util.registerForClick(toggleButton.uic, "toggleListener",
                     function(context)
-                        toggleText:SetText(toggleButton.uic:CurrentState());
+                        cm:callback(
+                            function()
+                                toggleText:SetText(tostring(toggleButton:IsSelected()));
+                            end, 0.1, "toggleListenerText"
+                        ) 
+                    end
+                );
+                local toggleTextButton = TextButton.new("toggleTextButton", contentPanel, "TEXT_TOGGLE", "Custom text");
+                myFrame:AddToContentPanel(toggleTextButton.uic, 450, 310);
+                Util.registerForClick(toggleTextButton.uic, "toggleTestListener",
+                    function(context)
+                        cm:callback(
+                            function()
+                                toggleTextButton:SetButtonText(tostring(toggleTextButton:IsSelected()));
+                            end, 0.1, "toggleTextListenerText"
+                        ) 
                     end
                 );
                 

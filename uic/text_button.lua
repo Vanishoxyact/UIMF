@@ -4,10 +4,10 @@ local Log = require("uic/log");
 local Util = require("uic/util");
 local TextButton = {} --# assume TextButton: TEXT_BUTTON
 
---TODO
 local States = {
-    "active", "down", "drop_down",
-    "hover", "inactive", "selected"
+    "active", "hover", "down", 
+    "selected", "selected_hover", "selected_down",
+    "drop_down"
 } --: vector<string>
 
 --# type global TEXT_BUTTON_TYPE = 
@@ -49,25 +49,25 @@ function TextButton.new(name, parent, buttonType, buttonText)
 end
 
 --TODO
---v function(self: BUTTON)
+--v function(self: TEXT_BUTTON)
 function TextButton.ClearSound(self)
     self.uic:ClearSound();
 end
 
 --TODO
---v function(self: BUTTON, x: number, y: number)
+--v function(self: TEXT_BUTTON, x: number, y: number)
 function TextButton.MoveTo(self, x, y) 
     self.uic:MoveTo(x, y);
 end
 
 --TODO
---v function(self: BUTTON, state: string)
+--v function(self: TEXT_BUTTON, state: string)
 function TextButton.SetState(self, state) 
     self.uic:SetState(state);
 end
 
 --TODO
---v function(self: BUTTON, text: string)
+--v function(self: TEXT_BUTTON, text: string)
 function TextButton.SetTooltipText(self, text) 
     local saved = self.uic:CurrentState();
     
@@ -81,11 +81,25 @@ function TextButton.SetTooltipText(self, text)
     self:SetState(saved);
 end
 
---v function(self: BUTTON)
+--v function(self: TEXT_BUTTON)
 function TextButton.Delete(self) 
     Util.delete(self.uic);
 end
 
+--v function(self: TEXT_BUTTON) --> boolean
+function TextButton.IsSelected(self)
+    local state = self.uic:CurrentState();
+    if state == "active" or state == "hover" or state == "down" then
+        return false;
+    else
+        return true;
+    end
+end
+
+--v function(self: TEXT_BUTTON, text: string)
+function TextButton.SetButtonText(self, text)
+    self.textButtonText:SetStateText(text);
+end
 
 return {
     new = TextButton.new;

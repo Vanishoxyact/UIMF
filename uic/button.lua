@@ -4,10 +4,10 @@ local Log = require("uic/log");
 local Util = require("uic/util");
 local Button = {} --# assume Button: BUTTON
 
---TODO
 local States = {
-    "active", "down", "drop_down",
-    "hover", "inactive", "selected"
+    "active", "hover", "down", 
+    "selected", "selected_hover", "selected_down",
+    "drop_down"
 } --: vector<string>
 
 --# type global BUTTON_TYPE = 
@@ -82,11 +82,20 @@ function Button.SetTooltipText(self, text)
     self:SetState(saved);
 end
 
+--v function(self: BUTTON) --> boolean
+function Button.IsSelected(self)
+    local state = self.uic:CurrentState();
+    if state == "active" or state == "hover" or state == "down" then
+        return false;
+    else
+        return true;
+    end
+end
+
 --v function(self: BUTTON)
 function Button.Delete(self) 
     Util.delete(self.uic);
 end
-
 
 return {
     new = Button.new;
