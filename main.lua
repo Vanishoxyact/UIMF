@@ -28,57 +28,24 @@ function main()
          function(context)
             output("MORT OPENED");
             Log.write("MORT OPENED");
-            cm:callback(
-                function() 
-                    output("MORT CALLBACK");
-                    Log.write("MORT CALLBACK");
-                    local mortCult = find_uicomponent(core:get_ui_root(), "mortuary_cult");
-                    Log.write("MORT FOUND");
-                    local player = Text.new("myText", mortCult, "Custom Text");
-                    player:MoveTo(425, 85);
-                    -- Image.new("uppercase", mortCult, core:get_ui_root(), uicomp, find_uicomponent_by_table_func);                    
-                    output("MORT CALLBACK END");
-                    Log.write("MORT CALLBACK END");                  
-                    local mortCultBox = find_uicomponent(core:get_ui_root(), "mortuary_cult", "listview", "list_clip", "list_box", "wh2_dlc09_ritual_crafting_tmb_army_capacity");
-                    if not mortCultBox then
-                        Log.write("mortCultBox not found");
-                    end
-                    local myImage = Image.new("uppercase", mortCultBox, "ui/skins/default/advisor_beastmen_2d.png");
-                    myImage:MoveTo(250, 200);
-                    myImage:SetTooltip("My tooptip");
-                    local myButton = Button.new("mybtton", mortCult, "CIRCULAR", "ui/campaign ui/edicts/lzd_alignment_of_building.png");
-                    myButton:MoveTo(500, 200);
-
-                    local found = Util.getComponentWithName("uppercase");
-                    if not found then
-                        output("Not found");
-                    else
-                        output("Found wrong");
-                    end
-
-                    --core:add_listener(
-                    --    "click_listenr_vanish",
-                    --    "ComponentLClickUp",
-                    --    function(context)
-                    --        return myImage:GetUIC() == UIComponent(context.component);
-                    --    end,
-                    --    function(context)
-                    --        output("Image clicked.");
-                    --    end,
-                    --    true
-                    --);
-
-       --cm:repeat_callback(
-        --    function()
-        --    local random = math.random();
-        --    output("rand"..random);
-        --    player:SetStateText(""..random);
-        --    end, 0.2, "test_asdasd"
-        --    );         
-                end,
-                0.1,
-                "UIBLOCK"
-            );
+            output("MORT CALLBACK");
+            Log.write("MORT CALLBACK");
+            local mortCult = find_uicomponent(core:get_ui_root(), "mortuary_cult");
+            Log.write("MORT FOUND");
+            local player = Text.new("myText", mortCult, "Custom Text");
+            player:MoveTo(425, 85);
+            -- Image.new("uppercase", mortCult, core:get_ui_root(), uicomp, find_uicomponent_by_table_func);                    
+            output("MORT CALLBACK END");
+            Log.write("MORT CALLBACK END");                  
+            local mortCultBox = find_uicomponent(core:get_ui_root(), "mortuary_cult", "listview", "list_clip", "list_box", "wh2_dlc09_ritual_crafting_tmb_army_capacity");
+            if not mortCultBox then
+                Log.write("mortCultBox not found");
+            end
+            local myImage = Image.new("uppercase", mortCultBox, "ui/skins/default/advisor_beastmen_2d.png");
+            myImage:MoveTo(250, 200);
+            myImage:SetTooltip("My tooptip");
+            local myButton = Button.new("mybtton", mortCult, "CIRCULAR", "ui/campaign ui/edicts/lzd_alignment_of_building.png");
+            myButton:MoveTo(500, 200);
         end,
         true
     );
@@ -89,26 +56,18 @@ function main()
         function(context) 
             return context.string == "units_recruitment"; 
         end,
-         function(context)
-            output("RECRUIT OPENED");
-            Log.write("RECRUIT OPENED");
-            cm:callback(
-                function()
-                    output("RECRUIT CALLBACK");
-                    local recruitmentList = find_uicomponent(core:get_ui_root(), 
-                        "units_panel", "main_units_panel", "recruitment_docker", "recruitment_options", "recruitment_listbox",
-                        "local1", "unit_list", "listview", "list_clip", "list_box"
-                    )
-                    for i = 0, recruitmentList:ChildCount() - 1 do	
-                        local recuitmentOption = UIComponent(recruitmentList:Find(i));
-                        local recruitText = Text.new("abc" .. i, recuitmentOption, "ABC");
-                        Components.positionRelativeTo(recruitText.uic, recuitmentOption, 20, 20);
-                    end
-                    output("RECRUIT CALLBACK END");
-                end,
-                0.1,
-                "UIBLOCK2"
-            );
+        function(context)
+            output("RECRUIT CALLBACK");
+            local recruitmentList = find_uicomponent(core:get_ui_root(), 
+                "units_panel", "main_units_panel", "recruitment_docker", "recruitment_options", "recruitment_listbox",
+                "local1", "unit_list", "listview", "list_clip", "list_box"
+            )
+            for i = 0, recruitmentList:ChildCount() - 1 do	
+                local recuitmentOption = UIComponent(recruitmentList:Find(i));
+                local recruitText = Text.new("abc" .. i, recuitmentOption, "ABC");
+                Components.positionRelativeTo(recruitText.uic, recuitmentOption, 20, 20);
+            end
+            output("RECRUIT CALLBACK END");
         end,
         true
     );
@@ -129,20 +88,17 @@ function main()
 
                 local images = Text.new("images", contentPanel, "Images");
                 myFrame:AddToContentPanel(images.uic, 50, 80);                
-                local firstImage = Image.new("firstImage", contentPanel, "ui/skins/default/advisor_beastmen_2d.png");
-                myFrame:AddToContentPanel(firstImage.uic, 50, 100);
-                local secondImage = Image.new("secondImage", contentPanel, "ui/skins/default/advisor_beastmen_2d.png");
-                Components.scale(secondImage.uic, 0.5);
-                myFrame:AddToContentPanel(secondImage.uic, 100, 100);
-                local thirdImage = Image.new("thirdImage", contentPanel, "ui/skins/default/advisor_beastmen_2d.png");
-                myFrame:AddToContentPanel(thirdImage.uic, 150, 100);
-                thirdImage.uic:SetImageRotation(0, math.pi / 2);
-                local fourthImage = Image.new("fourthImage", contentPanel, "ui/skins/default/advisor_beastmen_2d.png");
-                myFrame:AddToContentPanel(fourthImage.uic, 200, 100);
-                fourthImage:SetTooltip("My tooltip");
-                local fifthImage = Image.new("fifthImage", contentPanel, "ui/skins/default/advisor_beastmen_2d.png");
-                myFrame:AddToContentPanel(fifthImage.uic, 250, 100);
-                fifthImage:SetOpacity(50);
+                local normalImage = Image.new("normalImage", contentPanel, "ui/skins/default/advisor_beastmen_2d.png");
+                myFrame:AddToContentPanel(normalImage.uic, 50, 100);
+                local smallImage = Image.new("smallImage", contentPanel, "ui/skins/default/advisor_beastmen_2d.png");
+                Components.scale(smallImage.uic, 0.5);
+                myFrame:AddToContentPanel(smallImage.uic, 100, 100);
+                local rotatedImage = Image.new("rotatedImage", contentPanel, "ui/skins/default/advisor_beastmen_2d.png");
+                myFrame:AddToContentPanel(rotatedImage.uic, 150, 100);
+                rotatedImage.uic:SetImageRotation(0, math.pi / 2);
+                local transparentImage = Image.new("transparentImage", contentPanel, "ui/skins/default/advisor_beastmen_2d.png");
+                myFrame:AddToContentPanel(transparentImage.uic, 200, 100);
+                transparentImage:SetOpacity(50);
 
                 local buttons = Text.new("buttons", contentPanel, "Buttons");
                 myFrame:AddToContentPanel(buttons.uic, 50, 130);                
@@ -175,13 +131,13 @@ function main()
                 local buttonLogic = Text.new("buttonLogic", contentPanel, "Button Logic");
                 myFrame:AddToContentPanel(buttonLogic.uic, 50, 290);   
                 local incrementButton = Button.new("incrementButton", contentPanel, "TEXT", "+");
-                incrementButton.uic:ResizeTextResizingComponentToInitialSize(100, 51);
+                incrementButton.uic:ResizeTextResizingComponentToInitialSize(150, 51);
                 myFrame:AddToContentPanel(incrementButton.uic, 50, 310);
                 local decrementButton = Button.new("decrementButton", contentPanel, "TEXT", "-");
-                decrementButton.uic:ResizeTextResizingComponentToInitialSize(100, 51);
+                decrementButton.uic:ResizeTextResizingComponentToInitialSize(150, 51);
                 myFrame:AddToContentPanel(decrementButton.uic, 100, 310);
                 local counterText = Text.new("CounterText", contentPanel, "0");
-                myFrame:AddToContentPanel(counterText.uic, 200, 310);
+                myFrame:AddToContentPanel(counterText.uic, 250, 310);
                 Util.registerForClick(incrementButton.uic, "incrementCounter",
                     function(context)
                         local number = tonumber(counterText.uic:GetStateText());
@@ -201,25 +157,24 @@ function main()
                     end
                 );
 
+                local text = Text.new("text", contentPanel, "Text");
+                myFrame:AddToContentPanel(text.uic, 50, 350);
                 local greenText = Text.new("greenText", contentPanel, "[[col:green]]This is green text[[/col]]");
-                myFrame:AddToContentPanel(greenText.uic, 50, 350);
+                myFrame:AddToContentPanel(greenText.uic, 50, 370);
                 local iconText = Text.new("iconText", contentPanel, "[[img:icon_arrow_up]][[/img]]This text has icons in[[img:icon_arrow_up]][[/img]]");
-                myFrame:AddToContentPanel(iconText.uic, 50, 370);
+                myFrame:AddToContentPanel(iconText.uic, 50, 390);
                 local resizedText = Text.new("resizedText", contentPanel, "Small text");
                 Components.scale(resizedText.uic, 0.5);
-                myFrame:AddToContentPanel(resizedText.uic, 50, 390);
+                myFrame:AddToContentPanel(resizedText.uic, 50, 410);
+                local resizedText = Text.new("resizedText", contentPanel, "This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. ");
+                myFrame:AddToContentPanel(resizedText.uic, 50, 430);
                 
                 local textOutside = Text.new("textOutside", contentPanel, "Im outside");
                 myFrame:AddToContentPanel(textOutside.uic, 50, 800);
             else
-                output("FRAME FOUND");
                 existingFrame:SetVisible(true);
             end
-            output("FRAME CREATE END");
 		end,
 		true
 	);
-
-    output("END");
-    Log.write("END");
 end
