@@ -5,34 +5,36 @@ local Util = require("uic/util");
 
 local Text = {} --# assume Text: TEXT
 
---v function(name: string, parent: CA_UIC, textToDisplay: string) --> TEXT
-function Text.new(name, parent, textToDisplay)
-    --centered?
-    --local text = Util.createComponent(
-    --    name, parent, "ui/campaign ui/objectives_screen",
-    --    "panel_title", "tx_objectives"
-    --);
+--# type global TEXT_TYPE = 
+--# "NORMAL" | "WRAPPED" | "TITLE"
 
-    --weird font, left aligned
-    --local text = Util.createComponent(
-    --    name, parent, "ui/campaign ui/clan",
-    --    "main", "tab_children_parent", "Summary", "portrait_frame", "parchment_L", "details"
-    --);
-    --default test, left aligned
-    local text = Util.createComponent(
-        name, parent, "ui/campaign ui/clan",
-        "main", "tab_children_parent", "Summary", "portrait_frame", "parchment_L", "details", "details_list", "tx_home-region"
-    );
+-- "ui/campaign ui/objectives_screen","panel_title", "tx_objectives" -- Titles
+-- "ui/campaign ui/clan","main", "tab_children_parent", "Summary", "portrait_frame", "parchment_L", "details", "details_list", "tx_home-region" -- Simple left aligned, no wrap
+-- "event_dilemma_active", "dilemma", "main_holder", "details_holder" -- Different font
+
+--v function(name: string, parent: CA_UIC, textType: TEXT_TYPE, textToDisplay: string) --> TEXT
+function Text.new(name, parent, textType, textToDisplay)
+    local text = nil --: CA_UIC
+    if textType == "NORMAL" then
+        text = Util.createComponent(
+            name, parent, "ui/campaign ui/clan",
+            "main", "tab_children_parent", "Summary", "portrait_frame", "parchment_L", "details", "details_list", "tx_home-region"
+        );
+    elseif textType == "WRAPPED" then
+        text = Util.createComponent(
+            name, parent, "ui/campaign ui/mission_details",
+            "mission_details_child", "description_background", "description_view", "dy_description"
+        );
+    elseif textType == "TITLE" then
+        text = Util.createComponent(
+            name, parent, "ui/campaign ui/objectives_screen",
+            "panel_title", "tx_objectives"
+        );
+    else
+        Log.write("Invalid text type:" .. textType);
+    end
+
     text:DestroyChildren();
-
-
-    --root:CreateComponent("MagaTemp", "ui/campaign ui/events");
-    --text = find_uicomponent_by_table(temp,
-    --    "event_dilemma_active", "dilemma", "main_holder", "title_holder"
-    --)
-    --text = find_uicomponent(temp,
-    --    "event_dilemma_active", "dilemma", "main_holder", "details_holder"
-    --)
     text:SetStateText(textToDisplay);
 
     local self = {};
@@ -42,6 +44,7 @@ function Text.new(name, parent, textToDisplay)
     --# assume self: TEXT
     self.uic = text --: const
     self.name = name --: const
+    self.textType = textType --: const
     return self;
 end
 
@@ -56,8 +59,12 @@ function Text.Position(self)
 end
 
 --v function(self: TEXT, w: number, h: number)
-function Text.Resize(self, w, h) 
-    self.uic:Resize(w, h);
+function Text.Resize(self, w, h)
+    if self.textType == "WRAPPED" then
+        Log.write("Cannot resize text of type : WRAPPED for : " .. self.name);
+    else
+        self.uic:Resize(w, h);
+    end
 end
 
 --v function(self: TEXT, interactive: boolean)
@@ -71,8 +78,10 @@ function Text.SetVisible(self, visible)
 end
 
 --v function(self: TEXT, text: string)
-function Text.SetStateText(self, text) 
+function Text.SetText(self, text) 
+    local xPos, yPos = self.uic:Position();
     self.uic:SetStateText(text);
+    self.uic:MoveTo(xPos, yPos);
 end
 
 --v function(self: TEXT) --> string

@@ -1,0 +1,44 @@
+[ui] <55.0s>    root > UITEMP
+[ui] <55.0s>    root > UITEMP > mission_details_child
+[ui] <55.0s>    root > UITEMP > mission_details_child > description_background
+[ui] <55.0s>    root > UITEMP > mission_details_child > description_background > vslider
+[ui] <55.0s>    root > UITEMP > mission_details_child > description_background > vslider > frame_top
+[ui] <55.0s>    root > UITEMP > mission_details_child > description_background > vslider > frame_bottom
+[ui] <55.0s>    root > UITEMP > mission_details_child > description_background > vslider > handle
+[ui] <55.0s>    root > UITEMP > mission_details_child > description_background > vslider > top
+[ui] <55.0s>    root > UITEMP > mission_details_child > description_background > vslider > bottom
+[ui] <55.0s>    root > UITEMP > mission_details_child > description_background > description_view
+[ui] <55.0s>    root > UITEMP > mission_details_child > description_background > description_view > dy_description
+[ui] <55.0s>    root > UITEMP > mission_details_child > description_background > dy_title
+[ui] <55.0s>    root > UITEMP > mission_details_child > description_background > dy_title > icon_complete
+[ui] <55.0s>    root > UITEMP > mission_details_child > mission_objectives
+[ui] <55.0s>    root > UITEMP > mission_details_child > mission_objectives > objective
+[ui] <55.0s>    root > UITEMP > mission_details_child > mission_objectives > objective > button_group
+[ui] <55.0s>    root > UITEMP > mission_details_child > mission_objectives > objective > button_group > button_mission
+[ui] <55.0s>    root > UITEMP > mission_details_child > mission_objectives > objective > listview
+[ui] <55.0s>    root > UITEMP > mission_details_child > mission_objectives > objective > listview > list_clip
+[ui] <55.0s>    root > UITEMP > mission_details_child > mission_objectives > objective > listview > list_clip > list_box
+[ui] <55.0s>    root > UITEMP > mission_details_child > mission_objectives > objective > listview > list_clip > list_box > dy_objective
+[ui] <55.0s>    root > UITEMP > mission_details_child > mission_objectives > objective > listview > list_clip > list_box > dy_objective > bullet_point
+[ui] <55.0s>    root > UITEMP > mission_details_child > mission_objectives > objective > listview > list_clip > list_box > target_window
+[ui] <55.0s>    root > UITEMP > mission_details_child > mission_objectives > objective > listview > list_clip > list_box > target_window > h_line
+[ui] <55.1s>    root > UITEMP > mission_details_child > mission_objectives > objective > listview > vslider
+[ui] <55.1s>    root > UITEMP > mission_details_child > mission_objectives > objective > listview > vslider > frame_top
+[ui] <55.1s>    root > UITEMP > mission_details_child > mission_objectives > objective > listview > vslider > frame_bottom
+[ui] <55.1s>    root > UITEMP > mission_details_child > mission_objectives > objective > listview > vslider > handle
+[ui] <55.1s>    root > UITEMP > mission_details_child > mission_objectives > objective > listview > vslider > top
+[ui] <55.1s>    root > UITEMP > mission_details_child > mission_objectives > objective > listview > vslider > bottom
+[ui] <55.1s>    root > UITEMP > mission_details_child > mission_objectives > tx_objectives_header
+[ui] <55.1s>    root > UITEMP > mission_details_child > reward_window
+[ui] <55.1s>    root > UITEMP > mission_details_child > reward_window > effect_window1
+[ui] <55.1s>    root > UITEMP > mission_details_child > reward_window > effect_window1 > effect_template
+[ui] <55.1s>    root > UITEMP > mission_details_child > reward_window > effect_window1 > turns_display
+[ui] <55.1s>    root > UITEMP > mission_details_child > reward_window > effect_window1 > turns_display > turns_icon
+[ui] <55.1s>    root > UITEMP > mission_details_child > reward_window > effect_window2
+[ui] <55.1s>    root > UITEMP > mission_details_child > reward_window > tx_reward_title
+[ui] <55.1s>    root > UITEMP > mission_details_child > dy_event_picture
+[ui] <55.1s>    root > UITEMP > mission_details_child > dy_event_picture > pic_frame
+[ui] <55.1s>    root > UITEMP > title_plaque
+[ui] <55.1s>    root > UITEMP > title_plaque > tx_title
+[ui] <55.1s>    root > UITEMP > button_accept
+[ui] <55.1s>    root > UITEMP > button_zoom

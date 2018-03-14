@@ -32,7 +32,7 @@ function main()
             Log.write("MORT CALLBACK");
             local mortCult = find_uicomponent(core:get_ui_root(), "mortuary_cult");
             Log.write("MORT FOUND");
-            local player = Text.new("myText", mortCult, "Custom Text");
+            local player = Text.new("myText", mortCult, "NORMAL", "Custom Text");
             player:MoveTo(425, 85);
             -- Image.new("uppercase", mortCult, core:get_ui_root(), uicomp, find_uicomponent_by_table_func);                    
             output("MORT CALLBACK END");
@@ -64,7 +64,7 @@ function main()
             )
             for i = 0, recruitmentList:ChildCount() - 1 do	
                 local recuitmentOption = UIComponent(recruitmentList:Find(i));
-                local recruitText = Text.new("abc" .. i, recuitmentOption, "ABC");
+                local recruitText = Text.new("abc" .. i, recuitmentOption, "NORMAL", "ABC");
                 Components.positionRelativeTo(recruitText.uic, recuitmentOption, 20, 20);
             end
             output("RECRUIT CALLBACK END");
@@ -81,12 +81,12 @@ function main()
             local existingFrame = Util.getComponentWithName("MyFrame");
             if not existingFrame then
                 local myFrame = Frame.new("MyFrame", core:get_ui_root());
-                myFrame:Scale(1.5);
+                myFrame:Scale(2);
                 myFrame.uic:MoveTo(100, 100);
                 myFrame:AddCloseButton();
                 local contentPanel = myFrame:GetContentPanel();
 
-                local images = Text.new("images", contentPanel, "Images");
+                local images = Text.new("images", contentPanel, "NORMAL", "Images");
                 myFrame:AddToContentPanel(images.uic, 50, 80);                
                 local normalImage = Image.new("normalImage", contentPanel, "ui/skins/default/advisor_beastmen_2d.png");
                 myFrame:AddToContentPanel(normalImage.uic, 50, 100);
@@ -100,7 +100,7 @@ function main()
                 myFrame:AddToContentPanel(transparentImage.uic, 200, 100);
                 transparentImage:SetOpacity(50);
 
-                local buttons = Text.new("buttons", contentPanel, "Buttons");
+                local buttons = Text.new("buttons", contentPanel, "NORMAL", "Buttons");
                 myFrame:AddToContentPanel(buttons.uic, 50, 130);                
                 local squareButton = Button.new("squareButton", contentPanel, "SQUARE", "ui/skins/default/icon_end_turn.png");
                 myFrame:AddToContentPanel(squareButton.uic, 50, 150);
@@ -119,7 +119,7 @@ function main()
                 resizedTextButton.uic:ResizeTextResizingComponentToInitialSize(250, resizedTextButton.uic:Height())
                 myFrame:AddToContentPanel(resizedTextButton.uic, 150, 200);
 
-                local toggleButtons = Text.new("toggleButtons", contentPanel, "Toggle Buttons");
+                local toggleButtons = Text.new("toggleButtons", contentPanel, "NORMAL", "Toggle Buttons");
                 myFrame:AddToContentPanel(toggleButtons.uic, 50, 230);                
                 local squareToggleButton = Button.new("squareToggleButton", contentPanel, "SQUARE_TOGGLE", "ui/skins/default/icon_end_turn.png");
                 myFrame:AddToContentPanel(squareToggleButton.uic, 50, 250);
@@ -128,7 +128,7 @@ function main()
                 local textToggleButton = Button.new("textToggleButton", contentPanel, "TEXT_TOGGLE", "customText");
                 myFrame:AddToContentPanel(textToggleButton.uic, 150, 250);
 
-                local buttonLogic = Text.new("buttonLogic", contentPanel, "Button Logic");
+                local buttonLogic = Text.new("buttonLogic", contentPanel, "NORMAL", "Button Logic");
                 myFrame:AddToContentPanel(buttonLogic.uic, 50, 290);   
                 local incrementButton = Button.new("incrementButton", contentPanel, "TEXT", "+");
                 incrementButton.uic:ResizeTextResizingComponentToInitialSize(150, 51);
@@ -136,14 +136,14 @@ function main()
                 local decrementButton = Button.new("decrementButton", contentPanel, "TEXT", "-");
                 decrementButton.uic:ResizeTextResizingComponentToInitialSize(150, 51);
                 myFrame:AddToContentPanel(decrementButton.uic, 150, 310);
-                local counterText = Text.new("CounterText", contentPanel, "0");
+                local counterText = Text.new("CounterText", contentPanel, "NORMAL", "0");
                 myFrame:AddToContentPanel(counterText.uic, 300, 310);
                 Util.registerForClick(incrementButton.uic, "incrementCounter",
                     function(context)
                         local number = tonumber(counterText.uic:GetStateText());
                         if number < 8 then
                             local newText = tostring(number + 1);
-                            counterText.uic:SetStateText(newText);
+                            counterText:SetText(newText);
                         end
                     end
                 );
@@ -152,35 +152,37 @@ function main()
                         local number = tonumber(counterText.uic:GetStateText());
                         if number > 0 then
                             local newText = tostring(number - 1);
-                            counterText.uic:SetStateText(newText);
+                            counterText:SetText(newText);
                         end
                     end
                 );
                 local toggleButton = Button.new("toggleButton", contentPanel, "SQUARE_TOGGLE", "ui/skins/default/icon_end_turn.png");
                 myFrame:AddToContentPanel(toggleButton.uic, 350, 310);
-                local toggleText = Text.new("toggleText", contentPanel, "0");
+                local toggleText = Text.new("toggleText", contentPanel, "NORMAL", "0");
                 myFrame:AddToContentPanel(toggleText.uic, 400, 310);
-                toggleText.uic:SetStateText(toggleButton.uic:CurrentState());
+                toggleText:SetText(toggleButton.uic:CurrentState());
                 Util.registerForClick(toggleButton.uic, "toggleListener",
                     function(context)
-                        toggleText.uic:SetStateText(toggleButton.uic:CurrentState());
+                        toggleText:SetText(toggleButton.uic:CurrentState());
                     end
                 );
                 
-                local text = Text.new("text", contentPanel, "Text");
+                local text = Text.new("text", contentPanel, "NORMAL", "Text");
                 myFrame:AddToContentPanel(text.uic, 50, 350);
-                local greenText = Text.new("greenText", contentPanel, "[[col:green]]This is green text[[/col]]");
+                local greenText = Text.new("greenText", contentPanel, "NORMAL", "[[col:green]]This is green text[[/col]]");
                 myFrame:AddToContentPanel(greenText.uic, 50, 370);
-                local iconText = Text.new("iconText", contentPanel, "[[img:icon_arrow_up]][[/img]]This text has icons in[[img:icon_arrow_up]][[/img]]");
+                local iconText = Text.new("iconText", contentPanel, "NORMAL", "[[img:icon_arrow_up]][[/img]]This text has icons in[[img:icon_arrow_up]][[/img]]");
                 myFrame:AddToContentPanel(iconText.uic, 50, 390);
-                local resizedText = Text.new("resizedText", contentPanel, "Small text");
+                local resizedText = Text.new("resizedText", contentPanel, "NORMAL", "Small text");
                 Components.scale(resizedText.uic, 0.5);
                 myFrame:AddToContentPanel(resizedText.uic, 50, 410);
-                local resizedText = Text.new("resizedText", contentPanel, "This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. ");
-                myFrame:AddToContentPanel(resizedText.uic, 50, 430);
-                Components.resize(resizedText.uic, resizedText.uic:Width(), resizedText.uic:Height()*3);
+                local wrappedText = Text.new("wrappedText", contentPanel, "WRAPPED", "This is wrapped text. This is wrapped text. This is wrapped text. This is wrapped text. This is wrapped text. This is wrapped text. This is wrapped text. This is wrapped text. ");
+                Components.resize(wrappedText.uic, 500, 200);
+                myFrame:AddToContentPanel(wrappedText.uic, 50, 430);
+                local titleText = Text.new("titleText", contentPanel, "TITLE", "This is title text");
+                myFrame:AddToContentPanel(titleText.uic, 50, 500);
                 
-                local textOutside = Text.new("textOutside", contentPanel, "Im outside");
+                local textOutside = Text.new("textOutside", contentPanel, "NORMAL", "Im outside");
                 myFrame:AddToContentPanel(textOutside.uic, 50, 800);
             else
                 existingFrame:SetVisible(true);
