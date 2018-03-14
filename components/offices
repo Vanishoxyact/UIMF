@@ -1,0 +1,69 @@
+[ui] <46.7s>    root > UITEMP
+[ui] <46.7s>    root > UITEMP > panel_frame
+[ui] <46.7s>    root > UITEMP > panel_frame > panel_back
+[ui] <46.7s>    root > UITEMP > button_docker
+[ui] <46.7s>    root > UITEMP > button_docker > mon_background
+[ui] <46.7s>    root > UITEMP > button_docker > mon_background > hud_arch
+[ui] <46.7s>    root > UITEMP > button_docker > mon_background > mon_circle
+[ui] <46.7s>    root > UITEMP > button_docker > mon_background > mon_crest
+[ui] <46.7s>    root > UITEMP > header_frame
+[ui] <46.7s>    root > UITEMP > header_frame > dy_faction
+[ui] <46.7s>    root > UITEMP > main
+[ui] <46.8s>    root > UITEMP > main > lords_panel
+[ui] <46.8s>    root > UITEMP > main > lords_panel > title_holder
+[ui] <46.8s>    root > UITEMP > main > lords_panel > title_holder > panel_subtitle
+[ui] <46.8s>    root > UITEMP > main > lords_panel > title_holder > panel_subtitle > tx_header
+[ui] <46.8s>    root > UITEMP > main > lords_panel > lords_list
+[ui] <46.8s>    root > UITEMP > main > lords_panel > lords_list > list_clip
+[ui] <46.8s>    root > UITEMP > main > lords_panel > lords_list > list_clip > list_box
+[ui] <46.8s>    root > UITEMP > main > lords_panel > lords_list > hslider
+[ui] <46.8s>    root > UITEMP > main > lords_panel > lords_list > hslider > frame_left
+[ui] <46.8s>    root > UITEMP > main > lords_panel > lords_list > hslider > frame_right
+[ui] <46.8s>    root > UITEMP > main > lords_panel > lords_list > hslider > handle
+[ui] <46.8s>    root > UITEMP > main > lords_panel > lords_list > hslider > left
+[ui] <46.8s>    root > UITEMP > main > lords_panel > lords_list > hslider > right
+[ui] <46.8s>    root > UITEMP > main > offices_panel
+[ui] <46.8s>    root > UITEMP > main > offices_panel > title_holder
+[ui] <46.8s>    root > UITEMP > main > offices_panel > title_holder > panel_subtitle
+[ui] <46.8s>    root > UITEMP > main > offices_panel > title_holder > panel_subtitle > tx_header
+[ui] <46.8s>    root > UITEMP > main > offices_panel > portrait_holder
+[ui] <46.8s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader
+[ui] <46.8s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait
+[ui] <46.8s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > office_text_parent
+[ui] <46.8s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > office_text_parent > tx_office
+[ui] <46.8s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > office_text_parent > chains
+[ui] <46.8s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card
+[ui] <46.8s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > rank OLD
+[ui] <46.8s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > frame_leader
+[ui] <46.8s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > icon_action OLD
+[ui] <46.8s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > icon_action OLD > target_frame
+[ui] <46.8s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > dy_loyalty
+[ui] <46.8s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > dy_loyalty > icon_loyalty
+[ui] <46.8s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > dy_gravitas
+[ui] <46.8s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > dy_gravitas > icon_gravitas
+[ui] <46.8s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > icon_retainer
+[ui] <46.9s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > faction_symbol
+[ui] <46.9s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > bookmark
+[ui] <46.9s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > bookmark > icon_office
+[ui] <46.9s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > bookmark > icon_wounded
+[ui] <46.9s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > bookmark > icon_status
+[ui] <46.9s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > char_name
+[ui] <46.9s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > char_name > name_tx
+[ui] <46.9s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > icon_action
+[ui] <46.9s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > popup_menu
+[ui] <46.9s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > popup_menu > button_kick
+[ui] <46.9s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > invalid_target_overlay
+[ui] <46.9s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > rank
+[ui] <46.9s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > rank > experience
+[ui] <46.9s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > rank > rank_zero
+[ui] <46.9s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > rank > piechart
+[ui] <46.9s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > rank > dy_rank
+[ui] <46.9s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > portrait_card > rank > skill_button
+[ui] <46.9s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > frame
+[ui] <46.9s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > icon_frame
+[ui] <46.9s>    root > UITEMP > main > offices_panel > portrait_holder > faction_leader > office_portrait > icon_frame > icon
+[ui] <46.9s>    root > UITEMP > main > offices_panel > kick_holder
+[ui] <46.9s>    root > UITEMP > main > offices_panel > kick_holder > button_kick
+[ui] <46.9s>    root > UITEMP > button_ok
+[ui] <46.9s>    root > UITEMP > button_info_holder
+[ui] <46.9s>    root > UITEMP > button_info_holder > button_info

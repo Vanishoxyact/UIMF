@@ -1,0 +1,21 @@
+[ui] <45.0s>    root > UITEMP
+[ui] <45.0s>    root > UITEMP > main_holder
+[ui] <45.0s>    root > UITEMP > main_holder > title_holder
+[ui] <45.0s>    root > UITEMP > main_holder > title_holder > panel_title
+[ui] <45.0s>    root > UITEMP > main_holder > title_holder > panel_title > button_txt
+[ui] <45.0s>    root > UITEMP > main_holder > subheader_holder
+[ui] <45.0s>    root > UITEMP > main_holder > subheader_holder > dy_subheader
+[ui] <45.0s>    root > UITEMP > main_holder > pic_holder
+[ui] <45.0s>    root > UITEMP > main_holder > pic_holder > dy_event_picture
+[ui] <45.0s>    root > UITEMP > main_holder > pic_holder > dy_event_picture > pic_frame
+[ui] <45.0s>    root > UITEMP > main_holder > mannslieb_overlay
+[ui] <45.0s>    root > UITEMP > main_holder > details_holder
+[ui] <45.0s>    root > UITEMP > main_holder > details_holder > dy_details_text
+[ui] <45.0s>    root > UITEMP > main_holder > details_holder > dy_details_text > dy_description
+[ui] <45.0s>    root > UITEMP > main_holder > details_holder > dy_details_text > vslider
+[ui] <45.0s>    root > UITEMP > main_holder > details_holder > dy_details_text > vslider > frame_top
+[ui] <45.0s>    root > UITEMP > main_holder > details_holder > dy_details_text > vslider > frame_bottom
+[ui] <45.0s>    root > UITEMP > main_holder > details_holder > dy_details_text > vslider > handle
+[ui] <45.0s>    root > UITEMP > main_holder > details_holder > dy_details_text > vslider > top
+[ui] <45.0s>    root > UITEMP > main_holder > details_holder > dy_details_text > vslider > bottom
+[ui] <45.0s>    root > UITEMP > dilemma_list

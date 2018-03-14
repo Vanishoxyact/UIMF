@@ -1,0 +1,68 @@
+[ui] <45.0s>    root > UITEMP
+[ui] <45.0s>    root > UITEMP > panel_title
+[ui] <45.1s>    root > UITEMP > panel_title > tx_title
+[ui] <45.1s>    root > UITEMP > info_button_holder
+[ui] <45.1s>    root > UITEMP > info_button_holder > button_info
+[ui] <45.1s>    root > UITEMP > button_improve
+[ui] <45.1s>    root > UITEMP > button_improve > smoke_clip_parent
+[ui] <45.1s>    root > UITEMP > button_improve > smoke_clip_parent > smoke_overlay
+[ui] <45.1s>    root > UITEMP > button_improve > button_txt
+[ui] <45.1s>    root > UITEMP > button_improve > dy_cost
+[ui] <45.1s>    root > UITEMP > button_improve > att_frame
+[ui] <45.1s>    root > UITEMP > button_improve > att_frame > attitude
+[ui] <45.1s>    root > UITEMP > button_improve > att_frame > arrow
+[ui] <45.1s>    root > UITEMP > button_decrease
+[ui] <45.1s>    root > UITEMP > button_decrease > smoke_clip_parent
+[ui] <45.1s>    root > UITEMP > button_decrease > smoke_clip_parent > smoke_overlay
+[ui] <45.1s>    root > UITEMP > button_decrease > button_txt
+[ui] <45.1s>    root > UITEMP > button_decrease > dy_cost
+[ui] <45.1s>    root > UITEMP > button_decrease > att_frame
+[ui] <45.1s>    root > UITEMP > button_decrease > att_frame > attitude
+[ui] <45.1s>    root > UITEMP > button_decrease > att_frame > arrow
+[ui] <45.1s>    root > UITEMP > factions
+[ui] <45.1s>    root > UITEMP > factions > faction1
+[ui] <45.1s>    root > UITEMP > factions > faction1 > faction_entry
+[ui] <45.1s>    root > UITEMP > factions > faction1 > faction_entry > porthole
+[ui] <45.1s>    root > UITEMP > factions > faction1 > faction_entry > porthole > portrait_clip
+[ui] <45.1s>    root > UITEMP > factions > faction1 > faction_entry > porthole > portrait_clip > commander_portrait
+[ui] <45.1s>    root > UITEMP > factions > faction1 > faction_entry > porthole > porthole
+[ui] <45.1s>    root > UITEMP > factions > faction1 > faction_entry > dy_name
+[ui] <45.1s>    root > UITEMP > factions > faction1 > faction_entry > dy_name > att_frame_holderR
+[ui] <45.1s>    root > UITEMP > factions > faction1 > faction_entry > dy_name > att_frame_holderR > attitude_frame
+[ui] <45.1s>    root > UITEMP > factions > faction1 > faction_entry > dy_name > att_frame_holderR > attitude_frame > attitude
+[ui] <45.1s>    root > UITEMP > factions > faction1 > faction_entry > dy_name > att_frame_holderR > attitude_frame > dy_attitude
+[ui] <45.1s>    root > UITEMP > factions > faction1 > faction_entry > dy_name > att_frame_holderR > attitude_frame > dy_value
+[ui] <45.2s>    root > UITEMP > factions > faction1 > faction_entry > dy_name > att_frame_holderR > attitude_frame > arrows
+[ui] <45.2s>    root > UITEMP > factions > faction1 > faction_entry > dy_name > att_frame_holderL
+[ui] <45.2s>    root > UITEMP > factions > faction1 > faction_entry > dropdown_button
+[ui] <45.2s>    root > UITEMP > factions > faction1 > faction_entry > dropdown_button > dy_selected_txt
+[ui] <45.2s>    root > UITEMP > factions > faction1 > faction_entry > dropdown_button > popup_menu
+[ui] <45.2s>    root > UITEMP > factions > faction1 > faction_entry > dropdown_button > popup_menu > border_top
+[ui] <45.2s>    root > UITEMP > factions > faction1 > faction_entry > dropdown_button > popup_menu > border_bottom
+[ui] <45.2s>    root > UITEMP > factions > faction1 > faction_entry > dropdown_button > popup_menu > popup_list
+[ui] <45.2s>    root > UITEMP > factions > treaties
+[ui] <45.2s>    root > UITEMP > factions > treaties > treaty_list
+[ui] <45.2s>    root > UITEMP > factions > treaties > treaty_list > defensive_allies
+[ui] <45.2s>    root > UITEMP > factions > treaties > treaty_list > vassal
+[ui] <45.2s>    root > UITEMP > factions > treaties > treaty_list > military_allies
+[ui] <45.2s>    root > UITEMP > factions > treaties > treaty_list > at_war
+[ui] <45.2s>    root > UITEMP > factions > faction2
+[ui] <45.2s>    root > UITEMP > factions > faction2 > faction_entry
+[ui] <45.2s>    root > UITEMP > factions > faction2 > faction_entry > porthole
+[ui] <45.2s>    root > UITEMP > factions > faction2 > faction_entry > porthole > portrait_clip
+[ui] <45.2s>    root > UITEMP > factions > faction2 > faction_entry > porthole > portrait_clip > commander_portrait
+[ui] <45.2s>    root > UITEMP > factions > faction2 > faction_entry > porthole > porthole
+[ui] <45.2s>    root > UITEMP > factions > faction2 > faction_entry > dy_name
+[ui] <45.2s>    root > UITEMP > factions > faction2 > faction_entry > dy_name > att_frame_holderR
+[ui] <45.2s>    root > UITEMP > factions > faction2 > faction_entry > dy_name > att_frame_holderL
+[ui] <45.2s>    root > UITEMP > factions > faction2 > faction_entry > dy_name > att_frame_holderL > attitude_frame
+[ui] <45.2s>    root > UITEMP > factions > faction2 > faction_entry > dy_name > att_frame_holderL > attitude_frame > attitude
+[ui] <45.2s>    root > UITEMP > factions > faction2 > faction_entry > dy_name > att_frame_holderL > attitude_frame > dy_attitude
+[ui] <45.2s>    root > UITEMP > factions > faction2 > faction_entry > dy_name > att_frame_holderL > attitude_frame > dy_value
+[ui] <45.2s>    root > UITEMP > factions > faction2 > faction_entry > dy_name > att_frame_holderL > attitude_frame > arrows
+[ui] <45.2s>    root > UITEMP > factions > faction2 > faction_entry > dropdown_button
+[ui] <45.2s>    root > UITEMP > factions > faction2 > faction_entry > dropdown_button > dy_selected_txt
+[ui] <45.2s>    root > UITEMP > factions > faction2 > faction_entry > dropdown_button > popup_menu
+[ui] <45.2s>    root > UITEMP > factions > faction2 > faction_entry > dropdown_button > popup_menu > border_top
+[ui] <45.3s>    root > UITEMP > factions > faction2 > faction_entry > dropdown_button > popup_menu > border_bottom
+[ui] <45.3s>    root > UITEMP > factions > faction2 > faction_entry > dropdown_button > popup_menu > popup_list

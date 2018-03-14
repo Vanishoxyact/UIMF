@@ -1,0 +1,160 @@
+[ui] <46.7s>    root > UITEMP
+[ui] <46.7s>    root > UITEMP > panel_frame
+[ui] <46.7s>    root > UITEMP > panel_frame > panel_back
+[ui] <46.7s>    root > UITEMP > button_docker
+[ui] <46.7s>    root > UITEMP > button_docker > mon_background
+[ui] <46.7s>    root > UITEMP > button_docker > mon_background > hud_arch
+[ui] <46.7s>    root > UITEMP > button_docker > mon_background > mon_circle
+[ui] <46.7s>    root > UITEMP > button_docker > mon_background > mon_crest
+[ui] <46.7s>    root > UITEMP > main
+[ui] <46.7s>    root > UITEMP > main > faction_bar
+[ui] <46.7s>    root > UITEMP > main > faction_bar > dy_party_name
+[ui] <46.7s>    root > UITEMP > main > faction_bar > tx_faction_leader
+[ui] <46.7s>    root > UITEMP > main > faction_bar > tx_faction_leader > dy_name
+[ui] <46.7s>    root > UITEMP > main > faction_bar > tx_influence
+[ui] <46.7s>    root > UITEMP > main > faction_bar > tx_influence > dy_influence
+[ui] <46.7s>    root > UITEMP > main > faction_bar > tx_influence > dy_influence > icon_influence
+[ui] <46.7s>    root > UITEMP > main > faction_bar > dy_mon
+[ui] <46.7s>    root > UITEMP > main > tab_children_parent
+[ui] <46.7s>    root > UITEMP > main > tab_children_parent > Records
+[ui] <46.7s>    root > UITEMP > main > tab_children_parent > Stats
+[ui] <46.7s>    root > UITEMP > main > tab_children_parent > Stats > stats_panel
+[ui] <46.7s>    root > UITEMP > main > tab_children_parent > Stats > stats_panel > listview
+[ui] <46.7s>    root > UITEMP > main > tab_children_parent > Stats > stats_panel > listview > list_clip
+[ui] <46.7s>    root > UITEMP > main > tab_children_parent > Stats > stats_panel > listview > list_clip > list_box
+[ui] <46.7s>    root > UITEMP > main > tab_children_parent > Stats > stats_panel > listview > vslider
+[ui] <46.7s>    root > UITEMP > main > tab_children_parent > Stats > stats_panel > listview > vslider > frame_top
+[ui] <46.7s>    root > UITEMP > main > tab_children_parent > Stats > stats_panel > listview > vslider > frame_bottom
+[ui] <46.7s>    root > UITEMP > main > tab_children_parent > Stats > stats_panel > listview > vslider > handle
+[ui] <46.7s>    root > UITEMP > main > tab_children_parent > Stats > stats_panel > listview > vslider > top
+[ui] <46.7s>    root > UITEMP > main > tab_children_parent > Stats > stats_panel > listview > vslider > bottom
+[ui] <46.7s>    root > UITEMP > main > tab_children_parent > Stats > stats_panel > tx_statistics
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > lord_movie_panel
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > details_list
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > details_list > tx_home-region
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > details_list > tx_home-region > icon
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > details_list > tx_home-region > dy_home-region
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > details_list > tx_provinces_owned
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > details_list > tx_provinces_owned > dy_provinces_owned
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > details_list > tx_provinces_owned > copy of icon
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > details_list > tx_regions_owned
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > details_list > tx_regions_owned > dy_regions_owned
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > details_list > tx_prosperity
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > details_list > tx_prosperity > dy_prosperity
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > details_list > tx_treasury
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > details_list > tx_treasury > dy_treasury
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > details_list > tx_treasury > dy_treasury > coin_icon
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > details_list > tx_income
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > details_list > tx_income > dy_income
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > details_list > tx_income > dy_income > coin_icon
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > details_list > tx_food
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > details_list > tx_food > dy_food
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > details_list > tx_food > dy_food > food_icon
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > parchment_divider_title
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > details > parchment_divider_title > heading_details
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > trait_panel
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > trait_panel > trait_list
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > trait_panel > trait_list > list_clip
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > trait_panel > trait_list > list_clip > list_box
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > trait_panel > trait_list > vslider
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > trait_panel > trait_list > vslider > frame_top
+[ui] <46.8s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > trait_panel > trait_list > vslider > frame_bottom
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > trait_panel > trait_list > vslider > handle
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > trait_panel > trait_list > vslider > top
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > trait_panel > trait_list > vslider > bottom
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > trait_panel > parchment_divider_title
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > trait_panel > parchment_divider_title > heading_traits
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > climates
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > climates > types_list
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > climates > types_list > good_header
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > climates > types_list > good_header > suitability_good
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > climates > types_list > good_header > suitability_good > template_entry
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > climates > types_list > poor_header
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > climates > types_list > poor_header > suitability_poor
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > climates > types_list > poor_header > suitability_poor > template_entry
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > climates > types_list > very_poor_header
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > climates > types_list > very_poor_header > suitability_verypoor
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > climates > types_list > very_poor_header > suitability_verypoor > template_entry
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > climates > parchment_divider_title
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_L > climates > parchment_divider_title > heading_details
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > faction_cap_list
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > faction_cap_list > tx_armies
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > faction_cap_list > tx_armies > dy_armies
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > faction_cap_list > tx_armies > icon
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > faction_cap_list > tx_fleets
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > faction_cap_list > tx_fleets > dy_fleets
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > faction_cap_list > tx_fleets > icon
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > faction_cap_list > tx_edicts
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > faction_cap_list > tx_edicts > dy_edicts
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > faction_cap_list > tx_black_arks
+[ui] <46.9s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > faction_cap_list > tx_black_arks > dy_black_arks
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > faction_cap_list > tx_black_arks > icon
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > agent_parent
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > agent_parent > agent_cap_list
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > clan_fame
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > clan_fame > fame_bar_fill
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > clan_fame > fame_bar
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > clan_fame > vline_parent
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > clan_fame > vline
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > parchment_divider_title
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > parchment_divider_title > tx_header
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > imperium > hbar
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > diplomacy
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > diplomacy > tx_tradepartners
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > diplomacy > tx_tradepartners > bar
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > diplomacy > tx_tradepartners > icon
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > diplomacy > icon_vassals
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > diplomacy > icon_vassals > vassals
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > diplomacy > tx_military_allies
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > diplomacy > tx_military_allies > bar
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > diplomacy > tx_military_allies > icon_military_allies
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > diplomacy > tx_allies
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > diplomacy > tx_allies > bar
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > diplomacy > tx_allies > icon_allies
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > diplomacy > tx_atwar
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > diplomacy > tx_atwar > bar
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > diplomacy > tx_atwar > icon_at_war
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > diplomacy > owned_by
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > diplomacy > owned_by > tx_owned_by
+[ui] <47.0s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > diplomacy > owned_by > tx_owned_by > dy_mon
+[ui] <47.1s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > diplomacy > parchment_divider_title
+[ui] <47.1s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > parchment_R > diplomacy > parchment_divider_title > heading_diplomacy
+[ui] <47.1s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > frame
+[ui] <47.1s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > text_frame
+[ui] <47.1s>    root > UITEMP > main > tab_children_parent > Summary > portrait_frame > text_frame > dy_leader_name
+[ui] <47.1s>    root > UITEMP > main > TabGroup
+[ui] <47.1s>    root > UITEMP > main > TabGroup > Summary
+[ui] <47.1s>    root > UITEMP > main > TabGroup > Summary > tab_child
+[ui] <47.1s>    root > UITEMP > main > TabGroup > Summary > tx_summary
+[ui] <47.1s>    root > UITEMP > main > TabGroup > Records
+[ui] <47.1s>    root > UITEMP > main > TabGroup > Records > tab_child
+[ui] <47.1s>    root > UITEMP > main > TabGroup > Records > tx_records
+[ui] <47.1s>    root > UITEMP > main > TabGroup > Stats
+[ui] <47.1s>    root > UITEMP > main > TabGroup > Stats > tab_child
+[ui] <47.1s>    root > UITEMP > main > TabGroup > Stats > tx_stats
+[ui] <47.1s>    root > UITEMP > main > button_info_holder
+[ui] <47.1s>    root > UITEMP > main > button_info_holder > button_info
+[ui] <47.1s>    root > UITEMP > main > button_ok
+[ui] <47.1s>    root > UITEMP > main > time_label
+[ui] <47.1s>    root > UITEMP > header_frame
+[ui] <47.1s>    root > UITEMP > header_frame > dy_faction
+[ui] <47.1s>    root > UITEMP > message_box
+[ui] <47.1s>    root > UITEMP > message_box > purchase_options
+[ui] <47.1s>    root > UITEMP > message_box > purchase_options > button_purchase
+[ui] <47.1s>    root > UITEMP > message_box > purchase_options > button_purchase > smoke_clip_parent
+[ui] <47.1s>    root > UITEMP > message_box > purchase_options > button_purchase > smoke_clip_parent > smoke_overlay
+[ui] <47.1s>    root > UITEMP > message_box > purchase_options > button_purchase > frame_over
+[ui] <47.1s>    root > UITEMP > message_box > purchase_options > button_purchase > button_txt
+[ui] <47.1s>    root > UITEMP > message_box > purchase_options > button_cancel
+[ui] <47.1s>    root > UITEMP > message_box > DY_text
+[ui] <47.1s>    root > UITEMP > message_box > both_group
+[ui] <47.1s>    root > UITEMP > message_box > both_group > button_tick
+[ui] <47.1s>    root > UITEMP > message_box > both_group > button_cancel
+[ui] <47.2s>    root > UITEMP > message_box > ok_group
+[ui] <47.2s>    root > UITEMP > message_box > ok_group > button_tick

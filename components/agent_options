@@ -1,0 +1,25 @@
+[ui] <49.1s>    root > UITEMP
+[ui] <49.1s>    root > UITEMP > options_panel
+[ui] <49.1s>    root > UITEMP > options_panel > dy_treasury
+[ui] <49.1s>    root > UITEMP > options_panel > stage1_target
+[ui] <49.1s>    root > UITEMP > options_panel > stage1_target > tx_title
+[ui] <49.1s>    root > UITEMP > options_panel > stage1_target > tx_title > h_line
+[ui] <49.1s>    root > UITEMP > options_panel > stage1_target > tx_title > subheader
+[ui] <49.1s>    root > UITEMP > options_panel > stage1_target > target_frame_template
+[ui] <49.1s>    root > UITEMP > options_panel > stage1_target > target_frame_template > dy_target_name
+[ui] <49.1s>    root > UITEMP > options_panel > stage1_target > target_frame_template > frame
+[ui] <49.1s>    root > UITEMP > options_panel > stage1_target > target_frame_template > button_option_1
+[ui] <49.1s>    root > UITEMP > options_panel > stage1_target > target_frame_template > button_option_1 > button_txt
+[ui] <49.1s>    root > UITEMP > options_panel > stage1_target > target_frame_template > button_option_2
+[ui] <49.1s>    root > UITEMP > options_panel > stage1_target > target_frame_template > button_option_2 > button_txt
+[ui] <49.1s>    root > UITEMP > options_panel > stage1_target > list_clip
+[ui] <49.1s>    root > UITEMP > options_panel > stage1_target > list_clip > target_list
+[ui] <49.1s>    root > UITEMP > options_panel > title
+[ui] <49.1s>    root > UITEMP > options_panel > title > panel_title
+[ui] <49.1s>    root > UITEMP > options_panel > title > panel_title > tx_title
+[ui] <49.1s>    root > UITEMP > options_panel > title > button_holder
+[ui] <49.1s>    root > UITEMP > options_panel > title > button_holder > button_decline
+[ui] <49.1s>    root > UITEMP > options_panel > stage2_approach
+[ui] <49.1s>    root > UITEMP > options_panel > stage2_approach > method_list
+[ui] <49.1s>    root > UITEMP > small_bar
+[ui] <49.1s>    root > UITEMP > infopanel_holder

@@ -1,0 +1,213 @@
+[ui] <45.9s>    root > UITEMP
+[ui] <45.9s>    root > UITEMP > parchment
+[ui] <45.9s>    root > UITEMP > TabGroup
+[ui] <45.9s>    root > UITEMP > TabGroup > tab_chapters
+[ui] <45.9s>    root > UITEMP > TabGroup > tab_chapters > tab_child
+[ui] <45.9s>    root > UITEMP > TabGroup > tab_chapters > tab_child > chapter_frame
+[ui] <45.9s>    root > UITEMP > TabGroup > tab_chapters > tab_child > dy_chapter_title
+[ui] <45.9s>    root > UITEMP > TabGroup > tab_chapters > tab_child > dy_chapter_title > hbar
+[ui] <45.9s>    root > UITEMP > TabGroup > tab_chapters > tab_child > dy_title
+[ui] <45.9s>    root > UITEMP > TabGroup > tab_chapters > tab_child > dy_title > icon_complete
+[ui] <45.9s>    root > UITEMP > TabGroup > tab_chapters > tab_child > subpanel_reward
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > subpanel_reward > tx_reward
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > subpanel_reward > tx_reward > icon_coin
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > subpanel_reward > tx_reward > icon_coin > dy_gold
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > subpanel_reward > tx_reward > dy_custom_reward
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > subpanel_reward > tx_reward > subpanel_effect_bundles
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > subpanel_reward > tx_reward > subpanel_effect_bundles > effect_list
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > subpanel_reward > tx_reward > subpanel_effect_bundles > effect_divider
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > subpanel_reward > tx_reward > subpanel_effect_bundles > effect_entry
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > subpanel_reward > tx_reward > subpanel_effect_bundles > effect_entry > icon
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > subpanel_reward > tx_reward > subpanel_effect_bundles > effect_entry > icon > dy_name
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > subpanel_reward > dy_turns
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > subpanel_reward > dy_turns > icon_turns
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > button_group
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > button_group > button_primary_objective
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > button_group > button_primary_objective > icon_complete
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > button_group > button_bonus_objective_1
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > button_group > button_bonus_objective_1 > icon_complete
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > button_group > button_bonus_objective_2
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > button_group > button_bonus_objective_2 > icon_complete
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > button_group > button_bonus_objective_3
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > button_group > button_bonus_objective_3 > icon_complete
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > button_group > button_bonus_objective_4
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > button_group > button_bonus_objective_4 > icon_complete
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > button_group > button_bonus_objective_5
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > button_group > button_bonus_objective_5 > icon_complete
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > bonus_objective_buttons
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > listview
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > listview > list_clip
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > listview > list_clip > list_box
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > listview > list_clip > list_box > dy_objective
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > listview > list_clip > list_box > dy_objective > bullet_point
+[ui] <46.0s>    root > UITEMP > TabGroup > tab_chapters > tab_child > listview > list_clip > list_box > target_window
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_chapters > tab_child > listview > list_clip > list_box > target_window > h_line
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_chapters > tab_child > listview > list_clip > list_box > dy_description
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_chapters > tab_child > listview > vslider
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_chapters > tab_child > listview > vslider > frame_top
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_chapters > tab_child > listview > vslider > frame_bottom
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_chapters > tab_child > listview > vslider > handle
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_chapters > tab_child > listview > vslider > top
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_chapters > tab_child > listview > vslider > bottom
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_chapters > tx_chapters
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > icon_all_complete
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > bullet_point
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective
+[ui] <46.1s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > icon_all_complete
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.2s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > bullet_point
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > icon_all_complete
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > bullet_point
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > icon_all_complete
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > bullet_point
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > icon_all_complete
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > dy_target_name
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > target_window > objective > icon_complete
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > list_clip > list_box > objective > bullet_point
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > vslider
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > vslider > frame_top
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > vslider > frame_bottom
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > vslider > handle
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > vslider > top
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > listview > vslider > bottom
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > tree_holder
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > tree_holder > bookmark
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > tree_holder > victory_type_tree
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > tree_holder > victory_type_tree > branch_parent
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > tree_holder > victory_type_tree > branch_parent > link
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > tree_holder > victory_type_tree > branch_parent > arrow_head
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > tree_holder > victory_type_tree > slot_parent
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > tree_holder > victory_type_tree > slot_parent > wh_main_victory_type_short
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > tree_holder > victory_type_tree > slot_parent > wh_main_victory_type_short > icon_complete
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > tree_holder > victory_type_tree > slot_parent > wh_main_victory_type_long
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > tree_holder > victory_type_tree > slot_parent > wh_main_victory_type_long > icon_complete
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > tx_title
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > tx_title > progress_bar
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > tx_title > progress_bar > bar_level
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_victory_conditions > tab_child > tx_title > progress_bar > frame
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_victory_conditions > tx_chapters
+[ui] <46.6s>    root > UITEMP > panel_title
+[ui] <46.6s>    root > UITEMP > panel_title > tx_objectives
+[ui] <46.6s>    root > UITEMP > button_info

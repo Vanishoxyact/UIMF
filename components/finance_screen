@@ -1,0 +1,159 @@
+[ui] <46.3s>    root > UITEMP
+[ui] <46.3s>    root > UITEMP > parchment
+[ui] <46.3s>    root > UITEMP > TabGroup
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > income_parent
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > expenditure_parent
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_income_annual
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_income_annual > dy_annual-income
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_income_annual > dy_annual-income > icon_income
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > dy_sum_debit
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > dy_sum_debit > icon_coin
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > dy_sum_debit > tx_total_expenditure
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_income
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_income > hbar
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_income > hbar > hbar
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_expenditure
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_expenditure > hbar
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_expenditure > hbar > hbar
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_development_cost
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_development_cost > dy_cost
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_development_cost > icon_coin
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_administration_cost
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_administration_cost > dy_cost
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_administration_cost > icon_coin
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_upkeep_mercenary 
+[ui] <46.3s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_upkeep_mercenary  > dy_navy-upkeep
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_upkeep_mercenary  > icon_coin
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_policing
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_policing > dy_policing
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_total_income
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > projected_income > tx_total_income > dy_sum_credit
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > frame
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > frame > frame
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tax_effects
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tax_effects > tax_effect_parent
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tax_effects > tax_effect_parent > effect_public_order
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tax_effects > tax_effect_parent > effect_public_order > dy_rate
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tax_effects > tax_effect_parent > effect_growth
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tax_effects > tax_effect_parent > effect_growth > dy_rate
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tax_effects > tax_effect_parent > effect_immigration
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tax_effects > tx_tax_effects
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tx_classes_lower
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tx_classes_lower > bar
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tx_classes_lower > bar > dy_income_lower
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tx_classes_lower > bar > effect1_DY
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tx_classes_lower > bar > effect1_DY > effect2_DY
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tx_classes_lower > bar > effect1_DY > effect2_DY > effect3_DY
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tx_classes_lower > bar > icon_tax_rate
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tx_classes_lower > bar > icon_tax_rate > dy_tax_level
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tx_classes_lower > bar > tx_income
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tx_classes_lower > bar > tx_income > dy_tax-income
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tx_classes_lower > bar > tx_income > icon_income
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tx_classes_lower > bar > slider
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tx_classes_lower > bar > slider > frame_left
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tx_classes_lower > bar > slider > frame_right
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tx_classes_lower > bar > slider > handle
+[ui] <46.4s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tx_classes_lower > bar > slider > left
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tx_classes_lower > bar > slider > right
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > tx_classes_lower > tx_tax_level
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > zoom_to_advice_button
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > zoom_to_advice_button > dy_public-order_lowest
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > zoom_to_advice_button > tx_public-order_lowest
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > zoom_to_advice_button > tx_public-order_lowest > zoom_to_advice_button_old
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > zoom_to_advice_button > tx_public-order_lowest > icon_province
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > zoom_to_advice_button > tx_public-order_lowest > icon_public_order
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > zoom_to_advice_button > tx_public-order_lowest > icon_public_order > arrow
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_taxes > taxes > tax_settings > zoom_to_advice_button > tx_public-order_lowest > icon_public_order > dy_public_order
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_taxes > tx_summary
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade > frame
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade > frame > frame
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade > exports
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > tx_trade_partners
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > tx_no_trade_partners
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > listview
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > listview > list_clip
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > listview > list_clip > list_box
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > listview > vslider
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > listview > vslider > frame_top
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > listview > vslider > frame_bottom
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > listview > vslider > handle
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > listview > vslider > top
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > listview > vslider > bottom
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > listview > headers
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > listview > headers > sort_name
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > listview > headers > sort_name > tx
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > listview > headers > sort_imports
+[ui] <46.5s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > listview > headers > sort_imports > tx
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > listview > headers > sort_exports
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > listview > headers > sort_exports > tx
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > listview > headers > sort_route
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > listview > headers > sort_route > tx
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > listview > headers > sort_value
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > exports > trade_partners_list > listview > headers > sort_value > tx
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > total_title
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > total_title > total
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > total_title > coin
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > unsold_income_title
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > unsold_income_title > income_icon
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > unsold_income_title > income_icon > unsold_total
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > world market
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > world market > produce_window
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > world market > produce_window > resource_template
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > world market > produce_window > resource_template > dy_value
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > world market > produce_window > resource_template > dy_value > coin
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > world market > produce_window > resource_template > growth_arrow
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > world market > trade_window
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > world market > trade_window > resource_template
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > world market > trade_window > resource_template > dy_value
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > world market > trade_window > resource_template > dy_value > coin
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > world market > trade_window > resource_template > growth_arrow
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > world market > tx_producing
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > trade > world market > tx_trading
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_trade > tx_trade
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_summary
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_summary > summary
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_summary > summary > frame
+[ui] <46.6s>    root > UITEMP > TabGroup > tab_summary > summary > listview
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > listview > list_clip
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > listview > list_clip > list_box
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > listview > vslider
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > listview > vslider > frame_top
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > listview > vslider > frame_bottom
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > listview > vslider > handle
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > listview > vslider > top
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > listview > vslider > bottom
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > starting treasury
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > starting treasury > tx_starting_treasury
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > starting treasury > dy_value1
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > starting treasury > dy_value1 > icon_coin
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > starting treasury > dy_value2
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > starting treasury > dy_value2 > icon_coin
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > starting treasury > dy_date_current
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > starting treasury > dy_date_last
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > starting treasury > hbar
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > profit_last_season
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > profit_last_season > tx_profit_last_season
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > profit_last_season > dy_value1
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > profit_last_season > dy_value1 > icon_coin
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > profit_last_season > dy_value2
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > profit_last_season > dy_value2 > icon_coin
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > profit_last_season > hbar
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > end treasury
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > end treasury > tx_end_treasury
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > end treasury > dy_value1
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > end treasury > dy_value1 > icon_coin
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > end treasury > dy_value2
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > end treasury > dy_value2 > icon_coin
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > summary > end treasury > hline
+[ui] <46.7s>    root > UITEMP > TabGroup > tab_summary > tx_details
+[ui] <46.8s>    root > UITEMP > panel_title
+[ui] <46.8s>    root > UITEMP > panel_title > tx_finance
+[ui] <46.8s>    root > UITEMP > button_holder
+[ui] <46.8s>    root > UITEMP > button_holder > button_info

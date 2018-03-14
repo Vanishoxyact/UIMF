@@ -1,0 +1,17 @@
+[ui] <46.6s>    root > UITEMP
+[ui] <46.6s>    root > UITEMP > fullscreen_underlay
+[ui] <46.6s>    root > UITEMP > panel_frame
+[ui] <46.6s>    root > UITEMP > panel_frame > fullscreen_overlay
+[ui] <46.6s>    root > UITEMP > panel_frame > button_info
+[ui] <46.6s>    root > UITEMP > panel_frame > header
+[ui] <46.6s>    root > UITEMP > panel_frame > header > tx_header
+[ui] <46.6s>    root > UITEMP > panel_frame > rituals_list
+[ui] <46.6s>    root > UITEMP > panel_frame > button_ok_frame
+[ui] <46.6s>    root > UITEMP > panel_frame > button_ok_frame > button_ok
+[ui] <46.6s>    root > UITEMP > panel_frame > info_holder
+[ui] <46.6s>    root > UITEMP > panel_frame > info_holder > total_food
+[ui] <46.6s>    root > UITEMP > panel_frame > info_holder > total_food > dy_food
+[ui] <46.6s>    root > UITEMP > panel_frame > info_holder > total_slaves
+[ui] <46.6s>    root > UITEMP > panel_frame > info_holder > total_slaves > dy_slaves
+[ui] <46.6s>    root > UITEMP > panel_frame > info_holder > dy_treasury
+[ui] <46.6s>    root > UITEMP > panel_frame > info_holder > dy_treasury > treasury_icon

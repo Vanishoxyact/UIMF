@@ -1,0 +1,48 @@
+    --toggle button
+    --local button = Util.createComponent(
+    --    name, parent, "ui/campaign ui/objectives_screen",
+    --    "TabGroup", "tab_victory_conditions", "tab_child", "tree_holder", "victory_type_tree", "slot_parent", "wh_main_victory_type_long"
+    --);
+    
+    --normal button
+    --local button = Util.createComponent(
+    --   name, parent, "ui/campaign ui/clan",
+    --   "main", "button_ok"
+    --);
+
+    --Text toggle button but with frill
+    --local button = Util.createComponent(
+    --    name, parent, "ui/campaign ui/finance_screen",
+    --    "TabGroup", "tab_summary"
+    --);
+    --local buttonText = UIComponent(button:Find("tx_details"));
+    --Util.delete(UIComponent(button:Find("summary")));
+
+    --weird white box?
+    --local button = Util.createComponent(
+    --    name, parent, "ui/campaign ui/agent_options",
+    --    "options_panel", "stage1_target", "target_frame_template", "button_option_1"
+    --);
+    --local buttonText = UIComponent(button:Find("button_txt"));
+
+    --weird green box
+    --local button = Util.createComponent(
+    --    name, parent, "ui/campaign ui/clan",
+    --    "message_box", "purchase_options", "button_purchase"
+    --);
+    --local buttonText = UIComponent(button:Find("button_txt"));
+
+    --square button
+    --local button = Util.createComponent(
+    --    name, parent, "ui/campaign ui/character_details_panel",
+    --    "background", "bottom_buttons", "button_event_feed"
+    --);
+
+    --text button!
+    local button = Util.createComponent(
+        name, parent, "ui/campaign ui/intrigue_panel",
+        "button_improve"
+    );
+    local buttonText = UIComponent(button:Find("button_txt"));
+    Util.delete(UIComponent(button:Find("att_frame")));
+    Util.delete(UIComponent(button:Find("dy_cost")));
