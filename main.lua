@@ -135,9 +135,9 @@ function main()
                 myFrame:AddToContentPanel(incrementButton.uic, 50, 310);
                 local decrementButton = Button.new("decrementButton", contentPanel, "TEXT", "-");
                 decrementButton.uic:ResizeTextResizingComponentToInitialSize(150, 51);
-                myFrame:AddToContentPanel(decrementButton.uic, 100, 310);
+                myFrame:AddToContentPanel(decrementButton.uic, 150, 310);
                 local counterText = Text.new("CounterText", contentPanel, "0");
-                myFrame:AddToContentPanel(counterText.uic, 250, 310);
+                myFrame:AddToContentPanel(counterText.uic, 300, 310);
                 Util.registerForClick(incrementButton.uic, "incrementCounter",
                     function(context)
                         local number = tonumber(counterText.uic:GetStateText());
@@ -156,7 +156,17 @@ function main()
                         end
                     end
                 );
-
+                local toggleButton = Button.new("toggleButton", contentPanel, "SQUARE_TOGGLE", "ui/skins/default/icon_end_turn.png");
+                myFrame:AddToContentPanel(toggleButton.uic, 350, 310);
+                local toggleText = Text.new("toggleText", contentPanel, "0");
+                myFrame:AddToContentPanel(toggleText.uic, 400, 310);
+                toggleText.uic:SetStateText(toggleButton.uic:CurrentState());
+                Util.registerForClick(toggleButton.uic, "toggleListener",
+                    function(context)
+                        toggleText.uic:SetStateText(toggleButton.uic:CurrentState());
+                    end
+                );
+                
                 local text = Text.new("text", contentPanel, "Text");
                 myFrame:AddToContentPanel(text.uic, 50, 350);
                 local greenText = Text.new("greenText", contentPanel, "[[col:green]]This is green text[[/col]]");
@@ -168,6 +178,7 @@ function main()
                 myFrame:AddToContentPanel(resizedText.uic, 50, 410);
                 local resizedText = Text.new("resizedText", contentPanel, "This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. ");
                 myFrame:AddToContentPanel(resizedText.uic, 50, 430);
+                Components.resize(resizedText.uic, resizedText.uic:Width(), resizedText.uic:Height()*3);
                 
                 local textOutside = Text.new("textOutside", contentPanel, "Im outside");
                 myFrame:AddToContentPanel(textOutside.uic, 50, 800);

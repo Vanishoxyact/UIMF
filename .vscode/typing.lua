@@ -55,6 +55,7 @@
 --# assume CA_UIC.Priority: method() --> number
 --# assume CA_UIC.Bounds: method() --> (number, number)
 --# assume CA_UIC.Height: method() --> number
+--# assume CA_UIC.Width: method() --> number
 --# assume CA_UIC.SetImageRotation:  method(unknown: number, rotation: number)
 --# assume CA_UIC.ResizeTextResizingComponentToInitialSize: method(width: number, height: number)
 
