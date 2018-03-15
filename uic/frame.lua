@@ -26,7 +26,7 @@ function Frame.new(name)
     self.title = title --: const
     self.content = parchment --: const
     Util.registerComponent(name, self);    
-    Log.write("Create Frame "..name);
+    Log.write("Created component "..name);
     return self;
 end
 

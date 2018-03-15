@@ -70,11 +70,7 @@ end
 
 --v function(self: TEXT, width: number, height: number)
 function Text.Resize(self, width, height)
-    if self.textType == "WRAPPED" then
-        Log.write("Cannot resize text of type : WRAPPED for : " .. self.name);
-    else
-        Components.resize(self.uic, width, height);
-    end
+    Components.resize(self.uic, width, height);
 end
 
 --v function(self: TEXT) --> (number, number)
