@@ -1,5 +1,3 @@
---# assume global class TEXT_BUTTON
-
 local Log = require("uic/log");
 local Util = require("uic/util");
 require("uic/components");

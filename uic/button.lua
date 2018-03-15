@@ -1,5 +1,6 @@
 local Log = require("uic/log");
 local Util = require("uic/util");
+local Components = require("uic/components");
 local Button = {} --# assume Button: BUTTON
 
 local States = {
@@ -13,17 +14,18 @@ local States = {
 
 --v function(name: string, parent: CA_UIC | COMPONENT_TYPES, buttonType: BUTTON_TYPE, imagePath: string) --> BUTTON
 function Button.new(name, parent, buttonType, imagePath)
+    local parentComponent = Components.getUiContentComponent(parent);
     local self = {};
     local button = nil --: CA_UIC
     if buttonType == "CIRCULAR" then
         button = Util.createComponent(
-            name, parent, "ui/campaign ui/clan",
+            name, parentComponent, "ui/campaign ui/clan",
             "main", "button_ok"
         );
         button:SetImage(imagePath);
     elseif buttonType == "SQUARE" then
         button = Util.createComponent(
-            name, parent, "ui/campaign ui/character_details_panel",
+            name, parentComponent, "ui/campaign ui/character_details_panel",
             "background", "bottom_buttons", "button_event_feed"
         );
         button:SetImage(imagePath);
@@ -31,7 +33,7 @@ function Button.new(name, parent, buttonType, imagePath)
         Log.write(buttonType .. " not yet supported");
     elseif buttonType == "SQUARE_TOGGLE" then
         button = Util.createComponent(
-            name, parent, "ui/campaign ui/objectives_screen",
+            name, parentComponent, "ui/campaign ui/objectives_screen",
             "TabGroup", "tab_victory_conditions", "tab_child", "tree_holder", "victory_type_tree", "slot_parent", "wh_main_victory_type_long"
         );
         button:SetImage(imagePath);

@@ -1,5 +1,3 @@
---# assume global class FRAME
-
 local Log = require("uic/log");
 local Util = require("uic/util");
 local Components = require("uic/components");

@@ -1,9 +1,6 @@
 local Log = require("uic/log");
 local Components = {};
 
---# type global COMPONENT_TYPES = 
---# TEXT | IMAGE | BUTTON | TEXT_BUTTON | FRAME
-
 --v function(component: CA_UIC, width: number, height: number)
 function Components.resize(component, width, height)
     component:SetCanResizeHeight(true);

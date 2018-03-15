@@ -1,5 +1,3 @@
---# assume global class TEXT
-
 local Log = require("uic/log");
 local Util = require("uic/util");
 require("uic/components");

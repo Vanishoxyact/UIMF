@@ -1,5 +1,3 @@
---# assume global class IMAGE
-
 local Log = require("uic/log");
 local Util = require("uic/util");
 require("uic/components");
