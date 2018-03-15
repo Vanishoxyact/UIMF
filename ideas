@@ -5,16 +5,16 @@ Tooltips
 Test mod adding to UI on start
 /Change init to UI init
 /Toggle button state
-Reafactored away from UID
+/Reafactored away from UID
 /Text width
 /Text button factor out
 
-Image methods
-Button methods
-TextButton methods
-Text methods
-Frame methods
-Log
+/Image methods
+/Button methods
+/TextButton methods
+/Text methods
+/Frame methods
+/Log
 
 text button resizing issues
 dig for component
@@ -33,10 +33,11 @@ setmetatable(self, {
     __tostring = function() return "BUTTON: "..name end
 })
 
-is_uicomponent
 find object from component/name (TEXT, IMAGE)
 wrap panel in list
 bind components
+
+
 
 component interface
 MoveTo
@@ -50,3 +51,62 @@ SetVisible
 GetContentComponent
 GetPositioningComponent
 Delete
+
+-- Component functions
+
+--v function(self: BUTTON, xPos: number, yPos: number)
+function Button.MoveTo(self, xPos, yPos) 
+    self.uic:MoveTo(xPos, yPos);
+end
+
+--v function(self: BUTTON, xMove: number, yMove: number)
+function Button.Move(self, xMove, yMove)
+    Components.move(self.uic, xMove, yMove);
+end
+
+--v function(self: BUTTON, component: CA_UIC | COMPONENT_TYPE, xDiff: number, yDiff: number)
+function Button.PositionRelativeTo(self, component, xDiff, yDiff)
+    Components.positionRelativeTo(self.uic, component, xDiff, yDiff);
+end
+
+--v function(self: BUTTON, factor: number)
+function Button.Scale(self, factor)
+    Components.scale(self.uic, factor);
+end
+
+--v function(self: BUTTON, width: number, height: number)
+function Button.Resize(self, width, height)
+    Components.resize(self.uic, width, height);
+end
+
+--v function(self: BUTTON) --> (number, number)
+function Button.Position(self)
+    return self.uic:Position();
+end
+
+--v function(self: BUTTON) --> (number, number)
+function Button.Bounds(self)
+    return self.uic:Bounds();
+end
+
+--v function(self: BUTTON, visible: boolean)
+function Button.SetVisible(self, visible)
+    return self.uic:SetVisible(visible);
+end
+
+--v function(self: BUTTON) --> CA_UIC
+function Button.GetContentComponent(self)
+    return self.uic;
+end
+
+--v function(self: BUTTON) --> CA_UIC
+function Button.GetPositioningComponent(self)
+    return self.uic;
+end
+
+--v function(self: BUTTON)
+function Button.Delete(self) 
+    Util.delete(self.uic);
+end
+
+-- Custom functions

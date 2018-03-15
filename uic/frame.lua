@@ -9,7 +9,6 @@ function Frame.new(name)
     local root = core:get_ui_root();
     root:CreateComponent(name, "ui/campaign ui/objectives_screen");
     local frame = UIComponent(root:Find(name));
-    Util.registerComponent(name, frame);
 
     Util.delete(UIComponent(frame:Find("TabGroup")));
     Util.delete(UIComponent(frame:Find("button_info")));
@@ -26,9 +25,77 @@ function Frame.new(name)
     self.name = name --: const
     self.title = title --: const
     self.content = parchment --: const
+    Util.registerComponent(name, self);    
     Log.write("Create Frame "..name);
     return self;
 end
+
+-- Component functions
+
+--v function(self: FRAME, xPos: number, yPos: number)
+function Frame.MoveTo(self, xPos, yPos) 
+    self.uic:MoveTo(xPos, yPos);
+end
+
+--v function(self: FRAME, xMove: number, yMove: number)
+function Frame.Move(self, xMove, yMove)
+    Components.move(self.uic, xMove, yMove);
+end
+
+--v function(self: FRAME, component: CA_UIC | COMPONENT_TYPE, xDiff: number, yDiff: number)
+function Frame.PositionRelativeTo(self, component, xDiff, yDiff)
+    Components.positionRelativeTo(self.uic, component, xDiff, yDiff);
+end
+
+--v function(self: FRAME, factor: number)
+function Frame.Scale(self, factor)
+    self.content:SetCanResizeHeight(true);
+    self.content:SetCanResizeWidth(true);
+    Components.scale(self.uic, factor);
+    self.content:SetCanResizeHeight(false);
+    self.content:SetCanResizeWidth(false);
+end
+
+--v function(self: FRAME, width: number, height: number)
+function Frame.Resize(self, width, height)
+    self.content:SetCanResizeHeight(true);
+    self.content:SetCanResizeWidth(true);
+    Components.resize(self.uic, width, height);
+    self.content:SetCanResizeHeight(false);
+    self.content:SetCanResizeWidth(false);
+end
+
+--v function(self: FRAME) --> (number, number)
+function Frame.Position(self)
+    return self.uic:Position();
+end
+
+--v function(self: FRAME) --> (number, number)
+function Frame.Bounds(self)
+    return self.uic:Bounds();
+end
+
+--v function(self: FRAME, visible: boolean)
+function Frame.SetVisible(self, visible)
+    return self.uic:SetVisible(visible);
+end
+
+--v function(self: FRAME) --> CA_UIC
+function Frame.GetContentComponent(self)
+    return self.content;
+end
+
+--v function(self: FRAME) --> CA_UIC
+function Frame.GetPositioningComponent(self)
+    return self.content;
+end
+
+--v function(self: FRAME)
+function Frame.Delete(self) 
+    Util.delete(self.uic);
+end
+
+-- Custom functions
 
 --v function(self: FRAME)
 function Frame.AddCloseButton(self)
@@ -51,37 +118,8 @@ function Frame.SetTitle(self, title)
     self.title:SetStateText(title);
 end
 
---v function(self: FRAME, w: number, h: number)
-function Frame.Resize(self, w, h)
-    self.uic:Resize(w, h);
-end
-
---v function(self: FRAME, factor: number)
-function Frame.Scale(self, factor)
-    self.content:SetCanResizeHeight(true);
-    self.content:SetCanResizeWidth(true);
-    Components.scale(self.uic, 1.5);
-    self.content:SetCanResizeHeight(false);
-    self.content:SetCanResizeWidth(false);
-end
-
---v function(self: FRAME, component: CA_UIC, xOffset: number, yOffset: number)
-function Frame.AddToContentPanel(self, component, xOffset, yOffset)
-    Components.positionRelativeTo(component, self.content, xOffset, yOffset);    
-end
-
 --v function(self: FRAME) --> CA_UIC
 function Frame.GetContentPanel(self)
-    return self.content;
-end
-
---v function(self: FRAME)
-function Frame.Delete(self)
-    Util.delete(self.uic);
-end
-
---v function(self: FRAME) --> CA_UIC
-function Frame.GetContentComponent(self)
     return self.content;
 end
 

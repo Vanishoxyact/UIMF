@@ -43,6 +43,7 @@ function Button.new(name, parent, buttonType, imagePath)
     self.uic = button --: const
     self.name = name --: const
     self.buttonType = buttonType --: const
+    Util.registerComponent(name, self); 
     return self;
 end
 
@@ -125,19 +126,14 @@ function Button.IsSelected(self)
     end
 end
 
---TODO
---v function(self: BUTTON, text: string)
-function Button.SetTooltipText(self, text) 
-    local saved = self.uic:CurrentState();
-    
-    -- Make sure the default tooltip "Cancel" will
-    -- be replace by the custom one for each possible state
-    for index, state in ipairs(States) do
-        self:SetState(state);
-        self.uic:SetTooltipText(text);
-    end
+--v function(self: BUTTON, listenerName: string, callback: function(context: CA_UIContext))
+function Button.RegisterForClick(self, listenerName, callback)
+    Util.registerForClick(self.uic, listenerName,callback);
+end
 
-    self:SetState(saved);
+--v function(self: BUTTON, path: string)
+function Button.SetImage(self, path)
+    self.uic:SetImage(path);
 end
 
 return {

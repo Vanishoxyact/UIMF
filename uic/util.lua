@@ -1,7 +1,7 @@
 local Log = require("uic/log");
 
 local Util = {};
-local Components = {} --: map<string, CA_UIC>
+local Components = {} --: map<string, COMPONENT_TYPE>
 local InitCallbacks = {} --: vector<function()>
 
 function Util.init() 
@@ -34,12 +34,12 @@ function Util.delete(uic)
     Util.garbage:DestroyChildren();
 end
 
---v function(name: string, uiComponent: CA_UIC)
-function Util.registerComponent(name, uiComponent)
+--v function(name: string, component: COMPONENT_TYPE)
+function Util.registerComponent(name, component)
     if not not Components[name] then
         Log.write("Failed to register component with name " .. name .. ", component with that name already registered.");
     else
-        Components[name] = uiComponent;
+        Components[name] = component;
     end
 end
 
@@ -62,13 +62,12 @@ function Util.createComponent(name, parentComponent, componentFilePath, ...)
         parentComponent:Adopt(component:Address());
         component:PropagatePriority(parentComponent:Priority());
         Util.delete(temp);
-        Util.registerComponent(name, component);
         Log.write("Created component "..name)
         return component;
     end
 end
 
---v function(name: string) --> CA_UIC
+--v function(name: string) --> COMPONENT_TYPE
 function Util.getComponentWithName(name)
     return Components[name];
 end

@@ -3,7 +3,6 @@ local Util = require("uic/util");
 local Components = require("uic/components");
 local Image = {} --# assume Image: IMAGE
 
-
 --v function(name: string, parent: CA_UIC | COMPONENT_TYPE, imagePath: string) --> IMAGE
 function Image.new(name, parent, imagePath)
     local parentComponent = Components.getUiContentComponent(parent);    
@@ -20,52 +19,60 @@ function Image.new(name, parent, imagePath)
     --# assume self: IMAGE
     self.uic = image --: const
     self.name = name --: const
+    Util.registerComponent(name, self); 
     return self;
 end
 
+-- Component functions
 
---v function(self: IMAGE, x: number, y: number)
-function Image.MoveTo(self, x, y)
-    self.uic:MoveTo(x, y);
+--v function(self: IMAGE, xPos: number, yPos: number)
+function Image.MoveTo(self, xPos, yPos) 
+    self.uic:MoveTo(xPos, yPos);
+end
+
+--v function(self: IMAGE, xMove: number, yMove: number)
+function Image.Move(self, xMove, yMove)
+    Components.move(self.uic, xMove, yMove);
+end
+
+--v function(self: IMAGE, component: CA_UIC | COMPONENT_TYPE, xDiff: number, yDiff: number)
+function Image.PositionRelativeTo(self, component, xDiff, yDiff)
+    Components.positionRelativeTo(self.uic, component, xDiff, yDiff);
+end
+
+--v function(self: IMAGE, factor: number)
+function Image.Scale(self, factor)
+    Components.scale(self.uic, factor);
+end
+
+--v function(self: IMAGE, width: number, height: number)
+function Image.Resize(self, width, height)
+    Components.resize(self.uic, width, height);
 end
 
 --v function(self: IMAGE) --> (number, number)
-function Image.Position(self) 
+function Image.Position(self)
     return self.uic:Position();
 end
 
---v function(self: IMAGE, path: string)
-function Image.SetImage(self, path)
-    self.uic:SetImage(path);
-end
-
---v function(self: IMAGE, tooltip: string)
-function Image.SetTooltip(self, tooltip)
-    self.uic:SetTooltipText(tooltip, true);
-end
-
---v function(self: IMAGE, tooltip: string)
-function Image.DisableTooltip(self, tooltip)
-    self.uic:SetTooltipText("", true);
-end
-
---v function(self: IMAGE, w: number, h: number)
-function Image.Resize(self, w, h)
-    self.uic:SetCanResizeHeight(true);
-    self.uic:SetCanResizeWidth(true);
-    self.uic:Resize(w, h);
-    self.uic:SetCanResizeHeight(false);
-    self.uic:SetCanResizeWidth(false);
-end
-
---v function(self: IMAGE, opacity: number)
-function Image.SetOpacity(self, opacity)
-    self.uic:SetOpacity(opacity);
+--v function(self: IMAGE) --> (number, number)
+function Image.Bounds(self)
+    return self.uic:Bounds();
 end
 
 --v function(self: IMAGE, visible: boolean)
-function Image.SetVisible(self, visible) 
-    self.uic:SetVisible(visible);
+function Image.SetVisible(self, visible)
+    return self.uic:SetVisible(visible);
+end
+
+--v function(self: IMAGE) --> CA_UIC
+function Image.GetContentComponent(self)
+    return self.uic;
+end
+
+--v function(self: IMAGE) --> CA_UIC
+function Image.GetPositioningComponent(self)
+    return self.uic;
 end
 
 --v function(self: IMAGE)
@@ -73,9 +80,21 @@ function Image.Delete(self)
     Util.delete(self.uic);
 end
 
---v function(self: IMAGE) --> CA_UIC
-function Image.GetContentComponent(self)
-    return self.uic;
+-- Custom functions
+
+--v function(self: IMAGE, path: string)
+function Image.SetImage(self, path)
+    self.uic:SetImage(path);
+end
+
+--v function(self: IMAGE, opacity: number)
+function Image.SetOpacity(self, opacity)
+    self.uic:SetOpacity(opacity);
+end
+
+--v function(self: IMAGE, rotation: number)
+function Image.SetRotation(self, rotation)
+    self.uic:SetImageRotation(0, rotation);
 end
 
 return {

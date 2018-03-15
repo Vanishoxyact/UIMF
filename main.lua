@@ -45,7 +45,6 @@ function main()
             end
             local myImage = Image.new("uppercase", mortCultBox, "ui/skins/default/advisor_beastmen_2d.png");
             myImage:MoveTo(250, 200);
-            myImage:SetTooltip("My tooptip");
             local myButton = Button.new("mybtton", mortCult, "CIRCULAR", "ui/campaign ui/edicts/lzd_alignment_of_building.png");
             myButton:MoveTo(500, 200);
         end,
@@ -204,6 +203,7 @@ function main()
 
                 Components.getUiContentComponent(textOutside);
             else
+                --# assume existingFrame: BUTTON
                 existingFrame:SetVisible(true);
             end
 		end,

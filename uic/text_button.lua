@@ -42,45 +42,78 @@ function TextButton.new(name, parent, buttonType, buttonText)
     self.name = name --: const
     self.buttonType = buttonType --: const
     self.textButtonText = textButtonText --: const
+    Util.registerComponent(name, self); 
     return self;
 end
 
---TODO
---v function(self: TEXT_BUTTON)
-function TextButton.ClearSound(self)
-    self.uic:ClearSound();
+-- Component functions
+
+--v function(self: TEXT_BUTTON, xPos: number, yPos: number)
+function TextButton.MoveTo(self, xPos, yPos) 
+    self.uic:MoveTo(xPos, yPos);
 end
 
---TODO
---v function(self: TEXT_BUTTON, x: number, y: number)
-function TextButton.MoveTo(self, x, y) 
-    self.uic:MoveTo(x, y);
+--v function(self: TEXT_BUTTON, xMove: number, yMove: number)
+function TextButton.Move(self, xMove, yMove)
+    Components.move(self.uic, xMove, yMove);
 end
 
---TODO
---v function(self: TEXT_BUTTON, state: BUTTON_STATE)
-function TextButton.SetState(self, state) 
-    self.uic:SetState(state);
+--v function(self: TEXT_BUTTON, component: CA_UIC | COMPONENT_TYPE, xDiff: number, yDiff: number)
+function TextButton.PositionRelativeTo(self, component, xDiff, yDiff)
+    Components.positionRelativeTo(self.uic, component, xDiff, yDiff);
 end
 
---TODO
---v function(self: TEXT_BUTTON, text: string)
-function TextButton.SetTooltipText(self, text) 
-    local saved = self.uic:CurrentState();
-    
-    -- Make sure the default tooltip "Cancel" will
-    -- be replace by the custom one for each possible state
-    for index, state in ipairs(States) do
-        self:SetState(state);
-        self.uic:SetTooltipText(text);
-    end
+--v function(self: TEXT_BUTTON, factor: number)
+function TextButton.Scale(self, factor)
+    local width, height = self.uic:Bounds();
+    self.uic:ResizeTextResizingComponentToInitialSize(width * factor, height * factor); 
+end
 
-    self:SetState(saved);
+--v function(self: TEXT_BUTTON, width: number, height: number)
+function TextButton.Resize(self, width, height)
+    self.uic:ResizeTextResizingComponentToInitialSize(width, height); 
+end
+
+--v function(self: TEXT_BUTTON) --> (number, number)
+function TextButton.Position(self)
+    return self.uic:Position();
+end
+
+--v function(self: TEXT_BUTTON) --> (number, number)
+function TextButton.Bounds(self)
+    return self.uic:Bounds();
+end
+
+--v function(self: TEXT_BUTTON, visible: boolean)
+function TextButton.SetVisible(self, visible)
+    return self.uic:SetVisible(visible);
+end
+
+--v function(self: TEXT_BUTTON) --> CA_UIC
+function TextButton.GetContentComponent(self)
+    return self.uic;
+end
+
+--v function(self: TEXT_BUTTON) --> CA_UIC
+function TextButton.GetPositioningComponent(self)
+    return self.uic;
 end
 
 --v function(self: TEXT_BUTTON)
 function TextButton.Delete(self) 
     Util.delete(self.uic);
+end
+
+-- Custom functions
+
+--v function(self: TEXT_BUTTON)
+function TextButton.ClearSound(self)
+    self.uic:ClearSound();
+end
+
+--v function(self: TEXT_BUTTON, state: BUTTON_STATE)
+function TextButton.SetState(self, state) 
+    self.uic:SetState(state);
 end
 
 --v function(self: TEXT_BUTTON) --> boolean
@@ -93,14 +126,14 @@ function TextButton.IsSelected(self)
     end
 end
 
+--v function(self: TEXT_BUTTON, listenerName: string, callback: function(context: CA_UIContext))
+function TextButton.RegisterForClick(self, listenerName, callback)
+    Util.registerForClick(self.uic, listenerName,callback);
+end
+
 --v function(self: TEXT_BUTTON, text: string)
 function TextButton.SetButtonText(self, text)
     self.textButtonText:SetStateText(text);
-end
-
---v function(self: TEXT_BUTTON) --> CA_UIC
-function TextButton.GetContentComponent(self)
-    return self.uic;
 end
 
 return {

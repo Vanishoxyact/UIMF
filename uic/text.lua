@@ -4,9 +4,6 @@ local Components = require("uic/components");
 
 local Text = {} --# assume Text: TEXT
 
---# type global TEXT_TYPE = 
---# "NORMAL" | "WRAPPED" | "TITLE"
-
 --v function(name: string, parent: CA_UIC | COMPONENT_TYPE, textType: TEXT_TYPE, textToDisplay: string) --> TEXT
 function Text.new(name, parent, textType, textToDisplay)
     local parentComponent = Components.getUiContentComponent(parent);
@@ -41,37 +38,76 @@ function Text.new(name, parent, textType, textToDisplay)
     self.uic = text --: const
     self.name = name --: const
     self.textType = textType --: const
+    Util.registerComponent(name, self); 
     return self;
 end
 
---v function(self: TEXT, x: number, y: number)
-function Text.MoveTo(self, x, y) 
-    self.uic:MoveTo(x, y);
+-- Component functions
+
+--v function(self: TEXT, xPos: number, yPos: number)
+function Text.MoveTo(self, xPos, yPos) 
+    self.uic:MoveTo(xPos, yPos);
 end
 
---v function(self: TEXT) --> (number, number)
-function Text.Position(self) 
-    return self.uic:Position();
+--v function(self: TEXT, xMove: number, yMove: number)
+function Text.Move(self, xMove, yMove)
+    Components.move(self.uic, xMove, yMove);
 end
 
---v function(self: TEXT, w: number, h: number)
-function Text.Resize(self, w, h)
+--v function(self: TEXT, component: CA_UIC | COMPONENT_TYPE, xDiff: number, yDiff: number)
+function Text.PositionRelativeTo(self, component, xDiff, yDiff)
+    Components.positionRelativeTo(self.uic, component, xDiff, yDiff);
+end
+
+--v function(self: TEXT, factor: number)
+function Text.Scale(self, factor)
     if self.textType == "WRAPPED" then
-        Log.write("Cannot resize text of type : WRAPPED for : " .. self.name);
+        Log.write("Cannot scale text of type : WRAPPED for : " .. self.name);
     else
-        self.uic:Resize(w, h);
+        Components.scale(self.uic, factor);
     end
 end
 
---v function(self: TEXT, interactive: boolean)
-function Text.SetInteractive(self, interactive) 
-    self.uic:SetInteractive(interactive);
+--v function(self: TEXT, width: number, height: number)
+function Text.Resize(self, width, height)
+    if self.textType == "WRAPPED" then
+        Log.write("Cannot resize text of type : WRAPPED for : " .. self.name);
+    else
+        Components.resize(self.uic, width, height);
+    end
+end
+
+--v function(self: TEXT) --> (number, number)
+function Text.Position(self)
+    return self.uic:Position();
+end
+
+--v function(self: TEXT) --> (number, number)
+function Text.Bounds(self)
+    return self.uic:Bounds();
 end
 
 --v function(self: TEXT, visible: boolean)
 function Text.SetVisible(self, visible)
-    self.uic:SetVisible(visible);
+    return self.uic:SetVisible(visible);
 end
+
+--v function(self: TEXT) --> CA_UIC
+function Text.GetContentComponent(self)
+    return self.uic;
+end
+
+--v function(self: TEXT) --> CA_UIC
+function Text.GetPositioningComponent(self)
+    return self.uic;
+end
+
+--v function(self: TEXT)
+function Text.Delete(self) 
+    Util.delete(self.uic);
+end
+
+-- Custom functions
 
 --v function(self: TEXT, text: string)
 function Text.SetText(self, text) 
@@ -81,18 +117,8 @@ function Text.SetText(self, text)
 end
 
 --v function(self: TEXT) --> string
-function Text.GetStateText(self)
+function Text.GetText(self)
     return self.uic:GetStateText();
-end
-
---v function(self: TEXT)
-function Text.Delete(self) 
-    Util.delete(self.uic);
-end
-
---v function(self: TEXT) --> CA_UIC
-function Text.GetContentComponent(self)
-    return self.uic;
 end
 
 return {

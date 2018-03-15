@@ -46,3 +46,30 @@
     local buttonText = UIComponent(button:Find("button_txt"));
     Util.delete(UIComponent(button:Find("att_frame")));
     Util.delete(UIComponent(button:Find("dy_cost")));
+
+
+    
+--v function(self: IMAGE, tooltip: string)
+function Image.SetTooltip(self, tooltip)
+    self.uic:SetTooltipText(tooltip, true);
+end
+
+--v function(self: IMAGE, tooltip: string)
+function Image.DisableTooltip(self, tooltip)
+    self.uic:SetTooltipText("", true);
+end
+
+--TODO
+--v function(self: BUTTON, text: string)
+function Button.SetTooltipText(self, text) 
+    local saved = self.uic:CurrentState();
+    
+    -- Make sure the default tooltip "Cancel" will
+    -- be replace by the custom one for each possible state
+    for index, state in ipairs(States) do
+        self:SetState(state);
+        self.uic:SetTooltipText(text);
+    end
+
+    self:SetState(saved);
+end
