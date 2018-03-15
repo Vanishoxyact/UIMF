@@ -1,7 +1,7 @@
 function demo_uimf()
-    local enableDemoUI = true;
-    local enableRecuitmentDemo = true;
-    local enableMortCultDemo = true;
+    local enableDemoUI = false;
+    local enableRecuitmentDemo = false;
+    local enableMortCultDemo = false;
 
     if enableDemoUI then
         core:add_listener(

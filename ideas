@@ -1,21 +1,4 @@
-/Frame resize
-/Frame content
 Tooltips
-/UI init callback
-Test mod adding to UI on start
-/Change init to UI init
-/Toggle button state
-/Reafactored away from UID
-/Text width
-/Text button factor out
-
-/Image methods
-/Button methods
-/TextButton methods
-/Text methods
-/Frame methods
-/Log
-
 text button resizing issues
 dig for component
 active seems important
@@ -36,7 +19,6 @@ setmetatable(self, {
 find object from component/name (TEXT, IMAGE)
 wrap panel in list
 bind components
-
 
 
 component interface
