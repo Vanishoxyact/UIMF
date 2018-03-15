@@ -4,6 +4,6 @@
     "preload": {
         // This indicates that we are using Lua 5.1 and all built-in libraries of it.
         "open": ["lua51"],
-        "require": [".vscode/typing"]
+        "require": [".vscode/typing", ".vscode/my_types"]
     }
 }

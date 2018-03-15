@@ -1,5 +1,3 @@
---# assume global class BUTTON
-
 local Log = require("uic/log");
 local Util = require("uic/util");
 local Button = {} --# assume Button: BUTTON
