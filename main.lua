@@ -5,7 +5,7 @@ local Button = require("uic/button");
 local TextButton = require("uic/text_button");
 local Frame = require("uic/frame");
 local Util = require ("uic/util");
-local Components = require("uic/components");
+require("uic/components");
 
 _G.UIComponent = UIComponent;
 _G.find_uicomponent = find_uicomponent;
@@ -28,21 +28,10 @@ function main()
             return context.string == "mortuary_cult"; 
         end,
          function(context)
-            output("MORT OPENED");
-            Log.write("MORT OPENED");
-            output("MORT CALLBACK");
-            Log.write("MORT CALLBACK");
             local mortCult = find_uicomponent(core:get_ui_root(), "mortuary_cult");
-            Log.write("MORT FOUND");
-            local player = Text.new("myText", mortCult, "NORMAL", "Custom Text");
-            player:MoveTo(425, 85);
-            -- Image.new("uppercase", mortCult, core:get_ui_root(), uicomp, find_uicomponent_by_table_func);                    
-            output("MORT CALLBACK END");
-            Log.write("MORT CALLBACK END");                  
+            local myText = Text.new("myText", mortCult, "NORMAL", "Custom Text");
+            myText:MoveTo(425, 85);
             local mortCultBox = find_uicomponent(core:get_ui_root(), "mortuary_cult", "listview", "list_clip", "list_box", "wh2_dlc09_ritual_crafting_tmb_army_capacity");
-            if not mortCultBox then
-                Log.write("mortCultBox not found");
-            end
             local myImage = Image.new("uppercase", mortCultBox, "ui/skins/default/advisor_beastmen_2d.png");
             myImage:MoveTo(250, 200);
             local myButton = Button.new("mybtton", mortCult, "CIRCULAR", "ui/campaign ui/edicts/lzd_alignment_of_building.png");
@@ -66,7 +55,7 @@ function main()
             for i = 0, recruitmentList:ChildCount() - 1 do	
                 local recuitmentOption = UIComponent(recruitmentList:Find(i));
                 local recruitText = Text.new("abc" .. i, recuitmentOption, "NORMAL", "ABC");
-                Components.positionRelativeTo(recruitText.uic, recuitmentOption, 20, 20);
+                recruitText:PositionRelativeTo(recuitmentOption, 20, 20);
             end
             output("RECRUIT CALLBACK END");
         end,
