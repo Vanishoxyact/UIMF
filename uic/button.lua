@@ -13,7 +13,7 @@ local States = {
 --# type global BUTTON_TYPE = 
 --# "CIRCULAR" | "SQUARE" | "CIRCULAR_TOGGLE" | "SQUARE_TOGGLE"
 
---v function(name: string, parent: CA_UIC, buttonType: BUTTON_TYPE, imagePath: string) --> BUTTON
+--v function(name: string, parent: CA_UIC | COMPONENT_TYPES, buttonType: BUTTON_TYPE, imagePath: string) --> BUTTON
 function Button.new(name, parent, buttonType, imagePath)
     local self = {};
     local button = nil --: CA_UIC
@@ -95,6 +95,11 @@ end
 --v function(self: BUTTON)
 function Button.Delete(self) 
     Util.delete(self.uic);
+end
+
+--v function(self: BUTTON) --> CA_UIC
+function Button.GetContentComponent(self)
+    return self.uic;
 end
 
 return {

@@ -104,3 +104,4 @@
 --# assume global UIComponent: function(pointer: CA_Component) --> CA_UIC
 --# assume global output: function(output: string)  
 --# assume global print_all_uicomponent_children: function(component: CA_UIC)
+--# assume global is_uicomponent: function(object: any) --> boolean

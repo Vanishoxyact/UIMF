@@ -2,6 +2,7 @@
 
 local Log = require("uic/log");
 local Util = require("uic/util");
+require("uic/components");
 local TextButton = {} --# assume TextButton: TEXT_BUTTON
 
 local States = {

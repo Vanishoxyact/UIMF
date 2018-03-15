@@ -10,6 +10,7 @@ local Components = require("uic/components");
 _G.UIComponent = UIComponent;
 _G.find_uicomponent = find_uicomponent;
 _G.print_all_uicomponent_children = print_all_uicomponent_children;
+_G.is_uicomponent = is_uicomponent;
 _G.output = output;
 _G.core = core;
 
@@ -200,6 +201,8 @@ function main()
                 
                 local textOutside = Text.new("textOutside", contentPanel, "NORMAL", "Im outside");
                 myFrame:AddToContentPanel(textOutside.uic, 50, 800);
+
+                Components.getUiContentComponent(textOutside);
             else
                 existingFrame:SetVisible(true);
             end

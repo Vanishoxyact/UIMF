@@ -1,6 +1,9 @@
 local Log = require("uic/log");
 local Components = {};
 
+--# type global COMPONENT_TYPES = 
+--# TEXT | IMAGE | BUTTON | TEXT_BUTTON | FRAME
+
 --v function(component: CA_UIC, width: number, height: number)
 function Components.resize(component, width, height)
     component:SetCanResizeHeight(true);
@@ -28,9 +31,21 @@ function Components.positionRelativeToUiComponent(componentToMove, relativeCompo
     componentToMove:MoveTo(relX + xDiff, relY + yDiff);
 end
 
+--v function(component: CA_UIC | COMPONENT_TYPES) --> CA_UIC
+function Components.getUiContentComponent(component)
+    if is_uicomponent(component) then
+        --# assume component: CA_UIC
+        return component;
+    else
+        --# assume component: BUTTON
+        return component:GetContentComponent();
+    end
+end
+
 return {
     scale = Components.scale;
     move = Components.move;
     positionRelativeTo = Components.positionRelativeToUiComponent;
     resize = Components.resize;
+    getUiContentComponent = Components.getUiContentComponent;
 }

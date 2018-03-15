@@ -2,6 +2,7 @@
 
 local Log = require("uic/log");
 local Util = require("uic/util");
+require("uic/components");
 
 local Text = {} --# assume Text: TEXT
 
