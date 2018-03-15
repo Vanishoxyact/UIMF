@@ -19,7 +19,20 @@ Log
 text button resizing issues
 dig for component
 active seems important
+
 type check from tostring
+function is_pendingbattle(obj)
+	if string.sub(tostring(obj), 1, 31) == "PENDING_BATTLE_SCRIPT_INTERFACE" then
+		return true;
+	end;
+	
+	return false;
+end;
+setmetatable(self, {
+    __index = Button,
+    __tostring = function() return "BUTTON: "..name end
+})
+
 is_uicomponent
 find object from component/name (TEXT, IMAGE)
 wrap panel in list
