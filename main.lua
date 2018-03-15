@@ -82,7 +82,7 @@ function main()
         function(context)
             local existingFrame = Util.getComponentWithName("MyFrame");
             if not existingFrame then
-                local myFrame = Frame.new("MyFrame", core:get_ui_root());
+                local myFrame = Frame.new("MyFrame");
                 myFrame:Scale(2);
                 myFrame.uic:MoveTo(100, 100);
                 myFrame:AddCloseButton();

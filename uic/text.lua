@@ -1,32 +1,29 @@
 local Log = require("uic/log");
 local Util = require("uic/util");
-require("uic/components");
+local Components = require("uic/components");
 
 local Text = {} --# assume Text: TEXT
 
 --# type global TEXT_TYPE = 
 --# "NORMAL" | "WRAPPED" | "TITLE"
 
--- "ui/campaign ui/objectives_screen","panel_title", "tx_objectives" -- Titles
--- "ui/campaign ui/clan","main", "tab_children_parent", "Summary", "portrait_frame", "parchment_L", "details", "details_list", "tx_home-region" -- Simple left aligned, no wrap
--- "event_dilemma_active", "dilemma", "main_holder", "details_holder" -- Different font
-
---v function(name: string, parent: CA_UIC, textType: TEXT_TYPE, textToDisplay: string) --> TEXT
+--v function(name: string, parent: CA_UIC | COMPONENT_TYPES, textType: TEXT_TYPE, textToDisplay: string) --> TEXT
 function Text.new(name, parent, textType, textToDisplay)
+    local parentComponent = Components.getUiContentComponent(parent);
     local text = nil --: CA_UIC
     if textType == "NORMAL" then
         text = Util.createComponent(
-            name, parent, "ui/campaign ui/clan",
+            name, parentComponent, "ui/campaign ui/clan",
             "main", "tab_children_parent", "Summary", "portrait_frame", "parchment_L", "details", "details_list", "tx_home-region"
         );
     elseif textType == "WRAPPED" then
         text = Util.createComponent(
-            name, parent, "ui/campaign ui/mission_details",
+            name, parentComponent, "ui/campaign ui/mission_details",
             "mission_details_child", "description_background", "description_view", "dy_description"
         );
     elseif textType == "TITLE" then
         text = Util.createComponent(
-            name, parent, "ui/campaign ui/objectives_screen",
+            name, parentComponent, "ui/campaign ui/objectives_screen",
             "panel_title", "tx_objectives"
         );
     else
@@ -91,6 +88,11 @@ end
 --v function(self: TEXT)
 function Text.Delete(self) 
     Util.delete(self.uic);
+end
+
+--v function(self: TEXT) --> CA_UIC
+function Text.GetContentComponent(self)
+    return self.uic;
 end
 
 return {

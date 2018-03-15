@@ -9,9 +9,6 @@ local States = {
     "drop_down"
 } --: vector<string>
 
---# type global BUTTON_TYPE = 
---# "CIRCULAR" | "SQUARE" | "CIRCULAR_TOGGLE" | "SQUARE_TOGGLE"
-
 --v function(name: string, parent: CA_UIC | COMPONENT_TYPES, buttonType: BUTTON_TYPE, imagePath: string) --> BUTTON
 function Button.new(name, parent, buttonType, imagePath)
     local parentComponent = Components.getUiContentComponent(parent);

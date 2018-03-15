@@ -1,16 +1,16 @@
 local Log = require("uic/log");
 local Util = require("uic/util");
-require("uic/components");
+local Components = require("uic/components");
 local Image = {} --# assume Image: IMAGE
 
 
---v function(name: string, parent: CA_UIC, imagePath: string) --> IMAGE
+--v function(name: string, parent: CA_UIC | COMPONENT_TYPES, imagePath: string) --> IMAGE
 function Image.new(name, parent, imagePath)
+    local parentComponent = Components.getUiContentComponent(parent);    
     local image = Util.createComponent(
-        name, parent, "ui/campaign ui/clan",
+        name, parentComponent, "ui/campaign ui/clan",
         "main", "tab_children_parent", "Summary", "portrait_frame", "parchment_L", "details", "details_list", "tx_food", "dy_food", "food_icon"
     );
-    --"TabGroup", "tab_victory_conditions", "tab_child", "tree_holder", "victory_type_tree", "slot_parent", "wh_main_victory_type_long"
     image:SetImage(imagePath);
 
     local self = {};
@@ -71,6 +71,11 @@ end
 --v function(self: IMAGE)
 function Image.Delete(self) 
     Util.delete(self.uic);
+end
+
+--v function(self: IMAGE) --> CA_UIC
+function Image.GetContentComponent(self)
+    return self.uic;
 end
 
 return {

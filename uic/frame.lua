@@ -4,8 +4,8 @@ local Components = require("uic/components");
 local Button = require("uic/button");
 local Frame = {} --# assume Frame: FRAME
 
---v function(name: string, parent: CA_UIC) --> FRAME
-function Frame.new(name, parent)
+--v function(name: string) --> FRAME
+function Frame.new(name)
     local root = core:get_ui_root();
     root:CreateComponent(name, "ui/campaign ui/objectives_screen");
     local frame = UIComponent(root:Find(name));
@@ -78,6 +78,11 @@ end
 --v function(self: FRAME)
 function Frame.Delete(self)
     Util.delete(self.uic);
+end
+
+--v function(self: FRAME) --> CA_UIC
+function Frame.GetContentComponent(self)
+    return self.content;
 end
 
 return {

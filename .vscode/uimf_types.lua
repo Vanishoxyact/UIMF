@@ -7,4 +7,10 @@
 --# type global COMPONENT_TYPES = 
 --# TEXT | IMAGE | BUTTON | TEXT_BUTTON | FRAME
 
+--# type global BUTTON_TYPE = 
+--# "CIRCULAR" | "SQUARE" | "CIRCULAR_TOGGLE" | "SQUARE_TOGGLE"
+
+--# type global TEXT_BUTTON_TYPE = 
+--# "TEXT" | "TEXT_TOGGLE"
+
 --# assume BUTTON.GetContentComponent: method() --> CA_UIC
