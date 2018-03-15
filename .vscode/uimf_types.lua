@@ -4,7 +4,7 @@
 --# assume global class TEXT_BUTTON
 --# assume global class FRAME
 
---# type global COMPONENT_TYPES = 
+--# type global COMPONENT_TYPE = 
 --# TEXT | IMAGE | BUTTON | TEXT_BUTTON | FRAME
 
 --# type global BUTTON_TYPE = 
@@ -14,3 +14,4 @@
 --# "TEXT" | "TEXT_TOGGLE"
 
 --# assume BUTTON.GetContentComponent: method() --> CA_UIC
+--# assume BUTTON.GetPositioningComponent: method() --> CA_UIC

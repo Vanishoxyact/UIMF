@@ -7,9 +7,9 @@ local States = {
     "active", "hover", "down", 
     "selected", "selected_hover", "selected_down",
     "drop_down"
-} --: vector<string>
+} --: vector<BUTTON_STATE>
 
---v function(name: string, parent: CA_UIC | COMPONENT_TYPES, buttonType: TEXT_BUTTON_TYPE, buttonText: string) --> TEXT_BUTTON
+--v function(name: string, parent: CA_UIC | COMPONENT_TYPE, buttonType: TEXT_BUTTON_TYPE, buttonText: string) --> TEXT_BUTTON
 function TextButton.new(name, parent, buttonType, buttonText)
     local parentComponent = Components.getUiContentComponent(parent);    
     local textButton = nil --: CA_UIC
@@ -58,7 +58,7 @@ function TextButton.MoveTo(self, x, y)
 end
 
 --TODO
---v function(self: TEXT_BUTTON, state: string)
+--v function(self: TEXT_BUTTON, state: BUTTON_STATE)
 function TextButton.SetState(self, state) 
     self.uic:SetState(state);
 end

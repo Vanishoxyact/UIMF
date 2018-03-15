@@ -7,9 +7,9 @@ local States = {
     "active", "hover", "down", 
     "selected", "selected_hover", "selected_down",
     "drop_down"
-} --: vector<string>
+} --: vector<BUTTON_STATE>
 
---v function(name: string, parent: CA_UIC | COMPONENT_TYPES, buttonType: BUTTON_TYPE, imagePath: string) --> BUTTON
+--v function(name: string, parent: CA_UIC | COMPONENT_TYPE, buttonType: BUTTON_TYPE, imagePath: string) --> BUTTON
 function Button.new(name, parent, buttonType, imagePath)
     local parentComponent = Components.getUiContentComponent(parent);
     local self = {};
@@ -46,22 +46,83 @@ function Button.new(name, parent, buttonType, imagePath)
     return self;
 end
 
---TODO
+-- Component functions
+
+--v function(self: BUTTON, xPos: number, yPos: number)
+function Button.MoveTo(self, xPos, yPos) 
+    self.uic:MoveTo(xPos, yPos);
+end
+
+--v function(self: BUTTON, xMove: number, yMove: number)
+function Button.Move(self, xMove, yMove)
+    Components.move(self.uic, xMove, yMove);
+end
+
+--v function(self: BUTTON, component: CA_UIC | COMPONENT_TYPE, xDiff: number, yDiff: number)
+function Button.PositionRelativeTo(self, component, xDiff, yDiff)
+    Components.positionRelativeTo(self.uic, component, xDiff, yDiff);
+end
+
+--v function(self: BUTTON, factor: number)
+function Button.Scale(self, factor)
+    Components.scale(self.uic, factor);
+end
+
+--v function(self: BUTTON, width: number, height: number)
+function Button.Resize(self, width, height)
+    Components.resize(self.uic, width, height);
+end
+
+--v function(self: BUTTON) --> (number, number)
+function Button.Position(self)
+    return self.uic:Position();
+end
+
+--v function(self: BUTTON) --> (number, number)
+function Button.Bounds(self)
+    return self.uic:Bounds();
+end
+
+--v function(self: BUTTON, visible: boolean)
+function Button.SetVisible(self, visible)
+    return self.uic:SetVisible(visible);
+end
+
+--v function(self: BUTTON) --> CA_UIC
+function Button.GetContentComponent(self)
+    return self.uic;
+end
+
+--v function(self: BUTTON) --> CA_UIC
+function Button.GetPositioningComponent(self)
+    return self.uic;
+end
+
+--v function(self: BUTTON)
+function Button.Delete(self) 
+    Util.delete(self.uic);
+end
+
+-- Custom functions
+
 --v function(self: BUTTON)
 function Button.ClearSound(self)
     self.uic:ClearSound();
 end
 
---TODO
---v function(self: BUTTON, x: number, y: number)
-function Button.MoveTo(self, x, y) 
-    self.uic:MoveTo(x, y);
-end
-
---TODO
---v function(self: BUTTON, state: string)
+--v function(self: BUTTON, state: BUTTON_STATE)
 function Button.SetState(self, state) 
     self.uic:SetState(state);
+end
+
+--v function(self: BUTTON) --> boolean
+function Button.IsSelected(self)
+    local state = self.uic:CurrentState();
+    if state == "active" or state == "hover" or state == "down" then
+        return false;
+    else
+        return true;
+    end
 end
 
 --TODO
@@ -77,26 +138,6 @@ function Button.SetTooltipText(self, text)
     end
 
     self:SetState(saved);
-end
-
---v function(self: BUTTON) --> boolean
-function Button.IsSelected(self)
-    local state = self.uic:CurrentState();
-    if state == "active" or state == "hover" or state == "down" then
-        return false;
-    else
-        return true;
-    end
-end
-
---v function(self: BUTTON)
-function Button.Delete(self) 
-    Util.delete(self.uic);
-end
-
---v function(self: BUTTON) --> CA_UIC
-function Button.GetContentComponent(self)
-    return self.uic;
 end
 
 return {

@@ -37,3 +37,16 @@ is_uicomponent
 find object from component/name (TEXT, IMAGE)
 wrap panel in list
 bind components
+
+component interface
+MoveTo
+Move
+PositionRelativeTo
+Scale
+Resize
+Position
+Bounds
+SetVisible
+GetContentComponent
+GetPositioningComponent
+Delete

@@ -7,7 +7,7 @@ local Text = {} --# assume Text: TEXT
 --# type global TEXT_TYPE = 
 --# "NORMAL" | "WRAPPED" | "TITLE"
 
---v function(name: string, parent: CA_UIC | COMPONENT_TYPES, textType: TEXT_TYPE, textToDisplay: string) --> TEXT
+--v function(name: string, parent: CA_UIC | COMPONENT_TYPE, textType: TEXT_TYPE, textToDisplay: string) --> TEXT
 function Text.new(name, parent, textType, textToDisplay)
     local parentComponent = Components.getUiContentComponent(parent);
     local text = nil --: CA_UIC

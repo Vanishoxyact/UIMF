@@ -4,7 +4,7 @@ local Components = require("uic/components");
 local Image = {} --# assume Image: IMAGE
 
 
---v function(name: string, parent: CA_UIC | COMPONENT_TYPES, imagePath: string) --> IMAGE
+--v function(name: string, parent: CA_UIC | COMPONENT_TYPE, imagePath: string) --> IMAGE
 function Image.new(name, parent, imagePath)
     local parentComponent = Components.getUiContentComponent(parent);    
     local image = Util.createComponent(

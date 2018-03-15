@@ -14,6 +14,11 @@
 --# "PanelClosedCampaign"   | "PanelOpenedCampaign" |
 --# "TimeTrigger"           | "UICreated"
 
+--# type global BUTTON_STATE = 
+--# "active" | "hover" | "down" | 
+--# "selected" | "selected_hover" | "selected_down" |
+--# "drop_down"
+
 
 -- CONTEXT
 --# assume CA_UIContext.component: CA_Component
@@ -26,7 +31,7 @@
 --# assume CA_UIC.ChildCount: method() --> number
 --# assume CA_UIC.ClearSound: method()
 --# assume CA_UIC.CreateComponent: method(name: string, path: string)
---# assume CA_UIC.CurrentState: method() --> string
+--# assume CA_UIC.CurrentState: method() --> BUTTON_STATE
 --# assume CA_UIC.DestroyChildren: method()
 --# assume CA_UIC.Dimensions: method() --> (number, number)
 --# assume CA_UIC.Find: method(arg: number | string) --> CA_Component
@@ -38,7 +43,7 @@
 --# assume CA_UIC.Resize: method(w: number, h: number)
 --# assume CA_UIC.SetInteractive: method(interactive: boolean)
 --# assume CA_UIC.SetOpacity: method(opacity: number)
---# assume CA_UIC.SetState: method(state: string)
+--# assume CA_UIC.SetState: method(state: BUTTON_STATE)
 --# assume CA_UIC.SetStateText: method(text: string)
 --# assume CA_UIC.SetVisible: method(visible: boolean)
 --# assume CA_UIC.ShaderTechniqueSet: method(technique: string | number, unknown: boolean)

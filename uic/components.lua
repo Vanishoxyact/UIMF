@@ -22,13 +22,21 @@ function Components.move(component, xMove, yMove)
     component:MoveTo(curX + xMove, curY + yMove);
 end
 
---v function(componentToMove: CA_UIC, relativeComponent: CA_UIC, xDiff: number, yDiff: number)    
+--v function(componentToMove: CA_UIC, relativeComponent: CA_UIC | COMPONENT_TYPE, xDiff: number, yDiff: number)    
 function Components.positionRelativeToUiComponent(componentToMove, relativeComponent, xDiff, yDiff)
-    local relX, relY = relativeComponent:Position();
+    local uic = nil  --: CA_UIC
+    if is_uicomponent(relativeComponent) then
+        --# assume relativeComponent: CA_UIC
+        uic = relativeComponent;
+    else
+        --# assume relativeComponent: BUTTON
+        uic = relativeComponent:GetPositioningComponent();
+    end
+    local relX, relY = uic:Position();
     componentToMove:MoveTo(relX + xDiff, relY + yDiff);
 end
 
---v function(component: CA_UIC | COMPONENT_TYPES) --> CA_UIC
+--v function(component: CA_UIC | COMPONENT_TYPE) --> CA_UIC
 function Components.getUiContentComponent(component)
     if is_uicomponent(component) then
         --# assume component: CA_UIC
