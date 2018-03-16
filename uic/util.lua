@@ -88,6 +88,19 @@ function Util.registerForClick(component, listenerName, callback)
     );
 end
 
+--v [NO_CHECK] function(startingComponent: CA_UIC, componentName: string) --> CA_UIC
+function Util.digForComponent(startingComponent, componentName)
+    local childCount = startingComponent:ChildCount();
+    for i=0, childCount-1  do
+        local child = UIComponent(startingComponent:Find(i));
+        if child:Id() == componentName then
+            return child;
+        else
+            return Util.digForComponent(child, componentName);
+        end
+    end
+end
+
 return {
     delete = Util.delete;
     init = Util.init;
@@ -95,4 +108,5 @@ return {
     createComponent = Util.createComponent;
     getComponentWithName = Util.getComponentWithName;
     registerForClick = Util.registerForClick;
+    digForComponent = Util.digForComponent;
 }
