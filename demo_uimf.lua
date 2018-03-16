@@ -1,13 +1,13 @@
 function demo_uimf()
-    local enableDemoUI = false;
-    local enableRecuitmentDemo = false;
-    local enableMortCultDemo = false;
+    local enableDemoUI = true;
+    local enableRecuitmentDemo = true;
+    local enableMortCultDemo = true;
 
     if enableDemoUI then
         core:add_listener(
             "createFrame",
             "ShortcutTriggered",
-            function(context) return context.string == "camera_bookmark_view2"; end,
+            function(context) return context.string == "camera_bookmark_view2"; end, --default F11
             function(context)
                 local existingFrame = Util.getComponentWithName("MyFrame");
                 if not existingFrame then
@@ -51,11 +51,12 @@ function demo_uimf()
                     resizedTextButton:PositionRelativeTo(resizedCircularButton, 50, 0);
 
                     local toggleButtons = Text.new("toggleButtons", myFrame, "NORMAL", "Toggle Buttons");
-                    toggleButtons:PositionRelativeTo(buttons, 0, 100);    
-                    local squareToggleButton = Button.new("squareToggleButton", myFrame, "SQUARE_TOGGLE", "ui/skins/default/icon_end_turn.png");
-                    squareToggleButton:PositionRelativeTo(toggleButtons, 0, 20); 
+                    toggleButtons:PositionRelativeTo(buttons, 0, 100);
+                    --Not working in vortex campaign
+                    --local squareToggleButton = Button.new("squareToggleButton", myFrame, "SQUARE_TOGGLE", "ui/skins/default/icon_end_turn.png");
+                    --squareToggleButton:PositionRelativeTo(toggleButtons, 0, 20); 
                     local textToggleButton = TextButton.new("textToggleButton", myFrame, "TEXT_TOGGLE", "customText");
-                    textToggleButton:PositionRelativeTo(squareToggleButton, 50, 0); 
+                    textToggleButton:PositionRelativeTo(toggleButtons, 0, 20); 
 
                     local buttonLogic = Text.new("buttonLogic", myFrame, "NORMAL", "Button Logic");
                     buttonLogic:PositionRelativeTo(toggleButtons, 0, 70);    
@@ -85,22 +86,23 @@ function demo_uimf()
                             end
                         end
                     );
-                    local toggleButton = Button.new("toggleButton", myFrame, "SQUARE_TOGGLE", "ui/skins/default/icon_end_turn.png");
-                    toggleButton:PositionRelativeTo(counterText, 50, 0);
-                    local toggleText = Text.new("toggleText", myFrame, "NORMAL", "0");
-                    toggleText:PositionRelativeTo(toggleButton, 50, 0);
-                    toggleText:SetText(tostring(toggleButton:IsSelected()));
-                    toggleButton:RegisterForClick("toggleListener",
-                        function(context)
-                            cm:callback(
-                                function()
-                                    toggleText:SetText(tostring(toggleButton:IsSelected()));
-                                end, 0.1, "toggleListenerText"
-                            ) 
-                        end
-                    );
+                    --Not working in vortex campaign
+                    -- local toggleButton = Button.new("toggleButton", myFrame, "SQUARE_TOGGLE", "ui/skins/default/icon_end_turn.png");
+                    -- toggleButton:PositionRelativeTo(counterText, 50, 0);
+                    -- local toggleText = Text.new("toggleText", myFrame, "NORMAL", "0");
+                    -- toggleText:PositionRelativeTo(toggleButton, 50, 0);
+                    -- toggleText:SetText(tostring(toggleButton:IsSelected()));
+                    -- toggleButton:RegisterForClick("toggleListener",
+                    --     function(context)
+                    --         cm:callback(
+                    --             function()
+                    --                 toggleText:SetText(tostring(toggleButton:IsSelected()));
+                    --             end, 0.1, "toggleListenerText"
+                    --         ) 
+                    --     end
+                    -- );
                     local toggleTextButton = TextButton.new("toggleTextButton", myFrame, "TEXT_TOGGLE", "Custom text");
-                    toggleTextButton:PositionRelativeTo(toggleText, 50, 0);
+                    toggleTextButton:PositionRelativeTo(counterText, 50, 0);
                     toggleTextButton:RegisterForClick("toggleTestListener",
                         function(context)
                             cm:callback(
