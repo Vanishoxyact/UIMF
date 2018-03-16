@@ -3,6 +3,8 @@
 --# assume global class CA_UIC
 --# assume global class CA_Component
 --# assume global class CA_UIContext
+--# assume global class CA_CQI
+--# assume global class CA_CHAR
 
 --# assume global class CORE
 --# assume global class _G
@@ -74,7 +76,6 @@
 --#     shouldRepeat: boolean
 --# )
 --# assume CM.remove_listener: method(handler: string)
-
 --# assume CM.callback: method(
 --#     callback: function(),
 --#     delay: number,
@@ -85,6 +86,23 @@
 --#     delay: number,
 --#     name: string
 --# )
+--# assume CM.create_force_with_general: method(
+--#     faction_key: string,
+--#     army_list: string,
+--#     region_key: string,
+--#     xPos: number,
+--#     yPos: number,
+--#     agent_type: string,
+--#     agent_subtype: string,
+--#     forename: string,
+--#     clan_name: string,
+--#     family_name: string,
+--#     other_name: string,
+--#     id: string,
+--#     make_faction_leader: boolean,
+--#     success_callback: function(CA_CQI)
+--# )
+--# assume CM.force_add_trait: method(character_cqi: CA_CQI, trait_key: string, showMessage: boolean)
 
 
 -- CORE
@@ -97,6 +115,7 @@
 --#     persistent: boolean
 --# )
 --# assume CORE.add_ui_created_callback: method(function())
+--# assume CORE.get_screen_resolution: method() --> (number, number)
 
 
 -- GLOBAL VARIABLES
@@ -110,3 +129,5 @@
 --# assume global output: function(output: string)  
 --# assume global print_all_uicomponent_children: function(component: CA_UIC)
 --# assume global is_uicomponent: function(object: any) --> boolean
+--# assume global remove_all_units_from_character: function(char: CA_CHAR)
+--# assume global get_character_by_cqi: function(cqi: CA_CQI) --> CA_CHAR
