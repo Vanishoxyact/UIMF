@@ -4,6 +4,7 @@ local Image = require("uic/image");
 local Button = require("uic/button");
 local TextButton = require("uic/text_button");
 local Frame = require("uic/frame");
+local TextBox = require("uic/text_box")
 local Util = require ("uic/util");
 require("uic/components");
 
@@ -20,6 +21,7 @@ _G.Image = Image;
 _G.Button = Button;
 _G.TextButton = TextButton;
 _G.Frame = Frame;
+_G.TextBox = TextBox;
 _G.Util = Util;
 
 core:add_ui_created_callback(

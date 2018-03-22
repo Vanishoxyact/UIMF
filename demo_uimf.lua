@@ -127,6 +127,18 @@ function demo_uimf()
                     wrappedText:PositionRelativeTo(resizedText, 0, 20);
                     local titleText = Text.new("titleText", myFrame, "TITLE", "This is title text");
                     titleText:PositionRelativeTo(wrappedText, 0, 70);
+
+                    local textBox = TextBox.new("textBox", myFrame);
+                    textBox:PositionRelativeTo(text, 0, 180);
+                    local textBoxButton = Button.new("textBoxButton", myFrame, "CIRCULAR", "ui/skins/default/icon_end_turn.png");
+                    textBoxButton:PositionRelativeTo(textBox, 200, 0);
+                    local textBoxButtonText = Text.new("textBoxButtonText", myFrame, "NORMAL", "CUSTOM_TEXT");
+                    textBoxButtonText:PositionRelativeTo(textBoxButton, 50, 0);
+                    textBoxButton:RegisterForClick("textBoxButtonListener",
+                        function(context)
+                            textBoxButtonText:SetText(textBox.uic:GetStateText());
+                        end
+                    );
                 else
                     --# assume existingFrame: BUTTON
                     existingFrame:SetVisible(true);

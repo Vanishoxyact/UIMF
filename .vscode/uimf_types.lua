@@ -4,10 +4,11 @@
 --# assume global class IMAGE
 --# assume global class TEXT_BUTTON
 --# assume global class FRAME
+--# assume global class TEXT_BOX
 --# assume global class UTIL
 
 --# type global COMPONENT_TYPE = 
---# TEXT | IMAGE | BUTTON | TEXT_BUTTON | FRAME
+--# TEXT | IMAGE | BUTTON | TEXT_BUTTON | FRAME | TEXT_BOX
 
 --# type global BUTTON_TYPE = 
 --# "CIRCULAR" | "SQUARE" | "CIRCULAR_TOGGLE" | "SQUARE_TOGGLE"
@@ -29,4 +30,5 @@
 --# assume global Button: BUTTON
 --# assume global TextButton: TEXT_BUTTON
 --# assume global Frame: FRAME
+--# assume global TextBox: TEXT_BOX
 --# assume global Util: UTIL
