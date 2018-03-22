@@ -1,0 +1,14 @@
+is_port
+region
+logical_position_y
+has_commander
+commander
+slot_list
+faction
+display_position_x
+get_climate
+model
+logical_position_x
+display_position_y
+is_null_interface
+new

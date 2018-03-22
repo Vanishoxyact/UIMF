@@ -1,0 +1,425 @@
+[ui] <45.1s>    root > character_details_panel
+[ui] <45.1s>    root > character_details_panel > fullscreen_underlay
+[ui] <45.1s>    root > character_details_panel > panel_frame
+[ui] <45.1s>    root > character_details_panel > panel_frame > panel_back
+[ui] <45.1s>    root > character_details_panel > fullscreen_overlay
+[ui] <45.1s>    root > character_details_panel > button_ok
+[ui] <45.1s>    root > character_details_panel > character_name
+[ui] <45.1s>    root > character_details_panel > character_name > button_cycle_right
+[ui] <45.1s>    root > character_details_panel > character_name > button_cycle_left
+[ui] <45.1s>    root > character_details_panel > character_name > panel_subtitle
+[ui] <45.1s>    root > character_details_panel > character_name > panel_subtitle > dy_subtype
+[ui] <45.1s>    root > character_details_panel > rank
+[ui] <45.1s>    root > character_details_panel > rank > experience
+[ui] <45.1s>    root > character_details_panel > rank > rank_zero
+[ui] <45.1s>    root > character_details_panel > rank > piechart
+[ui] <45.1s>    root > character_details_panel > rank > dy_rank
+[ui] <45.2s>    root > character_details_panel > rank > frame
+[ui] <45.2s>    root > character_details_panel > effects_parent
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > listview
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > listview > list_clip
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > listview > list_clip > list_box
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > listview > vslider
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > listview > vslider > frame_top
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > listview > vslider > frame_bottom
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > listview > vslider > handle
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > listview > vslider > top
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > listview > vslider > bottom
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > tx_effects_summary
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > fill
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > template_particle
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.2s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.3s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.4s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.4s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.4s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > smoke_particle_emitter > 
+[ui] <45.4s>    root > character_details_panel > effects_parent > battle_effects_window > battle_header > icon
+[ui] <45.4s>    root > character_details_panel > effects_parent > battle_effects_window > skill_arrow_battle
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > campaign_header
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > campaign_header > tx_effects_summary
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > campaign_header > distort
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > campaign_header > icon
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > campaign_header > smoke_particle_emitter
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > campaign_header > smoke_particle_emitter > template_particle
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > campaign_header > smoke_particle_emitter > 
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > campaign_header > smoke_particle_emitter > 
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > campaign_header > smoke_particle_emitter > 
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > campaign_header > smoke_particle_emitter > 
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > campaign_header > smoke_particle_emitter > 
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > campaign_header > smoke_particle_emitter > 
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > campaign_header > smoke_particle_emitter > 
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > campaign_header > smoke_particle_emitter > 
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > campaign_header > smoke_particle_emitter > 
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > campaign_header > smoke_particle_emitter > 
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > skill_arrow_campaign
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > listview
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > listview > list_clip
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > listview > list_clip > list_box
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > listview > vslider
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > listview > vslider > frame_top
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > listview > vslider > frame_bottom
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > listview > vslider > handle
+[ui] <45.4s>    root > character_details_panel > effects_parent > campaign_effects_window > listview > vslider > top
+[ui] <45.5s>    root > character_details_panel > effects_parent > campaign_effects_window > listview > vslider > bottom
+[ui] <45.5s>    root > character_details_panel > stats_panel
+[ui] <45.5s>    root > character_details_panel > stats_panel > stat_header
+[ui] <45.5s>    root > character_details_panel > stats_panel > stat_header > tx_effects_summary
+[ui] <45.5s>    root > character_details_panel > stats_panel > stat_header > distort
+[ui] <45.5s>    root > character_details_panel > stats_panel > stat_header > icon
+[ui] <45.5s>    root > character_details_panel > stats_panel > stat_header > smoke_particle_emitter
+[ui] <45.5s>    root > character_details_panel > stats_panel > stat_header > smoke_particle_emitter > template_particle
+[ui] <45.5s>    root > character_details_panel > stats_panel > stat_header > smoke_particle_emitter > 
+[ui] <45.5s>    root > character_details_panel > stats_panel > stat_header > smoke_particle_emitter > 
+[ui] <45.5s>    root > character_details_panel > stats_panel > stat_header > smoke_particle_emitter > 
+[ui] <45.5s>    root > character_details_panel > stats_panel > stat_header > smoke_particle_emitter > 
+[ui] <45.5s>    root > character_details_panel > stats_panel > stat_header > smoke_particle_emitter > 
+[ui] <45.5s>    root > character_details_panel > stats_panel > stat_header > smoke_particle_emitter > 
+[ui] <45.5s>    root > character_details_panel > stats_panel > stat_header > smoke_particle_emitter > 
+[ui] <45.5s>    root > character_details_panel > stats_panel > stat_header > smoke_particle_emitter > 
+[ui] <45.5s>    root > character_details_panel > stats_panel > stat_header > smoke_particle_emitter > 
+[ui] <45.5s>    root > character_details_panel > stats_panel > stat_header > smoke_particle_emitter > 
+[ui] <45.5s>    root > character_details_panel > stats_panel > skill_arrow_stats
+[ui] <45.5s>    root > character_details_panel > stats_panel > hbar
+[ui] <45.5s>    root > character_details_panel > stats_panel > unit_information
+[ui] <45.5s>    root > character_details_panel > stats_panel > unit_information > details
+[ui] <45.5s>    root > character_details_panel > stats_panel > unit_information > details > health_parent
+[ui] <45.5s>    root > character_details_panel > stats_panel > unit_information > details > health_parent > health_frame
+[ui] <45.5s>    root > character_details_panel > stats_panel > unit_information > details > health_parent > health_frame > health_bar
+[ui] <45.5s>    root > character_details_panel > stats_panel > unit_information > details > health_parent > health_frame > health_bar > health_fill
+[ui] <45.5s>    root > character_details_panel > stats_panel > unit_information > details > health_parent > health_frame > frame
+[ui] <45.5s>    root > character_details_panel > stats_panel > unit_information > details > health_parent > health_frame > hit_points
+[ui] <45.5s>    root > character_details_panel > stats_panel > unit_information > details > health_parent > health_frame > hit_points > icon
+[ui] <45.6s>    root > character_details_panel > stats_panel > unit_information > details > dynamic_stats
+[ui] <45.6s>    root > character_details_panel > stats_panel > unit_information > details > dynamic_stats > stat1
+[ui] <45.6s>    root > character_details_panel > stats_panel > unit_information > details > dynamic_stats > stat1 > bar_frame
+[ui] <45.6s>    root > character_details_panel > stats_panel > unit_information > details > dynamic_stats > stat1 > bar_frame > bar_mod
+[ui] <45.6s>    root > character_details_panel > stats_panel > unit_information > details > dynamic_stats > stat1 > bar_frame > bar_base
+[ui] <45.6s>    root > character_details_panel > stats_panel > unit_information > details > dynamic_stats > stat1 > bar_frame > bar_border
+[ui] <45.6s>    root > character_details_panel > stats_panel > unit_information > details > dynamic_stats > stat1 > bar_frame > icon_compare
+[ui] <45.6s>    root > character_details_panel > stats_panel > unit_information > details > dynamic_stats > stat1 > dy_value
+[ui] <45.6s>    root > character_details_panel > stats_panel > unit_information > details > dynamic_stats > stat1 > dy_value > mod_icon_holder
+[ui] <45.6s>    root > character_details_panel > stats_panel > unit_information > details > dynamic_stats > stat1 > dy_value > mod_icon_holder > mod_icon_list
+[ui] <45.6s>    root > character_details_panel > stats_panel > unit_information > details > dynamic_stats > stat1 > stat_name
+[ui] <45.6s>    root > character_details_panel > stats_panel > unit_information > details > dynamic_stats > stat1 > icon
+[ui] <45.6s>    root > character_details_panel > stats_panel > unit_information > ability_list
+[ui] <45.6s>    root > character_details_panel > dy_pts
+[ui] <45.6s>    root > character_details_panel > dy_pts > skill_points_vfx
+[ui] <45.6s>    root > character_details_panel > dy_pts > tx_skill
+[ui] <45.6s>    root > character_details_panel > background
+[ui] <45.6s>    root > character_details_panel > background > bottom_buttons
+[ui] <45.6s>    root > character_details_panel > background > bottom_buttons > button_replace_general
+[ui] <45.6s>    root > character_details_panel > background > bottom_buttons > button_event_feed
+[ui] <45.6s>    root > character_details_panel > background > bottom_buttons > button_view_tree
+[ui] <45.6s>    root > character_details_panel > background > bottom_buttons > button_rename
+[ui] <45.6s>    root > character_details_panel > background > character_details_subpanel
+[ui] <45.6s>    root > character_details_panel > background > character_details_subpanel > frame
+[ui] <45.6s>    root > character_details_panel > background > character_details_subpanel > frame > details
+[ui] <45.6s>    root > character_details_panel > background > character_details_subpanel > frame > details > parchment_divider_title
+[ui] <45.6s>    root > character_details_panel > background > character_details_subpanel > frame > details > parchment_divider_title > tx_info
+[ui] <45.6s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list
+[ui] <45.6s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > dy_type
+[ui] <45.6s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > dy_type > bullet_point
+[ui] <45.6s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > tx_loyalty
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > tx_loyalty > bullet_point
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > tx_loyalty > icon_loyalty
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > tx_loyalty > icon_loyalty > dy_loyalty
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > dy_office
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > dy_office > bullet_point
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > dy_office > icon_office
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > upkeep
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > upkeep > bullet_point
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > upkeep > dy_upkeep
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > upkeep > dy_upkeep > icon
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > upkeep > dy_upkeep > dy_food_upkeep
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > upkeep > dy_upkeep > dy_food_upkeep > icon
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > dy_activity
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > dy_activity > bullet_point
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > location
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > location > bullet_point
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > location > dy_location
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > location > dy_location > mon
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > details > info_list > location > dy_location > mon > icon_at_war
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > parchment_divider_title
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > parchment_divider_title > tx_traits
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > list_clip
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > list_clip > list_box
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > list_clip > list_box > background_skill
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > list_clip > list_box > background_skill > dy_trait
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > list_clip > list_box > traits_list
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > list_clip > list_box > traits_list > template_entry
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > list_clip > list_box > traits_list > template_entry > dy_trait
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > list_clip > list_box > traits_list > template_entry > old_bar
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > list_clip > list_box > traits_list > template_entry > old_bar > trim_left
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > list_clip > list_box > traits_list > template_entry > old_bar > segment
+[ui] <45.7s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > list_clip > list_box > traits_list > template_entry > old_bar > segment > fill
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > list_clip > list_box > traits_list > template_entry > old_bar > segment > frame
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > list_clip > list_box > traits_list > template_entry > old_bar > segment > frame_current
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > list_clip > list_box > traits_list > template_entry > old_bar > trim_right
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > list_clip > list_box > traits_list > template_entry > bar_holder
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > list_clip > list_box > traits_list > template_entry > bar_holder > trait_bar
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > list_clip > list_box > traits_list > template_entry > bar_holder > trait_bar > template_entry
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > list_clip > list_box > traits_list > template_entry > bar_holder > trait_bar > template_entry > fill
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > list_clip > list_box > traits_list > template_entry > bar_holder > trait_bar > template_entry > frame_current
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > vslider
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > vslider > frame_top
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > vslider > frame_bottom
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > vslider > handle
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > vslider > top
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > traits_subpanel > listview > vslider > bottom
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > template_candidate_frame
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > template_candidate_frame > 3D_character_window
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > template_candidate_frame > 3D_character_window > minspec_model_image
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > template_candidate_frame > frame
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > template_candidate_frame > frame > frame_leader
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > template_candidate_frame > frame > top
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > template_candidate_frame > frame > bottom
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > armour_0
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > armour_0 > dropdown_item
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > armour_0 > dropdown_item > dy_selected_txt
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > armour_0 > dy_label
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > armour_0 > equipment_items_frame
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > armour_0 > equipment_items_frame > dy_icon
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > armour_0 > cooldown
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > weapon_1
+[ui] <45.8s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > weapon_1 > dropdown_item
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > weapon_1 > dropdown_item > dy_selected_txt
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > weapon_1 > dy_label
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > weapon_1 > equipment_items_frame
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > weapon_1 > equipment_items_frame > dy_icon
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > weapon_1 > cooldown
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > talisman_2
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > talisman_2 > dropdown_item
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > talisman_2 > dropdown_item > dy_selected_txt
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > talisman_2 > dy_label
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > talisman_2 > equipment_items_frame
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > talisman_2 > equipment_items_frame > dy_icon
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > talisman_2 > cooldown
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > enchanted_item_3
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > enchanted_item_3 > dropdown_item
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > enchanted_item_3 > dropdown_item > dy_selected_txt
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > enchanted_item_3 > dy_label
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > enchanted_item_3 > equipment_items_frame
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > enchanted_item_3 > equipment_items_frame > dy_icon
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > enchanted_item_3 > cooldown
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > arcane_item_4
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > arcane_item_4 > dropdown_item
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > arcane_item_4 > dropdown_item > dy_selected_txt
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > arcane_item_4 > dy_label
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > arcane_item_4 > equipment_items_frame
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > arcane_item_4 > equipment_items_frame > dy_icon
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > list_parent > arcane_item_4 > cooldown
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > mount_docker
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > mount_docker > mount_0
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > mount_docker > mount_0 > dropdown_item
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > mount_docker > mount_0 > dropdown_item > dy_selected_txt
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > mount_docker > mount_0 > dy_label
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > mount_docker > mount_0 > equipment_items_frame
+[ui] <45.9s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > mount_docker > mount_0 > equipment_items_frame > dy_icon
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_equipment > mount_docker > mount_0 > cooldown
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_0
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_0 > dropdown_item
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_0 > dropdown_item > dy_selected_txt
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_0 > dy_label
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_0 > equipment_items_frame
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_0 > equipment_items_frame > dy_icon
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_0 > cooldown
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_1
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_1 > dropdown_item
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_1 > dropdown_item > dy_selected_txt
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_1 > dy_label
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_1 > equipment_items_frame
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_1 > equipment_items_frame > dy_icon
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_1 > cooldown
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_2
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_2 > dropdown_item
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_2 > dropdown_item > dy_selected_txt
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_2 > dy_label
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_2 > equipment_items_frame
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_2 > equipment_items_frame > dy_icon
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_2 > cooldown
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_3
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_3 > dropdown_item
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_3 > dropdown_item > dy_selected_txt
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_3 > dy_label
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_3 > equipment_items_frame
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_3 > equipment_items_frame > dy_icon
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_3 > cooldown
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_4
+[ui] <46.0s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_4 > dropdown_item
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_4 > dropdown_item > dy_selected_txt
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_4 > dy_label
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_4 > equipment_items_frame
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_4 > equipment_items_frame > dy_icon
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_4 > cooldown
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_5
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_5 > dropdown_item
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_5 > dropdown_item > dy_selected_txt
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_5 > dy_label
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_5 > equipment_items_frame
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_5 > equipment_items_frame > dy_icon
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > list_parent > general_5 > cooldown
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > parchment_divider_title
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_general > parchment_divider_title > tx_followers
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_selector
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_selector > panel_frame
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_selector > scroll_frame
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_selector > listview
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_selector > listview > list_clip
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_selector > listview > list_clip > list_box
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_selector > listview > vslider
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_selector > listview > vslider > frame_top
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_selector > listview > vslider > frame_bottom
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_selector > listview > vslider > handle
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_selector > listview > vslider > top
+[ui] <46.1s>    root > character_details_panel > background > character_details_subpanel > frame > ancillary_parent > ancillary_selector > listview > vslider > bottom
+[ui] <46.1s>    root > character_details_panel > background > skills_subpanel
+[ui] <46.1s>    root > character_details_panel > background > skills_subpanel > listview
+[ui] <46.1s>    root > character_details_panel > background > skills_subpanel > listview > list_clip
+[ui] <46.1s>    root > character_details_panel > background > skills_subpanel > listview > list_clip > list_box
+[ui] <46.1s>    root > character_details_panel > background > skills_subpanel > listview > list_clip > list_box > top_spacer
+[ui] <46.1s>    root > character_details_panel > background > skills_subpanel > listview > list_clip > list_box > chain0
+[ui] <46.2s>    root > character_details_panel > background > skills_subpanel > listview > list_clip > list_box > chain1
+[ui] <46.2s>    root > character_details_panel > background > skills_subpanel > listview > list_clip > list_box > chain2
+[ui] <46.2s>    root > character_details_panel > background > skills_subpanel > listview > list_clip > list_box > chain3
+[ui] <46.2s>    root > character_details_panel > background > skills_subpanel > listview > list_clip > list_box > chain4
+[ui] <46.2s>    root > character_details_panel > background > skills_subpanel > listview > list_clip > list_box > chain5
+[ui] <46.2s>    root > character_details_panel > background > skills_subpanel > listview > hslider
+[ui] <46.2s>    root > character_details_panel > background > skills_subpanel > listview > hslider > frame_left
+[ui] <46.2s>    root > character_details_panel > background > skills_subpanel > listview > hslider > frame_right
+[ui] <46.2s>    root > character_details_panel > background > skills_subpanel > listview > hslider > handle
+[ui] <46.2s>    root > character_details_panel > background > skills_subpanel > listview > hslider > left
+[ui] <46.2s>    root > character_details_panel > background > skills_subpanel > listview > hslider > right
+[ui] <46.2s>    root > character_details_panel > background > skills_subpanel > stats_reset_holder
+[ui] <46.2s>    root > character_details_panel > background > skills_subpanel > stats_reset_holder > button_stats_reset
+[ui] <46.2s>    root > character_details_panel > TabGroup
+[ui] <46.2s>    root > character_details_panel > TabGroup > skills
+[ui] <46.2s>    root > character_details_panel > TabGroup > skills > tab_child
+[ui] <46.2s>    root > character_details_panel > TabGroup > skills > tx_skills
+[ui] <46.2s>    root > character_details_panel > TabGroup > details
+[ui] <46.2s>    root > character_details_panel > TabGroup > details > tab_child
+[ui] <46.2s>    root > character_details_panel > TabGroup > details > tx_details
+[ui] <46.2s>    root > character_details_panel > TabGroup > spacer
+[ui] <46.2s>    root > character_details_panel > general_selection_panel
+[ui] <46.2s>    root > character_details_panel > general_selection_panel > panel_frame
+[ui] <46.2s>    root > character_details_panel > general_selection_panel > parchment_texture
+[ui] <46.2s>    root > character_details_panel > general_selection_panel > panel_back_top
+[ui] <46.2s>    root > character_details_panel > general_selection_panel > panel_back_bottom
+[ui] <46.2s>    root > character_details_panel > general_selection_panel > panel_title
+[ui] <46.2s>    root > character_details_panel > general_selection_panel > panel_title > tx_title
+[ui] <46.2s>    root > character_details_panel > general_selection_panel > scroll_frame
+[ui] <46.2s>    root > character_details_panel > general_selection_panel > button_set
+[ui] <46.2s>    root > character_details_panel > general_selection_panel > button_set > accept_decline
+[ui] <46.2s>    root > character_details_panel > general_selection_panel > button_set > accept_decline > button_accept_general
+[ui] <46.2s>    root > character_details_panel > general_selection_panel > button_set > accept_decline > button_decline_general
+[ui] <46.2s>    root > character_details_panel > general_selection_panel > character_list
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > character_list > listview
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > character_list > listview > list_clip
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > character_list > listview > list_clip > list_box
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > character_list > listview > vslider
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > character_list > listview > vslider > frame_top
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > character_list > listview > vslider > frame_bottom
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > character_list > listview > vslider > handle
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > character_list > listview > vslider > top
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > character_list > listview > vslider > bottom
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > character_list > parchment_divider_title
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > character_list > parchment_divider_title > tx_available_generals
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > bodyguard_list
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > bodyguard_list > bodyguard_template_window
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > bodyguard_list > listview
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > bodyguard_list > listview > list_clip
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > bodyguard_list > listview > list_clip > list_box
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > bodyguard_list > listview > hslider
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > bodyguard_list > listview > hslider > handle
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > bodyguard_list > listview > hslider > bottom
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > bodyguard_list > listview > hslider > top
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > bodyguard_list > listview > parchment_divider_title
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > bodyguard_list > listview > parchment_divider_title > tx_select_bguard
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > template_candidate_frame
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > template_candidate_frame > dy_portrait
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > template_candidate_frame > frame
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > template_candidate_frame > dy_name
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > template_candidate_frame > dy_name > divider
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > template_candidate_frame > icon_office
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > template_candidate_frame > icon_background_skill
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > template_candidate_frame > rank
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > template_candidate_frame > rank > experience
+[ui] <46.3s>    root > character_details_panel > general_selection_panel > template_candidate_frame > rank > rank_zero
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > rank > piechart
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > rank > frame
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > rank > dy_rank
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > dy_subtype
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > UpkeepCost
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > UpkeepCost > Upkeep
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > RecruitmentCost
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > RecruitmentCost > Cost
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > health_frame
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > health_frame > health_back
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > health_frame > health_bar
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > health_frame > health_bar > bar_regain
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > health_frame > health_bar > health_fill
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > GrowthCost
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > GrowthCost > Cost
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > loyalty
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > loyalty > dy_loyalty
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > loyalty > icon_loyalty
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > IntrigueCost
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > IntrigueCost > Cost
+[ui] <46.4s>    root > character_details_panel > general_selection_panel > template_candidate_frame > black_ark_buildings
+[ui] <46.4s>    root > character_details_panel > mp_timer
+[ui] <46.4s>    root > character_details_panel > button_info

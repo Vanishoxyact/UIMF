@@ -21,6 +21,8 @@ setmetatable(self, {
 find object from component/name (TEXT, IMAGE)
 wrap panel in list
 bind components
+raise custom event on click with faction which clicked in context
+SetContextObject is this used to add context to guis?
 
 
 component interface
@@ -94,3 +96,12 @@ function Button.Delete(self)
 end
 
 -- Custom functions
+
+
+for key,value in pairs(getmetatable(uim)) do
+    output("found member in model " .. key);
+end
+
+for key,value in pairs(table) do
+    output("found member in model " .. key);
+end
