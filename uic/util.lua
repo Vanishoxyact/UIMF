@@ -1,7 +1,8 @@
 local Log = require("uic/log");
+local Components = require("uic/components");
 
 local Util = {};
-local Components = {} --: map<string, COMPONENT_TYPE>
+local ComponentsMapped = {} --: map<string, COMPONENT_TYPE>
 local InitCallbacks = {} --: vector<function()>
 
 function Util.init() 
@@ -36,10 +37,10 @@ end
 
 --v function(name: string, component: COMPONENT_TYPE)
 function Util.registerComponent(name, component)
-    if not not Components[name] then
+    if not not ComponentsMapped[name] then
         Log.write("Failed to register component with name " .. name .. ", component with that name already registered.");
     else
-        Components[name] = component;
+        ComponentsMapped[name] = component;
     end
 end
 
@@ -77,7 +78,7 @@ end
 
 --v function(name: string) --> COMPONENT_TYPE
 function Util.getComponentWithName(name)
-    return Components[name];
+    return ComponentsMapped[name];
 end
 
 --v function(component: CA_UIC, listenerName: string, callback: function(context: CA_UIContext))
@@ -109,6 +110,33 @@ function Util.digForComponent(startingComponent, componentName)
     end
 end
 
+--v function(componentToMove: CA_UIC | COMPONENT_TYPE | CONTAINER, componentToCentreOn: CA_UIC | COMPONENT_TYPE)
+function Util.centreComponentOnComponent(componentToMove, componentToCentreOn)
+    --# assume componentToMove: CA_UIC
+    local componentToMoveWidth, componentToMoveHeight = componentToMove:Bounds();
+
+    local uicToCentreOn = Components.getUiContentComponent(componentToCentreOn);
+    local uicToCentreOnWidth, uicToCentreOnHeight = uicToCentreOn:Bounds();
+    local uicToCentreOnX, uicToCentreOnY = uicToCentreOn:Position();
+
+    componentToMove:MoveTo(
+        uicToCentreOnWidth/2 - componentToMoveWidth/2 + uicToCentreOnX,
+        uicToCentreOnHeight/2 - componentToMoveHeight/2 + uicToCentreOnY
+    );
+end
+
+--v function(componentToMove: CA_UIC | COMPONENT_TYPE | CONTAINER)
+function Util.centreComponentOnScreen(componentToMove)
+    --# assume componentToMove: CA_UIC
+    local componentToMoveWidth, componentToMoveHeight = componentToMove:Bounds();
+    local screen_x, screen_y = core:get_screen_resolution();    
+
+    componentToMove:MoveTo(
+        screen_x/2 - componentToMoveWidth/2,
+        screen_y/2 - componentToMoveHeight/2
+    );
+end
+
 return {
     delete = Util.delete;
     init = Util.init;
@@ -117,4 +145,6 @@ return {
     getComponentWithName = Util.getComponentWithName;
     registerForClick = Util.registerForClick;
     digForComponent = Util.digForComponent;
+    centreComponentOnComponent = Util.centreComponentOnComponent;
+    centreComponentOnScreen = Util.centreComponentOnScreen;
 }

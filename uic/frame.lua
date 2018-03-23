@@ -129,7 +129,7 @@ function Frame.AddCloseButton(self, callback)
     
     Util.registerForClick(closeButton.uic, self.name .. "CloseButtonListener",
         function(context)
-            if not callback then
+            if not not callback then
                 --# assume callback: function()
                 callback();
             end

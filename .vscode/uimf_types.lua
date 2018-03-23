@@ -31,6 +31,9 @@
 --# type global FLOW_LAYOUT_TYPE = "VERTICAL" | "HOROZONTAL"
 
 --# assume UTIL.getComponentWithName: function(name: string) --> COMPONENT_TYPE
+--# assume UTIL.centreComponentOnComponent: function(componentToMove: CA_UIC | COMPONENT_TYPE | CONTAINER, componentToCentreOn: CA_UIC | COMPONENT_TYPE)
+--# assume UTIL.centreComponentOnScreen: function(component: CA_UIC | COMPONENT_TYPE | CONTAINER)
+        
 
 --# assume global Log: LOG
 --# assume global Text: TEXT

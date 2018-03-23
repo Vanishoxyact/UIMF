@@ -14,7 +14,7 @@ function demo_uimf()
                 if not existingFrame then
                     local myFrame = Frame.new("MyFrame");
                     myFrame:Scale(1.5);
-                    myFrame:MoveTo(100, 100);
+                    Util.centreComponentOnScreen(myFrame);
                     myFrame:AddCloseButton();
 
                     local images = Text.new("images", myFrame, "NORMAL", "Images");
@@ -214,7 +214,7 @@ function demo_uimf()
                     horozontalContainer:AddComponent(containedVerticalContainer);
                     mainContainer:AddComponent(horozontalContainer);
 
-                    mainContainer:PositionRelativeTo(myFrame, 50, 50);
+                    Util.centreComponentOnComponent(mainContainer, myFrame);
                 else
                     --# assume existingFrame: BUTTON
                     existingFrame:SetVisible(true);
