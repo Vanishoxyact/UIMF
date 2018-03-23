@@ -75,6 +75,30 @@ function TextButton.Bounds(self)
     return self.uic:Bounds();
 end
 
+--v function(self: TEXT_BUTTON) --> number
+function TextButton.XPos(self)
+    local xPos, yPos = self:Position();
+    return xPos;
+end
+
+--v function(self: TEXT_BUTTON) --> number
+function TextButton.YPos(self)
+    local xPos, yPos = self:Position();
+    return yPos;
+end
+
+--v function(self: TEXT_BUTTON) --> number
+function TextButton.Width(self)
+    local width, height = self:Bounds();
+    return width;
+end
+
+--v function(self: TEXT_BUTTON) --> number
+function TextButton.Height(self)
+    local width, height = self:Bounds();
+    return height;
+end
+
 --v function(self: TEXT_BUTTON, visible: boolean)
 function TextButton.SetVisible(self, visible)
     return self.uic:SetVisible(visible);

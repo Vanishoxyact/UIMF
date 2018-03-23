@@ -74,6 +74,30 @@ function Button.Bounds(self)
     return self.uic:Bounds();
 end
 
+--v function(self: BUTTON) --> number
+function Button.XPos(self)
+    local xPos, yPos = self:Position();
+    return xPos;
+end
+
+--v function(self: BUTTON) --> number
+function Button.YPos(self)
+    local xPos, yPos = self:Position();
+    return yPos;
+end
+
+--v function(self: BUTTON) --> number
+function Button.Width(self)
+    local width, height = self:Bounds();
+    return width;
+end
+
+--v function(self: BUTTON) --> number
+function Button.Height(self)
+    local width, height = self:Bounds();
+    return height;
+end
+
 --v function(self: BUTTON, visible: boolean)
 function Button.SetVisible(self, visible)
     return self.uic:SetVisible(visible);

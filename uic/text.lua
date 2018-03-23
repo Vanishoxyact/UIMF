@@ -13,6 +13,9 @@ function Text.new(name, parent, textType, textToDisplay)
             name, parentComponent, "ui/campaign ui/clan",
             "main", "tab_children_parent", "Summary", "portrait_frame", "parchment_L", "details", "details_list", "tx_home-region"
         );
+        -- text = Util.createComponent(name, parentComponent, "ui/templates/parchment_row");
+        -- local details = text:GetStateTextDetails();
+        -- Log.write(tostring(details));
     elseif textType == "WRAPPED" then
         text = Util.createComponent(
             name, parentComponent, "ui/campaign ui/mission_details",
@@ -23,6 +26,7 @@ function Text.new(name, parent, textType, textToDisplay)
             name, parentComponent, "ui/campaign ui/objectives_screen",
             "panel_title", "tx_objectives"
         );
+        --text = Util.createComponent(name, parentComponent, "ui/templates/parchment_divider_title");        
     else
         Log.write("Invalid text type:" .. textType);
     end
@@ -81,6 +85,30 @@ end
 --v function(self: TEXT) --> (number, number)
 function Text.Bounds(self)
     return self.uic:Bounds();
+end
+
+--v function(self: TEXT) --> number
+function Text.XPos(self)
+    local xPos, yPos = self:Position();
+    return xPos;
+end
+
+--v function(self: TEXT) --> number
+function Text.YPos(self)
+    local xPos, yPos = self:Position();
+    return yPos;
+end
+
+--v function(self: TEXT) --> number
+function Text.Width(self)
+    local width, height = self:Bounds();
+    return width;
+end
+
+--v function(self: TEXT) --> number
+function Text.Height(self)
+    local width, height = self:Bounds();
+    return height;
 end
 
 --v function(self: TEXT, visible: boolean)

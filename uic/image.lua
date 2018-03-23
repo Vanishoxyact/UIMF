@@ -60,6 +60,30 @@ function Image.Bounds(self)
     return self.uic:Bounds();
 end
 
+--v function(self: IMAGE) --> number
+function Image.XPos(self)
+    local xPos, yPos = self:Position();
+    return xPos;
+end
+
+--v function(self: IMAGE) --> number
+function Image.YPos(self)
+    local xPos, yPos = self:Position();
+    return yPos;
+end
+
+--v function(self: IMAGE) --> number
+function Image.Width(self)
+    local width, height = self:Bounds();
+    return width;
+end
+
+--v function(self: IMAGE) --> number
+function Image.Height(self)
+    local width, height = self:Bounds();
+    return height;
+end
+
 --v function(self: IMAGE, visible: boolean)
 function Image.SetVisible(self, visible)
     return self.uic:SetVisible(visible);

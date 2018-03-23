@@ -1,9 +1,7 @@
 Tooltips
-Circle toggle
-square toggle vortex
+component of UIC
 text button resizing issues
 dig for component
-active seems important
 more debug, especially with button clicking
 move component with keys, print out position
 add to guide 0,0 top left
@@ -39,6 +37,10 @@ Scale
 Resize
 Position
 Bounds
+XPos
+YPos
+Width
+Height
 SetVisible
 GetContentComponent
 GetPositioningComponent
@@ -79,6 +81,30 @@ end
 --v function(self: BUTTON) --> (number, number)
 function Button.Bounds(self)
     return self.uic:Bounds();
+end
+
+--v function(self: BUTTON) --> number
+function Button.XPos(self)
+    local xPos, yPos = self:Position();
+    return xPos;
+end
+
+--v function(self: BUTTON) --> number
+function Button.YPos(self)
+    local xPos, yPos = self:Position();
+    return yPos;
+end
+
+--v function(self: BUTTON) --> number
+function Button.Width(self)
+    local width, height = self:Bounds();
+    return width;
+end
+
+--v function(self: BUTTON) --> number
+function Button.Height(self)
+    local width, height = self:Bounds();
+    return height;
 end
 
 --v function(self: BUTTON, visible: boolean)

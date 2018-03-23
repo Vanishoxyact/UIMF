@@ -75,6 +75,30 @@ function Frame.Bounds(self)
     return self.uic:Bounds();
 end
 
+--v function(self: FRAME) --> number
+function Frame.XPos(self)
+    local xPos, yPos = self:Position();
+    return xPos;
+end
+
+--v function(self: FRAME) --> number
+function Frame.YPos(self)
+    local xPos, yPos = self:Position();
+    return yPos;
+end
+
+--v function(self: FRAME) --> number
+function Frame.Width(self)
+    local width, height = self:Bounds();
+    return width;
+end
+
+--v function(self: FRAME) --> number
+function Frame.Height(self)
+    local width, height = self:Bounds();
+    return height;
+end
+
 --v function(self: FRAME, visible: boolean)
 function Frame.SetVisible(self, visible)
     return self.uic:SetVisible(visible);
