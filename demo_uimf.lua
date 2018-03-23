@@ -130,7 +130,7 @@ function demo_uimf()
 
                     local textBox = TextBox.new("textBox", myFrame);
                     textBox:PositionRelativeTo(text, 0, 180);
-                    local textBoxButton = Button.new("textBoxButton", myFrame, "CIRCULAR", "ui/skins/default/icon_end_turn.png");
+                    local textBoxButton = Button.new("textBoxButton", myFrame, "CIRCULAR", "ui/skins/default/icon_check.png");
                     textBoxButton:PositionRelativeTo(textBox, 200, 0);
                     local textBoxButtonText = Text.new("textBoxButtonText", myFrame, "NORMAL", "CUSTOM_TEXT");
                     textBoxButtonText:PositionRelativeTo(textBoxButton, 50, 0);

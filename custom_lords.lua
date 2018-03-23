@@ -2,17 +2,30 @@ function createCustomLordFrame()
     local existingFrame = Util.getComponentWithName("customLordFrame");
     if not existingFrame then
         local customLordFrame = Frame.new("customLordFrame");
+        customLordFrame:SetTitle("Create your custom Lord");
         local screen_x, screen_y = core:get_screen_resolution();
         local frameWidth, frameHeight = customLordFrame:Bounds();
         customLordFrame:MoveTo(screen_x/2 - frameWidth/2, 200);
 
         local contentWidth, contentHeight = customLordFrame.content:Bounds();
+
+        local lordName = Text.new("lordName", customLordFrame, "NORMAL", "Name your Lord");
+        lordName:PositionRelativeTo(customLordFrame, 20, 20);
+        local lordNameTextBox = TextBox.new("lordNameTextBox", customLordFrame);
+        lordNameTextBox:PositionRelativeTo(lordName, 0, 20);
+
+
+
+        local lordNameTextBoxWidth, lordNameTextBoxHeight = lordNameTextBox.uic:Bounds();
+        local lordTypeText = Text.new("lordTypeText", customLordFrame, "NORMAL", "Select your Lord type");
+        lordTypeText:PositionRelativeTo(lordNameTextBox, 0, lordNameTextBoxHeight + 20);
+
         local princeButton = TextButton.new("princeButton", customLordFrame, "TEXT_TOGGLE", "Prince");
         local buttonSize = 300;
         local gapSize = 100;
-
         princeButton:Resize(buttonSize, princeButton.uic:Height());
-        princeButton:PositionRelativeTo(customLordFrame, contentWidth/2 - (buttonSize + gapSize/2), 50);
+        princeButton:PositionRelativeTo(customLordFrame, contentWidth/2 - (buttonSize + gapSize/2), 0);
+        princeButton:Move(0, lordNameTextBoxHeight + 80);
         princeButton.uic:SetState("selected");
 
         local princessButton = TextButton.new("princessButton", customLordFrame, "TEXT_TOGGLE", "Princess");
@@ -32,14 +45,17 @@ function createCustomLordFrame()
             end
         );
 
+        local princeButtonWidth, princeButtonHeight = princeButton:Bounds();
+        local skillSetText = Text.new("lordTypeText", customLordFrame, "NORMAL", "Select your Lord skill-set");
+        skillSetText:PositionRelativeTo(lordTypeText, 0, princeButtonHeight + 20);
         local defaultSkillsButton = TextButton.new("defaultSkillsButton", customLordFrame, "TEXT_TOGGLE", "Default");        
         defaultSkillsButton:Resize(buttonSize, defaultSkillsButton.uic:Height());
-        defaultSkillsButton:PositionRelativeTo(princeButton, 0, 50);
+        defaultSkillsButton:PositionRelativeTo(princeButton, 0, princeButtonHeight + 20);
         defaultSkillsButton.uic:SetState("selected");
 
         local magicSkillsButton = TextButton.new("magicSkillsButton", customLordFrame, "TEXT_TOGGLE", "Magic");
         magicSkillsButton:Resize(buttonSize, magicSkillsButton.uic:Height());
-        magicSkillsButton:PositionRelativeTo(princessButton, 0, 50);
+        magicSkillsButton:PositionRelativeTo(princessButton, 0, princeButtonHeight + 20);
         magicSkillsButton.uic:SetState("active");
 
         defaultSkillsButton:RegisterForClick("defaultSkillsButtonListener",
@@ -54,7 +70,18 @@ function createCustomLordFrame()
             end
         );
 
-        local recuitButton = Button.new("recuitButton", customLordFrame, "CIRCULAR", "ui/campaign ui/edicts/lzd_alignment_of_building.png");
+        local customTraitText = Text.new("customTraitText", customLordFrame, "NORMAL", "Select your Lords traits");
+        customTraitText:PositionRelativeTo(skillSetText, 0, princeButtonHeight + 20);
+        local firstTraitButton = TextButton.new("firstTraitButton", customLordFrame, "TEXT_TOGGLE", "First Trait");     
+        firstTraitButton:Resize(buttonSize, firstTraitButton.uic:Height());
+        firstTraitButton:PositionRelativeTo(defaultSkillsButton, 0, princeButtonHeight + 20);
+        firstTraitButton.uic:SetState("active");        
+        local secondTraitButton = TextButton.new("secondTraitButton", customLordFrame, "TEXT_TOGGLE", "Second Trait");     
+        secondTraitButton:Resize(buttonSize, secondTraitButton.uic:Height());
+        secondTraitButton:PositionRelativeTo(magicSkillsButton, 0, princeButtonHeight + 20);
+        secondTraitButton.uic:SetState("active");  
+        
+        local recuitButton = Button.new("recuitButton", customLordFrame, "CIRCULAR", "ui/skins/default/icon_check.png");
         local buttonWidth, buttonHeight = recuitButton.uic:Dimensions();
         recuitButton:PositionRelativeTo(customLordFrame, contentWidth/2 - buttonWidth/2, contentHeight - buttonHeight/2)
 
@@ -76,8 +103,12 @@ function createCustomLordFrame()
             find_uicomponent(core:get_ui_root(), "popup_text_input", "panel_title", "heading_txt"):SetStateText("Name your Lord");
             find_uicomponent(core:get_ui_root(), "popup_text_input", "text_input_list_parent", "text_input1"):SetStateText("Name your Lord");
             local textInput =  find_uicomponent(core:get_ui_root(), "popup_text_input", "text_input_list_parent", "text_input");
-            textInput:SimulateKey("a");
-            textInput:SimulateKey("b");
+
+            local lordNameFromTextBox = lordNameTextBox.uic:GetStateText();
+            for i = 1, string.len(lordNameFromTextBox) do
+                textInput:SimulateKey(string.sub(lordNameFromTextBox, i, i));
+            end
+
             local popupOkButton = find_uicomponent(core:get_ui_root(), "popup_text_input", "ok_cancel_buttongroup", "button_ok");
             popupOkButton:SimulateLClick();
             find_uicomponent(core:get_ui_root(), "character_details_panel", "button_ok"):SimulateLClick();
