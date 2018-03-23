@@ -26,8 +26,7 @@ end
 function Container.Bounds(self)
     local layout = self.layout;
     --# assume layout : FLOW_LAYOUT
-    layout:CalculateBounds(self.components);
-    return 0, 0;
+    return layout:CalculateBounds(self.components);
 end
 
 --v function(self: CONTAINER, xPos: number, yPos: number)
