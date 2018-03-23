@@ -22,7 +22,7 @@ function Components.move(component, xMove, yMove)
     component:MoveTo(curX + xMove, curY + yMove);
 end
 
---v function(componentToMove: CA_UIC, relativeComponent: CA_UIC | COMPONENT_TYPE, xDiff: number, yDiff: number)    
+--v function(componentToMove: CA_UIC | CONTAINER, relativeComponent: CA_UIC | COMPONENT_TYPE, xDiff: number, yDiff: number)    
 function Components.positionRelativeToUiComponent(componentToMove, relativeComponent, xDiff, yDiff)
     local uic = nil  --: CA_UIC
     if is_uicomponent(relativeComponent) then
@@ -33,6 +33,7 @@ function Components.positionRelativeToUiComponent(componentToMove, relativeCompo
         uic = relativeComponent:GetPositioningComponent();
     end
     local relX, relY = uic:Position();
+    --# assume componentToMove: CA_UIC
     componentToMove:MoveTo(relX + xDiff, relY + yDiff);
 end
 

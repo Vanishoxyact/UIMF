@@ -7,6 +7,9 @@ local Frame = require("uic/frame");
 local TextBox = require("uic/text_box")
 local Util = require ("uic/util");
 require("uic/components");
+local FlowLayout = require("uic/layout/flowlayout");
+local Container = require("uic/layout/container");
+require("uic/layout/gap");
 
 _G.UIComponent = UIComponent;
 _G.find_uicomponent = find_uicomponent;
@@ -23,6 +26,8 @@ _G.TextButton = TextButton;
 _G.Frame = Frame;
 _G.TextBox = TextBox;
 _G.Util = Util;
+_G.FlowLayout = FlowLayout;
+_G.Container = Container;
 
 core:add_ui_created_callback(
     function()

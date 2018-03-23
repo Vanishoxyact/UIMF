@@ -22,6 +22,14 @@
 --# assume BUTTON.GetContentComponent: method() --> CA_UIC
 --# assume BUTTON.GetPositioningComponent: method() --> CA_UIC
 
+--# assume global class CONTAINER
+--# assume global class GAP
+--# assume global class FLOW_LAYOUT
+
+--# type global LAYOUT = FLOW_LAYOUT
+
+--# type global FLOW_LAYOUT_TYPE = "VERTICAL" | "HOROZONTAL"
+
 --# assume UTIL.getComponentWithName: function(name: string) --> COMPONENT_TYPE
 
 --# assume global Log: LOG
@@ -32,3 +40,5 @@
 --# assume global Frame: FRAME
 --# assume global TextBox: TEXT_BOX
 --# assume global Util: UTIL
+--# assume global FlowLayout: FLOW_LAYOUT
+--# assume global Container: CONTAINER

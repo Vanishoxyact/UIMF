@@ -2,6 +2,7 @@ function demo_uimf()
     local enableDemoUI = true;
     local enableRecuitmentDemo = true;
     local enableMortCultDemo = true;
+    local enableFlowLayoutDemoUI = true;
 
     if enableDemoUI then
         core:add_listener(
@@ -174,6 +175,50 @@ function demo_uimf()
                     recruitText:PositionRelativeTo(recuitmentOption, 20, 20);
                 end
                 output("RECRUIT CALLBACK END");
+            end,
+            true
+        );
+    end
+
+    if enableFlowLayoutDemoUI then
+        core:add_listener(
+            "createFlowLayoutFrame",
+            "ShortcutTriggered",
+            function(context) return context.string == "camera_bookmark_view3"; end, --default F12
+            function(context)
+                local existingFrame = Util.getComponentWithName("FlowLayoutDemo");
+                if not existingFrame then
+                    local myFrame = Frame.new("FlowLayoutDemo");
+                    myFrame:Scale(1.5);
+                    myFrame:MoveTo(100, 100);
+                    myFrame:AddCloseButton();
+
+                    local mainContainer = Container.new(FlowLayout.new("VERTICAL"));
+                    local firstButton = TextButton.new("firstButton", myFrame, "TEXT", "Button One");
+                    local secondButton = TextButton.new("secondButton", myFrame, "TEXT", "Button Two");
+                    local thirdButton = TextButton.new("thirdButton", myFrame, "TEXT", "Button Three");
+                    mainContainer:AddComponent(firstButton);
+                    mainContainer:AddComponent(secondButton);
+                    mainContainer:AddGap(100);
+                    mainContainer:AddComponent(thirdButton);
+
+                    local horozontalContainer = Container.new(FlowLayout.new("HOROZONTAL"));
+                    local firstHoroButton = TextButton.new("firstHoroButton", myFrame, "TEXT", "Button Four");
+                    local containedVerticalContainer = Container.new(FlowLayout.new("VERTICAL"));
+                    local firstContainedButton = TextButton.new("firstContainedButton", myFrame, "TEXT", "Button Five");
+                    local secondContainedButton = TextButton.new("secondContainedButton", myFrame, "TEXT", "Button Six");
+                    containedVerticalContainer:AddComponent(firstContainedButton);
+                    containedVerticalContainer:AddComponent(secondContainedButton);
+                    horozontalContainer:AddComponent(firstHoroButton);
+                    horozontalContainer:AddGap(100);
+                    horozontalContainer:AddComponent(containedVerticalContainer);
+                    mainContainer:AddComponent(horozontalContainer);
+
+                    mainContainer:PositionRelativeTo(myFrame, 50, 50);
+                else
+                    --# assume existingFrame: BUTTON
+                    existingFrame:SetVisible(true);
+                end
             end,
             true
         );
