@@ -16,21 +16,12 @@ function Button.new(name, parent, buttonType, imagePath)
     local button = nil --: CA_UIC
     if buttonType == "CIRCULAR" then
         button = Util.createComponent(name, parentComponent, "ui/templates/round_medium_button");
-        button:SetImage(imagePath);
     elseif buttonType == "SQUARE" then
-        button = Util.createComponent(
-            name, parentComponent, "ui/campaign ui/character_details_panel",
-            "background", "bottom_buttons", "button_event_feed"
-        );
-        button:SetImage(imagePath);
+        button = Util.createComponent(name, parentComponent, "ui/templates/square_medium_button");
     elseif buttonType == "CIRCULAR_TOGGLE" then
-        Log.write(buttonType .. " not yet supported");
+        button = Util.createComponent(name, parentComponent, "ui/templates/round_medium_button_toggle");
     elseif buttonType == "SQUARE_TOGGLE" then
-        button = Util.createComponent(
-            name, parentComponent, "ui/campaign ui/objectives_screen",
-            "TabGroup", "tab_victory_conditions", "tab_child", "tree_holder", "victory_type_tree", "slot_parent", "wh_main_victory_type_long"
-        );
-        button:SetImage(imagePath);
+        button = Util.createComponent(name, parentComponent, "ui/templates/square_medium_button_toggle");
     else
         Log.write("Invalid button type:" .. buttonType);
     end
@@ -41,6 +32,7 @@ function Button.new(name, parent, buttonType, imagePath)
     self.name = name --: const
     self.buttonType = buttonType --: const
     Util.registerComponent(name, self); 
+    button:SetImage(imagePath);
     return self;
 end
 

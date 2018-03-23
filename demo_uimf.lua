@@ -52,11 +52,12 @@ function demo_uimf()
 
                     local toggleButtons = Text.new("toggleButtons", myFrame, "NORMAL", "Toggle Buttons");
                     toggleButtons:PositionRelativeTo(buttons, 0, 100);
-                    --Not working in vortex campaign
-                    --local squareToggleButton = Button.new("squareToggleButton", myFrame, "SQUARE_TOGGLE", "ui/skins/default/icon_end_turn.png");
-                    --squareToggleButton:PositionRelativeTo(toggleButtons, 0, 20); 
+                    local squareToggleButton = Button.new("squareToggleButton", myFrame, "SQUARE_TOGGLE", "ui/skins/default/icon_end_turn.png");
+                    squareToggleButton:PositionRelativeTo(toggleButtons, 0, 20); 
+                    local circularToggleButton = Button.new("circularToggleButton", myFrame, "CIRCULAR_TOGGLE", "ui/skins/default/icon_end_turn.png");
+                    circularToggleButton:PositionRelativeTo(squareToggleButton, 50, 0); 
                     local textToggleButton = TextButton.new("textToggleButton", myFrame, "TEXT_TOGGLE", "customText");
-                    textToggleButton:PositionRelativeTo(toggleButtons, 0, 20); 
+                    textToggleButton:PositionRelativeTo(circularToggleButton, 50, 0); 
 
                     local buttonLogic = Text.new("buttonLogic", myFrame, "NORMAL", "Button Logic");
                     buttonLogic:PositionRelativeTo(toggleButtons, 0, 70);    
