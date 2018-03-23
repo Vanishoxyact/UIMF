@@ -68,9 +68,9 @@ function FlowLayout.PositionComponents(self, components, xPos, yPos)
 end
 
 FlowLayout.VERTICAL = FlowLayout.new("VERTICAL");
-FlowLayout.HOROZONAL = FlowLayout.new("HOROZONTAL");
+FlowLayout.HORIZONTAL = FlowLayout.new("HORIZONTAL");
 
 return {
     VERTICAL = FlowLayout.VERTICAL,
-    HOROZONAL = FlowLayout.HOROZONAL
+    HORIZONTAL = FlowLayout.HORIZONTAL
 }

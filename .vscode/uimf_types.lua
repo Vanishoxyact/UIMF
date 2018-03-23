@@ -28,7 +28,7 @@
 
 --# type global LAYOUT = FLOW_LAYOUT
 
---# type global FLOW_LAYOUT_TYPE = "VERTICAL" | "HOROZONTAL"
+--# type global FLOW_LAYOUT_TYPE = "VERTICAL" | "HORIZONTAL"
 
 --# assume UTIL.getComponentWithName: function(name: string) --> COMPONENT_TYPE
 --# assume UTIL.centreComponentOnComponent: function(componentToMove: CA_UIC | COMPONENT_TYPE | CONTAINER, componentToCentreOn: CA_UIC | COMPONENT_TYPE)

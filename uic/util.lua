@@ -71,6 +71,7 @@ function Util.createComponent(name, parentComponent, componentFilePath, ...)
         if not not ... then
             Util.delete(temp);
         end
+        Components.positionRelativeTo(component, parentComponent, 0, 0);        
         Log.write("Created component "..name)
         return component;
     end
@@ -118,7 +119,7 @@ function Util.centreComponentOnComponent(componentToMove, componentToCentreOn)
     local uicToCentreOn = Components.getUiContentComponent(componentToCentreOn);
     local uicToCentreOnWidth, uicToCentreOnHeight = uicToCentreOn:Bounds();
     local uicToCentreOnX, uicToCentreOnY = uicToCentreOn:Position();
-
+    
     componentToMove:MoveTo(
         uicToCentreOnWidth/2 - componentToMoveWidth/2 + uicToCentreOnX,
         uicToCentreOnHeight/2 - componentToMoveHeight/2 + uicToCentreOnY

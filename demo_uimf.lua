@@ -3,6 +3,7 @@ function demo_uimf()
     local enableRecuitmentDemo = true;
     local enableMortCultDemo = true;
     local enableFlowLayoutDemoUI = true;
+    local enableUIMFFrame = true;
 
     if enableDemoUI then
         core:add_listener(
@@ -202,7 +203,7 @@ function demo_uimf()
                     mainContainer:AddGap(100);
                     mainContainer:AddComponent(thirdButton);
 
-                    local horozontalContainer = Container.new(FlowLayout.HOROZONAL);
+                    local horozontalContainer = Container.new(FlowLayout.HORIZONTAL);
                     local firstHoroButton = TextButton.new("firstHoroButton", myFrame, "TEXT", "Button Four");
                     local containedVerticalContainer = Container.new(FlowLayout.VERTICAL);
                     local firstContainedButton = TextButton.new("firstContainedButton", myFrame, "TEXT", "Button Five");
@@ -215,6 +216,46 @@ function demo_uimf()
                     mainContainer:AddComponent(horozontalContainer);
 
                     Util.centreComponentOnComponent(mainContainer, myFrame);
+                else
+                    --# assume existingFrame: BUTTON
+                    existingFrame:SetVisible(true);
+                end
+            end,
+            true
+        );
+    end
+
+    if enableUIMFFrame then
+        core:add_listener(
+            "UIMFFrame",
+            "ShortcutTriggered",
+            function(context) return context.string == "camera_bookmark_view1"; end, --default F10
+            function(context)
+                local existingFrame = Util.getComponentWithName("UIMFFrame");
+                if not existingFrame then
+                    local uimfFrame = Frame.new("UIMFFrame");
+                    Util.centreComponentOnScreen(uimfFrame); 
+                    uimfFrame:SetTitle("UI Modding Framework")                   
+                    uimfFrame:AddCloseButton();
+
+                    local mainContainer = Container.new(FlowLayout.VERTICAL);
+                    local firstRow = Container.new(FlowLayout.HORIZONTAL);
+                    local customButton = TextButton.new("customButton", uimfFrame, "TEXT", "Create custom buttons")
+                    local customText = Text.new("customText", uimfFrame, "NORMAL", "Create custom text")
+                    firstRow:AddComponent(customButton);
+                    firstRow:AddComponent(customText);
+                    mainContainer:AddComponent(firstRow);
+                    
+                    local secondRow = Container.new(FlowLayout.HORIZONTAL);
+                    local andMoreText = Text.new("andMoreText", uimfFrame, "NORMAL", "And more...")
+                    local customImage = Image.new("customImage", uimfFrame, "ui/skins/default/advisor_beastmen_2d.png");
+                    local customImageButton = Button.new("customImageButton", uimfFrame, "CIRCULAR", "ui/campaign ui/edicts/lzd_alignment_of_building.png")
+                    secondRow:AddComponent(andMoreText);
+                    secondRow:AddComponent(customImage);
+                    secondRow:AddComponent(customImageButton);
+                    mainContainer:AddComponent(secondRow);
+
+                    Util.centreComponentOnComponent(mainContainer, uimfFrame);                            
                 else
                     --# assume existingFrame: BUTTON
                     existingFrame:SetVisible(true);
