@@ -6,9 +6,8 @@ local TextBox = {} --# assume TextBox: TEXT_BOX
 --v function(name: string, parent: CA_UIC | COMPONENT_TYPE) --> TEXT_BOX
 function TextBox.new(name, parent)
     local parentComponent = Components.getUiContentComponent(parent);
-    parentComponent:CreateComponent(name, "ui/common ui/text_box");
-    local textBox = UIComponent(parentComponent:Find(name));
-
+    local textBox = Util.createComponent(name, parentComponent, "ui/common ui/text_box");
+    
     local self = {};
     setmetatable(self, {
         __index = TextBox

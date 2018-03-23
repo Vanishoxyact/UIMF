@@ -6,9 +6,7 @@ local Frame = {} --# assume Frame: FRAME
 
 --v function(name: string) --> FRAME
 function Frame.new(name)
-    local root = core:get_ui_root();
-    root:CreateComponent(name, "ui/campaign ui/objectives_screen");
-    local frame = UIComponent(root:Find(name));
+    local frame = Util.createComponent(name, core:get_ui_root(), "ui/campaign ui/objectives_screen");
 
     Util.delete(UIComponent(frame:Find("TabGroup")));
     Util.delete(UIComponent(frame:Find("button_info")));
@@ -26,7 +24,6 @@ function Frame.new(name)
     self.title = title --: const
     self.content = parchment --: const
     Util.registerComponent(name, self);    
-    Log.write("Created component "..name);
     return self;
 end
 
