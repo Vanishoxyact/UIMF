@@ -45,10 +45,16 @@ end
 
 --v function(name: string, parentComponent: CA_UIC, componentFilePath: string, ...:string) --> CA_UIC
 function Util.createComponent(name, parentComponent, componentFilePath, ...)
-    local root = core:get_ui_root();
-    root:CreateComponent("UITEMP", componentFilePath);
-    local temp = UIComponent(root:Find("UITEMP"));
-    local component = find_uicomponent(temp, ...);
+    local component = nil --: CA_UIC
+    local temp = nil --: CA_UIC
+    if not ... then
+        parentComponent:CreateComponent(name, componentFilePath);
+        component = UIComponent(parentComponent:Find(name));
+    else
+        parentComponent:CreateComponent("UITEMP", componentFilePath);
+        temp = UIComponent(parentComponent:Find("UITEMP"));
+        component = find_uicomponent(temp, ...);
+    end
     if not component then
         local completePath = componentFilePath;
         for i, v in ipairs{...} do
@@ -61,7 +67,9 @@ function Util.createComponent(name, parentComponent, componentFilePath, ...)
     else
         parentComponent:Adopt(component:Address());
         component:PropagatePriority(parentComponent:Priority());
-        Util.delete(temp);
+        if not not ... then
+            Util.delete(temp);
+        end
         Log.write("Created component "..name)
         return component;
     end

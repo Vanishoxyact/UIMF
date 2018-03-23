@@ -5,6 +5,8 @@ text button resizing issues
 dig for component
 active seems important
 more debug, especially with button clicking
+move component with keys, print out position
+add to guide 0,0 top left
 
 type check from tostring
 function is_pendingbattle(obj)

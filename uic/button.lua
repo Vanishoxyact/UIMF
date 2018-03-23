@@ -15,10 +15,7 @@ function Button.new(name, parent, buttonType, imagePath)
     local self = {};
     local button = nil --: CA_UIC
     if buttonType == "CIRCULAR" then
-        button = Util.createComponent(
-            name, parentComponent, "ui/campaign ui/clan",
-            "main", "button_ok"
-        );
+        button = Util.createComponent(name, parentComponent, "ui/templates/round_medium_button");
         button:SetImage(imagePath);
     elseif buttonType == "SQUARE" then
         button = Util.createComponent(
