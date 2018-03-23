@@ -9,6 +9,8 @@ function Container.new(layout)
     --# assume self: CONTAINER
     self.components = {} --: vector<CA_UIC | COMPONENT_TYPE | GAP>
     self.layout = layout;
+    self.xPos = tonumber(0);
+    self.yPos = tonumber(0);
     return self;
 end
 
@@ -29,11 +31,18 @@ function Container.Bounds(self)
     return layout:CalculateBounds(self.components);
 end
 
+--v function(self: CONTAINER) --> (number, number)
+function Container.Position(self)
+    return self.xPos, self.yPos;
+end
+
 --v function(self: CONTAINER, xPos: number, yPos: number)
 function Container.MoveTo(self, xPos, yPos)
     local layout = self.layout;
     --# assume layout : FLOW_LAYOUT
     layout:PositionComponents(self.components, xPos, yPos);
+    self.xPos = xPos;
+    self.yPos = yPos;
 end
 
 --v function(self: CONTAINER, component: CA_UIC | COMPONENT_TYPE, xDiff: number, yDiff: number)

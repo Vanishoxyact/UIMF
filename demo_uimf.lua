@@ -234,6 +234,7 @@ function demo_uimf()
                 local existingFrame = Util.getComponentWithName("UIMFFrame");
                 if not existingFrame then
                     local uimfFrame = Frame.new("UIMFFrame");
+                    uimfFrame:Resize(750, 400);
                     Util.centreComponentOnScreen(uimfFrame); 
                     uimfFrame:SetTitle("UI Modding Framework")                   
                     uimfFrame:AddCloseButton();
@@ -255,7 +256,10 @@ function demo_uimf()
                     secondRow:AddComponent(customImageButton);
                     mainContainer:AddComponent(secondRow);
 
-                    Util.centreComponentOnComponent(mainContainer, uimfFrame);                            
+                    Util.centreComponentOnComponent(mainContainer, uimfFrame);
+                    local containerX, containerY = mainContainer:Position();
+                    local frameContentX, frameContentY = uimfFrame:GetContentComponent():Position();
+                    mainContainer:MoveTo(containerX, frameContentY);
                 else
                     --# assume existingFrame: BUTTON
                     existingFrame:SetVisible(true);
