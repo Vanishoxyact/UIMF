@@ -15,20 +15,11 @@ function TextButton.new(name, parent, buttonType, buttonText)
     local textButton = nil --: CA_UIC
     local textButtonText = nil --: CA_UIC
     if buttonType == "TEXT" then
-        textButton = Util.createComponent(
-            name, parentComponent, "ui/campaign ui/intrigue_panel",
-            "button_improve"
-        );
+        textButton = Util.createComponent(name, parentComponent, "ui/templates/square_large_text_button");
         textButtonText = UIComponent(textButton:Find("button_txt"));
-        Util.delete(UIComponent(textButton:Find("att_frame")));
-        Util.delete(UIComponent(textButton:Find("dy_cost")));
     elseif buttonType == "TEXT_TOGGLE" then
-        textButton = Util.createComponent(
-            name, parentComponent, "ui/campaign ui/finance_screen",
-            "TabGroup", "tab_summary"
-        );
-        textButtonText = UIComponent(textButton:Find("tx_details"));
-        Util.delete(UIComponent(textButton:Find("summary")));
+        textButton = Util.createComponent(name, parentComponent, "ui/templates/square_large_text_button_toggle");
+        textButtonText = UIComponent(textButton:Find("button_txt"));
     else
         Log.write("Invalid text button type:" .. buttonType);
     end

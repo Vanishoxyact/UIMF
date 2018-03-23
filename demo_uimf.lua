@@ -87,21 +87,6 @@ function demo_uimf()
                             end
                         end
                     );
-                    --Not working in vortex campaign
-                    -- local toggleButton = Button.new("toggleButton", myFrame, "SQUARE_TOGGLE", "ui/skins/default/icon_end_turn.png");
-                    -- toggleButton:PositionRelativeTo(counterText, 50, 0);
-                    -- local toggleText = Text.new("toggleText", myFrame, "NORMAL", "0");
-                    -- toggleText:PositionRelativeTo(toggleButton, 50, 0);
-                    -- toggleText:SetText(tostring(toggleButton:IsSelected()));
-                    -- toggleButton:RegisterForClick("toggleListener",
-                    --     function(context)
-                    --         cm:callback(
-                    --             function()
-                    --                 toggleText:SetText(tostring(toggleButton:IsSelected()));
-                    --             end, 0.1, "toggleListenerText"
-                    --         ) 
-                    --     end
-                    -- );
                     local toggleTextButton = TextButton.new("toggleTextButton", myFrame, "TEXT_TOGGLE", "Custom text");
                     toggleTextButton:PositionRelativeTo(counterText, 50, 0);
                     toggleTextButton:RegisterForClick("toggleTestListener",

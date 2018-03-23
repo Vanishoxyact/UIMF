@@ -26,13 +26,14 @@ function Button.new(name, parent, buttonType, imagePath)
         Log.write("Invalid button type:" .. buttonType);
     end
 
+    button:SetImage(imagePath);
+    
     setmetatable(self, {__index = Button});
     --# assume self: BUTTON
     self.uic = button --: const
     self.name = name --: const
     self.buttonType = buttonType --: const
     Util.registerComponent(name, self); 
-    button:SetImage(imagePath);
     return self;
 end
 
