@@ -126,7 +126,7 @@ function Button.ClearSound(self)
 end
 
 --v function(self: BUTTON, state: BUTTON_STATE)
-function Button.SetState(self, state) 
+function Button.SetState(self, state)
     self.uic:SetState(state);
 end
 

@@ -1,10 +1,13 @@
 -- CLASS DECLARATION
 --# assume global class CM
+--# assume global class CUIM
 --# assume global class CA_UIC
 --# assume global class CA_Component
 --# assume global class CA_UIContext
 --# assume global class CA_CQI
 --# assume global class CA_CHAR
+--# assume global class CA_REGION
+--# assume global class CA_SETTLEMENT
 
 --# assume global class CORE
 --# assume global class _G
@@ -65,6 +68,8 @@
 --# assume CA_UIC.Width: method() --> number
 --# assume CA_UIC.SetImageRotation:  method(unknown: number, rotation: number)
 --# assume CA_UIC.ResizeTextResizingComponentToInitialSize: method(width: number, height: number)
+--# assume CA_UIC.SimulateLClick: method()
+--# assume CA_UIC.SimulateKey: method(keyString: string)
 
 
 -- CAMPAIGN MANAGER
@@ -103,6 +108,26 @@
 --#     success_callback: function(CA_CQI)
 --# )
 --# assume CM.force_add_trait: method(character_cqi: CA_CQI, trait_key: string, showMessage: boolean)
+--# assume CM.force_add_trait_on_selected_character: method(trait_key: string)
+--# assume CM.get_campaign_ui_manager: method() --> CUIM
+
+
+-- CAMPAIGN UI MANAGER
+--# assume CUIM.get_char_selected: method() --> string
+--# assume CUIM.settlement_selected: string
+
+
+--CHARACTER
+--# assume CA_CHAR.has_trait: method(traitName: string) --> boolean
+
+
+--REGION
+--# assume CA_REGION.settlement: method() --> CA_SETTLEMENT
+
+
+--SETTLEMENT
+--# assume CA_SETTLEMENT.logical_position_x: method() --> number
+--# assume CA_SETTLEMENT.logical_position_y: method() --> number
 
 
 -- CORE
@@ -126,8 +151,9 @@
 -- GLOBAL FUNCTIONS
 --# assume global find_uicomponent: function(parent: CA_UIC, string...) --> CA_UIC
 --# assume global UIComponent: function(pointer: CA_Component) --> CA_UIC
---# assume global output: function(output: string)  
+--# assume global output: function(output: string | number)  
 --# assume global print_all_uicomponent_children: function(component: CA_UIC)
 --# assume global is_uicomponent: function(object: any) --> boolean
 --# assume global remove_all_units_from_character: function(char: CA_CHAR)
 --# assume global get_character_by_cqi: function(cqi: CA_CQI) --> CA_CHAR
+--# assume global get_region: function(regionName: string) --> CA_REGION

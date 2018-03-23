@@ -16,32 +16,32 @@ function createCustomLordFrame()
 
 
 
-        local lordNameTextBoxWidth, lordNameTextBoxHeight = lordNameTextBox.uic:Bounds();
+        local lordNameTextBoxWidth, lordNameTextBoxHeight = lordNameTextBox:Bounds();
         local lordTypeText = Text.new("lordTypeText", customLordFrame, "NORMAL", "Select your Lord type");
         lordTypeText:PositionRelativeTo(lordNameTextBox, 0, lordNameTextBoxHeight + 20);
 
         local princeButton = TextButton.new("princeButton", customLordFrame, "TEXT_TOGGLE", "Prince");
         local buttonSize = 300;
         local gapSize = 100;
-        princeButton:Resize(buttonSize, princeButton.uic:Height());
+        princeButton:Resize(buttonSize, princeButton:Height());
         princeButton:PositionRelativeTo(customLordFrame, contentWidth/2 - (buttonSize + gapSize/2), 0);
         princeButton:Move(0, lordNameTextBoxHeight + 80);
-        princeButton.uic:SetState("selected");
+        princeButton:SetState("selected");
 
         local princessButton = TextButton.new("princessButton", customLordFrame, "TEXT_TOGGLE", "Princess");
-        princessButton:Resize(buttonSize, princessButton.uic:Height());
+        princessButton:Resize(buttonSize, princessButton:Height());
         princessButton:PositionRelativeTo(princeButton, buttonSize + gapSize, 0);
-        princessButton.uic:SetState("active");
+        princessButton:SetState("active");
 
         princeButton:RegisterForClick("princeButtonListener",
             function(context)
-                princessButton.uic:SetState("active");
+                princessButton:SetState("active");
             end
         );
 
         princessButton:RegisterForClick("princessButtonListener",
             function(context)
-                princeButton.uic:SetState("active");
+                princeButton:SetState("active");
             end
         );
 
@@ -49,43 +49,45 @@ function createCustomLordFrame()
         local skillSetText = Text.new("lordTypeText", customLordFrame, "NORMAL", "Select your Lord skill-set");
         skillSetText:PositionRelativeTo(lordTypeText, 0, princeButtonHeight + 20);
         local defaultSkillsButton = TextButton.new("defaultSkillsButton", customLordFrame, "TEXT_TOGGLE", "Default");        
-        defaultSkillsButton:Resize(buttonSize, defaultSkillsButton.uic:Height());
+        defaultSkillsButton:Resize(buttonSize, defaultSkillsButton:Height());
         defaultSkillsButton:PositionRelativeTo(princeButton, 0, princeButtonHeight + 20);
-        defaultSkillsButton.uic:SetState("selected");
+        defaultSkillsButton:SetState("selected");
 
         local magicSkillsButton = TextButton.new("magicSkillsButton", customLordFrame, "TEXT_TOGGLE", "Magic");
-        magicSkillsButton:Resize(buttonSize, magicSkillsButton.uic:Height());
+        magicSkillsButton:Resize(buttonSize, magicSkillsButton:Height());
         magicSkillsButton:PositionRelativeTo(princessButton, 0, princeButtonHeight + 20);
-        magicSkillsButton.uic:SetState("active");
+        magicSkillsButton:SetState("active");
 
         defaultSkillsButton:RegisterForClick("defaultSkillsButtonListener",
             function(context)
-                magicSkillsButton.uic:SetState("active");
+                magicSkillsButton:SetState("active");
             end
         );
 
         magicSkillsButton:RegisterForClick("magicSkillsButtonListener",
             function(context)
-                defaultSkillsButton.uic:SetState("active");
+                defaultSkillsButton:SetState("active");
             end
         );
 
         local customTraitText = Text.new("customTraitText", customLordFrame, "NORMAL", "Select your Lords traits");
         customTraitText:PositionRelativeTo(skillSetText, 0, princeButtonHeight + 20);
         local firstTraitButton = TextButton.new("firstTraitButton", customLordFrame, "TEXT_TOGGLE", "First Trait");     
-        firstTraitButton:Resize(buttonSize, firstTraitButton.uic:Height());
+        firstTraitButton:Resize(buttonSize, firstTraitButton:Height());
         firstTraitButton:PositionRelativeTo(defaultSkillsButton, 0, princeButtonHeight + 20);
-        firstTraitButton.uic:SetState("active");        
+        firstTraitButton:SetState("active");        
         local secondTraitButton = TextButton.new("secondTraitButton", customLordFrame, "TEXT_TOGGLE", "Second Trait");     
-        secondTraitButton:Resize(buttonSize, secondTraitButton.uic:Height());
+        secondTraitButton:Resize(buttonSize, secondTraitButton:Height());
         secondTraitButton:PositionRelativeTo(magicSkillsButton, 0, princeButtonHeight + 20);
-        secondTraitButton.uic:SetState("active");  
+        secondTraitButton:SetState("active");  
         
         local recuitButton = Button.new("recuitButton", customLordFrame, "CIRCULAR", "ui/skins/default/icon_check.png");
-        local buttonWidth, buttonHeight = recuitButton.uic:Dimensions();
+        local buttonWidth, buttonHeight = recuitButton:Bounds();
         recuitButton:PositionRelativeTo(customLordFrame, contentWidth/2 - buttonWidth/2, contentHeight - buttonHeight/2)
 
-        local callBackFunction = function(context)
+        local callBackFunction = function(
+            context --:CA_CQI
+        )
             if defaultSkillsButton:IsSelected() then
                 cm:force_add_trait_on_selected_character("wh2_main_trait_hef_prince_melee");
             else
@@ -151,8 +153,6 @@ function createCustomLordFrame()
                         callBackFunction
                     );
                 end
-                --cm:force_add_trait("character_cqi:"..character:cqi(), trait, true);
-                --remove_all_units_from_character
                 customLordFrame:SetVisible(false);
             end
         );
@@ -186,17 +186,13 @@ function attachButtonToLordRecuitment()
             createCustomLordButton:RegisterForClick(
                 "createCustomLordButtonListener", 
                 function(context)
-                    output("Selected settlement:"..cm:get_campaign_ui_manager().settlement_selected);  
                     local region = string.sub(tostring(cm:get_campaign_ui_manager().settlement_selected), 12);
-                    output("Selected region:"..region);                      
                     local settlement = get_region(region):settlement();
                     output(settlement:logical_position_x());
                     output(settlement:logical_position_y());
                     
                     createCustomLordFrame();
                     characterPanel:SetVisible(false);
-                    --find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker"):SetVisible(false);
-                    --find_uicomponent(core:get_ui_root(), "layout", "info_panel_holder"):SetVisible(false);
                 end
             );
 
@@ -214,51 +210,48 @@ function custom_lords()
             return context.string == "character_details_panel"; 
         end,
         function(context)
-            --cm:callback(function()
-                local chain = find_uicomponent(core:get_ui_root(), "character_details_panel", "background", "skills_subpanel", "listview", "list_clip", "list_box", "chain2", "chain");
-                if not not chain then
-                    local childCount = chain:ChildCount();
-                    for i=0, childCount-1  do
-                        local child = UIComponent(chain:Find(i));
-                        output(child:Id());
-                        --wh2_main_skill_innate_hef_prince_melee
-                        --wh2_main_skill_innate_hef_prince_magic
-                        
-                        local char = cm:get_campaign_ui_manager():get_char_selected();
-                        local cqi = string.sub(char, 15);
-                        output("cqi:"..cqi);
-                        local realChar = get_character_by_cqi(cqi);
-                        local id = child:Id();
-                        if id == "wh2_main_skill_hef_combat_graceful_strikes" 
-                        or id == "module_wh2_main_skill_hef_combat_graceful_strikes" 
-                        or id == "wh_main_skill_all_all_self_foe-seeker" 
-                        or id == "module_wh_main_skill_all_all_self_foe-seeker" 
-                        or id == "wh_main_skill_all_all_self_deadly_onslaught" then
-                            if not realChar:has_trait("wh2_main_trait_hef_prince_melee") then
-                                output("assdd");
-                                child:SetVisible(false);
-                                output("hid skill");
-                            else
-                                output("has skill melee");
-                            end
+            local chain = find_uicomponent(core:get_ui_root(), "character_details_panel", "background", "skills_subpanel", "listview", "list_clip", "list_box", "chain2", "chain");
+            if not not chain then
+                local childCount = chain:ChildCount();
+                for i=0, childCount-1  do
+                    local child = UIComponent(chain:Find(i));
+                    output(child:Id());
+                    
+                    local char = cm:get_campaign_ui_manager():get_char_selected();
+                    local cqi = string.sub(char, 15);
+                    output("cqi:"..cqi);
+                    --# assume cqi: CA_CQI
+                    local realChar = get_character_by_cqi(cqi);
+                    local id = child:Id();
+                    if id == "wh2_main_skill_hef_combat_graceful_strikes" 
+                    or id == "module_wh2_main_skill_hef_combat_graceful_strikes" 
+                    or id == "wh_main_skill_all_all_self_foe-seeker" 
+                    or id == "module_wh_main_skill_all_all_self_foe-seeker" 
+                    or id == "wh_main_skill_all_all_self_deadly_onslaught" then
+                        if not realChar:has_trait("wh2_main_trait_hef_prince_melee") then
+                            output("assdd");
+                            child:SetVisible(false);
+                            output("hid skill");
+                        else
+                            output("has skill melee");
                         end
-                        if id == "wh2_main_skill_all_magic_high_02_apotheosis" 
-                        or id == "module_wh2_main_skill_all_magic_high_02_apotheosis" 
-                        or id == "wh_main_skill_all_magic_all_06_evasion" 
-                        or id == "module_wh_main_skill_all_magic_all_06_evasion" 
-                        or id == "wh_main_skill_all_magic_all_11_arcane_conduit" then
-                            output("dfgfdg")
-                            if not realChar:has_trait("wh2_main_trait_hef_prince_magic") then
-                                output("dfgfdgdfg")
-                                child:SetVisible(false);
-                                output("hid skill");
-                            else
-                                output("has skill magic");
-                            end
+                    end
+                    if id == "wh2_main_skill_all_magic_high_02_apotheosis" 
+                    or id == "module_wh2_main_skill_all_magic_high_02_apotheosis" 
+                    or id == "wh_main_skill_all_magic_all_06_evasion" 
+                    or id == "module_wh_main_skill_all_magic_all_06_evasion" 
+                    or id == "wh_main_skill_all_magic_all_11_arcane_conduit" then
+                        output("dfgfdg")
+                        if not realChar:has_trait("wh2_main_trait_hef_prince_magic") then
+                            output("dfgfdgdfg")
+                            child:SetVisible(false);
+                            output("hid skill");
+                        else
+                            output("has skill magic");
                         end
                     end
                 end
-            --end, 1.0, "SADD");
+            end
         end, 
         true
     );

@@ -118,8 +118,8 @@ end
 
 -- Custom functions
 
---v function(self: FRAME)
-function Frame.AddCloseButton(self)
+--v function(self: FRAME, callback: function?)
+function Frame.AddCloseButton(self, callback)
     local closeButton = Button.new(self.name .. "CloseButton", self.uic, "CIRCULAR", "ui/campaign ui/edicts/lzd_alignment_of_building.png");
     self.closeButton = closeButton;
 
@@ -129,6 +129,10 @@ function Frame.AddCloseButton(self)
     
     Util.registerForClick(closeButton.uic, self.name .. "CloseButtonListener",
         function(context)
+            if not callback then
+                --# assume callback: function()
+                callback();
+            end
             self.uic:SetVisible(false);
         end
     );
