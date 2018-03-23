@@ -193,7 +193,7 @@ function demo_uimf()
                     myFrame:MoveTo(100, 100);
                     myFrame:AddCloseButton();
 
-                    local mainContainer = Container.new(FlowLayout.new("VERTICAL"));
+                    local mainContainer = Container.new(FlowLayout.VERTICAL);
                     local firstButton = TextButton.new("firstButton", myFrame, "TEXT", "Button One");
                     local secondButton = TextButton.new("secondButton", myFrame, "TEXT", "Button Two");
                     local thirdButton = TextButton.new("thirdButton", myFrame, "TEXT", "Button Three");
@@ -202,9 +202,9 @@ function demo_uimf()
                     mainContainer:AddGap(100);
                     mainContainer:AddComponent(thirdButton);
 
-                    local horozontalContainer = Container.new(FlowLayout.new("HOROZONTAL"));
+                    local horozontalContainer = Container.new(FlowLayout.HOROZONAL);
                     local firstHoroButton = TextButton.new("firstHoroButton", myFrame, "TEXT", "Button Four");
-                    local containedVerticalContainer = Container.new(FlowLayout.new("VERTICAL"));
+                    local containedVerticalContainer = Container.new(FlowLayout.VERTICAL);
                     local firstContainedButton = TextButton.new("firstContainedButton", myFrame, "TEXT", "Button Five");
                     local secondContainedButton = TextButton.new("secondContainedButton", myFrame, "TEXT", "Button Six");
                     containedVerticalContainer:AddComponent(firstContainedButton);
