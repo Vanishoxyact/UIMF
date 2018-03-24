@@ -104,6 +104,11 @@ function TextButton.SetVisible(self, visible)
     return self.uic:SetVisible(visible);
 end
 
+--v function(self: TEXT_BUTTON) --> boolean
+function TextButton.Visible(self)
+    return self.uic:Visible();
+end
+
 --v function(self: TEXT_BUTTON) --> CA_UIC
 function TextButton.GetContentComponent(self)
     return self.uic;
@@ -129,6 +134,11 @@ end
 --v function(self: TEXT_BUTTON, state: BUTTON_STATE)
 function TextButton.SetState(self, state) 
     self.uic:SetState(state);
+end
+
+--v function(self: TEXT_BUTTON) --> BUTTON_STATE
+function TextButton.CurrentState(self)
+    return self.uic:CurrentState();
 end
 
 --v function(self: TEXT_BUTTON) --> boolean

@@ -86,6 +86,11 @@ function TextBox.SetVisible(self, visible)
     return self.uic:SetVisible(visible);
 end
 
+--v function(self: TEXT_BOX) --> boolean
+function TextBox.Visible(self)
+    return self.uic:Visible();
+end
+
 --v function(self: TEXT_BOX) --> CA_UIC
 function TextBox.GetContentComponent(self)
     return self.uic;

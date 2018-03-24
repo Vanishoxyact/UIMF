@@ -36,6 +36,11 @@ function Container.Position(self)
     return self.xPos, self.yPos;
 end
 
+--v function(self: CONTAINER) --> boolean
+function Container.Visible(self)
+    return true;
+end
+
 --v function(self: CONTAINER, xPos: number, yPos: number)
 function Container.MoveTo(self, xPos, yPos)
     local layout = self.layout;

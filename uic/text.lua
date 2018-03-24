@@ -112,6 +112,11 @@ function Text.SetVisible(self, visible)
     return self.uic:SetVisible(visible);
 end
 
+--v function(self: TEXT) --> boolean
+function Text.Visible(self)
+    return self.uic:Visible();
+end
+
 --v function(self: TEXT) --> CA_UIC
 function Text.GetContentComponent(self)
     return self.uic;

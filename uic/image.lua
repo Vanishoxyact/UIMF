@@ -89,6 +89,11 @@ function Image.SetVisible(self, visible)
     return self.uic:SetVisible(visible);
 end
 
+--v function(self: IMAGE) --> boolean
+function Image.Visible(self)
+    return self.uic:Visible();
+end
+
 --v function(self: IMAGE) --> CA_UIC
 function Image.GetContentComponent(self)
     return self.uic;

@@ -103,6 +103,11 @@ function Button.SetVisible(self, visible)
     return self.uic:SetVisible(visible);
 end
 
+--v function(self: BUTTON) --> boolean
+function Button.Visible(self)
+    return self.uic:Visible();
+end
+
 --v function(self: BUTTON) --> CA_UIC
 function Button.GetContentComponent(self)
     return self.uic;
@@ -128,6 +133,11 @@ end
 --v function(self: BUTTON, state: BUTTON_STATE)
 function Button.SetState(self, state)
     self.uic:SetState(state);
+end
+
+--v function(self: BUTTON) --> BUTTON_STATE
+function Button.CurrentState(self)
+    return self.uic:CurrentState();
 end
 
 --v function(self: BUTTON) --> boolean

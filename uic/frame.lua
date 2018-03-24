@@ -101,6 +101,11 @@ function Frame.SetVisible(self, visible)
     return self.uic:SetVisible(visible);
 end
 
+--v function(self: FRAME) --> boolean
+function Frame.Visible(self)
+    return self.uic:Visible();
+end
+
 --v function(self: FRAME) --> CA_UIC
 function Frame.GetContentComponent(self)
     return self.content;
