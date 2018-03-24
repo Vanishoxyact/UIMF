@@ -84,18 +84,44 @@ function createSkillSetButton(skillSet, frame)
     return skillSetButton;
 end
 
---v function(lordType: string, frame: FRAME) --> vector<TEXT_BUTTON>
+--v function(lordType: string, frame: FRAME) --> map<string, TEXT_BUTTON>
 function createSkillSetButtons(lordType, frame)
     local buttons = {} --: vector<TEXT_BUTTON>
+    local buttonsMap = {} --: map<string, TEXT_BUTTON>
     for i, skillSet in ipairs(LORD_SKILL_SETS[lordType]) do
         local button = createSkillSetButton(skillSet, frame);
         if i == 1 then
             button:SetState("selected");
         end
+        buttonsMap[skillSet] = button;
         table.insert(buttons, button);
     end
     setUpSingleButtonSelectedGroup(buttons);
-    return buttons;
+    return buttonsMap;
+end
+
+--v function(lordTypeButtonsMap: map<string, TEXT_BUTTON>) --> string
+function findSelectedLordType(lordTypeButtonsMap)
+    local selectedLordType = nil --: string
+    for lordType, lordTypeButton in pairs(lordTypeButtonsMap) do
+        if lordTypeButton:IsSelected() then
+            selectedLordType = lordType;
+        end
+    end
+    return selectedLordType;
+end
+
+--v function(skillSetButtonsMap: map<string, TEXT_BUTTON>) --> string
+function findSelectedSkillSet(skillSetButtonsMap)
+    local selectedSkillSet = nil --: string
+    for skillSet, skillSetButton in pairs(skillSetButtonsMap) do
+        if skillSetButton:IsSelected() then
+            if skillSetButton:Visible() then
+                selectedSkillSet = skillSet;
+            end
+        end
+    end
+    return selectedSkillSet;
 end
 
 function createCustomLordFrame()
@@ -136,17 +162,19 @@ function createCustomLordFrame()
         end
         frameContainer:AddComponent(buttonContainer);
 
-        local skillSetText = Text.new("lordTypeText", customLordFrame, "NORMAL", "Select your Lord skill-set");
+        local skillSetText = Text.new("skillSetText", customLordFrame, "NORMAL", "Select your Lord skill-set");
         frameContainer:AddComponent(skillSetText);
 
         local skillSetButtonsContainer = Container.new(FlowLayout.HORIZONTAL);
         local lordTypeToSkillSetButtons = {} --: map<string, vector<TEXT_BUTTON>>
+        local skillSetToButtonMap = {} --: map<string, TEXT_BUTTON>
         for lordType, lordTypeButton in pairs(lordTypeButtons) do
             lordTypeToSkillSetButtons[lordType] = {};
             local skillSetButtons = createSkillSetButtons(lordType, customLordFrame);
-            for i, skillSetButton in pairs(skillSetButtons) do
+            for skillSet, skillSetButton in pairs(skillSetButtons) do
                 skillSetButtonsContainer:AddComponent(skillSetButton);
                 table.insert(lordTypeToSkillSetButtons[lordType], skillSetButton);
+                skillSetToButtonMap[skillSet] = skillSetButton;
                 if lordTypeButton:CurrentState() == "selected" then
                     skillSetButton:SetVisible(true);
                 else
@@ -171,10 +199,46 @@ function createCustomLordFrame()
                 end
             );
         end
-
         frameContainer:AddComponent(skillSetButtonsContainer);
 
+        -- local callBackFunction = function(
+        --     context --:CA_CQI
+        -- )
+        --     if defaultSkillsButton:IsSelected() then
+        --         cm:force_add_trait_on_selected_character("wh2_main_trait_hef_prince_melee");
+        --     else
+        --         cm:force_add_trait_on_selected_character("wh2_main_trait_hef_prince_magic");                
+        --     end
+
+        --     find_uicomponent(core:get_ui_root(), "units_panel", "main_units_panel", "units", "LandUnit 1"):SimulateLClick();
+        --     find_uicomponent(core:get_ui_root(), "units_panel", "main_units_panel", "button_group_unit", "button_disband"):SimulateLClick();
+        --     find_uicomponent(core:get_ui_root(), "dialogue_box", "both_group", "button_tick"):SimulateLClick();
+
+        --     local generalButton = find_uicomponent(core:get_ui_root(), "layout", "info_panel_holder", "primary_info_panel_holder", "info_button_list", "button_general");
+        --     generalButton:SimulateLClick();
+        --     local renameButton = find_uicomponent(core:get_ui_root(), "character_details_panel", "background", "bottom_buttons", "button_rename");
+        --     renameButton:SimulateLClick();
+        --     find_uicomponent(core:get_ui_root(), "popup_text_input", "panel_title", "heading_txt"):SetStateText("Name your Lord");
+        --     find_uicomponent(core:get_ui_root(), "popup_text_input", "text_input_list_parent", "text_input1"):SetStateText("Name your Lord");
+        --     local textInput =  find_uicomponent(core:get_ui_root(), "popup_text_input", "text_input_list_parent", "text_input");
+
+        --     local lordNameFromTextBox = lordNameTextBox.uic:GetStateText();
+        --     for i = 1, string.len(lordNameFromTextBox) do
+        --         textInput:SimulateKey(string.sub(lordNameFromTextBox, i, i));
+        --     end
+
+        --     local popupOkButton = find_uicomponent(core:get_ui_root(), "popup_text_input", "ok_cancel_buttongroup", "button_ok");
+        --     popupOkButton:SimulateLClick();
+        --     find_uicomponent(core:get_ui_root(), "character_details_panel", "button_ok"):SimulateLClick();
+        -- end
+
         Util.centreComponentOnComponent(frameContainer, customLordFrame);
+        customLordFrame:AddCloseButton(
+            function()
+                output("Selected Lord Type:" .. findSelectedLordType(lordTypeButtons));
+                output("Selected Skill Set:" .. findSelectedSkillSet(skillSetToButtonMap));
+            end
+        );
 
         --buttonContainer:PositionRelativeTo(customLordFrame, 50, 50);
 
