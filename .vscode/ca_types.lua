@@ -9,6 +9,7 @@
 --# assume global class CA_REGION
 --# assume global class CA_SETTLEMENT
 --# assume global class CA_FACTION
+--# assume global class CA_GAME
 
 --# assume global class CORE
 --# assume global class _G
@@ -112,11 +113,16 @@
 --# assume CM.force_add_trait_on_selected_character: method(trait_key: string)
 --# assume CM.get_campaign_ui_manager: method() --> CUIM
 --# assume CM.get_local_faction: method() --> string
+--# assume CM.get_game_interface: method() --> CA_GAME
 
 
 -- CAMPAIGN UI MANAGER
 --# assume CUIM.get_char_selected: method() --> string
 --# assume CUIM.settlement_selected: string
+
+
+-- GAME INTERFACE
+--# assume CA_GAME.filesystem_lookup: method(filePath: string, matchRegex:string) --> string
 
 
 --CHARACTER

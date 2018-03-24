@@ -1,3 +1,4 @@
+--v function(path: string) --> string
 function read_file(path)
     local configEnv = {}
     local f,err = loadfile(path);
@@ -14,7 +15,7 @@ function read_file(path)
     end
 end
 
-local game_interface = cm:get_game_interface()
+local game_interface = cm:get_game_interface();
 
 if not game_interface then
     output("no game_interface");
