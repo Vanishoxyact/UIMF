@@ -8,6 +8,7 @@
 --# assume global class CA_CHAR
 --# assume global class CA_REGION
 --# assume global class CA_SETTLEMENT
+--# assume global class CA_FACTION
 
 --# assume global class CORE
 --# assume global class _G
@@ -110,6 +111,7 @@
 --# assume CM.force_add_trait: method(character_cqi: CA_CQI, trait_key: string, showMessage: boolean)
 --# assume CM.force_add_trait_on_selected_character: method(trait_key: string)
 --# assume CM.get_campaign_ui_manager: method() --> CUIM
+--# assume CM.get_local_faction: method() --> string
 
 
 -- CAMPAIGN UI MANAGER
@@ -157,3 +159,4 @@
 --# assume global remove_all_units_from_character: function(char: CA_CHAR)
 --# assume global get_character_by_cqi: function(cqi: CA_CQI) --> CA_CHAR
 --# assume global get_region: function(regionName: string) --> CA_REGION
+--# assume global get_faction: function(factionName: string) --> CA_FACTION

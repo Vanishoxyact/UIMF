@@ -1,3 +1,5 @@
 require("uimf_init");
 require("demo_uimf");
-require("custom_lords")
+require("other mods/custom_lords");
+require("other mods/trade_goods");
+require("other mods/improved_ruins");
