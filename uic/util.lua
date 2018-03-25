@@ -106,9 +106,13 @@ function Util.digForComponent(startingComponent, componentName)
         if child:Id() == componentName then
             return child;
         else
-            return Util.digForComponent(child, componentName);
+            local dugComponent = Util.digForComponent(child, componentName);
+            if dugComponent then
+                return dugComponent;
+            end
         end
     end
+    return nil;
 end
 
 --v function(componentToMove: CA_UIC | COMPONENT_TYPE | CONTAINER, componentToCentreOn: CA_UIC | COMPONENT_TYPE)
