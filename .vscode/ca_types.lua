@@ -6,9 +6,11 @@
 --# assume global class CA_UIContext
 --# assume global class CA_CQI
 --# assume global class CA_CHAR
+--# assume global class CA_CHAR_LIST
 --# assume global class CA_REGION
 --# assume global class CA_SETTLEMENT
 --# assume global class CA_FACTION
+--# assume global class CA_FACTION_LIST
 --# assume global class CA_GAME
 --# assume global class CA_MODEL
 --# assume global class CA_WORLD
@@ -130,6 +132,13 @@
 
 -- CHARACTER
 --# assume CA_CHAR.has_trait: method(traitName: string) --> boolean
+--# assume CA_CHAR.logical_position_x: method() --> number
+--# assume CA_CHAR.logical_position_y: method() --> number
+
+
+-- CHARACTER LIST
+--# assume CA_CHAR_LIST.num_items: method() --> number
+--# assume CA_CHAR_LIST.item_at: method(index: number) --> CA_CHAR
 
 
 -- REGION
@@ -146,7 +155,16 @@
 
 
 -- WORLD
---# assume CA_WORLD.faction_list: method() --> vector<CA_FACTION>
+--# assume CA_WORLD.faction_list: method() --> CA_FACTION_LIST
+
+
+-- FACTION
+--# assume CA_FACTION.character_list: method() --> CA_CHAR_LIST
+
+
+-- FACTION LIST
+--# assume CA_FACTION_LIST.num_items: method() --> number
+--# assume CA_FACTION_LIST.item_at: method(index: number) --> CA_FACTION
 
 
 -- CORE

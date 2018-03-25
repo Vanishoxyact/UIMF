@@ -35,6 +35,14 @@ table.insert(SKILL_SET_SKILLS["wh2_main_trait_hef_prince_magic"], "wh_main_skill
 table.insert(SKILL_SET_SKILLS["wh2_main_trait_hef_prince_magic"], "module_wh_main_skill_all_magic_all_06_evasion");
 table.insert(SKILL_SET_SKILLS["wh2_main_trait_hef_prince_magic"], "wh_main_skill_all_magic_all_11_arcane_conduit");
 
+TRAITS = {} --: vector<string>
+table.insert(TRAITS, "wh2_main_trait_defeated_teclis");
+table.insert(TRAITS, "wh2_main_trait_defeated_tyrion");
+
+TRAIT_NAMES = {} --: map<string, string>
+TRAIT_NAMES["wh2_main_trait_defeated_teclis"] = "Sacking";
+TRAIT_NAMES["wh2_main_trait_defeated_tyrion"] = "Sea Legs";
+
 --v function(buttons: vector<TEXT_BUTTON>)
 function setUpSingleButtonSelectedGroup(buttons)
     for i, button in ipairs(buttons) do
@@ -100,6 +108,30 @@ function createSkillSetButtons(lordType, frame)
     return buttonsMap;
 end
 
+--v function(trait: string, frame: FRAME) --> TEXT_BUTTON
+function createTraitButton(trait, frame)
+    local traitButton = TextButton.new(trait .. "Button", frame, "TEXT_TOGGLE", TRAIT_NAMES[trait]);
+    traitButton:Resize(300, traitButton:Height());
+    traitButton:SetState("active");
+    return traitButton;
+end
+
+--v function(frame: FRAME) --> map<string, TEXT_BUTTON>
+function createTraitButtons(frame)
+    local buttons = {} --: vector<TEXT_BUTTON>
+    local buttonsMap = {} --: map<string, TEXT_BUTTON>
+    for i, trait in ipairs(TRAITS) do
+        local button = createTraitButton(trait, frame);
+        if i == 1 then
+            button:SetState("selected");
+        end
+        buttonsMap[trait] = button;
+        table.insert(buttons, button);
+    end
+    setUpSingleButtonSelectedGroup(buttons);
+    return buttonsMap;
+end
+
 --v function(lordTypeButtonsMap: map<string, TEXT_BUTTON>) --> string
 function findSelectedLordType(lordTypeButtonsMap)
     local selectedLordType = nil --: string
@@ -124,9 +156,21 @@ function findSelectedSkillSet(skillSetButtonsMap)
     return selectedSkillSet;
 end
 
---v function(selectedSkillSet: string, lordName: string)
-function lordCreated(selectedSkillSet, lordName)
+--v function(traitButtonMap: map<string, TEXT_BUTTON>) --> string
+function findSelectedTrait(traitButtonMap)
+    local selectedTrait = nil --: string
+    for trait, traitButton in pairs(traitButtonMap) do
+        if traitButton:IsSelected() then
+            selectedTrait = trait;
+        end
+    end
+    return selectedTrait;
+end
+
+--v function(selectedSkillSet: string, selectedTrait: string, lordName: string)
+function lordCreated(selectedSkillSet, selectedTrait, lordName)
     cm:force_add_trait_on_selected_character(selectedSkillSet);
+    cm:force_add_trait_on_selected_character(selectedTrait);
     
     find_uicomponent(core:get_ui_root(), "units_panel", "main_units_panel", "units", "LandUnit 1"):SimulateLClick();
     find_uicomponent(core:get_ui_root(), "units_panel", "main_units_panel", "button_group_unit", "button_disband"):SimulateLClick();
@@ -149,16 +193,48 @@ function lordCreated(selectedSkillSet, lordName)
     find_uicomponent(core:get_ui_root(), "character_details_panel", "button_ok"):SimulateLClick();
 end
 
+--v function(xPos: number, yPos: number) --> boolean
+function isValidSpawnPoint(xPos, yPos)
+    local faction_list = cm:model():world():faction_list();
+    output("factionList:" .. tostring(faction_list));
+    for i = 0, faction_list:num_items() - 1 do
+        local current_faction = faction_list:item_at(i);
+        local char_list = current_faction:character_list();
+        for i = 0, char_list:num_items() - 1 do
+            local current_char = char_list:item_at(i);
+            if current_char:logical_position_x() == xPos and current_char:logical_position_y() == yPos then
+                return false;
+            end;
+        end;
+    end;
+    return true;
+end
+
+--v function(xPos: number, yPos: number) --> (number, number)
+function calculateSpawnPoint(xPos, yPos)
+    for i = 1, 5 do
+        for j = 1, 5 do
+            local newX = xPos + i;
+            local newY = yPos + j;
+            if isValidSpawnPoint(newX, newY) then
+                return newX, newY;
+            end
+        end
+    end
+    return xPos, yPos;
+end
+
 --v function(selectedLordType: string, lordCreatedCallback: function(CA_CQI))
 function createLord(selectedLordType, lordCreatedCallback)
     local region = string.sub(tostring(cm:get_campaign_ui_manager().settlement_selected), 12);
     local settlement = get_region(region):settlement();
+    local xPos, yPos = calculateSpawnPoint(settlement:logical_position_x(), settlement:logical_position_y());
     cm:create_force_with_general(
         cm:get_local_faction(),
         "wh2_main_skv_inf_clanrats_0",
         region,
-        settlement:logical_position_x() + 1,
-        settlement:logical_position_y() + 1,
+        xPos,
+        yPos,
         "general",
         selectedLordType,
         "",
@@ -232,13 +308,24 @@ function createCustomLordFrame()
             );
         end
         frameContainer:AddComponent(skillSetButtonsContainer);
+
+        local traitsText = Text.new("traitsText", customLordFrame, "NORMAL", "Select your Lord traits");
+        frameContainer:AddComponent(traitsText);
+
+        local traitButtons = createTraitButtons(customLordFrame);
+        local traitButtonsContainer = Container.new(FlowLayout.HORIZONTAL);
+        for i, button in pairs(traitButtons) do
+            traitButtonsContainer:AddComponent(button);
+        end
+        frameContainer:AddComponent(traitButtonsContainer);
+
         Util.centreComponentOnComponent(frameContainer, customLordFrame);
 
 
         local lordCreatedCallback = function(
             context --:CA_CQI
         )
-            lordCreated(findSelectedSkillSet(skillSetToButtonMap), lordNameTextBox.uic:GetStateText());
+            lordCreated(findSelectedSkillSet(skillSetToButtonMap), findSelectedTrait(traitButtons), lordNameTextBox.uic:GetStateText());
         end
 
         local region = string.sub(tostring(cm:get_campaign_ui_manager().settlement_selected), 12);
@@ -327,24 +414,6 @@ function getSelectedChar()
     local cqi = string.sub(char, 15);
     --# assume cqi: CA_CQI
     return get_character_by_cqi(cqi);
-end
-
---v function(xPos: number, yPos: number) --> boolean
-function is_valid_spawn_point(xPos, yPos)
-    local faction_list = cm:model():world():faction_list();
-    output("factionList:" .. tostring(faction_list));
-	for i = 0, faction_list:num_items() - 1 do
-        local current_faction = faction_list:item_at(i);
-		local char_list = current_faction:character_list();
-		for i = 0, char_list:num_items() - 1 do
-            local current_char = char_list:item_at(i);
-			if current_char:logical_position_x() == xPos and current_char:logical_position_y() == yPos then
-				return false;
-			end;
-		end;
-	end;
-	
-	return true;
 end
 
 function custom_lords()
