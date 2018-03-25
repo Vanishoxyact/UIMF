@@ -25,8 +25,8 @@ SKILL_SET_SKILLS = {} --: map<string, vector<string>>
 SKILL_SET_SKILLS["wh2_main_trait_hef_prince_melee"] = {};
 table.insert(SKILL_SET_SKILLS["wh2_main_trait_hef_prince_melee"], "wh2_main_skill_hef_combat_graceful_strikes");
 table.insert(SKILL_SET_SKILLS["wh2_main_trait_hef_prince_melee"], "module_wh2_main_skill_hef_combat_graceful_strikes");
-table.insert(SKILL_SET_SKILLS["wh2_main_trait_hef_prince_melee"], "wh_main_skill_all_all_self_foe");
-table.insert(SKILL_SET_SKILLS["wh2_main_trait_hef_prince_melee"], "module_wh_main_skill_all_all_self_foe");
+table.insert(SKILL_SET_SKILLS["wh2_main_trait_hef_prince_melee"], "wh_main_skill_all_all_self_foe-seeker");
+table.insert(SKILL_SET_SKILLS["wh2_main_trait_hef_prince_melee"], "module_wh_main_skill_all_all_self_foe-seeker");
 table.insert(SKILL_SET_SKILLS["wh2_main_trait_hef_prince_melee"], "wh_main_skill_all_all_self_deadly_onslaught");
 SKILL_SET_SKILLS["wh2_main_trait_hef_prince_magic"] = {};
 table.insert(SKILL_SET_SKILLS["wh2_main_trait_hef_prince_magic"], "wh2_main_skill_all_magic_high_02_apotheosis");
@@ -124,38 +124,71 @@ function findSelectedSkillSet(skillSetButtonsMap)
     return selectedSkillSet;
 end
 
+--v function(selectedSkillSet: string, lordName: string)
+function lordCreated(selectedSkillSet, lordName)
+    cm:force_add_trait_on_selected_character(selectedSkillSet);
+    
+    find_uicomponent(core:get_ui_root(), "units_panel", "main_units_panel", "units", "LandUnit 1"):SimulateLClick();
+    find_uicomponent(core:get_ui_root(), "units_panel", "main_units_panel", "button_group_unit", "button_disband"):SimulateLClick();
+    find_uicomponent(core:get_ui_root(), "dialogue_box", "both_group", "button_tick"):SimulateLClick();
+
+    local generalButton = find_uicomponent(core:get_ui_root(), "layout", "info_panel_holder", "primary_info_panel_holder", "info_button_list", "button_general");
+    generalButton:SimulateLClick();
+    local renameButton = find_uicomponent(core:get_ui_root(), "character_details_panel", "background", "bottom_buttons", "button_rename");
+    renameButton:SimulateLClick();
+    find_uicomponent(core:get_ui_root(), "popup_text_input", "panel_title", "heading_txt"):SetStateText("Name your Lord");
+    find_uicomponent(core:get_ui_root(), "popup_text_input", "text_input_list_parent", "text_input1"):SetStateText("Name your Lord");
+    local textInput =  find_uicomponent(core:get_ui_root(), "popup_text_input", "text_input_list_parent", "text_input");
+
+    for i = 1, string.len(lordName) do
+        textInput:SimulateKey(string.sub(lordName, i, i));
+    end
+
+    local popupOkButton = find_uicomponent(core:get_ui_root(), "popup_text_input", "ok_cancel_buttongroup", "button_ok");
+    popupOkButton:SimulateLClick();
+    find_uicomponent(core:get_ui_root(), "character_details_panel", "button_ok"):SimulateLClick();
+end
+
+--v function(selectedLordType: string, lordCreatedCallback: function(CA_CQI))
+function createLord(selectedLordType, lordCreatedCallback)
+    local region = string.sub(tostring(cm:get_campaign_ui_manager().settlement_selected), 12);
+    local settlement = get_region(region):settlement();
+    cm:create_force_with_general(
+        cm:get_local_faction(),
+        "wh2_main_skv_inf_clanrats_0",
+        region,
+        settlement:logical_position_x() + 1,
+        settlement:logical_position_y() + 1,
+        "general",
+        selectedLordType,
+        "",
+        "",
+        "",
+        "",
+        "my_custom_lord",
+        false,
+        lordCreatedCallback
+    );
+end
+
 function createCustomLordFrame()
     local existingFrame = Util.getComponentWithName("customLordFrame");
     if not existingFrame then
         local customLordFrame = Frame.new("customLordFrame");
+        customLordFrame.uic:PropagatePriority(200);
         customLordFrame:SetTitle("Create your custom Lord");
         Util.centreComponentOnScreen(customLordFrame);
-        --local screen_x, screen_y = core:get_screen_resolution();
-        --local frameWidth, frameHeight = customLordFrame:Bounds();
-        --customLordFrame:MoveTo(screen_x/2 - frameWidth/2, 200);
-        --local contentWidth, contentHeight = customLordFrame.content:Bounds();
 
         local frameContainer = Container.new(FlowLayout.VERTICAL);        
-
         local lordName = Text.new("lordName", customLordFrame, "NORMAL", "Name your Lord");
         frameContainer:AddComponent(lordName);
-        --lordName:PositionRelativeTo(customLordFrame, 20, 20);
         local lordNameTextBox = TextBox.new("lordNameTextBox", customLordFrame);
         frameContainer:AddComponent(lordNameTextBox);
-        --lordNameTextBox:PositionRelativeTo(lordName, 0, 20);
 
-        --local lordNameTextBoxWidth, lordNameTextBoxHeight = lordNameTextBox:Bounds();
         local lordTypeText = Text.new("lordTypeText", customLordFrame, "NORMAL", "Select your Lord type");
         frameContainer:AddComponent(lordTypeText);
-        --lordTypeText:PositionRelativeTo(lordNameTextBox, 0, lordNameTextBoxHeight + 20);
 
-        local currentFaction = cm:get_local_faction();
-        -- output("Faction:" .. currentFaction)
-        -- for i, v in ipairs(FACTION_LORD_TYPES[currentFaction]) do
-        --     output("Lord type:" .. v);
-        -- end
-
-        local lordTypeButtons = createLordTypeButtons(currentFaction, customLordFrame);
+        local lordTypeButtons = createLordTypeButtons(cm:get_local_faction(), customLordFrame);
         local buttonContainer = Container.new(FlowLayout.HORIZONTAL);
         for i, button in pairs(lordTypeButtons) do
             buttonContainer:AddComponent(button);
@@ -182,7 +215,6 @@ function createCustomLordFrame()
                 end
             end
         end
-
         for lordType, lordTypeButton in pairs(lordTypeButtons) do
             lordTypeButton:RegisterForClick(lordTypeButton.name .. "SkillSetListener",
                 function(context)
@@ -200,184 +232,22 @@ function createCustomLordFrame()
             );
         end
         frameContainer:AddComponent(skillSetButtonsContainer);
-
-        -- local callBackFunction = function(
-        --     context --:CA_CQI
-        -- )
-        --     if defaultSkillsButton:IsSelected() then
-        --         cm:force_add_trait_on_selected_character("wh2_main_trait_hef_prince_melee");
-        --     else
-        --         cm:force_add_trait_on_selected_character("wh2_main_trait_hef_prince_magic");                
-        --     end
-
-        --     find_uicomponent(core:get_ui_root(), "units_panel", "main_units_panel", "units", "LandUnit 1"):SimulateLClick();
-        --     find_uicomponent(core:get_ui_root(), "units_panel", "main_units_panel", "button_group_unit", "button_disband"):SimulateLClick();
-        --     find_uicomponent(core:get_ui_root(), "dialogue_box", "both_group", "button_tick"):SimulateLClick();
-
-        --     local generalButton = find_uicomponent(core:get_ui_root(), "layout", "info_panel_holder", "primary_info_panel_holder", "info_button_list", "button_general");
-        --     generalButton:SimulateLClick();
-        --     local renameButton = find_uicomponent(core:get_ui_root(), "character_details_panel", "background", "bottom_buttons", "button_rename");
-        --     renameButton:SimulateLClick();
-        --     find_uicomponent(core:get_ui_root(), "popup_text_input", "panel_title", "heading_txt"):SetStateText("Name your Lord");
-        --     find_uicomponent(core:get_ui_root(), "popup_text_input", "text_input_list_parent", "text_input1"):SetStateText("Name your Lord");
-        --     local textInput =  find_uicomponent(core:get_ui_root(), "popup_text_input", "text_input_list_parent", "text_input");
-
-        --     local lordNameFromTextBox = lordNameTextBox.uic:GetStateText();
-        --     for i = 1, string.len(lordNameFromTextBox) do
-        --         textInput:SimulateKey(string.sub(lordNameFromTextBox, i, i));
-        --     end
-
-        --     local popupOkButton = find_uicomponent(core:get_ui_root(), "popup_text_input", "ok_cancel_buttongroup", "button_ok");
-        --     popupOkButton:SimulateLClick();
-        --     find_uicomponent(core:get_ui_root(), "character_details_panel", "button_ok"):SimulateLClick();
-        -- end
-
         Util.centreComponentOnComponent(frameContainer, customLordFrame);
+
+
+        local lordCreatedCallback = function(
+            context --:CA_CQI
+        )
+            lordCreated(findSelectedSkillSet(skillSetToButtonMap), lordNameTextBox.uic:GetStateText());
+        end
+
+        local region = string.sub(tostring(cm:get_campaign_ui_manager().settlement_selected), 12);
+        local settlement = get_region(region):settlement();
         customLordFrame:AddCloseButton(
             function()
-                output("Selected Lord Type:" .. findSelectedLordType(lordTypeButtons));
-                output("Selected Skill Set:" .. findSelectedSkillSet(skillSetToButtonMap));
+                createLord(findSelectedLordType(lordTypeButtons), lordCreatedCallback);
             end
         );
-
-        --buttonContainer:PositionRelativeTo(customLordFrame, 50, 50);
-
-        -- local princeButton = TextButton.new("princeButton", customLordFrame, "TEXT_TOGGLE", "Prince");
-        -- local buttonSize = 300;
-        -- local gapSize = 100;
-        -- princeButton:Resize(buttonSize, princeButton:Height());
-        -- princeButton:PositionRelativeTo(customLordFrame, contentWidth/2 - (buttonSize + gapSize/2), 0);
-        -- princeButton:Move(0, lordNameTextBoxHeight + 80);
-        -- princeButton:SetState("selected");
-
-        -- local princessButton = TextButton.new("princessButton", customLordFrame, "TEXT_TOGGLE", "Princess");
-        -- princessButton:Resize(buttonSize, princessButton:Height());
-        -- princessButton:PositionRelativeTo(princeButton, buttonSize + gapSize, 0);
-        -- princessButton:SetState("active");
-
-        -- princeButton:RegisterForClick("princeButtonListener",
-        --     function(context)
-        --         princessButton:SetState("active");
-        --     end
-        -- );
-
-        -- princessButton:RegisterForClick("princessButtonListener",
-        --     function(context)
-        --         princeButton:SetState("active");
-        --     end
-        -- );
-
-        -- local princeButtonWidth, princeButtonHeight = princeButton:Bounds();
-        -- local skillSetText = Text.new("lordTypeText", customLordFrame, "NORMAL", "Select your Lord skill-set");
-        -- skillSetText:PositionRelativeTo(lordTypeText, 0, princeButtonHeight + 20);
-        -- local defaultSkillsButton = TextButton.new("defaultSkillsButton", customLordFrame, "TEXT_TOGGLE", "Default");        
-        -- defaultSkillsButton:Resize(buttonSize, defaultSkillsButton:Height());
-        -- defaultSkillsButton:PositionRelativeTo(princeButton, 0, princeButtonHeight + 20);
-        -- defaultSkillsButton:SetState("selected");
-
-        -- local magicSkillsButton = TextButton.new("magicSkillsButton", customLordFrame, "TEXT_TOGGLE", "Magic");
-        -- magicSkillsButton:Resize(buttonSize, magicSkillsButton:Height());
-        -- magicSkillsButton:PositionRelativeTo(princessButton, 0, princeButtonHeight + 20);
-        -- magicSkillsButton:SetState("active");
-
-        -- defaultSkillsButton:RegisterForClick("defaultSkillsButtonListener",
-        --     function(context)
-        --         magicSkillsButton:SetState("active");
-        --     end
-        -- );
-
-        -- magicSkillsButton:RegisterForClick("magicSkillsButtonListener",
-        --     function(context)
-        --         defaultSkillsButton:SetState("active");
-        --     end
-        -- );
-
-        -- local customTraitText = Text.new("customTraitText", customLordFrame, "NORMAL", "Select your Lords traits");
-        -- customTraitText:PositionRelativeTo(skillSetText, 0, princeButtonHeight + 20);
-        -- local firstTraitButton = TextButton.new("firstTraitButton", customLordFrame, "TEXT_TOGGLE", "First Trait");     
-        -- firstTraitButton:Resize(buttonSize, firstTraitButton:Height());
-        -- firstTraitButton:PositionRelativeTo(defaultSkillsButton, 0, princeButtonHeight + 20);
-        -- firstTraitButton:SetState("active");        
-        -- local secondTraitButton = TextButton.new("secondTraitButton", customLordFrame, "TEXT_TOGGLE", "Second Trait");     
-        -- secondTraitButton:Resize(buttonSize, secondTraitButton:Height());
-        -- secondTraitButton:PositionRelativeTo(magicSkillsButton, 0, princeButtonHeight + 20);
-        -- secondTraitButton:SetState("active");  
-        
-        -- local recuitButton = Button.new("recuitButton", customLordFrame, "CIRCULAR", "ui/skins/default/icon_check.png");
-        -- local buttonWidth, buttonHeight = recuitButton:Bounds();
-        -- recuitButton:PositionRelativeTo(customLordFrame, contentWidth/2 - buttonWidth/2, contentHeight - buttonHeight/2)
-
-        -- local callBackFunction = function(
-        --     context --:CA_CQI
-        -- )
-        --     if defaultSkillsButton:IsSelected() then
-        --         cm:force_add_trait_on_selected_character("wh2_main_trait_hef_prince_melee");
-        --     else
-        --         cm:force_add_trait_on_selected_character("wh2_main_trait_hef_prince_magic");                
-        --     end
-
-        --     find_uicomponent(core:get_ui_root(), "units_panel", "main_units_panel", "units", "LandUnit 1"):SimulateLClick();
-        --     find_uicomponent(core:get_ui_root(), "units_panel", "main_units_panel", "button_group_unit", "button_disband"):SimulateLClick();
-        --     find_uicomponent(core:get_ui_root(), "dialogue_box", "both_group", "button_tick"):SimulateLClick();
-
-        --     local generalButton = find_uicomponent(core:get_ui_root(), "layout", "info_panel_holder", "primary_info_panel_holder", "info_button_list", "button_general");
-        --     generalButton:SimulateLClick();
-        --     local renameButton = find_uicomponent(core:get_ui_root(), "character_details_panel", "background", "bottom_buttons", "button_rename");
-        --     renameButton:SimulateLClick();
-        --     find_uicomponent(core:get_ui_root(), "popup_text_input", "panel_title", "heading_txt"):SetStateText("Name your Lord");
-        --     find_uicomponent(core:get_ui_root(), "popup_text_input", "text_input_list_parent", "text_input1"):SetStateText("Name your Lord");
-        --     local textInput =  find_uicomponent(core:get_ui_root(), "popup_text_input", "text_input_list_parent", "text_input");
-
-        --     local lordNameFromTextBox = lordNameTextBox.uic:GetStateText();
-        --     for i = 1, string.len(lordNameFromTextBox) do
-        --         textInput:SimulateKey(string.sub(lordNameFromTextBox, i, i));
-        --     end
-
-        --     local popupOkButton = find_uicomponent(core:get_ui_root(), "popup_text_input", "ok_cancel_buttongroup", "button_ok");
-        --     popupOkButton:SimulateLClick();
-        --     find_uicomponent(core:get_ui_root(), "character_details_panel", "button_ok"):SimulateLClick();
-        -- end
-        
-        -- recuitButton:RegisterForClick("recuitButtonListener",
-        --     function(context)
-        --         if princeButton:IsSelected() then
-        --             cm:create_force_with_general(
-        --                 "wh2_main_hef_eataine",
-        --                 "wh2_main_skv_inf_clanrats_0",
-        --                 "wh2_main_eataine_lothern",
-        --                 217,
-        --                 273,
-        --                 "general",
-        --                 "wh2_main_hef_prince",
-        --                 "",
-        --                 "",
-        --                 "",
-        --                 "",
-        --                 "my_custom_lord",
-        --                 false,
-        --                 callBackFunction
-        --             );
-        --         else
-        --             cm:create_force_with_general(
-        --                 "wh2_main_hef_eataine",
-        --                 "wh2_main_skv_inf_clanrats_0",
-        --                 "wh2_main_eataine_lothern",
-        --                 217,
-        --                 273,
-        --                 "general",
-        --                 "wh2_main_hef_princess",
-        --                 "",
-        --                 "",
-        --                 "",
-        --                 "",
-        --                 "my_custom_lord",
-        --                 false,
-        --                 callBackFunction
-        --             );
-        --         end
-        --         customLordFrame:SetVisible(false);
-        --     end
-        -- );
     else
         --# assume existingFrame: FRAME
         existingFrame:SetVisible(true); 
@@ -386,7 +256,7 @@ end
 
 function attachButtonToLordRecuitment()
     core:add_listener(
-        "char_panel_opened",
+        "CustomLordButtonAdder",
         "PanelOpenedCampaign",
         function(context) 
             return context.string == "character_panel"; 
@@ -395,7 +265,7 @@ function attachButtonToLordRecuitment()
             local characterPanel = find_uicomponent(core:get_ui_root(), "character_panel");
             local raiseForces = find_uicomponent(characterPanel, "raise_forces_options");
             local raiseForcesButton = find_uicomponent(raiseForces, "button_raise");
-            
+
             local createCustomLordButton = TextButton.new("createCustomLordButton", raiseForces, "TEXT", "Custom");
             createCustomLordButton:Resize(raiseForcesButton:Bounds());
 
@@ -408,68 +278,101 @@ function attachButtonToLordRecuitment()
             createCustomLordButton:RegisterForClick(
                 "createCustomLordButtonListener", 
                 function(context)
-                    local region = string.sub(tostring(cm:get_campaign_ui_manager().settlement_selected), 12);
-                    local settlement = get_region(region):settlement();
-                    output(settlement:logical_position_x());
-                    output(settlement:logical_position_y());
-                    
                     createCustomLordFrame();
-                    characterPanel:SetVisible(false);
                 end
             );
 
+            createCustomLordButton:SetVisible(raiseForcesButton:Visible());
+
+            local createArmyButton = find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker", "hud_center", "small_bar", "button_group_settlement", "button_create_army");
+            local agentsButton = find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker", "hud_center", "small_bar", "button_group_settlement", "button_agents");
+            core:remove_listener("createArmyButtonListener");
+            Util.registerForClick(
+                createArmyButton, "createArmyButtonListener", 
+                function(context)
+                    createCustomLordButton:SetVisible(true);
+                end
+            );
+            core:remove_listener("agentsButtonListener");
+            Util.registerForClick(
+                agentsButton, "agentsButtonListener", 
+                function(context)
+                    createCustomLordButton:SetVisible(false);
+                end
+            );
         end,
         true
     );
 end
 
+--v function() --> map<string, vector<string>>
+function createSkillToSkillSetMap()
+    local skillToSkillSetMap = {} --: map<string, vector<string>>
+    for skillSet, skillSetSkills in pairs(SKILL_SET_SKILLS) do
+        for i, currentSkillSetSkill in ipairs(skillSetSkills) do
+            local skillSkillSets = skillToSkillSetMap[currentSkillSetSkill];
+            if not skillSkillSets then
+                skillSkillSets = {};
+                skillToSkillSetMap[currentSkillSetSkill] = skillSkillSets;
+            end
+            table.insert(skillSkillSets, skillSet);
+        end
+    end
+    return skillToSkillSetMap;
+end
+
+--v function() --> CA_CHAR
+function getSelectedChar()
+    local char = cm:get_campaign_ui_manager():get_char_selected();
+    local cqi = string.sub(char, 15);
+    --# assume cqi: CA_CQI
+    return get_character_by_cqi(cqi);
+end
+
+--v function(xPos: number, yPos: number) --> boolean
+function is_valid_spawn_point(xPos, yPos)
+    local faction_list = cm:model():world():faction_list();
+    output("factionList:" .. tostring(faction_list));
+	for i = 0, faction_list:num_items() - 1 do
+        local current_faction = faction_list:item_at(i);
+		local char_list = current_faction:character_list();
+		for i = 0, char_list:num_items() - 1 do
+            local current_char = char_list:item_at(i);
+			if current_char:logical_position_x() == xPos and current_char:logical_position_y() == yPos then
+				return false;
+			end;
+		end;
+	end;
+	
+	return true;
+end
+
 function custom_lords()
     attachButtonToLordRecuitment();
     core:add_listener(
-        "char_panel_openeddfgfdg",
+        "CustomLordsSkillHider",
         "PanelOpenedCampaign",
         function(context) 
             return context.string == "character_details_panel"; 
         end,
         function(context)
+            local skillToSkillSetMap = createSkillToSkillSetMap();
+            local selectedChar = getSelectedChar();
             local chain = find_uicomponent(core:get_ui_root(), "character_details_panel", "background", "skills_subpanel", "listview", "list_clip", "list_box", "chain2", "chain");
-            if not not chain then
+            if chain then
                 local childCount = chain:ChildCount();
                 for i=0, childCount-1  do
                     local child = UIComponent(chain:Find(i));
-                    output(child:Id());
-                    
-                    local char = cm:get_campaign_ui_manager():get_char_selected();
-                    local cqi = string.sub(char, 15);
-                    output("cqi:"..cqi);
-                    --# assume cqi: CA_CQI
-                    local realChar = get_character_by_cqi(cqi);
-                    local id = child:Id();
-                    if id == "wh2_main_skill_hef_combat_graceful_strikes" 
-                    or id == "module_wh2_main_skill_hef_combat_graceful_strikes" 
-                    or id == "wh_main_skill_all_all_self_foe-seeker" 
-                    or id == "module_wh_main_skill_all_all_self_foe-seeker" 
-                    or id == "wh_main_skill_all_all_self_deadly_onslaught" then
-                        if not realChar:has_trait("wh2_main_trait_hef_prince_melee") then
-                            output("assdd");
-                            child:SetVisible(false);
-                            output("hid skill");
-                        else
-                            output("has skill melee");
+                    local skillSetFound = false;
+                    local skillSkillSet = skillToSkillSetMap[child:Id()];
+                    if skillSkillSet then
+                        for i, skillSet in ipairs(skillToSkillSetMap[child:Id()]) do
+                            if selectedChar:has_trait(skillSet) then
+                                skillSetFound = true;
+                            end
                         end
-                    end
-                    if id == "wh2_main_skill_all_magic_high_02_apotheosis" 
-                    or id == "module_wh2_main_skill_all_magic_high_02_apotheosis" 
-                    or id == "wh_main_skill_all_magic_all_06_evasion" 
-                    or id == "module_wh_main_skill_all_magic_all_06_evasion" 
-                    or id == "wh_main_skill_all_magic_all_11_arcane_conduit" then
-                        output("dfgfdg")
-                        if not realChar:has_trait("wh2_main_trait_hef_prince_magic") then
-                            output("dfgfdgdfg")
+                        if not skillSetFound then
                             child:SetVisible(false);
-                            output("hid skill");
-                        else
-                            output("has skill magic");
                         end
                     end
                 end

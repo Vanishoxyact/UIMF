@@ -33,8 +33,8 @@
 --# assume UTIL.getComponentWithName: function(name: string) --> COMPONENT_TYPE
 --# assume UTIL.centreComponentOnComponent: function(componentToMove: CA_UIC | COMPONENT_TYPE | CONTAINER, componentToCentreOn: CA_UIC | COMPONENT_TYPE)
 --# assume UTIL.centreComponentOnScreen: function(component: CA_UIC | COMPONENT_TYPE | CONTAINER)
+--# assume UTIL.registerForClick: function(component: CA_UIC, listenerName: string, callback: function(context: CA_UIContext))
         
-
 --# assume global Log: LOG
 --# assume global Text: TEXT
 --# assume global Image: IMAGE

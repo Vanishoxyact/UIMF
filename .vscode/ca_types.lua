@@ -10,6 +10,8 @@
 --# assume global class CA_SETTLEMENT
 --# assume global class CA_FACTION
 --# assume global class CA_GAME
+--# assume global class CA_MODEL
+--# assume global class CA_WORLD
 
 --# assume global class CORE
 --# assume global class _G
@@ -114,6 +116,7 @@
 --# assume CM.get_campaign_ui_manager: method() --> CUIM
 --# assume CM.get_local_faction: method() --> string
 --# assume CM.get_game_interface: method() --> CA_GAME
+--# assume CM.model: method() --> CA_MODEL
 
 
 -- CAMPAIGN UI MANAGER
@@ -125,17 +128,25 @@
 --# assume CA_GAME.filesystem_lookup: method(filePath: string, matchRegex:string) --> string
 
 
---CHARACTER
+-- CHARACTER
 --# assume CA_CHAR.has_trait: method(traitName: string) --> boolean
 
 
---REGION
+-- REGION
 --# assume CA_REGION.settlement: method() --> CA_SETTLEMENT
 
 
---SETTLEMENT
+-- SETTLEMENT
 --# assume CA_SETTLEMENT.logical_position_x: method() --> number
 --# assume CA_SETTLEMENT.logical_position_y: method() --> number
+
+
+-- MODEL
+--# assume CA_MODEL.world: method() --> CA_WORLD
+
+
+-- WORLD
+--# assume CA_WORLD.faction_list: method() --> vector<CA_FACTION>
 
 
 -- CORE
@@ -147,6 +158,7 @@
 --#     listenerFunc: function(context: WHATEVER?),
 --#     persistent: boolean
 --# )
+--# assume CORE.remove_listener: method(listenerName: string)
 --# assume CORE.add_ui_created_callback: method(function())
 --# assume CORE.get_screen_resolution: method() --> (number, number)
 
