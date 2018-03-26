@@ -1,12 +1,3 @@
-TEST_DATA = {
-  SCHEMA = {"key", "value1", "value2"},
-  KEY = "key",
-  DATA = {
-    {"One", "ABC", "DEF"},
-    {"Two", "GHI", "JKL"}
-  }
-}
-
 CHARACTER_TRAIT_LEVELS = {
   SCHEMA = {"key", "onscreen_name", "trait", "level", "threshold_points", "colour_text", "explanation_text", "removal_text"},
   KEY = "key",
