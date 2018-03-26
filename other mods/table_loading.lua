@@ -17,17 +17,8 @@ function read_file(path)
     end
 end
 
---v function(completeTable: map<string, WHATEVER>) --> map<string, map<string, string>>
-function convertDataIntoTable(completeTable)
-    local schema = completeTable["SCHEMA"] --: vector<string>
-    local keyIndex;
-    for i, schemaEntry in ipairs(schema) do
-        if schemaEntry == completeTable["KEY"] then
-            keyIndex = i;
-        end
-    end
-    output("FOUND KEY AT INDEX:" .. keyIndex);
-    local data = completeTable["DATA"] --: vector<vector<string>>
+--v function(schema: vector<string>, data: vector<vector<string>>, keyIndex: number) --> map<string, map<string, string>>
+function convertUniqueKeyDataIntoTable(schema, data, keyIndex)
     local dataTable = {} --: map<string, map<string, string>>
     for _, dataRow in ipairs(data) do
         local tableRow = {} --: map<string, string>
@@ -39,10 +30,55 @@ function convertDataIntoTable(completeTable)
             else
                 tableRow[schema[i]] = dataValue;
             end
-            dataTable[rowKey] = tableRow;
+        end
+        dataTable[rowKey] = tableRow;        
+    end
+    return dataTable;
+end
+
+--v function(schema: vector<string>, data: vector<vector<string>>, keyIndex: number) --> map<string, >
+function convertListKeyDataIntoTable(schema, data, keyIndex)
+    local dataTable = {} --: map<string, vector<map<string, string>>>
+    for _, dataRow in ipairs(data) do
+        local tableRow = {} --: map<string, string>
+        local rowKey;
+        for i, dataValue in ipairs(dataRow) do
+            if i == keyIndex then
+                rowKey = dataValue;
+                output("ROW KEY:" .. rowKey);
+            else
+                tableRow[schema[i]] = dataValue;
+            end
+        end
+        local keyRows = dataTable[rowKey];
+        if not keyRows then
+            keyRows = {};
+            dataTable[rowKey] = keyRows;
+        end
+        table.insert(keyRows, tableRow);
+    end
+    return dataTable;
+end
+
+--v function(completeTable: map<string, WHATEVER>) --> map<string, WHATEVER>
+function convertDataIntoTable(completeTable)
+    local schema = completeTable["SCHEMA"] --: vector<string>
+    local keyData = completeTable["KEY"] --: vector<string>
+    local keyIndex;
+    for i, schemaEntry in ipairs(schema) do
+        if schemaEntry == keyData[1] then
+            keyIndex = i;
         end
     end
-    return dataTable
+    output("FOUND KEY AT INDEX:" .. keyIndex);
+    local data = completeTable["DATA"] --: vector<vector<string>>
+    if keyData[2] == "UNIQUE" then
+        output("GENERATING DATA TABLE FOR UNIQUE KEY");
+        return convertUniqueKeyDataIntoTable(schema, data, keyIndex);
+    else
+        output("GENERATING DATA TABLE FOR LIST KEY");        
+        return convertListKeyDataIntoTable(schema, data, keyIndex);
+    end
 end
 
 local game_interface = cm:get_game_interface();
@@ -54,7 +90,7 @@ else
     local file_str_c = game_interface:filesystem_lookup("/script/campaign/mod/tables", "*.lua");
     output("TABLE FILES FOUND:" .. file_str_c);
 
-    local TABLES = {} --: map<string, map<string, map<string, string>>>
+    local TABLES = {} --: map<string, map<string, WHATEVER>>
     if file_str_c ~= "" then
         for filename in string.gmatch(file_str_c, '([^,]+)') do
             output("LOADING TABLES FROM:" .. filename);
@@ -86,16 +122,32 @@ else
                 output("LOADING TABLE:" .. tableName);
                 local convertedTable = convertDataIntoTable(completeTable);
                 TABLES[tableName] = convertedTable;
+                -- TODO merge tables. If unique, add/replace entries, if list merge vectors
             end
 		end
     end
     output("FINISHED LOADING TABLES");
-    output(TABLES["TEST_DATA"]["One"]["value1"]);
-    output(TABLES["TEST_DATA"]["One"]["value2"]);
-    output(TABLES["TEST_DATA"]["Two"]["value1"]);
-    output(TABLES["TEST_DATA"]["Two"]["value2"]);
+    local testDataTable = TABLES["TEST_DATA"] --: map<string, map<string, string>>
+    output("TEST_DATA");   
+    output(testDataTable["One"]["value1"]);
+    output(testDataTable["One"]["value2"]);
+    output(testDataTable["Two"]["value1"]);
+    output(testDataTable["Two"]["value2"]);
 
-    output(TABLES["CHARACTER_TRAIT_LEVELS"]["wh_dlc04_trait_name_dummy_the_grim"]["trait"]);
+    local testDataListTable = TABLES["TEST_DATA_LIST"] --: map<string, vector<map<string, string>>>
+    output("TEST_DATA_LIST ONE");    
+    local testDataOneRows = testDataListTable["One"];
+    for i, datarow in ipairs(testDataOneRows) do
+        output(datarow["value1"]);
+        output(datarow["value2"]);
+    end
+    output("TEST_DATA_LIST TWO");        
+    local testDataTwoRows = testDataListTable["Two"];
+    for i, datarow in ipairs(testDataTwoRows) do
+        output(datarow["value1"]);
+        output(datarow["value2"]);
+    end
+
     _G.TABLES = TABLES;
 end
 
