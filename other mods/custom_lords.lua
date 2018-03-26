@@ -43,6 +43,10 @@ TRAIT_NAMES = {} --: map<string, string>
 TRAIT_NAMES["wh2_main_trait_defeated_teclis"] = "Sacking";
 TRAIT_NAMES["wh2_main_trait_defeated_tyrion"] = "Sea Legs";
 
+TRAIT_TO_DESC = {} --: map<string, string>
+TRAIT_TO_DESC["wh2_main_trait_defeated_teclis"] = "[[col:dark_r]]Winds of Magic power reserve: +10 \n([[img:icon_general]][[/img]]Lord's army)[[/col]]";
+TRAIT_TO_DESC["wh2_main_trait_defeated_tyrion"] = "[[col:dark_g]]Winds of Magic power reserve: +10 \n([[img:icon_general]][[/img]]Lord's army)[[/col]]";
+
 --v function(buttons: vector<TEXT_BUTTON>)
 function setUpSingleButtonSelectedGroup(buttons)
     for i, button in ipairs(buttons) do
@@ -132,6 +136,18 @@ function createTraitButtons(frame)
     return buttonsMap;
 end
 
+--v function(trait: string, frame: FRAME) --> CONTAINER
+function createTraitRow(trait, frame)
+    local traitRow = Container.new(FlowLayout.HORIZONTAL);
+    local traitName = Text.new(trait .. "NameText", frame, "NORMAL", TRAIT_NAMES[trait]);
+    traitRow:AddComponent(traitName);
+    local traitImage = Image.new(trait .. "Image", frame, "ui/campaign ui/effect_bundles/magic.png");
+    traitRow:AddComponent(traitImage);
+    local traitDesc = Text.new(trait .. "NameDesc", frame, "NORMAL", TRAIT_TO_DESC[trait]);
+    traitRow:AddComponent(traitDesc);
+    return traitRow;
+end
+
 --v function(lordTypeButtonsMap: map<string, TEXT_BUTTON>) --> string
 function findSelectedLordType(lordTypeButtonsMap)
     local selectedLordType = nil --: string
@@ -196,7 +212,6 @@ end
 --v function(xPos: number, yPos: number) --> boolean
 function isValidSpawnPoint(xPos, yPos)
     local faction_list = cm:model():world():faction_list();
-    output("factionList:" .. tostring(faction_list));
     for i = 0, faction_list:num_items() - 1 do
         local current_faction = faction_list:item_at(i);
         local char_list = current_faction:character_list();
@@ -248,10 +263,29 @@ function createLord(selectedLordType, lordCreatedCallback)
 end
 
 function createCustomLordFrame()
+    local blocker = nil --: COMPONENT_TYPE
+    cm:callback(
+        function()
+            output("BLOCKER CALLBACK");
+            blocker = Util.getComponentWithName("Blocker");
+            --# assume blocker : IMAGE
+            if not blocker then
+                output("NEW BLOCKER");
+                blocker = Image.new("Blocker", core:get_ui_root(), "ui/skins/default/icon_end_turn.png");
+                blocker:Resize(5000, 5000);
+                blocker:MoveTo(-500, -500);
+                blocker:SetOpacity(0);
+                blocker.uic:PropagatePriority(5);
+            else
+                output("BLOCKER FOUND");
+                blocker:SetVisible(true);
+            end
+        end, 0.01, "asdasdasd"
+    );
+
     local existingFrame = Util.getComponentWithName("customLordFrame");
     if not existingFrame then
         local customLordFrame = Frame.new("customLordFrame");
-        customLordFrame.uic:PropagatePriority(200);
         customLordFrame:SetTitle("Create your custom Lord");
         Util.centreComponentOnScreen(customLordFrame);
 
@@ -319,6 +353,14 @@ function createCustomLordFrame()
         end
         frameContainer:AddComponent(traitButtonsContainer);
 
+        --TODO
+        local traitRowsContainer = Container.new(FlowLayout.VERTICAL);        
+        for i, trait in ipairs(TRAITS) do
+            local traitRow = createTraitRow(trait, customLordFrame);
+            traitRowsContainer:AddComponent(traitRow);
+        end
+        frameContainer:AddComponent(traitRowsContainer);
+
         Util.centreComponentOnComponent(frameContainer, customLordFrame);
 
 
@@ -333,8 +375,11 @@ function createCustomLordFrame()
         customLordFrame:AddCloseButton(
             function()
                 createLord(findSelectedLordType(lordTypeButtons), lordCreatedCallback);
+                blocker.uic:SetVisible(false);
             end
         );
+
+        customLordFrame.uic:PropagatePriority(200);
     else
         --# assume existingFrame: FRAME
         existingFrame:SetVisible(true); 
@@ -450,3 +495,7 @@ function custom_lords()
         true
     );
 end
+
+--tooltip generation
+--trait --> character_trait_levels --> trait_level_effects --> effects
+--                                 --> campaign_effect_scopes
