@@ -43,10 +43,6 @@ TRAIT_NAMES = {} --: map<string, string>
 TRAIT_NAMES["wh2_main_trait_defeated_teclis"] = "Sacking";
 TRAIT_NAMES["wh2_main_trait_defeated_tyrion"] = "Sea Legs";
 
-TRAIT_TO_DESC = {} --: map<string, string>
-TRAIT_TO_DESC["wh2_main_trait_defeated_teclis"] = "[[col:dark_r]]Winds of Magic power reserve: +10 \n([[img:icon_general]][[/img]]Lord's army)[[/col]]";
-TRAIT_TO_DESC["wh2_main_trait_defeated_tyrion"] = "[[col:dark_g]]Winds of Magic power reserve: +10 \n([[img:icon_general]][[/img]]Lord's army)[[/col]]";
-
 --v function(buttons: vector<TEXT_BUTTON>)
 function setUpSingleButtonSelectedGroup(buttons)
     for i, button in ipairs(buttons) do
@@ -136,14 +132,61 @@ function createTraitButtons(frame)
     return buttonsMap;
 end
 
+--v function(trait: string) --> (string, string)
+function calculateImageAndToolTipForTrait(trait)
+    output("calculateImageAndToolTipForTrait: " .. trait);
+    local traitImagePath = nil --: string
+    local traitDescription = nil --: string
+    local colour = nil --: string
+    local traitEffects = TABLES["trait_level_effects_tables"][trait] --: vector<map<string, string>>
+    for i, traitEffectProperties in ipairs(traitEffects) do
+        local traitEffect = traitEffectProperties["effect"];
+        output("effect: " .. traitEffect);
+        local effectValue = tonumber(traitEffectProperties["value"]);
+        local effects = TABLES["effects_tables"][traitEffect] --: map<string, string>
+        if effectValue > 0 then
+            traitImagePath = "ui/campaign ui/effect_bundles/" .. effects["icon"];
+        else
+            traitImagePath = "ui/campaign ui/effect_bundles/" .. effects["icon_negative"];
+        end
+
+        if (effects["is_positive_value_good"] == "True") == (effectValue > 0) then
+            colour = "dark_g";
+        else
+            colour = "dark_r";
+        end
+        output("colour: " .. colour);        
+
+        output("traitImagePath: " .. traitImagePath);
+        local effectDescriptionPath = "effects_description_" .. traitEffect;
+        output("effectDescriptionPath: " .. effectDescriptionPath);
+        traitDescription = effect.get_localised_string(effectDescriptionPath);
+        output("traitDescription: " .. traitDescription);
+        traitDescription = string.gsub(traitDescription, "%%%+n", tostring(effectValue));
+        output("traitDescription replaced: " .. traitDescription);
+
+        local traitEffectScope = traitEffectProperties["effect_scope"];
+        output("traitEffectScope: " .. traitEffectScope);
+        local traitEffectScopePath = "campaign_effect_scopes_localised_text_" .. traitEffectScope;
+        output("traitEffectScopePath: " .. traitEffectScopePath);
+        local traitEffectScopeDesc = effect.get_localised_string(traitEffectScopePath);        
+        output("traitEffectScopeDesc: " .. traitEffectScopeDesc);
+
+        traitDescription = "[[col:" .. colour .. "]]" .. traitDescription .. traitEffectScopeDesc .. "[[/col]]";
+        output("traitDescription final: " .. traitDescription);
+    end
+    return traitImagePath, traitDescription;
+end
+
 --v function(trait: string, frame: FRAME) --> CONTAINER
 function createTraitRow(trait, frame)
     local traitRow = Container.new(FlowLayout.HORIZONTAL);
     local traitName = Text.new(trait .. "NameText", frame, "NORMAL", TRAIT_NAMES[trait]);
     traitRow:AddComponent(traitName);
-    local traitImage = Image.new(trait .. "Image", frame, "ui/campaign ui/effect_bundles/magic.png");
+    local traitImagePath, traitDescription = calculateImageAndToolTipForTrait(trait);
+    local traitImage = Image.new(trait .. "Image", frame, traitImagePath);
     traitRow:AddComponent(traitImage);
-    local traitDesc = Text.new(trait .. "NameDesc", frame, "NORMAL", TRAIT_TO_DESC[trait]);
+    local traitDesc = Text.new(trait .. "NameDesc", frame, "NORMAL", traitDescription);
     traitRow:AddComponent(traitDesc);
     return traitRow;
 end

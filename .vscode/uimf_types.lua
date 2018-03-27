@@ -45,3 +45,5 @@
 --# assume global Util: UTIL
 --# assume global FlowLayout: FLOW_LAYOUT
 --# assume global Container: CONTAINER
+
+--# assume global TABLES: map<string, map<string, WHATEVER>>

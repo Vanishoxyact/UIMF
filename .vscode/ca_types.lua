@@ -14,6 +14,7 @@
 --# assume global class CA_GAME
 --# assume global class CA_MODEL
 --# assume global class CA_WORLD
+--# assume global class CA_EFFECT
 
 --# assume global class CORE
 --# assume global class _G
@@ -167,6 +168,9 @@
 --# assume CA_FACTION_LIST.item_at: method(index: number) --> CA_FACTION
 
 
+-- EFFECT
+--# assume CA_EFFECT.get_localised_string: function(key: string) --> string
+
 -- CORE
 --# assume CORE.get_ui_root: method() --> CA_UIC
 --# assume CORE.add_listener: method(
@@ -184,6 +188,7 @@
 -- GLOBAL VARIABLES
 --# assume global cm: CM
 --# assume global core: CORE
+--# assume global effect: CA_EFFECT
 
 
 -- GLOBAL FUNCTIONS
