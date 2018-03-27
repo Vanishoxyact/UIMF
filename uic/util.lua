@@ -12,7 +12,7 @@ function Util.init()
     if not component then
         Log.write("Garbage not found, Util init failed");
     else
-        Util.garbage =  UIComponent(component);
+        Util.garbage = UIComponent(component);
         Log.write("Util init completed");
         for _,v in ipairs(InitCallbacks) do
             v();
