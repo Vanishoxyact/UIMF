@@ -13,11 +13,13 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class TsvFile {
    
    private TsvRow tsvHeaders;
    private List<TsvRow> tsvRows = new ArrayList<>();
+   private String tableName;
 
    public void setTsvHeaders(TsvRow tsvHeaders) {
       this.tsvHeaders = tsvHeaders;
@@ -33,5 +35,13 @@ public class TsvFile {
 
    public List<TsvRow> getTsvRows() {
       return tsvRows;
+   }
+
+   public Optional<String> getTableName() {
+      return Optional.ofNullable( tableName );
+   }
+
+   public void setTableName( String tableName ) {
+      this.tableName = tableName;
    }
 }

@@ -22,7 +22,34 @@ public class TsvFileLoader {
       TsvFile tsvFile = new TsvFile();
       try {
          List<String> lines = Files.readAllLines(filePath.toPath());
-         for(String line : lines) {
+         if(isCaTsvFile( lines )) {
+            loadCaTsvFIle( tsvFile, lines );
+         } else {
+            loadTsvFIle( tsvFile, lines );
+         }
+      } catch (IOException e) {
+         e.printStackTrace();
+      }
+      return tsvFile;
+   }
+
+   private void loadTsvFIle( TsvFile tsvFile, List< String > lines ) {
+      for(String line : lines) {
+         TsvRow tsvRow = convertLineIntoTsvRow(line);
+         if(tsvFile.getTsvHeaders() == null) {
+            tsvFile.setTsvHeaders(tsvRow);
+         } else {
+            tsvFile.addTsvRow(tsvRow);
+         }
+      }
+   }
+
+   private void loadCaTsvFIle( TsvFile tsvFile, List< String > lines ) {
+      for(int i = 0; i<lines.size(); i++) {
+         String line = lines.get( i );
+         if(i == 0) {
+            tsvFile.setTableName( line );
+         } else if(i >= 2) {
             TsvRow tsvRow = convertLineIntoTsvRow(line);
             if(tsvFile.getTsvHeaders() == null) {
                tsvFile.setTsvHeaders(tsvRow);
@@ -30,12 +57,9 @@ public class TsvFileLoader {
                tsvFile.addTsvRow(tsvRow);
             }
          }
-      } catch (IOException e) {
-         e.printStackTrace();
       }
-      return tsvFile;
    }
-   
+
    private TsvRow convertLineIntoTsvRow(String line) {
       String[] linesValues = line.split("\t");
       TsvRow tsvRow = new TsvRow();
@@ -43,5 +67,15 @@ public class TsvFileLoader {
          tsvRow.addTsvValue(value);
       }
       return tsvRow;
+   }
+   
+   private boolean isCaTsvFile(List<String> lines) {
+      String secondLine = lines.get( 1 );
+      try {
+         Integer.parseInt( secondLine );
+         return true;
+      } catch ( NumberFormatException e ) {
+         return false;
+      }
    }
 }
