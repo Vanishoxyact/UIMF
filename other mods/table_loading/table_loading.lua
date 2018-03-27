@@ -26,7 +26,6 @@ function convertUniqueKeyDataIntoTable(schema, data, keyIndex)
         for i, dataValue in ipairs(dataRow) do
             if i == keyIndex then
                 rowKey = dataValue;
-                output("ROW KEY:" .. rowKey);
             else
                 tableRow[schema[i]] = dataValue;
             end
@@ -45,7 +44,6 @@ function convertListKeyDataIntoTable(schema, data, keyIndex)
         for i, dataValue in ipairs(dataRow) do
             if i == keyIndex then
                 rowKey = dataValue;
-                output("ROW KEY:" .. rowKey);
             else
                 tableRow[schema[i]] = dataValue;
             end
@@ -127,26 +125,26 @@ else
 		end
     end
     output("FINISHED LOADING TABLES");
-    local testDataTable = TABLES["TEST_DATA"] --: map<string, map<string, string>>
-    output("TEST_DATA");   
-    output(testDataTable["One"]["value1"]);
-    output(testDataTable["One"]["value2"]);
-    output(testDataTable["Two"]["value1"]);
-    output(testDataTable["Two"]["value2"]);
+    -- local testDataTable = TABLES["TEST_DATA"] --: map<string, map<string, string>>
+    -- output("TEST_DATA");   
+    -- output(testDataTable["One"]["value1"]);
+    -- output(testDataTable["One"]["value2"]);
+    -- output(testDataTable["Two"]["value1"]);
+    -- output(testDataTable["Two"]["value2"]);
 
-    local testDataListTable = TABLES["TEST_DATA_LIST"] --: map<string, vector<map<string, string>>>
-    output("TEST_DATA_LIST ONE");    
-    local testDataOneRows = testDataListTable["One"];
-    for i, datarow in ipairs(testDataOneRows) do
-        output(datarow["value1"]);
-        output(datarow["value2"]);
-    end
-    output("TEST_DATA_LIST TWO");        
-    local testDataTwoRows = testDataListTable["Two"];
-    for i, datarow in ipairs(testDataTwoRows) do
-        output(datarow["value1"]);
-        output(datarow["value2"]);
-    end
+    -- local testDataListTable = TABLES["TEST_DATA_LIST"] --: map<string, vector<map<string, string>>>
+    -- output("TEST_DATA_LIST ONE");    
+    -- local testDataOneRows = testDataListTable["One"];
+    -- for i, datarow in ipairs(testDataOneRows) do
+    --     output(datarow["value1"]);
+    --     output(datarow["value2"]);
+    -- end
+    -- output("TEST_DATA_LIST TWO");        
+    -- local testDataTwoRows = testDataListTable["Two"];
+    -- for i, datarow in ipairs(testDataTwoRows) do
+    --     output(datarow["value1"]);
+    --     output(datarow["value2"]);
+    -- end
 
     _G.TABLES = TABLES;
 end
