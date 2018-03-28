@@ -39,9 +39,20 @@ TRAITS = {} --: vector<string>
 table.insert(TRAITS, "wh2_main_trait_defeated_teclis");
 table.insert(TRAITS, "wh2_main_trait_defeated_tyrion");
 
-TRAIT_NAMES = {} --: map<string, string>
-TRAIT_NAMES["wh2_main_trait_defeated_teclis"] = "Sacking";
-TRAIT_NAMES["wh2_main_trait_defeated_tyrion"] = "Sea Legs";
+table.insert(TRAITS, "wh2_main_skill_innate_all_aggressive");
+table.insert(TRAITS, "wh2_main_skill_innate_all_confident");
+table.insert(TRAITS, "wh2_main_skill_innate_all_cunning");
+table.insert(TRAITS, "wh2_main_skill_innate_all_determined");
+table.insert(TRAITS, "wh2_main_skill_innate_all_disciplined");
+table.insert(TRAITS, "wh2_main_skill_innate_all_fleet_footed");
+table.insert(TRAITS, "wh2_main_skill_innate_all_intelligent");
+table.insert(TRAITS, "wh2_main_skill_innate_all_knowledgeable");
+-- table.insert(TRAITS, "wh2_main_skill_innate_all_perceptive");
+-- table.insert(TRAITS, "wh2_main_skill_innate_all_strategist");
+-- table.insert(TRAITS, "wh2_main_skill_innate_all_strong");
+-- table.insert(TRAITS, "wh2_main_skill_innate_all_tactician");
+-- table.insert(TRAITS, "wh2_main_skill_innate_all_tough");
+-- table.insert(TRAITS, "wh2_main_skill_innate_all_weapon_master");
 
 --v function(buttons: vector<TEXT_BUTTON>)
 function setUpSingleButtonSelectedGroup(buttons)
@@ -135,8 +146,14 @@ function calculateImageAndToolTipForTraitEffectProperties(traitEffectProperties)
     output("effectDescriptionPath: " .. effectDescriptionPath);
     traitDescription = effect.get_localised_string(effectDescriptionPath);
     output("traitDescription: " .. traitDescription);
-    traitDescription = string.gsub(traitDescription, "%%%+n", "+" .. tostring(effectValue));
-    traitDescription = string.gsub(traitDescription, "%%%-n", "-" .. tostring(effectValue));
+
+    local effectSign = nil --: string
+    if effectValue > 0 then
+        effectSign = "+";
+    else
+        effectSign = "";
+    end
+    traitDescription = string.gsub(traitDescription, "%%%+n", effectSign .. tostring(effectValue));
     traitDescription = string.gsub(traitDescription, "%%%n", tostring(effectValue));    
     output("traitDescription replaced: " .. traitDescription);
 
@@ -155,17 +172,22 @@ end
 
 --v function(trait: string, frame: FRAME, buttonCreationFunction: function(trait:string) --> BUTTON) --> CONTAINER
 function createTraitRow(trait, frame, buttonCreationFunction)
+    output("createTraitRow: " .. trait);
     local traitRow = Container.new(FlowLayout.HORIZONTAL);
-    local traitName = Text.new(trait .. "NameText", frame, "NORMAL", TRAIT_NAMES[trait]);
-    traitRow:AddComponent(traitName);
+    local traitNameKey = "character_trait_levels_onscreen_name_" .. trait;
+    output("traitNameKey: " .. traitNameKey);
+    local traitName = effect.get_localised_string(traitNameKey);
+    output("traitName: " .. traitName);
+    local traitNameText = Text.new(trait .. "NameText", frame, "NORMAL", traitName);
+    traitRow:AddComponent(traitNameText);
     local traitEffectsContainer = Container.new(FlowLayout.VERTICAL);
     local traitEffects = TABLES["trait_level_effects_tables"][trait] --: vector<map<string, string>>
     for i, traitEffectProperties in ipairs(traitEffects) do
         local traitEffectContainer = Container.new(FlowLayout.HORIZONTAL);
         local traitImagePath, traitDescription = calculateImageAndToolTipForTraitEffectProperties(traitEffectProperties);
-        local traitImage = Image.new(trait .. "Image", frame, traitImagePath);
+        local traitImage = Image.new(trait .. i .. "Image", frame, traitImagePath);
         traitEffectContainer:AddComponent(traitImage);
-        local traitDesc = Text.new(trait .. "NameDesc", frame, "NORMAL", traitDescription);
+        local traitDesc = Text.new(trait .. i .. "NameDesc", frame, "NORMAL", traitDescription);
         traitEffectContainer:AddComponent(traitDesc);
         traitEffectsContainer:AddComponent(traitEffectContainer);
     end
