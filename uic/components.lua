@@ -1,8 +1,9 @@
 local Log = require("uic/log");
 local Components = {};
 
---v function(component: CA_UIC, width: number, height: number)
+--v function(component: CA_UIC | CONTAINER | COMPONENT_TYPE, width: number, height: number)
 function Components.resize(component, width, height)
+    --# assume component: CA_UIC
     component:SetCanResizeHeight(true);
     component:SetCanResizeWidth(true);
     component:Resize(width, height);
@@ -10,14 +11,16 @@ function Components.resize(component, width, height)
     component:SetCanResizeWidth(false);
 end
 
---v function(component: CA_UIC, factor: number)
+--v function(component: CA_UIC | CONTAINER | COMPONENT_TYPE, factor: number)
 function Components.scale(component, factor)
+    --# assume component: CA_UIC
     local width, height = component:Bounds();
     Components.resize(component, width * factor, height * factor);
 end
 
---v function(component: CA_UIC, xMove: number, yMove: number)
+--v function(component: CA_UIC | CONTAINER | COMPONENT_TYPE, xMove: number, yMove: number)
 function Components.move(component, xMove, yMove)
+    --# assume component: CA_UIC
     local curX, curY = component:Position();
     component:MoveTo(curX + xMove, curY + yMove);
 end
