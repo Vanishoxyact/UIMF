@@ -9,7 +9,7 @@ function Text.new(name, parent, textType, textToDisplay)
     local parentComponent = Components.getUiContentComponent(parent);
     local text = nil --: CA_UIC
     if textType == "NORMAL" then
-        text = Util.createComponent(name, parentComponent, "ui/uimf/text_black_16_parchment");
+        text = Util.createComponent(name, parentComponent, "ui/uimf/text_black_14_parchment");
     elseif textType == "WRAPPED" then
         text = Util.createComponent(
             name, parentComponent, "ui/campaign ui/mission_details",
@@ -131,14 +131,23 @@ end
 
 --v function(self: TEXT, factor: number)
 function Text.Scale(self, factor)
+    output("Scale");
+    local xPos, yPos = self.uic:Position();
+    output("x: " .. xPos .. " y: " .. yPos);
     Components.scale(self.uic, factor);
-    Text:SetText(Text:GetText());
+    output("scaled");
+    self.uic:SetStateText(self.uic:GetStateText());
+    output("set text");
+    self.uic:MoveTo(xPos, yPos);
+    output("moved");
 end
 
 --v function(self: TEXT, width: number, height: number)
 function Text.Resize(self, width, height)
+    local xPos, yPos = self.uic:Position();
     Components.resize(self.uic, width, height);
-    Text:SetText(Text:GetText());
+    self.uic:SetStateText(self.uic:GetStateText());
+    self.uic:MoveTo(xPos, yPos);
 end
 
 return {
