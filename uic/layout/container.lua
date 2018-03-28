@@ -11,6 +11,7 @@ function Container.new(layout)
     self.layout = layout;
     self.xPos = tonumber(0);
     self.yPos = tonumber(0);
+    self.visible = true;
     return self;
 end
 
@@ -38,7 +39,16 @@ end
 
 --v function(self: CONTAINER) --> boolean
 function Container.Visible(self)
-    return true;
+    return self.visible;
+end
+
+--v function(self: CONTAINER, visible: boolean)
+function Container.SetVisible(self, visible)
+    for i, component in ipairs(self.components) do
+        --# assume component: CA_UIC
+        component:SetVisible(visible);
+    end
+    self.visible = visible;
 end
 
 --v function(self: CONTAINER, xPos: number, yPos: number)
