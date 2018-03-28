@@ -108,87 +108,110 @@ function createSkillSetButtons(lordType, frame)
     return buttonsMap;
 end
 
---v function(trait: string, frame: FRAME) --> TEXT_BUTTON
-function createTraitButton(trait, frame)
-    local traitButton = TextButton.new(trait .. "Button", frame, "TEXT_TOGGLE", TRAIT_NAMES[trait]);
-    traitButton:Resize(300, traitButton:Height());
-    traitButton:SetState("active");
-    return traitButton;
-end
-
---v function(frame: FRAME) --> map<string, TEXT_BUTTON>
-function createTraitButtons(frame)
-    local buttons = {} --: vector<TEXT_BUTTON>
-    local buttonsMap = {} --: map<string, TEXT_BUTTON>
-    for i, trait in ipairs(TRAITS) do
-        local button = createTraitButton(trait, frame);
-        if i == 1 then
-            button:SetState("selected");
-        end
-        buttonsMap[trait] = button;
-        table.insert(buttons, button);
-    end
-    setUpSingleButtonSelectedGroup(buttons);
-    return buttonsMap;
-end
-
---v function(trait: string) --> (string, string)
-function calculateImageAndToolTipForTrait(trait)
-    output("calculateImageAndToolTipForTrait: " .. trait);
+--v function(traitEffectProperties: map<string, string>) --> (string, string)
+function calculateImageAndToolTipForTraitEffectProperties(traitEffectProperties)
     local traitImagePath = nil --: string
     local traitDescription = nil --: string
     local colour = nil --: string
-    local traitEffects = TABLES["trait_level_effects_tables"][trait] --: vector<map<string, string>>
-    for i, traitEffectProperties in ipairs(traitEffects) do
-        local traitEffect = traitEffectProperties["effect"];
-        output("effect: " .. traitEffect);
-        local effectValue = tonumber(traitEffectProperties["value"]);
-        local effects = TABLES["effects_tables"][traitEffect] --: map<string, string>
-        if effectValue > 0 then
-            traitImagePath = "ui/campaign ui/effect_bundles/" .. effects["icon"];
-        else
-            traitImagePath = "ui/campaign ui/effect_bundles/" .. effects["icon_negative"];
-        end
-
-        if (effects["is_positive_value_good"] == "True") == (effectValue > 0) then
-            colour = "dark_g";
-        else
-            colour = "dark_r";
-        end
-        output("colour: " .. colour);        
-
-        output("traitImagePath: " .. traitImagePath);
-        local effectDescriptionPath = "effects_description_" .. traitEffect;
-        output("effectDescriptionPath: " .. effectDescriptionPath);
-        traitDescription = effect.get_localised_string(effectDescriptionPath);
-        output("traitDescription: " .. traitDescription);
-        traitDescription = string.gsub(traitDescription, "%%%+n", tostring(effectValue));
-        output("traitDescription replaced: " .. traitDescription);
-
-        local traitEffectScope = traitEffectProperties["effect_scope"];
-        output("traitEffectScope: " .. traitEffectScope);
-        local traitEffectScopePath = "campaign_effect_scopes_localised_text_" .. traitEffectScope;
-        output("traitEffectScopePath: " .. traitEffectScopePath);
-        local traitEffectScopeDesc = effect.get_localised_string(traitEffectScopePath);        
-        output("traitEffectScopeDesc: " .. traitEffectScopeDesc);
-
-        traitDescription = "[[col:" .. colour .. "]]" .. traitDescription .. traitEffectScopeDesc .. "[[/col]]";
-        output("traitDescription final: " .. traitDescription);
+    local traitEffect = traitEffectProperties["effect"];
+    output("effect: " .. traitEffect);
+    local effectValue = tonumber(traitEffectProperties["value"]);
+    local effects = TABLES["effects_tables"][traitEffect] --: map<string, string>
+    if effectValue > 0 then
+        traitImagePath = "ui/campaign ui/effect_bundles/" .. effects["icon"];
+    else
+        traitImagePath = "ui/campaign ui/effect_bundles/" .. effects["icon_negative"];
     end
+
+    if (effects["is_positive_value_good"] == "True") == (effectValue > 0) then
+        colour = "dark_g";
+    else
+        colour = "dark_r";
+    end
+    output("colour: " .. colour);        
+
+    output("traitImagePath: " .. traitImagePath);
+    local effectDescriptionPath = "effects_description_" .. traitEffect;
+    output("effectDescriptionPath: " .. effectDescriptionPath);
+    traitDescription = effect.get_localised_string(effectDescriptionPath);
+    output("traitDescription: " .. traitDescription);
+    traitDescription = string.gsub(traitDescription, "%%%+n", "+" .. tostring(effectValue));
+    traitDescription = string.gsub(traitDescription, "%%%-n", "-" .. tostring(effectValue));
+    traitDescription = string.gsub(traitDescription, "%%%n", tostring(effectValue));    
+    output("traitDescription replaced: " .. traitDescription);
+
+    local traitEffectScope = traitEffectProperties["effect_scope"];
+    output("traitEffectScope: " .. traitEffectScope);
+    local traitEffectScopePath = "campaign_effect_scopes_localised_text_" .. traitEffectScope;
+    output("traitEffectScopePath: " .. traitEffectScopePath);
+    local traitEffectScopeDesc = effect.get_localised_string(traitEffectScopePath);        
+    output("traitEffectScopeDesc: " .. traitEffectScopeDesc);
+
+    traitDescription = "[[col:" .. colour .. "]]" .. traitDescription .. traitEffectScopeDesc .. "[[/col]]";
+    output("traitDescription final: " .. traitDescription);
+
     return traitImagePath, traitDescription;
 end
 
---v function(trait: string, frame: FRAME) --> CONTAINER
-function createTraitRow(trait, frame)
+--v function(trait: string, frame: FRAME, buttonCreationFunction: function(trait:string) --> BUTTON) --> CONTAINER
+function createTraitRow(trait, frame, buttonCreationFunction)
     local traitRow = Container.new(FlowLayout.HORIZONTAL);
     local traitName = Text.new(trait .. "NameText", frame, "NORMAL", TRAIT_NAMES[trait]);
     traitRow:AddComponent(traitName);
-    local traitImagePath, traitDescription = calculateImageAndToolTipForTrait(trait);
-    local traitImage = Image.new(trait .. "Image", frame, traitImagePath);
-    traitRow:AddComponent(traitImage);
-    local traitDesc = Text.new(trait .. "NameDesc", frame, "NORMAL", traitDescription);
-    traitRow:AddComponent(traitDesc);
+    local traitEffectsContainer = Container.new(FlowLayout.VERTICAL);
+    local traitEffects = TABLES["trait_level_effects_tables"][trait] --: vector<map<string, string>>
+    for i, traitEffectProperties in ipairs(traitEffects) do
+        local traitEffectContainer = Container.new(FlowLayout.HORIZONTAL);
+        local traitImagePath, traitDescription = calculateImageAndToolTipForTraitEffectProperties(traitEffectProperties);
+        local traitImage = Image.new(trait .. "Image", frame, traitImagePath);
+        traitEffectContainer:AddComponent(traitImage);
+        local traitDesc = Text.new(trait .. "NameDesc", frame, "NORMAL", traitDescription);
+        traitEffectContainer:AddComponent(traitDesc);
+        traitEffectsContainer:AddComponent(traitEffectContainer);
+    end
+    traitRow:AddComponent(traitEffectsContainer);
+    traitRow:AddComponent(buttonCreationFunction(trait));
     return traitRow;
+end
+
+--v function(list: vector<string>, value: string) --> boolean
+function listContains(list, value)
+    for i, listValue in ipairs(list) do
+        if listValue == value then
+            return true;
+        end
+    end
+    return false;
+end
+
+--v function(currentTraits: vector<string>, addTraitCallback: function(string)) --> FRAME
+function createTraitSelectionFrame(currentTraits, addTraitCallback)
+    local traitSelectionFrame = Frame.new("traitSelectionFrame");
+    traitSelectionFrame:SetTitle("Select the Trait to Add");
+    traitSelectionFrame:Scale(0.75);
+    traitSelectionFrame:AddCloseButton();
+    local traitSelectionFrameContainer = Container.new(FlowLayout.VERTICAL);
+    for i, trait in ipairs(TRAITS) do
+        local addTraitButtonFunction = function(
+            trait --: string
+        )
+            local addTraitButton = Button.new("addTraitButton" .. trait, traitSelectionFrame, "SQUARE", "ui/skins/default/parchment_header_min.png");
+            addTraitButton:RegisterForClick(
+                "addTraitButton" .. trait .. "Listener" .. tostring(math.random()),
+                function(context)
+                    addTraitCallback(trait);
+                    Util.delete(traitSelectionFrame.uic);
+                end
+            )
+            return addTraitButton;
+        end
+        if not listContains(currentTraits, trait) then
+            local traitRow = createTraitRow(trait, traitSelectionFrame, addTraitButtonFunction);
+            traitSelectionFrameContainer:AddComponent(traitRow);
+        end
+    end
+    Util.centreComponentOnComponent(traitSelectionFrameContainer, traitSelectionFrame);
+    return traitSelectionFrame;
 end
 
 --v function(lordTypeButtonsMap: map<string, TEXT_BUTTON>) --> string
@@ -305,6 +328,16 @@ function createLord(selectedLordType, lordCreatedCallback)
     );
 end
 
+--v function(list: vector<string>, toRemove: string)
+function removeFromList(list, toRemove)
+    for i, value in ipairs(list) do
+        if value == toRemove then
+            table.remove(list, i);
+            return;
+        end
+    end
+end
+
 function createCustomLordFrame()
     local blocker = nil --: COMPONENT_TYPE
     cm:callback(
@@ -330,7 +363,9 @@ function createCustomLordFrame()
     if not existingFrame then
         local customLordFrame = Frame.new("customLordFrame");
         customLordFrame:SetTitle("Create your custom Lord");
-        Util.centreComponentOnScreen(customLordFrame);
+        customLordFrame:Resize(customLordFrame:Width(), customLordFrame:Height() * 1.5);
+        --Util.centreComponentOnScreen(customLordFrame);
+        customLordFrame:MoveTo(50, 100);
 
         local frameContainer = Container.new(FlowLayout.VERTICAL);        
         local lordName = Text.new("lordName", customLordFrame, "NORMAL", "Name your Lord");
@@ -389,20 +424,52 @@ function createCustomLordFrame()
         local traitsText = Text.new("traitsText", customLordFrame, "NORMAL", "Select your Lord traits");
         frameContainer:AddComponent(traitsText);
 
-        local traitButtons = createTraitButtons(customLordFrame);
-        local traitButtonsContainer = Container.new(FlowLayout.HORIZONTAL);
-        for i, button in pairs(traitButtons) do
-            traitButtonsContainer:AddComponent(button);
-        end
-        frameContainer:AddComponent(traitButtonsContainer);
+        local selectedTraits = {} --: vector<string>
+        table.insert(selectedTraits, "wh2_main_trait_defeated_teclis");
+        local traitToRow = {} --: map<string, CONTAINER>            
 
-        --TODO
-        local traitRowsContainer = Container.new(FlowLayout.VERTICAL);        
-        for i, trait in ipairs(TRAITS) do
-            local traitRow = createTraitRow(trait, customLordFrame);
+        local removeTraitButtonFunction = function(
+            trait --: string
+        )
+            local removeTraitButton = Button.new("removeTraitButton" .. trait .. tostring(math.random()), customLordFrame, "SQUARE", "ui/skins/default/parchment_header_max.png");
+            removeTraitButton:RegisterForClick(
+                "removeTraitButton" .. trait .. "Listener" .. tostring(math.random()),
+                function(context)
+                    removeFromList(selectedTraits, trait);
+                    traitToRow[trait]:SetVisible(false);
+                    Util.centreComponentOnComponent(frameContainer, customLordFrame);
+                end
+            )
+            return removeTraitButton;
+        end
+
+        local traitRowsContainer = Container.new(FlowLayout.VERTICAL);
+        for i, trait in ipairs(selectedTraits) do
+            local traitRow = createTraitRow(trait, customLordFrame, removeTraitButtonFunction);
             traitRowsContainer:AddComponent(traitRow);
+            traitToRow[trait] = traitRow;
         end
         frameContainer:AddComponent(traitRowsContainer);
+
+        local addTraitButton = TextButton.new("addTraitButton", customLordFrame, "TEXT", "Add Trait");
+        addTraitButton:RegisterForClick(
+            "addTraitButtonClickListener", 
+            function(context)
+                local traitSelectionFrame = createTraitSelectionFrame(selectedTraits, 
+                    function(addedTrait)
+                        output("trait added: " .. addedTrait);
+                        local traitRow = createTraitRow(addedTrait, customLordFrame, removeTraitButtonFunction);
+                        traitRowsContainer:AddComponent(traitRow);
+                        traitToRow[addedTrait] = traitRow;
+                        table.insert(selectedTraits, addedTrait);
+                        Util.centreComponentOnComponent(frameContainer, customLordFrame);
+                    end
+                );
+                customLordFrame.uic:Adopt(traitSelectionFrame.uic:Address());
+                traitSelectionFrame:PositionRelativeTo(customLordFrame, customLordFrame:Width(), 0);
+            end
+        );
+        frameContainer:AddComponent(addTraitButton);
 
         Util.centreComponentOnComponent(frameContainer, customLordFrame);
 
@@ -410,7 +477,7 @@ function createCustomLordFrame()
         local lordCreatedCallback = function(
             context --:CA_CQI
         )
-            lordCreated(findSelectedSkillSet(skillSetToButtonMap), findSelectedTrait(traitButtons), lordNameTextBox.uic:GetStateText());
+            lordCreated(findSelectedSkillSet(skillSetToButtonMap), selectedTraits[1], lordNameTextBox.uic:GetStateText());
         end
 
         local region = string.sub(tostring(cm:get_campaign_ui_manager().settlement_selected), 12);
@@ -418,11 +485,12 @@ function createCustomLordFrame()
         customLordFrame:AddCloseButton(
             function()
                 createLord(findSelectedLordType(lordTypeButtons), lordCreatedCallback);
+                --# assume blocker: IMAGE
                 blocker.uic:SetVisible(false);
             end
         );
 
-        customLordFrame.uic:PropagatePriority(200);
+        customLordFrame.uic:PropagatePriority(100);
     else
         --# assume existingFrame: FRAME
         existingFrame:SetVisible(true); 
@@ -542,3 +610,8 @@ end
 --tooltip generation
 --trait --> character_trait_levels --> trait_level_effects --> effects
 --                                 --> campaign_effect_scopes
+
+-- build_frame_cross.png
+-- icon_cross_square_red.png
+-- parchment_header_min.png
+-- parchment_header_max.png
