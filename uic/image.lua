@@ -6,10 +6,7 @@ local Image = {} --# assume Image: IMAGE
 --v function(name: string, parent: CA_UIC | COMPONENT_TYPE, imagePath: string) --> IMAGE
 function Image.new(name, parent, imagePath)
     local parentComponent = Components.getUiContentComponent(parent);    
-    local image = Util.createComponent(
-        name, parentComponent, "ui/campaign ui/clan",
-        "main", "tab_children_parent", "Summary", "portrait_frame", "parchment_L", "details", "details_list", "tx_food", "dy_food", "food_icon"
-    );
+    image = Util.createComponent(name, parentComponent, "ui/campaign ui/region_info_pip");
     image:SetImage(imagePath);
 
     local self = {};

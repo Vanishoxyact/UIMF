@@ -142,6 +142,18 @@ function Util.centreComponentOnScreen(componentToMove)
     );
 end
 
+--v [NO_CHECK] function(parentUic: CA_UIC, runnable: function(child: CA_UIC))
+function Util.recurseThroughChildrenApplyingFunction(parentUic, runnable)
+    output("recurseThroughChildrenApplyingFunction: " .. parentUic:Id());
+    local childCount = parentUic:ChildCount();
+    for i=0, childCount-1  do
+        local child = UIComponent(parentUic:Find(i));
+        output("Applying function to: " .. child:Id());
+        runnable(child);
+        Util.recurseThroughChildrenApplyingFunction(child, runnable);
+    end
+end
+
 return {
     delete = Util.delete;
     init = Util.init;
@@ -152,4 +164,5 @@ return {
     digForComponent = Util.digForComponent;
     centreComponentOnComponent = Util.centreComponentOnComponent;
     centreComponentOnScreen = Util.centreComponentOnScreen;
+    recurseThroughChildrenApplyingFunction = Util.recurseThroughChildrenApplyingFunction;
 }

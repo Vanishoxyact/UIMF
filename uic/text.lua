@@ -9,10 +9,7 @@ function Text.new(name, parent, textType, textToDisplay)
     local parentComponent = Components.getUiContentComponent(parent);
     local text = nil --: CA_UIC
     if textType == "NORMAL" then
-        text = Util.createComponent(
-            name, parentComponent, "ui/campaign ui/clan",
-            "main", "tab_children_parent", "Summary", "portrait_frame", "parchment_L", "details", "details_list", "tx_home-region"
-        );
+        text = Util.createComponent(name, parentComponent, "ui/uimf/text_black_16_parchment");
     elseif textType == "WRAPPED" then
         text = Util.createComponent(
             name, parentComponent, "ui/campaign ui/mission_details",
@@ -57,20 +54,6 @@ end
 --v function(self: TEXT, component: CA_UIC | COMPONENT_TYPE, xDiff: number, yDiff: number)
 function Text.PositionRelativeTo(self, component, xDiff, yDiff)
     Components.positionRelativeTo(self.uic, component, xDiff, yDiff);
-end
-
---v function(self: TEXT, factor: number)
-function Text.Scale(self, factor)
-    if self.textType == "WRAPPED" then
-        Log.write("Cannot scale text of type : WRAPPED for : " .. self.name);
-    else
-        Components.scale(self.uic, factor);
-    end
-end
-
---v function(self: TEXT, width: number, height: number)
-function Text.Resize(self, width, height)
-    Components.resize(self.uic, width, height);
 end
 
 --v function(self: TEXT) --> (number, number)
@@ -144,6 +127,18 @@ end
 --v function(self: TEXT) --> string
 function Text.GetText(self)
     return self.uic:GetStateText();
+end
+
+--v function(self: TEXT, factor: number)
+function Text.Scale(self, factor)
+    Components.scale(self.uic, factor);
+    Text:SetText(Text:GetText());
+end
+
+--v function(self: TEXT, width: number, height: number)
+function Text.Resize(self, width, height)
+    Components.resize(self.uic, width, height);
+    Text:SetText(Text:GetText());
 end
 
 return {
