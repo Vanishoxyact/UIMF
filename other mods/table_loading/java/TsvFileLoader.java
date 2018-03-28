@@ -72,7 +72,7 @@ public class TsvFileLoader {
    private boolean isCaTsvFile(List<String> lines) {
       String secondLine = lines.get( 1 );
       try {
-         Integer.parseInt( secondLine );
+         Integer.parseInt( secondLine.trim() );
          return true;
       } catch ( NumberFormatException e ) {
          return false;
