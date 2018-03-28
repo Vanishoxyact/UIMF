@@ -235,11 +235,16 @@ function demo_uimf()
                     myFrame:MoveTo(100, 100);
                     local mainContainer = Container.new(FlowLayout.VERTICAL);
                     local listView = ListView.new("listView", core:get_ui_root());
-                    listView:Resize(350, 500);
+                    listView:Resize(700, 300);
                     for i = 1, 20 do
-                        local button = TextButton.new("button" .. i, listView, "TEXT", "Button " .. i);
-                        listView:AddComponent(button);
+                        local rowContainer = Container.new(FlowLayout.HORIZONTAL);
+                        local firstButton = TextButton.new("firstButton" .. i, core:get_ui_root(), "TEXT", "Button " .. i);
+                        local secondButton = TextButton.new("secondButton" .. i, core:get_ui_root(), "TEXT", "Button " .. i);
+                        rowContainer:AddComponent(firstButton);
+                        rowContainer:AddComponent(secondButton);
+                        listView:AddContainer(rowContainer);
                     end
+                    
                     mainContainer:AddComponent(listView);
                     Util.centreComponentOnComponent(mainContainer, myFrame);
                 else

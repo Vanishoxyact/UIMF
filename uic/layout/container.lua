@@ -1,11 +1,15 @@
 local Gap = require("uic/layout/gap");
 local Components = require("uic/components");
 local Container = {} --# assume Container: CONTAINER
+local CONTAINER_TYPE = "CONTAINER";
 
 --v function(layout: LAYOUT) --> CONTAINER
 function Container.new(layout)
     local self = {};
-    setmetatable(self, {__index = Container});
+    setmetatable(self, {
+        __index = Container,
+        __tostring = function() return CONTAINER_TYPE end
+    });
     --# assume self: CONTAINER
     self.components = {} --: vector<CA_UIC | COMPONENT_TYPE | GAP>
     self.layout = layout;
@@ -65,6 +69,29 @@ function Container.PositionRelativeTo(self, component, xDiff, yDiff)
     Components.positionRelativeTo(self, component, xDiff, yDiff);
 end
 
+--v function(component: any) --> boolean
+function Container.isContainer(component)
+    return tostring(component) == CONTAINER_TYPE;
+end
+
+--v [NO_CHECK] function(self: CONTAINER) --> vector<CA_UIC | COMPONENT_TYPE>
+function Container.RecursiveRetrieveAllComponents(self)
+    local allComponents = {} --: vector<CA_UIC | COMPONENT_TYPE>
+    for i, component in ipairs(self.components) do
+        if Container.isContainer(component) then
+            --# assume component: CONTAINER
+            local containerComponents = component:RecursiveRetrieveAllComponents();
+            for i, containerComponent in ipairs(containerComponents) do
+                table.insert(allComponents, containerComponent);
+            end
+        else
+            table.insert(allComponents, component);
+        end
+    end
+    return allComponents;
+end
+
 return {
     new = Container.new;
+    isContainer = Container.isContainer;
 }

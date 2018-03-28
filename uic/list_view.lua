@@ -2,6 +2,7 @@ local Log = require("uic/log");
 local Util = require("uic/util");
 local Components = require("uic/components");
 local Container = require("uic/layout/container");
+local Dummy = require("uic/dummy");
 local ListView = {} --# assume ListView: LIST_VIEW
 
 --v function(name: string, parent: CA_UIC | COMPONENT_TYPE) --> LIST_VIEW
@@ -34,7 +35,7 @@ end
 --v function(self: LIST_VIEW, xPos: number, yPos: number)
 function ListView.MoveTo(self, xPos, yPos) 
     self.uic:MoveTo(xPos, yPos);
-    Components.positionRelativeTo(self.listContainer, self.uic, 0, 40);
+    Components.positionRelativeTo(self.listContainer, self.uic, 0, 50);
 end
 
 --v function(self: LIST_VIEW, xMove: number, yMove: number)
@@ -118,9 +119,33 @@ end
 
 -- Custom functions
 
---v function(self: LIST_VIEW, component: CA_UIC | COMPONENT_TYPE | CONTAINER)    
+--v function(self: LIST_VIEW, component: CA_UIC | COMPONENT_TYPE)    
 function ListView.AddComponent(self, component)
     self.listContainer:AddComponent(component);
+end
+
+--v function(self: LIST_VIEW, container: CONTAINER)    
+function ListView.AddContainer(self, container)
+    -- Create dummy and adopt all components and then add to list with row height, rather than adding to list as adding to list 
+    -- increases view size per component
+    local dummy = Dummy.new(core:get_ui_root());
+    local dummyUic = dummy.uic;
+    local containerComponents = container:RecursiveRetrieveAllComponents();
+    for i, component in ipairs(containerComponents) do
+        if is_uicomponent(component) then
+            --# assume component: CA_UIC
+            dummyUic:Adopt(component:Address());
+        else
+            --# assume component: BUTTON
+            dummyUic:Adopt(component.uic:Address());
+        end
+    end
+    -- Resizing width for some reason does not work!
+    dummyUic:SetCanResizeHeight(true);
+    dummyUic:SetCanResizeWidth(false);
+    dummyUic:Resize(container:Bounds());
+    self.listBox:Adopt(dummyUic:Address());
+    self.listContainer:AddComponent(container);
 end
 
 return {
