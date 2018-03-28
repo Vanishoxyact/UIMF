@@ -202,3 +202,4 @@
 --# assume global get_character_by_cqi: function(cqi: CA_CQI) --> CA_CHAR
 --# assume global get_region: function(regionName: string) --> CA_REGION
 --# assume global get_faction: function(factionName: string) --> CA_FACTION
+--# assume global output_uicomponent: function(uic: CA_UIC, omit_children: boolean)

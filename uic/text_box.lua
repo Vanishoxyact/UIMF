@@ -16,7 +16,6 @@ function TextBox.new(name, parent)
     self.uic = textBox --: const
     self.name = name --: const
     Util.registerComponent(name, self);    
-    Log.write("Created component "..name);
     return self;
 end
 
