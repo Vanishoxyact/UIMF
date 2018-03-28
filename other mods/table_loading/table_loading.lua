@@ -1,4 +1,4 @@
---v function(path: string) --> map<string, WHATEVER>
+--v [NO_CHECK] function(path: string) --> map<string, WHATEVER>
 function read_file(path)
     local configEnv = {}
     local f,err = loadfile(path);
@@ -35,7 +35,7 @@ function convertUniqueKeyDataIntoTable(schema, data, keyIndex)
     return dataTable;
 end
 
---v function(schema: vector<string>, data: vector<vector<string>>, keyIndex: number) --> map<string, >
+--v function(schema: vector<string>, data: vector<vector<string>>, keyIndex: number) --> map<string, vector<map<string, string>>>
 function convertListKeyDataIntoTable(schema, data, keyIndex)
     local dataTable = {} --: map<string, vector<map<string, string>>>
     for _, dataRow in ipairs(data) do
@@ -79,6 +79,15 @@ function convertDataIntoTable(completeTable)
     end
 end
 
+--v [NO_CHECK] function(input: string, regex: string) --> vector<string>
+function gmatchToVector(input, regex)
+    local result = {} --: vector<string>
+    for match in string.gmatch(input, regex) do
+        table.insert(result, match);
+    end
+    return result;
+end
+
 local game_interface = cm:get_game_interface();
 
 if not game_interface then
@@ -90,7 +99,8 @@ else
 
     local TABLES = {} --: map<string, map<string, WHATEVER>>
     if file_str_c ~= "" then
-        for filename in string.gmatch(file_str_c, '([^,]+)') do
+        local matches = gmatchToVector(file_str_c, '([^,]+)');
+        for i, filename in ipairs(matches) do
             output("LOADING TABLES FROM:" .. filename);
 
             local current_file = filename;
