@@ -34,6 +34,7 @@
 --# assume UTIL.centreComponentOnComponent: function(componentToMove: CA_UIC | COMPONENT_TYPE | CONTAINER, componentToCentreOn: CA_UIC | COMPONENT_TYPE)
 --# assume UTIL.centreComponentOnScreen: function(component: CA_UIC | COMPONENT_TYPE | CONTAINER)
 --# assume UTIL.registerForClick: function(component: CA_UIC, listenerName: string, callback: function(context: CA_UIContext))
+--# assume UTIL.delete: function(component: CA_UIC)
         
 --# assume global Log: LOG
 --# assume global Text: TEXT
@@ -47,3 +48,4 @@
 --# assume global Container: CONTAINER
 
 --# assume global TABLES: map<string, map<string, WHATEVER>>
+--# assume global write_log: boolean

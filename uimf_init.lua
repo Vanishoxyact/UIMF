@@ -17,6 +17,7 @@ _G.print_all_uicomponent_children = print_all_uicomponent_children;
 _G.is_uicomponent = is_uicomponent;
 _G.output = output;
 _G.core = core;
+_G.write_log = __write_output_to_logfile;
 
 _G.Log = Log;
 _G.Text = Text;

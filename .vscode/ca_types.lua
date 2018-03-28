@@ -189,6 +189,7 @@
 --# assume global cm: CM
 --# assume global core: CORE
 --# assume global effect: CA_EFFECT
+--# assume global __write_output_to_logfile: boolean
 
 
 -- GLOBAL FUNCTIONS
