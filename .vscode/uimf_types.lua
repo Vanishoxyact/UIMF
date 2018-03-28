@@ -6,10 +6,11 @@
 --# assume global class FRAME
 --# assume global class TEXT_BOX
 --# assume global class LIST_VIEW
+--# assume global class DUMMY
 --# assume global class UTIL
 
 --# type global COMPONENT_TYPE = 
---# TEXT | IMAGE | BUTTON | TEXT_BUTTON | FRAME | TEXT_BOX | LIST_VIEW
+--# TEXT | IMAGE | BUTTON | TEXT_BUTTON | FRAME | TEXT_BOX | LIST_VIEW | DUMMY
 
 --# type global BUTTON_TYPE = 
 --# "CIRCULAR" | "SQUARE" | "CIRCULAR_TOGGLE" | "SQUARE_TOGGLE"
@@ -48,6 +49,7 @@
 --# assume global ListView: LIST_VIEW
 --# assume global Util: UTIL
 --# assume global FlowLayout: FLOW_LAYOUT
+--# assume global Dummy: DUMMY
 --# assume global Container: CONTAINER
 
 --# assume global TABLES: map<string, map<string, WHATEVER>>

@@ -9,6 +9,7 @@ local Util = require ("uic/util");
 require("uic/components");
 local FlowLayout = require("uic/layout/flowlayout");
 local Container = require("uic/layout/container");
+local Dummy = require("uic/dummy");
 local ListView = require("uic/list_view");
 require("uic/layout/gap");
 
@@ -19,6 +20,7 @@ _G.is_uicomponent = is_uicomponent;
 _G.output = output;
 _G.core = core;
 _G.write_log = __write_output_to_logfile;
+_G.output_uicomponent = output_uicomponent;
 
 _G.Log = Log;
 _G.Text = Text;
@@ -28,6 +30,7 @@ _G.TextButton = TextButton;
 _G.Frame = Frame;
 _G.TextBox = TextBox;
 _G.ListView = ListView;
+_G.Dummy = Dummy;
 _G.Util = Util;
 _G.FlowLayout = FlowLayout;
 _G.Container = Container;
