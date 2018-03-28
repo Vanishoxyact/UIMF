@@ -5,10 +5,11 @@
 --# assume global class TEXT_BUTTON
 --# assume global class FRAME
 --# assume global class TEXT_BOX
+--# assume global class LIST_VIEW
 --# assume global class UTIL
 
 --# type global COMPONENT_TYPE = 
---# TEXT | IMAGE | BUTTON | TEXT_BUTTON | FRAME | TEXT_BOX
+--# TEXT | IMAGE | BUTTON | TEXT_BUTTON | FRAME | TEXT_BOX | LIST_VIEW
 
 --# type global BUTTON_TYPE = 
 --# "CIRCULAR" | "SQUARE" | "CIRCULAR_TOGGLE" | "SQUARE_TOGGLE"
@@ -35,6 +36,7 @@
 --# assume UTIL.centreComponentOnScreen: function(component: CA_UIC | COMPONENT_TYPE | CONTAINER)
 --# assume UTIL.registerForClick: function(component: CA_UIC, listenerName: string, callback: function(context: CA_UIContext))
 --# assume UTIL.delete: function(component: CA_UIC)
+--# assume UTIL.recurseThroughChildrenApplyingFunction: function(parentUic: CA_UIC, runnable: function(child: CA_UIC))
         
 --# assume global Log: LOG
 --# assume global Text: TEXT
@@ -43,6 +45,7 @@
 --# assume global TextButton: TEXT_BUTTON
 --# assume global Frame: FRAME
 --# assume global TextBox: TEXT_BOX
+--# assume global ListView: LIST_VIEW
 --# assume global Util: UTIL
 --# assume global FlowLayout: FLOW_LAYOUT
 --# assume global Container: CONTAINER

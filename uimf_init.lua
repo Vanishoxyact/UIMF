@@ -4,11 +4,12 @@ local Image = require("uic/image");
 local Button = require("uic/button");
 local TextButton = require("uic/text_button");
 local Frame = require("uic/frame");
-local TextBox = require("uic/text_box")
+local TextBox = require("uic/text_box");
 local Util = require ("uic/util");
 require("uic/components");
 local FlowLayout = require("uic/layout/flowlayout");
 local Container = require("uic/layout/container");
+local ListView = require("uic/list_view");
 require("uic/layout/gap");
 
 _G.UIComponent = UIComponent;
@@ -26,6 +27,7 @@ _G.Button = Button;
 _G.TextButton = TextButton;
 _G.Frame = Frame;
 _G.TextBox = TextBox;
+_G.ListView = ListView;
 _G.Util = Util;
 _G.FlowLayout = FlowLayout;
 _G.Container = Container;

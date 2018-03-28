@@ -4,6 +4,7 @@ function demo_uimf()
     local enableMortCultDemo = true;
     local enableFlowLayoutDemoUI = true;
     local enableUIMFFrame = true;
+    local enableListDemo = true;
 
     if enableDemoUI then
         core:add_listener(
@@ -190,10 +191,7 @@ function demo_uimf()
                 local existingFrame = Util.getComponentWithName("FlowLayoutDemo");
                 if not existingFrame then
                     local myFrame = Frame.new("FlowLayoutDemo");
-                    myFrame:Scale(1.5);
                     myFrame:MoveTo(100, 100);
-                    myFrame:AddCloseButton();
-
                     local mainContainer = Container.new(FlowLayout.VERTICAL);
                     local firstButton = TextButton.new("firstButton", myFrame, "TEXT", "Button One");
                     local secondButton = TextButton.new("secondButton", myFrame, "TEXT", "Button Two");
@@ -215,6 +213,34 @@ function demo_uimf()
                     horozontalContainer:AddComponent(containedVerticalContainer);
                     mainContainer:AddComponent(horozontalContainer);
 
+                    Util.centreComponentOnComponent(mainContainer, myFrame);
+                else
+                    --# assume existingFrame: BUTTON
+                    existingFrame:SetVisible(true);
+                end
+            end,
+            true
+        );
+    end
+
+    if enableListDemo then
+        core:add_listener(
+            "createListDemoFrame",
+            "ShortcutTriggered",
+            function(context) return context.string == "camera_bookmark_view0"; end, --default F9
+            function(context)
+                local existingFrame = Util.getComponentWithName("ListDemo");
+                if not existingFrame then
+                    local myFrame = Frame.new("ListDemo");
+                    myFrame:MoveTo(100, 100);
+                    local mainContainer = Container.new(FlowLayout.VERTICAL);
+                    local listView = ListView.new("listView", core:get_ui_root());
+                    listView:Resize(350, 500);
+                    for i = 1, 20 do
+                        local button = TextButton.new("button" .. i, listView, "TEXT", "Button " .. i);
+                        listView:AddComponent(button);
+                    end
+                    mainContainer:AddComponent(listView);
                     Util.centreComponentOnComponent(mainContainer, myFrame);
                 else
                     --# assume existingFrame: BUTTON
