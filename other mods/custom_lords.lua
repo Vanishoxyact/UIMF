@@ -170,29 +170,29 @@ function calculateImageAndToolTipForTraitEffectProperties(traitEffectProperties)
     return traitImagePath, traitDescription;
 end
 
---v function(trait: string, frame: FRAME, buttonCreationFunction: function(trait:string) --> BUTTON) --> CONTAINER
-function createTraitRow(trait, frame, buttonCreationFunction)
+--v function(trait: string, parent: COMPONENT_TYPE | CA_UIC, buttonCreationFunction: function(trait:string, parent: COMPONENT_TYPE | CA_UIC) --> BUTTON) --> CONTAINER
+function createTraitRow(trait, parent, buttonCreationFunction)
     output("createTraitRow: " .. trait);
     local traitRow = Container.new(FlowLayout.HORIZONTAL);
     local traitNameKey = "character_trait_levels_onscreen_name_" .. trait;
     output("traitNameKey: " .. traitNameKey);
     local traitName = effect.get_localised_string(traitNameKey);
     output("traitName: " .. traitName);
-    local traitNameText = Text.new(trait .. "NameText", frame, "NORMAL", traitName);
+    local traitNameText = Text.new(trait .. "NameText", parent, "NORMAL", traitName);
     traitRow:AddComponent(traitNameText);
     local traitEffectsContainer = Container.new(FlowLayout.VERTICAL);
     local traitEffects = TABLES["trait_level_effects_tables"][trait] --: vector<map<string, string>>
     for i, traitEffectProperties in ipairs(traitEffects) do
         local traitEffectContainer = Container.new(FlowLayout.HORIZONTAL);
         local traitImagePath, traitDescription = calculateImageAndToolTipForTraitEffectProperties(traitEffectProperties);
-        local traitImage = Image.new(trait .. i .. "Image", frame, traitImagePath);
+        local traitImage = Image.new(trait .. i .. "Image", parent, traitImagePath);
         traitEffectContainer:AddComponent(traitImage);
-        local traitDesc = Text.new(trait .. i .. "NameDesc", frame, "NORMAL", traitDescription);
+        local traitDesc = Text.new(trait .. i .. "NameDesc", parent, "NORMAL", traitDescription);
         traitEffectContainer:AddComponent(traitDesc);
         traitEffectsContainer:AddComponent(traitEffectContainer);
     end
     traitRow:AddComponent(traitEffectsContainer);
-    traitRow:AddComponent(buttonCreationFunction(trait));
+    traitRow:AddComponent(buttonCreationFunction(trait, parent));
     return traitRow;
 end
 
@@ -210,14 +210,16 @@ end
 function createTraitSelectionFrame(currentTraits, addTraitCallback)
     local traitSelectionFrame = Frame.new("traitSelectionFrame");
     traitSelectionFrame:SetTitle("Select the Trait to Add");
-    traitSelectionFrame:Scale(0.75);
-    traitSelectionFrame:AddCloseButton();
+    --traitSelectionFrame:Scale(0.75);
     local traitSelectionFrameContainer = Container.new(FlowLayout.VERTICAL);
+    local traitList = ListView.new("traitList", traitSelectionFrame);
+    traitList:Resize(500, traitSelectionFrame:Height() - 100);
     for i, trait in ipairs(TRAITS) do
         local addTraitButtonFunction = function(
-            trait --: string
+            trait, --: string
+            parent --: COMPONENT_TYPE | CA_UIC
         )
-            local addTraitButton = Button.new("addTraitButton" .. trait, traitSelectionFrame, "SQUARE", "ui/skins/default/parchment_header_min.png");
+            local addTraitButton = Button.new("addTraitButton" .. trait, parent, "SQUARE", "ui/skins/default/parchment_header_min.png");
             addTraitButton:RegisterForClick(
                 "addTraitButton" .. trait .. "Listener" .. tostring(math.random()),
                 function(context)
@@ -228,10 +230,11 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
             return addTraitButton;
         end
         if not listContains(currentTraits, trait) then
-            local traitRow = createTraitRow(trait, traitSelectionFrame, addTraitButtonFunction);
-            traitSelectionFrameContainer:AddComponent(traitRow);
+            local traitRow = createTraitRow(trait, core:get_ui_root(), addTraitButtonFunction);
+            traitList:AddContainer(traitRow);
         end
     end
+    traitSelectionFrameContainer:AddComponent(traitList);
     Util.centreComponentOnComponent(traitSelectionFrameContainer, traitSelectionFrame);
     return traitSelectionFrame;
 end
@@ -451,9 +454,10 @@ function createCustomLordFrame()
         local traitToRow = {} --: map<string, CONTAINER>            
 
         local removeTraitButtonFunction = function(
-            trait --: string
+            trait, --: string
+            parent --: COMPONENT_TYPE | CA_UIC
         )
-            local removeTraitButton = Button.new("removeTraitButton" .. trait .. tostring(math.random()), customLordFrame, "SQUARE", "ui/skins/default/parchment_header_max.png");
+            local removeTraitButton = Button.new("removeTraitButton" .. trait .. tostring(math.random()), parent, "SQUARE", "ui/skins/default/parchment_header_max.png");
             removeTraitButton:RegisterForClick(
                 "removeTraitButton" .. trait .. "Listener" .. tostring(math.random()),
                 function(context)
