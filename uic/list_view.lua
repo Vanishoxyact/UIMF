@@ -151,9 +151,13 @@ function ListView.AddContainer(self, container)
     -- Resizing width for some reason does not work!
     dummyUic:SetCanResizeHeight(true);
     dummyUic:SetCanResizeWidth(false);
+    -- Maybe set first row to 0 size?
     dummyUic:Resize(container:Bounds());
     self.listBox:Adopt(dummyUic:Address());
     self.listContainer:AddComponent(container);
+
+    --self.listBox:SetCanResizeHeight(true);
+    --self.listBox:Resize(self.listContainer:Bounds());
 end
 
 return {
