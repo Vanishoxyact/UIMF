@@ -43,7 +43,7 @@ function ListView.MoveTo(self, xPos, yPos)
             offset = h;
         end
     end
-    Components.positionRelativeTo(self.listContainer, self.uic, 0, offset);
+    Components.positionRelativeTo(self.listContainer, find_uicomponent(self.uic, "listview"), 0, 0);
 end
 
 --v function(self: LIST_VIEW, xMove: number, yMove: number)
@@ -123,6 +123,8 @@ end
 --v function(self: LIST_VIEW)
 function ListView.Delete(self) 
     Util.delete(self.uic);
+    self.listContainer:Clear();
+    Util.unregisterComponent(self.name);
 end
 
 -- Custom functions
@@ -155,9 +157,6 @@ function ListView.AddContainer(self, container)
     dummyUic:Resize(container:Bounds());
     self.listBox:Adopt(dummyUic:Address());
     self.listContainer:AddComponent(container);
-
-    --self.listBox:SetCanResizeHeight(true);
-    --self.listBox:Resize(self.listContainer:Bounds());
 end
 
 return {

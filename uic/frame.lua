@@ -119,6 +119,7 @@ end
 --v function(self: FRAME)
 function Frame.Delete(self) 
     Util.delete(self.uic);
+    Util.unregisterComponent(self.name);
 end
 
 -- Custom functions

@@ -104,6 +104,7 @@ end
 --v function(self: IMAGE)
 function Image.Delete(self) 
     Util.delete(self.uic);
+    Util.unregisterComponent(self.name);
 end
 
 -- Custom functions

@@ -113,6 +113,7 @@ end
 --v function(self: TEXT)
 function Text.Delete(self) 
     Util.delete(self.uic);
+    Util.unregisterComponent(self.name);
 end
 
 -- Custom functions

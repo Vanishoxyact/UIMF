@@ -122,6 +122,7 @@ end
 --v function(self: TEXT_BUTTON)
 function TextButton.Delete(self) 
     Util.delete(self.uic);
+    Util.unregisterComponent(self.name);
 end
 
 -- Custom functions

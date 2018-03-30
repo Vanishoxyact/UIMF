@@ -103,6 +103,7 @@ end
 --v function(self: TEXT_BOX)
 function TextBox.Delete(self) 
     Util.delete(self.uic);
+    Util.unregisterComponent(self.name);
 end
 
 -- Custom functions

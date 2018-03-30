@@ -106,6 +106,7 @@ end
 --v function(self: DUMMY)
 function Dummy.Delete(self) 
     Util.delete(self.uic);
+    Util.unregisterComponent(self.name);
 end
 
 return {

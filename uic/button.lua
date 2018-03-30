@@ -124,7 +124,7 @@ function Button.Delete(self)
     Util.delete(self.uic);
     Util.unregisterComponent(self.name);
     for i, listener in ipairs(self.listeners) do
-        cm:remove_listener(listener);
+        core:remove_listener(listener);
     end
 end
 
