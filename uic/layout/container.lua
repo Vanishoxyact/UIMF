@@ -91,6 +91,23 @@ function Container.RecursiveRetrieveAllComponents(self)
     return allComponents;
 end
 
+--v [NO_CHECK] function(self: CONTAINER)
+function Container.Clear(self)
+    for i, component in ipairs(self.components) do
+        if is_uicomponent(component) then
+            --# assume component: CA_UIC
+            Util.delete(component);
+        elseif Container.isContainer(component) then
+            --# assume component: CONTAINER
+            component:Clear();
+        else
+            --# assume component: BUTTON
+            component:Delete();
+        end
+    end
+    self.components = {};
+end
+
 return {
     new = Container.new;
     isContainer = Container.isContainer;
