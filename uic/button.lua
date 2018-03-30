@@ -33,6 +33,7 @@ function Button.new(name, parent, buttonType, imagePath)
     self.uic = button --: const
     self.name = name --: const
     self.buttonType = buttonType --: const
+    self.listeners = {} --: vector<string>
     Util.registerComponent(name, self); 
     return self;
 end
@@ -121,6 +122,10 @@ end
 --v function(self: BUTTON)
 function Button.Delete(self) 
     Util.delete(self.uic);
+    Util.unregisterComponent(self.name);
+    for i, listener in ipairs(self.listeners) do
+        cm:remove_listener(listener);
+    end
 end
 
 -- Custom functions
@@ -152,7 +157,8 @@ end
 
 --v function(self: BUTTON, listenerName: string, callback: function(context: CA_UIContext))
 function Button.RegisterForClick(self, listenerName, callback)
-    Util.registerForClick(self.uic, listenerName,callback);
+    Util.registerForClick(self.uic, listenerName, callback);
+    table.insert(self.listeners, listenerName);
 end
 
 --v function(self: BUTTON, path: string)

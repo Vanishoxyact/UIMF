@@ -44,6 +44,15 @@ function Util.registerComponent(name, component)
     end
 end
 
+--v function(name: string)
+function Util.unregisterComponent(name)
+    if not ComponentsMapped[name] then
+        Log.write("Failed to unregister component with name " .. name .. " as is it not registered.");
+    else
+        ComponentsMapped[name] = nil;
+    end
+end
+
 --v function(name: string, parentComponent: CA_UIC, componentFilePath: string, ...:string) --> CA_UIC
 function Util.createComponent(name, parentComponent, componentFilePath, ...)
     local component = nil --: CA_UIC
@@ -158,6 +167,7 @@ return {
     delete = Util.delete;
     init = Util.init;
     registerComponent = Util.registerComponent;
+    unregisterComponent = Util.unregisterComponent;
     createComponent = Util.createComponent;
     getComponentWithName = Util.getComponentWithName;
     registerForClick = Util.registerForClick;
