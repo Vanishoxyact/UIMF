@@ -84,6 +84,8 @@ function Container.RecursiveRetrieveAllComponents(self)
             for i, containerComponent in ipairs(containerComponents) do
                 table.insert(allComponents, containerComponent);
             end
+        elseif Gap.isGap(component) then
+             -- Do nothing
         else
             table.insert(allComponents, component);
         end
@@ -100,6 +102,8 @@ function Container.Clear(self)
         elseif Container.isContainer(component) then
             --# assume component: CONTAINER
             component:Clear();
+        elseif Gap.isGap(component) then
+            -- Do nothing
         else
             --# assume component: BUTTON
             component:Delete();

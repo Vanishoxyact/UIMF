@@ -2,6 +2,7 @@ local Log = require("uic/log");
 local Util = require("uic/util");
 local Components = require("uic/components");
 local Container = require("uic/layout/container");
+local Gap = require("uic/layout/gap");
 local Dummy = require("uic/dummy");
 local ListView = {} --# assume ListView: LIST_VIEW
 
@@ -146,6 +147,8 @@ function ListView.AddContainer(self, container)
         if is_uicomponent(component) then
             --# assume component: CA_UIC
             componentUic = component;
+        elseif Gap.isGap(component) then
+            -- Do nothing
         else
             --# assume component: BUTTON
             componentUic = component.uic;
