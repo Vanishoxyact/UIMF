@@ -132,23 +132,23 @@ end
 
 --v function(self: TEXT, factor: number)
 function Text.Scale(self, factor)
-    output("Scale");
-    local xPos, yPos = self.uic:Position();
-    output("x: " .. xPos .. " y: " .. yPos);
-    Components.scale(self.uic, factor);
-    output("scaled");
-    self.uic:SetStateText(self.uic:GetStateText());
-    output("set text");
-    self.uic:MoveTo(xPos, yPos);
-    output("moved");
+    local width, height = self:Bounds();
+    self.uic:SetCanResizeHeight(true);
+    self.uic:SetCanResizeWidth(true);
+    self.uic:ResizeTextResizingComponentToInitialSize(width * factor, height * factor);
+    self:SetText(self:GetText());
+    self.uic:SetCanResizeHeight(false);
+    self.uic:SetCanResizeWidth(false);
 end
 
 --v function(self: TEXT, width: number, height: number)
 function Text.Resize(self, width, height)
-    local xPos, yPos = self.uic:Position();
-    Components.resize(self.uic, width, height);
-    self.uic:SetStateText(self.uic:GetStateText());
-    self.uic:MoveTo(xPos, yPos);
+    self.uic:SetCanResizeHeight(true);
+    self.uic:SetCanResizeWidth(true);
+    self.uic:ResizeTextResizingComponentToInitialSize(width, height);
+    self:SetText(self:GetText());
+    self.uic:SetCanResizeHeight(false);
+    self.uic:SetCanResizeWidth(false);
 end
 
 return {
