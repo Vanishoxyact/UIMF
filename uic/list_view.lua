@@ -142,18 +142,23 @@ function ListView.AddContainer(self, container)
     local dummyUic = dummy.uic;
     local containerComponents = container:RecursiveRetrieveAllComponents();
     for i, component in ipairs(containerComponents) do
+        local componentUic = nil --: CA_UIC
         if is_uicomponent(component) then
             --# assume component: CA_UIC
-            dummyUic:Adopt(component:Address());
+            componentUic = component;
         else
             --# assume component: BUTTON
-            dummyUic:Adopt(component.uic:Address());
+            componentUic = component.uic;
         end
+        dummyUic:Adopt(componentUic:Address());
+        -- Set un-resizable so resizing dummy doesnt effect inner components
+        componentUic:SetCanResizeHeight(false);
+        componentUic:SetCanResizeWidth(false);
     end
     -- Resizing width for some reason does not work!
     dummyUic:SetCanResizeHeight(true);
     dummyUic:SetCanResizeWidth(false);
-    -- Maybe set first row to 0 size?
+
     dummyUic:Resize(container:Bounds());
     self.listBox:Adopt(dummyUic:Address());
     self.listContainer:AddComponent(container);
