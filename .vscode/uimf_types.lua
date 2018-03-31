@@ -19,7 +19,7 @@
 --# "TEXT" | "TEXT_TOGGLE"
 
 --# type global TEXT_TYPE = 
---# "NORMAL" | "WRAPPED" | "TITLE"
+--# "NORMAL" | "WRAPPED" | "TITLE" | "HEADER"
 
 --# assume BUTTON.GetContentComponent: method() --> CA_UIC
 --# assume BUTTON.GetPositioningComponent: method() --> CA_UIC

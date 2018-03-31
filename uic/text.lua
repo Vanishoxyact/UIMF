@@ -9,7 +9,9 @@ function Text.new(name, parent, textType, textToDisplay)
     local parentComponent = Components.getUiContentComponent(parent);
     local text = nil --: CA_UIC
     if textType == "NORMAL" then
-        text = Util.createComponent(name, parentComponent, "ui/uimf/text_black_14_parchment");
+        text = Util.createComponent(name, parentComponent, "ui/uimf/text_black_12_parchment");
+    elseif textType == "HEADER" then
+        text = Util.createComponent(name, parentComponent, "ui/uimf/text_black_14_parchment_header");
     elseif textType == "WRAPPED" then
         text = Util.createComponent(
             name, parentComponent, "ui/campaign ui/mission_details",
