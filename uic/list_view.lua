@@ -130,11 +130,6 @@ end
 
 -- Custom functions
 
---v function(self: LIST_VIEW, component: CA_UIC | COMPONENT_TYPE)    
-function ListView.AddComponent(self, component)
-    self.listContainer:AddComponent(component);
-end
-
 --v function(self: LIST_VIEW, container: CONTAINER)    
 function ListView.AddContainer(self, container)
     -- Create dummy and adopt all components and then add to list with row height, rather than adding to list as adding to list 
@@ -165,6 +160,16 @@ function ListView.AddContainer(self, container)
     dummyUic:Resize(container:Bounds());
     self.listBox:Adopt(dummyUic:Address());
     self.listContainer:AddComponent(container);
+end
+
+--v function(self: LIST_VIEW, component: CA_UIC | COMPONENT_TYPE | CONTAINER)
+function ListView.AddComponent(self, component)
+    if Container.isContainer(component) then
+        --# assume component: CONTAINER
+        self:AddContainer(component);
+    else
+        self.listContainer:AddComponent(component);
+    end
 end
 
 return {
