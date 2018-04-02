@@ -33,6 +33,7 @@ function TextButton.new(name, parent, buttonType, buttonText)
     self.name = name --: const
     self.buttonType = buttonType --: const
     self.textButtonText = textButtonText --: const
+    self.listeners = {} --: vector<string>
     Util.registerComponent(name, self); 
     return self;
 end
@@ -123,6 +124,9 @@ end
 function TextButton.Delete(self) 
     Util.delete(self.uic);
     Util.unregisterComponent(self.name);
+    for i, listener in ipairs(self.listeners) do
+        core:remove_listener(listener);
+    end
 end
 
 -- Custom functions
@@ -152,9 +156,21 @@ function TextButton.IsSelected(self)
     end
 end
 
---v function(self: TEXT_BUTTON, listenerName: string, callback: function(context: CA_UIContext))
-function TextButton.RegisterForClick(self, listenerName, callback)
-    Util.registerForClick(self.uic, listenerName,callback);
+--v function(button: TEXT_BUTTON) --> string
+local function calculateButtonListenerName(button)
+    return button.name .. "ClickListener" .. #button.listeners;
+end
+
+--v function(self: TEXT_BUTTON, callback: function(context: CA_UIContext), listenerName: string?)
+function TextButton.RegisterForClick(self, callback, listenerName)
+    local registerListenerName = nil --: string
+    if not listenerName then
+        registerListenerName = calculateButtonListenerName(self);
+    else
+        registerListenerName = listenerName;
+    end
+    Util.registerForClick(self.uic, registerListenerName, callback);
+    table.insert(self.listeners, listenerName);
 end
 
 --v function(self: TEXT_BUTTON, text: string)

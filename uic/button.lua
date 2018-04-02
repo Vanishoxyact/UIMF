@@ -155,9 +155,20 @@ function Button.IsSelected(self)
     end
 end
 
---v function(self: BUTTON, listenerName: string, callback: function(context: CA_UIContext))
-function Button.RegisterForClick(self, listenerName, callback)
-    Util.registerForClick(self.uic, listenerName, callback);
+--v function(button: BUTTON) --> string
+local function calculateButtonListenerName(button)
+    return button.name .. "ClickListener" .. #button.listeners;
+end
+
+--v function(self: BUTTON, callback: function(context: CA_UIContext), listenerName: string?)
+function Button.RegisterForClick(self, callback, listenerName)
+    local registerListenerName = nil --: string
+    if not listenerName then
+        registerListenerName = calculateButtonListenerName(self);
+    else
+        registerListenerName = listenerName;
+    end
+    Util.registerForClick(self.uic, registerListenerName, callback);
     table.insert(self.listeners, listenerName);
 end
 
