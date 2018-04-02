@@ -23,6 +23,7 @@ function Frame.new(name)
     self.name = name --: const
     self.title = title --: const
     self.content = parchment --: const
+    self.closeButton = nil --: BUTTON
     Util.registerComponent(name, self);    
     return self;
 end
@@ -120,13 +121,22 @@ end
 function Frame.Delete(self) 
     Util.delete(self.uic);
     Util.unregisterComponent(self.name);
+    if self.closeButton then
+        self.closeButton:Delete();
+    end
 end
 
 -- Custom functions
 
---v function(self: FRAME, callback: function?)
-function Frame.AddCloseButton(self, callback)
-    local closeButton = Button.new(self.name .. "CloseButton", self.uic, "CIRCULAR", "ui/campaign ui/edicts/lzd_alignment_of_building.png");
+--v function(self: FRAME, callback: function?, cross: boolean?)
+function Frame.AddCloseButton(self, callback, cross)
+    local imagePath --: string
+    if cross then
+        imagePath = "ui/skins/warhammer2/icon_cross.png";
+    else
+        imagePath = "ui/skins/warhammer2/icon_check.png";
+    end
+    local closeButton = Button.new(self.name .. "CloseButton", self.uic, "CIRCULAR", imagePath);
     self.closeButton = closeButton;
 
     local width, height = self.uic:Dimensions();
@@ -139,7 +149,7 @@ function Frame.AddCloseButton(self, callback)
                 --# assume callback: function()
                 callback();
             end
-            self.uic:SetVisible(false);
+            self:Delete();
         end
     );
 end
