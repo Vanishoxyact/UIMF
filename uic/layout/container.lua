@@ -74,6 +74,11 @@ function Container.isContainer(component)
     return tostring(component) == CONTAINER_TYPE;
 end
 
+--v function(self: CONTAINER)
+function Container.Reposition(self)
+    self:MoveTo(self:Position());
+end
+
 --v [NO_CHECK] function(self: CONTAINER) --> vector<CA_UIC | COMPONENT_TYPE>
 function Container.RecursiveRetrieveAllComponents(self)
     local allComponents = {} --: vector<CA_UIC | COMPONENT_TYPE>
