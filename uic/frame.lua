@@ -2,6 +2,7 @@ local Log = require("uic/log");
 local Util = require("uic/util");
 local Components = require("uic/components");
 local Button = require("uic/button");
+local Container = require("uic/layout/container");
 local Frame = {} --# assume Frame: FRAME
 
 --v function(name: string) --> FRAME
@@ -23,6 +24,7 @@ function Frame.new(name)
     self.name = name --: const
     self.title = title --: const
     self.content = parchment --: const
+    self.components = {} --: vector<CA_UIC | COMPONENT_TYPE | CONTAINER>
     self.closeButton = nil --: BUTTON
     Util.registerComponent(name, self);    
     return self;
@@ -99,6 +101,10 @@ end
 
 --v function(self: FRAME, visible: boolean)
 function Frame.SetVisible(self, visible)
+    for i, component in ipairs(self.components) do
+        --# assume component: CA_UIC
+        component:SetVisible(visible);
+    end
     return self.uic:SetVisible(visible);
 end
 
@@ -121,12 +127,27 @@ end
 function Frame.Delete(self) 
     Util.delete(self.uic);
     Util.unregisterComponent(self.name);
-    if self.closeButton then
-        self.closeButton:Delete();
+    for i, component in pairs(self.components) do
+        if is_uicomponent(component) then
+            --# assume component: CA_UIC
+            Util.delete(component);
+        elseif Container.isContainer(component) then
+            --# assume component: CONTAINER
+            component:Clear();
+        else
+            --# assume component: BUTTON
+            component:Delete();
+        end
     end
+    self.components = {};
 end
 
 -- Custom functions
+
+--v function(self: FRAME, component: CA_UIC | COMPONENT_TYPE | CONTAINER)
+function Frame.AddComponent(self, component)
+    table.insert(self.components, component);
+end
 
 --v function(self: FRAME, callback: function?, cross: boolean?)
 function Frame.AddCloseButton(self, callback, cross)
@@ -138,6 +159,7 @@ function Frame.AddCloseButton(self, callback, cross)
     end
     local closeButton = Button.new(self.name .. "CloseButton", self.uic, "CIRCULAR", imagePath);
     self.closeButton = closeButton;
+    self:AddComponent(closeButton);
 
     local width, height = self.uic:Dimensions();
     local buttonWidth, buttonHeight = closeButton.uic:Dimensions();

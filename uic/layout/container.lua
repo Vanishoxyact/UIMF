@@ -11,7 +11,7 @@ function Container.new(layout)
         __tostring = function() return CONTAINER_TYPE end
     });
     --# assume self: CONTAINER
-    self.components = {} --: vector<CA_UIC | COMPONENT_TYPE | GAP>
+    self.components = {} --: vector<CA_UIC | COMPONENT_TYPE | GAP | CONTAINER>
     self.layout = layout;
     self.xPos = tonumber(0);
     self.yPos = tonumber(0);
@@ -49,8 +49,12 @@ end
 --v function(self: CONTAINER, visible: boolean)
 function Container.SetVisible(self, visible)
     for i, component in ipairs(self.components) do
-        --# assume component: CA_UIC
-        component:SetVisible(visible);
+        if Gap.isGap(component) then
+            -- Do nothing
+        else
+            --# assume component: CA_UIC
+            component:SetVisible(visible);
+        end
     end
     self.visible = visible;
 end

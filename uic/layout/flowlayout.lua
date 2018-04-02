@@ -10,7 +10,7 @@ function FlowLayout.new(layoutType)
     return self;
 end
 
---v function(self: FLOW_LAYOUT, components: vector<CA_UIC | COMPONENT_TYPE | GAP>) --> (number, number)
+--v function(self: FLOW_LAYOUT, components: vector<CA_UIC | COMPONENT_TYPE | GAP | CONTAINER>) --> (number, number)
 function FlowLayout.CalculateBounds(self, components)
     local width, height = tonumber(0), tonumber(0);
     for i, component in ipairs(components) do
@@ -43,7 +43,7 @@ function FlowLayout.CalculateBounds(self, components)
     return width, height;
 end
 
---v function(self: FLOW_LAYOUT, components: vector<CA_UIC | COMPONENT_TYPE | GAP>, xPos: number, yPos: number) 
+--v function(self: FLOW_LAYOUT, components: vector<CA_UIC | COMPONENT_TYPE | GAP | CONTAINER>, xPos: number, yPos: number) 
 function FlowLayout.PositionComponents(self, components, xPos, yPos)
     local nextX, nextY = xPos, yPos;
     for i, component in ipairs(components) do
