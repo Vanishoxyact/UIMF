@@ -169,7 +169,7 @@ function Button.RegisterForClick(self, callback, listenerName)
         registerListenerName = listenerName;
     end
     Util.registerForClick(self.uic, registerListenerName, callback);
-    table.insert(self.listeners, listenerName);
+    table.insert(self.listeners, registerListenerName);
 end
 
 --v function(self: BUTTON, path: string)
