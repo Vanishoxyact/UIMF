@@ -36,14 +36,6 @@ end
 --v function(self: LIST_VIEW, xPos: number, yPos: number)
 function ListView.MoveTo(self, xPos, yPos) 
     self.uic:MoveTo(xPos, yPos);
-    local offset = tonumber(0);
-    for i, component in ipairs(self.listContainer.components) do
-        if i == 1 then
-            --# assume component: BUTTON
-            local w, h = component:Bounds();
-            offset = h;
-        end
-    end
     Components.positionRelativeTo(self.listContainer, find_uicomponent(self.uic, "listview"), 0, 0);
 end
 
