@@ -1,7 +1,7 @@
 local Log = require("uic/log");
 local Components = require("uic/components");
 
-local Util = {};
+local Util = {}; --# assume Util: UTIL
 local ComponentsMapped = {} --: map<string, COMPONENT_TYPE>
 local InitCallbacks = {} --: vector<function()>
 
@@ -107,7 +107,8 @@ function Util.registerForClick(component, listenerName, callback)
     );
 end
 
---v [NO_CHECK] function(startingComponent: CA_UIC, componentName: string) --> CA_UIC
+Util.digForComponent = nil --: function(startingComponent: CA_UIC, componentName: string) --> CA_UIC
+--v function(startingComponent: CA_UIC, componentName: string) --> CA_UIC
 function Util.digForComponent(startingComponent, componentName)
     local childCount = startingComponent:ChildCount();
     for i=0, childCount-1  do
@@ -151,7 +152,8 @@ function Util.centreComponentOnScreen(componentToMove)
     );
 end
 
---v [NO_CHECK] function(parentUic: CA_UIC, runnable: function(child: CA_UIC))
+Util.recurseThroughChildrenApplyingFunction = nil --: function(parentUic: CA_UIC, runnable: function(child: CA_UIC))
+--v function(parentUic: CA_UIC, runnable: function(child: CA_UIC))
 function Util.recurseThroughChildrenApplyingFunction(parentUic, runnable)
     output("recurseThroughChildrenApplyingFunction: " .. parentUic:Id());
     local childCount = parentUic:ChildCount();

@@ -83,7 +83,8 @@ function Container.Reposition(self)
     self:MoveTo(self:Position());
 end
 
---v [NO_CHECK] function(self: CONTAINER) --> vector<CA_UIC | COMPONENT_TYPE>
+Container.RecursiveRetrieveAllComponents = nil --: function(self: CONTAINER) --> vector<CA_UIC | COMPONENT_TYPE>
+--v function(self: CONTAINER) --> vector<CA_UIC | COMPONENT_TYPE>
 function Container.RecursiveRetrieveAllComponents(self)
     local allComponents = {} --: vector<CA_UIC | COMPONENT_TYPE>
     for i, component in ipairs(self.components) do
@@ -102,7 +103,8 @@ function Container.RecursiveRetrieveAllComponents(self)
     return allComponents;
 end
 
---v [NO_CHECK] function(self: CONTAINER)
+Container.Clear = nil --: function(self: CONTAINER)
+--v function(self: CONTAINER)
 function Container.Clear(self)
     for i, component in ipairs(self.components) do
         if is_uicomponent(component) then

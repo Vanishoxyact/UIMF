@@ -8,6 +8,7 @@
 --# assume global class LIST_VIEW
 --# assume global class DUMMY
 --# assume global class UTIL
+--# assume global class COMPONENTS
 
 --# type global COMPONENT_TYPE = 
 --# TEXT | IMAGE | BUTTON | TEXT_BUTTON | FRAME | TEXT_BOX | LIST_VIEW | DUMMY
@@ -32,13 +33,6 @@
 
 --# type global FLOW_LAYOUT_TYPE = "VERTICAL" | "HORIZONTAL"
 
---# assume UTIL.getComponentWithName: function(name: string) --> COMPONENT_TYPE
---# assume UTIL.centreComponentOnComponent: function(componentToMove: CA_UIC | COMPONENT_TYPE | CONTAINER, componentToCentreOn: CA_UIC | COMPONENT_TYPE)
---# assume UTIL.centreComponentOnScreen: function(component: CA_UIC | COMPONENT_TYPE | CONTAINER)
---# assume UTIL.registerForClick: function(component: CA_UIC, listenerName: string, callback: function(context: CA_UIContext))
---# assume UTIL.delete: function(component: CA_UIC)
---# assume UTIL.recurseThroughChildrenApplyingFunction: function(parentUic: CA_UIC, runnable: function(child: CA_UIC))
-        
 --# assume global Log: LOG
 --# assume global Text: TEXT
 --# assume global Image: IMAGE

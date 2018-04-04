@@ -1,5 +1,5 @@
 local Log = require("uic/log");
-local Components = {};
+local Components = {}; --# assume Components: COMPONENTS
 
 --v function(component: CA_UIC, width: number, height: number)
 function Components.resize(component, width, height)
