@@ -178,6 +178,11 @@ function TextButton.SetButtonText(self, text)
     self.textButtonText:SetStateText(text);
 end
 
+--v function(self: TEXT_BUTTON, disabled: boolean)
+function TextButton.SetDisabled(self, disabled)
+    Components.disableComponent(self.uic, disabled);
+end
+
 return {
     new = TextButton.new;
 }

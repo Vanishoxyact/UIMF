@@ -50,10 +50,21 @@ function Components.getUiContentComponent(component)
     end
 end
 
+--v function(component: CA_UIC, disabled: boolean)
+function Components.disableComponent(component, disabled)
+    component:SetDisabled(disabled);
+    if disabled then
+        component:SetOpacity(50);
+    else
+        component:SetOpacity(100);
+    end
+end
+
 return {
     scale = Components.scale;
     move = Components.move;
     positionRelativeTo = Components.positionRelativeToUiComponent;
     resize = Components.resize;
     getUiContentComponent = Components.getUiContentComponent;
+    disableComponent = Components.disableComponent;
 }

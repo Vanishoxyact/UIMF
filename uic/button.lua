@@ -177,6 +177,11 @@ function Button.SetImage(self, path)
     self.uic:SetImage(path);
 end
 
+--v function(self: BUTTON, disabled: boolean)
+function Button.SetDisabled(self, disabled)
+    Components.disableComponent(self.uic, disabled);
+end
+
 return {
     new = Button.new;
 }
