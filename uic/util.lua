@@ -3,7 +3,6 @@ local Components = require("uic/components");
 
 local Util = {}; --# assume Util: UTIL
 local ComponentsMapped = {} --: map<string, COMPONENT_TYPE>
-local InitCallbacks = {} --: vector<function()>
 
 function Util.init() 
     local root = core:get_ui_root();
@@ -14,18 +13,6 @@ function Util.init()
     else
         Util.garbage = UIComponent(component);
         Log.write("Util init completed");
-        for _,v in ipairs(InitCallbacks) do
-            v();
-        end
-    end
-end
-
---v function(callback: function())
-function Util.registerForInitialisation(callback)
-    if not Util.garbage then
-        table.insert(InitCallbacks, callback);
-    else
-        callback();
     end
 end
 
@@ -155,11 +142,9 @@ end
 Util.recurseThroughChildrenApplyingFunction = nil --: function(parentUic: CA_UIC, runnable: function(child: CA_UIC))
 --v function(parentUic: CA_UIC, runnable: function(child: CA_UIC))
 function Util.recurseThroughChildrenApplyingFunction(parentUic, runnable)
-    output("recurseThroughChildrenApplyingFunction: " .. parentUic:Id());
     local childCount = parentUic:ChildCount();
     for i=0, childCount-1  do
         local child = UIComponent(parentUic:Find(i));
-        output("Applying function to: " .. child:Id());
         runnable(child);
         Util.recurseThroughChildrenApplyingFunction(child, runnable);
     end
