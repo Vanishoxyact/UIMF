@@ -71,7 +71,7 @@ if enableDemoUI then
                 decrementButton:PositionRelativeTo(incrementButton, 100, 0);
                 local counterText = Text.new("CounterText", myFrame, "NORMAL", "0");
                 counterText:PositionRelativeTo(decrementButton, 100, 0);
-                incrementButton:RegisterForClick("incrementCounter",
+                incrementButton:RegisterForClick(
                     function(context)
                         local number = tonumber(counterText:GetText());
                         if number < 8 then
@@ -80,7 +80,7 @@ if enableDemoUI then
                         end
                     end
                 );
-                decrementButton:RegisterForClick("decrementCounter",
+                decrementButton:RegisterForClick(
                     function(context)
                         local number = tonumber(counterText:GetText());
                         if number > 0 then
@@ -91,7 +91,7 @@ if enableDemoUI then
                 );
                 local toggleTextButton = TextButton.new("toggleTextButton", myFrame, "TEXT_TOGGLE", "Custom text");
                 toggleTextButton:PositionRelativeTo(counterText, 50, 0);
-                toggleTextButton:RegisterForClick("toggleTestListener",
+                toggleTextButton:RegisterForClick(
                     function(context)
                         cm:callback(
                             function()
@@ -122,7 +122,7 @@ if enableDemoUI then
                 textBoxButton:PositionRelativeTo(textBox, 200, 0);
                 local textBoxButtonText = Text.new("textBoxButtonText", myFrame, "NORMAL", "CUSTOM_TEXT");
                 textBoxButtonText:PositionRelativeTo(textBoxButton, 50, 0);
-                textBoxButton:RegisterForClick("textBoxButtonListener",
+                textBoxButton:RegisterForClick(
                     function(context)
                         textBoxButtonText:SetText(textBox.uic:GetStateText());
                     end
@@ -233,18 +233,29 @@ if enableListDemo then
                 local myFrame = Frame.new("ListDemo");
                 myFrame:MoveTo(100, 100);
                 local mainContainer = Container.new(FlowLayout.VERTICAL);
-                local listView = ListView.new("listView", core:get_ui_root());
-                listView:Resize(700, 300);
+                local vList = ListView.new("vList", core:get_ui_root(), "VERTICAL");
+                vList:Resize(700, 300);
                 for i = 1, 20 do
                     local rowContainer = Container.new(FlowLayout.HORIZONTAL);
-                    local firstButton = TextButton.new("firstButton" .. i, core:get_ui_root(), "TEXT", "Button " .. i);
-                    local secondButton = TextButton.new("secondButton" .. i, core:get_ui_root(), "TEXT", "Button " .. i);
+                    local firstButton = TextButton.new("firstVButton" .. i, core:get_ui_root(), "TEXT", "Button " .. i);
+                    local secondButton = TextButton.new("secondVButton" .. i, core:get_ui_root(), "TEXT", "Button " .. i);
                     rowContainer:AddComponent(firstButton);
                     rowContainer:AddComponent(secondButton);
-                    listView:AddContainer(rowContainer);
+                    vList:AddContainer(rowContainer);
                 end
+                mainContainer:AddComponent(vList);
                 
-                mainContainer:AddComponent(listView);
+                local hList = ListView.new("hList", core:get_ui_root(), "HORIZONTAL");
+                hList:Resize(600, 200);
+                for i = 1, 20 do
+                    local rowContainer = Container.new(FlowLayout.VERTICAL);
+                    local firstButton = TextButton.new("firstHButton" .. i, core:get_ui_root(), "TEXT", "Button " .. i);
+                    local secondButton = TextButton.new("secondHButton" .. i, core:get_ui_root(), "TEXT", "Button " .. i);
+                    rowContainer:AddComponent(firstButton);
+                    rowContainer:AddComponent(secondButton);
+                    hList:AddContainer(rowContainer);
+                end
+                mainContainer:AddComponent(hList);
                 Util.centreComponentOnComponent(mainContainer, myFrame);
             else
                 --# assume existingFrame: BUTTON

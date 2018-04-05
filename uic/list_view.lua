@@ -6,17 +6,32 @@ local Gap = require("uic/layout/gap");
 local Dummy = require("uic/dummy");
 local ListView = {} --# assume ListView: LIST_VIEW
 
---v function(name: string, parent: CA_UIC | COMPONENT_TYPE) --> LIST_VIEW
-function ListView.new(name, parent)
+--v function(name: string, parent: CA_UIC | COMPONENT_TYPE, scrollDirection: LIST_SCROLL_DIRECTION) --> LIST_VIEW
+function ListView.new(name, parent, scrollDirection)
     local parentComponent = Components.getUiContentComponent(parent);    
-    local listView = Util.createComponent(
+    local listView = nil --: CA_UIC
+    local listBox = nil --: CA_UIC
+    local listContainer = nil --: CONTAINER
+    if scrollDirection == "VERTICAL" then
+        listView = Util.createComponent(
         name, parentComponent, "ui/campaign ui/finance_screen",
-        "tab_trade", "trade", "exports", "trade_partners_list"
-    );
-    local listBox = find_uicomponent(listView, "listview", "list_clip", "list_box");
-    Util.delete(find_uicomponent(listView, "listview", "headers"));
-    Util.delete(find_uicomponent(listView, "tx_trade_partners"));
-    Util.delete(find_uicomponent(listView, "tx_no_trade_partners"));
+            "tab_trade", "trade", "exports", "trade_partners_list", "listview"
+        );
+        listBox = find_uicomponent(listView, "list_clip", "list_box");
+        Util.delete(find_uicomponent(listView, "headers"));
+        listContainer = Container.new(FlowLayout.VERTICAL);
+    elseif scrollDirection == "HORIZONTAL" then
+        listView = Util.createComponent(
+            name, parentComponent, "ui/campaign ui/building_browser",
+            "listview"
+        );
+        listBox = find_uicomponent(listView, "list_clip", "list_box");
+        Util.delete(find_uicomponent(listBox, "building_tree"));
+        listContainer = Container.new(FlowLayout.HORIZONTAL);
+        print_all_uicomponent_children(listView);
+    else
+        Log.write("Invalid list scroll direction: " .. scrollDirection);
+    end
 
     local self = {};
     setmetatable(self, {
@@ -26,8 +41,8 @@ function ListView.new(name, parent)
     self.uic = listView --: const
     self.name = name --: const
     self.listBox = listBox --: const
-    self.listContainer = Container.new(FlowLayout.VERTICAL);
-    Util.registerComponent(name, self);    
+    self.listContainer = listContainer;
+    Util.registerComponent(name, self);
     return self;
 end
 
@@ -36,7 +51,7 @@ end
 --v function(self: LIST_VIEW, xPos: number, yPos: number)
 function ListView.MoveTo(self, xPos, yPos) 
     self.uic:MoveTo(xPos, yPos);
-    Components.positionRelativeTo(self.listContainer, find_uicomponent(self.uic, "listview"), 0, 0);
+    Components.positionRelativeTo(self.listContainer, self.uic, 0, 0);
 end
 
 --v function(self: LIST_VIEW, xMove: number, yMove: number)
@@ -124,7 +139,7 @@ end
 
 --v function(self: LIST_VIEW, container: CONTAINER)    
 function ListView.AddContainer(self, container)
-    -- Create dummy and adopt all components and then add to list with row height, rather than adding to list as adding to list 
+    -- Create dummy and adopt all components and then add to list with size, rather than adding to list as adding to list 
     -- increases view size per component
     local dummy = Dummy.new(core:get_ui_root());
     local dummyUic = dummy.uic;
@@ -145,9 +160,9 @@ function ListView.AddContainer(self, container)
         componentUic:SetCanResizeHeight(false);
         componentUic:SetCanResizeWidth(false);
     end
-    -- Resizing width for some reason does not work!
+
     dummyUic:SetCanResizeHeight(true);
-    dummyUic:SetCanResizeWidth(false);
+    dummyUic:SetCanResizeWidth(true);
 
     dummyUic:Resize(container:Bounds());
     self.listBox:Adopt(dummyUic:Address());

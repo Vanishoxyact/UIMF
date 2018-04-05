@@ -33,6 +33,8 @@
 
 --# type global FLOW_LAYOUT_TYPE = "VERTICAL" | "HORIZONTAL"
 
+--# type global LIST_SCROLL_DIRECTION = "VERTICAL" | "HORIZONTAL"
+
 --# assume global Log: LOG
 --# assume global Text: TEXT
 --# assume global Image: IMAGE
