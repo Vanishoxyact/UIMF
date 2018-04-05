@@ -175,7 +175,9 @@ function ListView.AddComponent(self, component)
         --# assume component: CONTAINER
         self:AddContainer(component);
     else
-        self.listContainer:AddComponent(component);
+        local wrapper = Container.new(FlowLayout.VERTICAL);
+        wrapper:AddComponent(component);
+        self:AddContainer(wrapper);
     end
 end
 
