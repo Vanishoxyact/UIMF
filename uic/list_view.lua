@@ -42,6 +42,7 @@ function ListView.new(name, parent, scrollDirection)
     self.name = name --: const
     self.listBox = listBox --: const
     self.listContainer = listContainer;
+    self.listDummies = {} --: vector<DUMMY>
     Util.registerComponent(name, self);
     return self;
 end
@@ -133,6 +134,9 @@ function ListView.Delete(self)
     Util.delete(self.uic);
     self.listContainer:Clear();
     Util.unregisterComponent(self.name);
+    for i, dummy in ipairs(self.listDummies) do
+        dummy:Delete();
+    end
 end
 
 -- Custom functions
@@ -142,6 +146,7 @@ function ListView.AddContainer(self, container)
     -- Create dummy and adopt all components and then add to list with size, rather than adding to list as adding to list 
     -- increases view size per component
     local dummy = Dummy.new(core:get_ui_root());
+    table.insert(self.listDummies, dummy);
     local dummyUic = dummy.uic;
     local containerComponents = container:RecursiveRetrieveAllComponents();
     for i, component in ipairs(containerComponents) do
