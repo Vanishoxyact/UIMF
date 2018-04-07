@@ -28,7 +28,6 @@ function ListView.new(name, parent, scrollDirection)
         listBox = find_uicomponent(listView, "list_clip", "list_box");
         Util.delete(find_uicomponent(listBox, "building_tree"));
         listContainer = Container.new(FlowLayout.HORIZONTAL);
-        print_all_uicomponent_children(listView);
     else
         Log.write("Invalid list scroll direction: " .. scrollDirection);
     end
