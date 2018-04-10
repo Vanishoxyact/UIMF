@@ -56,7 +56,7 @@ function Components.disableComponent(component, disabled)
     if disabled then
         component:SetOpacity(50);
     else
-        component:SetOpacity(100);
+        component:SetOpacity(255);
     end
 end
 
