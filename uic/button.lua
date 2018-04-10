@@ -34,6 +34,7 @@ function Button.new(name, parent, buttonType, imagePath)
     self.name = name --: const
     self.buttonType = buttonType --: const
     self.listeners = {} --: vector<string>
+    self.disabled = false;
     Util.registerComponent(name, self); 
     return self;
 end
@@ -179,7 +180,13 @@ end
 
 --v function(self: BUTTON, disabled: boolean)
 function Button.SetDisabled(self, disabled)
-    Components.disableComponent(self.uic, disabled);
+    if not(disabled == self.disabled) then
+        if disabled then
+            self:SetState("active");
+        end
+        Components.disableComponent(self.uic, disabled);
+        self.disabled = disabled;
+    end
 end
 
 return {

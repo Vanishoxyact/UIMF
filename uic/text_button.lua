@@ -34,6 +34,7 @@ function TextButton.new(name, parent, buttonType, buttonText)
     self.buttonType = buttonType --: const
     self.textButtonText = textButtonText --: const
     self.listeners = {} --: vector<string>
+    self.disabled = false;
     Util.registerComponent(name, self); 
     return self;
 end
@@ -180,7 +181,13 @@ end
 
 --v function(self: TEXT_BUTTON, disabled: boolean)
 function TextButton.SetDisabled(self, disabled)
-    Components.disableComponent(self.uic, disabled);
+    if not(disabled == self.disabled) then
+        if disabled then
+            self:SetState("active");
+        end
+        Components.disableComponent(self.uic, disabled);
+        self.disabled = disabled;
+    end
 end
 
 return {
