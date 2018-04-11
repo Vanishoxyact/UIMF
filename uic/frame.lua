@@ -149,8 +149,8 @@ function Frame.AddComponent(self, component)
     table.insert(self.components, component);
 end
 
---v function(self: FRAME, callback: function?, cross: boolean?)
-function Frame.AddCloseButton(self, callback, cross)
+--v function(self: FRAME, callback: function?, cross: boolean?, hideInstead: boolean?)
+function Frame.AddCloseButton(self, callback, cross, hideInstead)
     local imagePath --: string
     if cross then
         imagePath = "ui/skins/warhammer2/icon_cross.png";
@@ -171,7 +171,11 @@ function Frame.AddCloseButton(self, callback, cross)
                 --# assume callback: function()
                 callback();
             end
-            self:Delete();
+            if hideInstead then
+                self:SetVisible(false);
+            else
+                self:Delete();
+            end
         end
     );
 end
