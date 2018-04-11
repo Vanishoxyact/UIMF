@@ -12,6 +12,7 @@ function ListView.new(name, parent, scrollDirection)
     local listView = nil --: CA_UIC
     local listBox = nil --: CA_UIC
     local listContainer = nil --: CONTAINER
+    local dummiesContainer = nil --: CONTAINER
     if scrollDirection == "VERTICAL" then
         listView = Util.createComponent(
         name, parentComponent, "ui/campaign ui/finance_screen",
@@ -20,6 +21,7 @@ function ListView.new(name, parent, scrollDirection)
         listBox = find_uicomponent(listView, "list_clip", "list_box");
         Util.delete(find_uicomponent(listView, "headers"));
         listContainer = Container.new(FlowLayout.VERTICAL);
+        dummiesContainer = Container.new(FlowLayout.VERTICAL);
     elseif scrollDirection == "HORIZONTAL" then
         listView = Util.createComponent(
             name, parentComponent, "ui/campaign ui/building_browser",
@@ -28,6 +30,7 @@ function ListView.new(name, parent, scrollDirection)
         listBox = find_uicomponent(listView, "list_clip", "list_box");
         Util.delete(find_uicomponent(listBox, "building_tree"));
         listContainer = Container.new(FlowLayout.HORIZONTAL);
+        dummiesContainer = Container.new(FlowLayout.HORIZONTAL);
     else
         Log.write("Invalid list scroll direction: " .. scrollDirection);
     end
@@ -42,6 +45,8 @@ function ListView.new(name, parent, scrollDirection)
     self.listBox = listBox --: const
     self.listContainer = listContainer;
     self.listDummies = {} --: vector<DUMMY>
+    self.dummiesContainer = dummiesContainer;
+    self.containerToDummyMap = {} --: map<CONTAINER, DUMMY>
     Util.registerComponent(name, self);
     return self;
 end
@@ -171,6 +176,8 @@ function ListView.AddContainer(self, container)
     dummyUic:Resize(container:Bounds());
     self.listBox:Adopt(dummyUic:Address());
     self.listContainer:AddComponent(container);
+    self.dummiesContainer:AddComponent(dummy);
+    self.containerToDummyMap[container] = dummy;
 end
 
 --v function(self: LIST_VIEW, component: CA_UIC | COMPONENT_TYPE | CONTAINER)
