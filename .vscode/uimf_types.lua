@@ -17,7 +17,7 @@
 --# "CIRCULAR" | "SQUARE" | "CIRCULAR_TOGGLE" | "SQUARE_TOGGLE"
 
 --# type global TEXT_BUTTON_TYPE = 
---# "TEXT" | "TEXT_TOGGLE"
+--# "TEXT" | "TEXT_TOGGLE" | "TEXT_TOGGLE_SMALL"
 
 --# type global TEXT_TYPE = 
 --# "NORMAL" | "WRAPPED" | "TITLE" | "HEADER"

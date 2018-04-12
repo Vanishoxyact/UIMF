@@ -20,6 +20,10 @@ function TextButton.new(name, parent, buttonType, buttonText)
     elseif buttonType == "TEXT_TOGGLE" then
         textButton = Util.createComponent(name, parentComponent, "ui/templates/square_large_text_button_toggle");
         textButtonText = UIComponent(textButton:Find("button_txt"));
+    elseif buttonType == "TEXT_TOGGLE_SMALL" then
+        textButton = Util.createComponent(name, parentComponent, "ui/templates/square_medium_text_button_toggle");
+        print_all_uicomponent_children(textButton);
+        textButtonText = UIComponent(textButton:Find("dy_province"));
     else
         Log.write("Invalid text button type:" .. buttonType);
     end
