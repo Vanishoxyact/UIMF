@@ -3,7 +3,7 @@ import java.util.List;
 
 public class FunctionExtraction {
 
-   private static final String BASE_LUA_PATH = "uic";
+   private static final String BASE_LUA_PATH = "UIMF/uic";
    
    public static void main(String[] args) {
       List< LuaFunction > luaFunctions = new FunctionExtractor().extractLuaFunctions( BASE_LUA_PATH );
