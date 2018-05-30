@@ -123,6 +123,11 @@ function Container.Clear(self)
     self.components = {};
 end
 
+--v function(self: CONTAINER)
+function Container.Empty(self)
+    self.components = {};
+end
+
 return {
     new = Container.new;
     isContainer = Container.isContainer;
