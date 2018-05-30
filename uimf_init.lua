@@ -12,6 +12,7 @@ local Frame = require("uic/frame");
 local Dummy = require("uic/dummy");
 local ListView = require("uic/list_view");
 require("uic/layout/gap");
+local EventManager = require("uic/util/event_manager");
 
 _G.UIComponent = UIComponent;
 _G.find_uicomponent = find_uicomponent;
@@ -34,6 +35,7 @@ _G.Dummy = Dummy;
 _G.Util = Util;
 _G.FlowLayout = FlowLayout;
 _G.Container = Container;
+_G.EventManager = EventManager;
 
 core:add_ui_created_callback(
     function()

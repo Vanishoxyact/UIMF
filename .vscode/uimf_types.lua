@@ -9,6 +9,7 @@
 --# assume global class DUMMY
 --# assume global class UTIL
 --# assume global class COMPONENTS
+--# assume global class EVENT_MANAGER
 
 --# type global COMPONENT_TYPE = 
 --# TEXT | IMAGE | BUTTON | TEXT_BUTTON | FRAME | TEXT_BOX | LIST_VIEW | DUMMY
@@ -47,6 +48,7 @@
 --# assume global FlowLayout: FLOW_LAYOUT
 --# assume global Dummy: DUMMY
 --# assume global Container: CONTAINER
+--# assume global EventManager: EVENT_MANAGER
 
 --# assume global TABLES: map<string, map<string, WHATEVER>>
 --# assume global write_log: boolean
