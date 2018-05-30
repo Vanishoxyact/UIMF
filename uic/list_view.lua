@@ -192,6 +192,22 @@ function ListView.AddComponent(self, component)
     end
 end
 
+--v function(self: LIST_VIEW)
+function ListView.DeleteOnlySelf(self)
+    for i, dummy in ipairs(self.listDummies) do
+        local dummyUic = dummy.uic;
+        local dummyChildren = {} --: vector<CA_UIC>
+        for j=0, dummyUic:ChildCount()-1  do
+            local child = UIComponent(dummyUic:Find(j));
+            table.insert(dummyChildren, child);
+        end
+        for j, child in ipairs(dummyChildren) do
+            dummyUic:Divorce(child:Address());
+        end
+    end
+    Util.delete(self.uic);
+end
+
 return {
     new = ListView.new;
 }
