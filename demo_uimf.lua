@@ -165,7 +165,7 @@ if enableRecuitmentDemo then
             return context.string == "units_recruitment"; 
         end,
         function(context)
-            output("RECRUIT CALLBACK");
+            out("RECRUIT CALLBACK");
             local recruitmentList = find_uicomponent(core:get_ui_root(), 
                 "units_panel", "main_units_panel", "recruitment_docker", "recruitment_options", "recruitment_listbox",
                 "local1", "unit_list", "listview", "list_clip", "list_box"
@@ -175,7 +175,7 @@ if enableRecuitmentDemo then
                 local recruitText = Text.new("abc" .. i, recuitmentOption, "NORMAL", "ABC");
                 recruitText:PositionRelativeTo(recuitmentOption, 20, 20);
             end
-            output("RECRUIT CALLBACK END");
+            out("RECRUIT CALLBACK END");
         end,
         true
     );
