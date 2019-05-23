@@ -22,6 +22,13 @@ function Util.delete(uic)
     Util.garbage:DestroyChildren();
 end
 
+--v function(uics: vector<CA_UIC>)
+function Util.deleteVector(uics)
+    for i, uic in ipairs(uics) do
+        Util.delete(uic);
+    end
+end
+
 --v function(name: string, component: COMPONENT_TYPE)
 function Util.registerComponent(name, component)
     if not not ComponentsMapped[name] then
@@ -67,7 +74,7 @@ function Util.createComponent(name, parentComponent, componentFilePath, ...)
         if not not ... then
             Util.delete(temp);
         end
-        Components.positionRelativeTo(component, parentComponent, 0, 0);        
+        Components.positionRelativeTo(component, parentComponent, 0, 0);
         Log.write("Created component "..name)
         return component;
     end
