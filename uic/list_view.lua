@@ -206,6 +206,7 @@ function ListView.DeleteOnlySelf(self)
         end
     end
     Util.delete(self.uic);
+    Util.unregisterComponent(self.name);
 end
 
 return {

@@ -26,7 +26,7 @@ function Button.new(name, parent, buttonType, imagePath)
         Log.write("Invalid button type:" .. buttonType);
     end
 
-    button:SetImage(imagePath);
+    button:SetImagePath(imagePath);
     
     setmetatable(self, {__index = Button});
     --# assume self: BUTTON
@@ -175,7 +175,7 @@ end
 
 --v function(self: BUTTON, path: string)
 function Button.SetImage(self, path)
-    self.uic:SetImage(path);
+    self.uic:SetImagePath(path);
 end
 
 --v function(self: BUTTON, disabled: boolean)

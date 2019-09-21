@@ -7,7 +7,7 @@ local Image = {} --# assume Image: IMAGE
 function Image.new(name, parent, imagePath)
     local parentComponent = Components.getUiContentComponent(parent);    
     image = Util.createComponent(name, parentComponent, "ui/campaign ui/region_info_pip");
-    image:SetImage(imagePath);
+    image:SetImagePath(imagePath);
 
     local self = {};
     setmetatable(self, {
@@ -111,7 +111,7 @@ end
 
 --v function(self: IMAGE, path: string)
 function Image.SetImage(self, path)
-    self.uic:SetImage(path);
+    self.uic:SetImagePath(path);
 end
 
 --v function(self: IMAGE, opacity: number)
