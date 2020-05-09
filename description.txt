@@ -1,0 +1,20 @@
+This mod adds a whole framework allowing the possibility of creating custom user interfaces within mods. Creating UI's within mods is notoriously difficult which results in very few, if any mods utilizing them. This framework unlocks this possibility by providing an easy mechanism to create them.
+
+The mod was originally based off the Attila Region Trading mod created by Hardballer, adapted to produce a general framework for use by all modders. Many thanks to his hard work!
+
+Contained within the mod are various demos showcasing how the framework should be used. These can be found within the demo_uimf.lua file. A file containing the various functions provided by the framework can also be found in the uimf_api.txt file.
+
+For an example of what can be done with this framework, take a look at my Custom Lord Creation mod https://steamcommunity.com/sharedfiles/filedetails/?id=1354363361.
+
+This mod is free to used by any modder. Simply add a dependency to this mod on your mod to unlock the full potential of creating custom UI's. Any questions, send me a message on Discord at Vanish#7209. This mod should NOT be embedded into another mod.
+
+Many thanks to the guys at C&C Modding Den Discord for helping with this, and to Cataph for creating the workshop image!
+
+Enjoy!
+
+[img=https://c4.patreon.com/favicons/favicon-96x96.png][/img]
+[url=https://www.patreon.com/vanishoxyact]Vanishoxyact's Patreon[/url]
+Creating and supporting a mod as complex as this takes huge amounts of time. If you would like to support me, please consider becoming a Patreon! From this you will have access to the up-and-coming features and early access betas.
+
+Alternatively, if you would like to donate, it would be highly appreciated!
+https://www.paypal.me/twvanish
