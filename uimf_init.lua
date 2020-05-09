@@ -1,3 +1,6 @@
+local path = "script/uimf/?.lua;"
+package.path = path .. package.path
+
 local Log = require("uic/log");
 local Text = require("uic/text");
 local Image = require("uic/image");
