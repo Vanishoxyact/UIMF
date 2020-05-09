@@ -1,9 +1,9 @@
-local enableDemoUI = true;
-local enableRecuitmentDemo = true;
-local enableMortCultDemo = true;
-local enableFlowLayoutDemoUI = true;
-local enableUIMFFrame = true;
-local enableListDemo = true;
+local enableDemoUI = false;
+local enableRecuitmentDemo = false;
+local enableMortCultDemo = false;
+local enableFlowLayoutDemoUI = false;
+local enableUIMFFrame = false;
+local enableListDemo = false;
 
 if enableDemoUI then
     core:add_listener(
