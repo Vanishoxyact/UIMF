@@ -12,29 +12,16 @@ TYPE_TIMER_MANAGER = "timer_manager";
 TYPE_CORE = "core";
 TYPE_BATTLE_MANAGER = "battle_manager";
 TYPE_CAMPAIGN_MANAGER = "campaign_manager";
-TYPE_ITERATOR = "iterator";
 TYPE_CUTSCENE_MANAGER = "cutscene_manager";
 TYPE_CONVEX_AREA = "convex_area";
-TYPE_FIRESTORM_MANAGER = "firestorm_manager";
 TYPE_SCRIPT_UNIT = "scripted_unit";
 TYPE_SCRIPT_UNITS = "scripted_units";
-TYPE_HURT_AREA = "hurt_area";
-TYPE_ZONE_MANAGER = "zone_manager";
-TYPE_ZONE_CONTROLLER = "zone_controller";
-TYPE_HIDING_PLACE = "hiding_place";
-TYPE_TELEPORT_SQUAD = "teleport_squad";
-TYPE_DECISION_POINT = "decision_point";
-TYPE_ESCAPE_ROUTE = "escape_route";
-TYPE_ESCAPE_MANAGER = "escape_manager";
 TYPE_WAYPOINT = "waypoint";
 TYPE_EVENT_HANDLER = "event_handler";
 TYPE_SCRIPT_AI_PLANNER = "script_ai_planner";
-TYPE_FE_HB_SEQUENCE = "fe_hb_sequence";
 TYPE_UI_OVERRIDE = "ui_override";
-TYPE_BARRICADE_ATTACK_GROUP = "barricade_attack_group";
 TYPE_FACTION_START = "faction_start";
 TYPE_CAMPAIGN_CUTSCENE = "campaign_cutscene";
-TYPE_CAMPAIGN_DEFENSE = "campaign_defense";
 TYPE_SCRIPT_MESSAGER = "script_messager";
 TYPE_GENERATED_BATTLE = "generated_battle";
 TYPE_GENERATED_ARMY = "generated_army";
@@ -77,7 +64,7 @@ if __game_mode == __lib_type_battle then
 	force_require("lib_battle_cutscene");
 	force_require("lib_battle_patrol_manager");
 	force_require("lib_battle_script_ai_planner");
-	force_require("lib_battle_prelude");
+	-- force_require("lib_battle_prelude");
 	force_require("lib_objectives");
 	force_require("lib_infotext");
 	force_require("lib_help_pages");
@@ -87,9 +74,7 @@ if __game_mode == __lib_type_battle then
 	
 elseif __game_mode == __lib_type_campaign then
 	-- campaign libs
-	force_require("lib_campaign_misc");
 	force_require("lib_campaign_vector");
-	force_require("lib_campaign_cleanup");
 	force_require("lib_campaign_manager");
 	force_require("lib_campaign_cutscene");
 	force_require("lib_campaign_ui");
@@ -105,7 +90,7 @@ elseif __game_mode == __lib_type_campaign then
 	
 elseif __game_mode == __lib_type_frontend then
 	-- frontend libs
-	force_require("lib_fe_sequence");
+	
 end;
 
 if __game_mode == __lib_type_battle then
@@ -124,5 +109,10 @@ out("");
 
 -- automatic creation of core object
 core = core_object:new();
+
+-- create a campaign manager
+if core:is_campaign() then
+	cm = campaign_manager:new();
+end;
 
 force_require("lib_uimf");
