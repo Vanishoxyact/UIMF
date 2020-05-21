@@ -27,6 +27,7 @@ function TextButton.new(name, parent, buttonType, buttonText)
         Log.write("Invalid text button type:" .. buttonType);
     end
 
+    textButton:SetTooltipText("", "", true);
     textButtonText:SetStateText(buttonText);
 
     local self = {};
